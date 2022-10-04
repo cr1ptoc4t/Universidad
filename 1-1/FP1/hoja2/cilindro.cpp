@@ -1,7 +1,19 @@
 #include <iostream>
-using monospace std;
+using namespace std;
+float base;
+float b;
+
+string array[3] {"a", "b", "c"};
+
+
+float getBase(){
+	cin>>base;
+	return base;
+}
 
 int main (){
-	cout<<(3.141592*14.5^3*26,79)/3 << endl;
+	cout<<array[2];
+	b = getBase();
+	cout<<b;
 	return 0;
 }
