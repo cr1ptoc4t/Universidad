@@ -15,7 +15,9 @@ int main() {
 
 
 bool esOca(int casilla) {
-	
+	if () {
+
+	}
 }
 bool esPuente(int casilla) {
 
