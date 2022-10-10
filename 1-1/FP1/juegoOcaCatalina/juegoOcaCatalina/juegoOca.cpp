@@ -15,9 +15,11 @@ const int CASILLA_PUENTE_1 = 6;
 const int CASILLA_PUENTE_2 = 12;
 const int CASILLA_DADOS_1 = 26;
 const int CASILLA_DADOS_2 = 53;
+bool esOca(int casilla);
+
 
 int main() {
-	cout << "hay oca en la casilla 65?" << esOca(63) << endl;
+	cout << "hay oca en la casilla 65?" << esOca(6) << endl;
 	return 0;
 }
 
@@ -43,6 +45,8 @@ bool esOca(int casilla) {
 	}
 	return a;
 }
+
+
 /*
 bool esPuente(int casilla) {
 
