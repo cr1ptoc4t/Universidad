@@ -1,2 +1,2 @@
 ﻿  juegoOca.cpp
-C:\Users\Catalina\Documents\Universidad\1-1\FP1\juegoOcaCatalina\juegoOcaCatalina\juegoOca.cpp(35,1): error C2144: error de sintaxis: 'int' debe estar precedido de ';'
+C:\Users\Catalina\Documents\Universidad\1-1\FP1\juegoOcaCatalina\juegoOcaCatalina\juegoOca.cpp(20,41): error C3861: 'esOca': no se encontró el identificador
