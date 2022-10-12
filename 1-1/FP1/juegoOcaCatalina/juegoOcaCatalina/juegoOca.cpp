@@ -7,6 +7,7 @@
 */
 
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 const int NUM_CASILLAS = 63;
@@ -32,13 +33,24 @@ bool esPrision(int casilla);
 bool esPozo(int casilla);
 bool esMeta(int casilla);
 
+int siguienteOca(int  casilla);
+int siguientePuente(int casilla);
+int siguienteDado(int casilla);
+int siguienteLaberinto();
+int siguienteMuerte();
+int tirarDado();
+int quienEmpieza();
+int efectoPosicion(int casillaActual);
+int efectoTiradas(int casillaActual, int numeroDeTiradas);
 
 int main() {
 	int casilla;
-
+	int i = 0;
+	/*
 	cout << "Introduce casilla:";
 	cin >> casilla;
 	cout << esOca(casilla);
+	*/
 
 	return 0;
 }
@@ -56,7 +68,6 @@ bool esOca(int casilla) {
 	return a;
 }
 
-
 bool esPuente(int casilla) {
 	bool a;
 	if (casilla == CASILLA_PUENTE_1 || casilla == CASILLA_PUENTE_2) {
@@ -66,6 +77,7 @@ bool esPuente(int casilla) {
 
 	return a;
 }
+
 bool esDados(int casilla) {
 	bool a;
 	if (casilla == CASILLA_DADOS_1 || casilla == CASILLA_DADOS_2) {
@@ -75,6 +87,7 @@ bool esDados(int casilla) {
 
 	return a;
 }
+
 bool esLaberinto(int casilla) {
 	bool a;
 
@@ -85,6 +98,7 @@ bool esLaberinto(int casilla) {
 
 	return a;
 }
+
 bool esMuerte(int casilla) {
 	bool a;
 	if (casilla == CASILLA_MUERTE) {
@@ -94,6 +108,7 @@ bool esMuerte(int casilla) {
 
 	return a;
 }
+
 bool esPosada(int casilla) {
 	bool a;
 	if (casilla == CASILLA_POSADA) {
@@ -103,6 +118,7 @@ bool esPosada(int casilla) {
 
 	return a;
 }
+
 bool esPrision(int casilla) {
 	bool a;
 	if (casilla == CASILLA_PRISION) {
@@ -112,6 +128,7 @@ bool esPrision(int casilla) {
 
 	return a;
 }
+
 bool esPozo(int casilla) {
 	bool a;
 	if (casilla == CASILLA_POZO) {
@@ -121,6 +138,7 @@ bool esPozo(int casilla) {
 
 	return a;
 }
+
 bool esMeta(int casilla) {
 	bool a;
 	if (casilla >= 63) {
@@ -153,6 +171,7 @@ int siguientePuente(int casilla) {
 	}
 	return casilla + i;
 }
+
 int siguienteDado(int casilla) {
 	int i = 0; bool b = true;
 	while (b) {
@@ -163,24 +182,46 @@ int siguienteDado(int casilla) {
 	}
 	return casilla + i;
 }
+
 int siguienteLaberinto() {
 	return CASILLA_LABERINTO - 12;
 	
 }
+
 int siguienteMuerte() {
 	return 1;
 }
 
 int tirarDado() {
-	return 0;
+	int a = rand() % 7;
+	return a;
 }
+
 int quienEmpieza() {
-	return 0;
+	int a = rand() % 2;
+	return a;
 }
+
 int efectoPosicion(int casillaActual) {
-	return 0;
+	int a;
+	if (esOca(casillaActual)) {
+		a=siguienteOca(casillaActual+1); //si no añadimos el +1, devuelve la misma oca - TESTEAR
+	} else if (esPuente(casillaActual)) {
+		a = siguientePuente(casillaActual);
+	} else if (esDados(casillaActual)) {
+		a = siguienteDado(casillaActual);
+	} else if (esLaberinto(casillaActual)) {
+		a = siguienteLaberinto();
+	} else if (esMuerte(casillaActual)) {
+		a = siguienteMuerte();
+	} else {
+		a = casillaActual;
+	}
+	return a;
 }
+
 int efectoTiradas(int casillaActual, int numeroDeTiradas) {
+
 	return 0;
 }
 
