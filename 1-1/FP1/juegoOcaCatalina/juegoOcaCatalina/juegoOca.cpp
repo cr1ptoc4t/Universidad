@@ -52,13 +52,16 @@ int main() {
 	cout << esOca(casilla);
 	*/
 
+	// pedir quien empieza
+	// empezar el juego dentro del primer while mientras no haya ganador
+	// DOS WHILE ANIDADOS -- While 1:  mientras ninguno de los dos jugadores esté en una casilla igual o superior a la 63
+	// WHILE INTERNO MIENTRAS NO HAYA GANADOR Y NO TENGA NUMERO DE TIRADAS, TIRAR
 	return 0;
 }
 
 
 bool esOca(int casilla) {
 	bool a;
-
 	if ((casilla % 9 == 0 || (casilla % 9 == 5) && casilla != NUM_CASILLAS)) {
 		a = true;
 	}
@@ -202,6 +205,11 @@ int quienEmpieza() {
 	return a;
 }
 
+int efectoTiradas(int casillaActual, int numeroDeTiradas) {
+
+	return 0;
+}
+
 int efectoPosicion(int casillaActual) {
 	int a;
 	if (esOca(casillaActual)) {
@@ -216,13 +224,12 @@ int efectoPosicion(int casillaActual) {
 		a = siguienteMuerte();
 	} else {
 		a = casillaActual;
+	
 	}
+	cout<< "CASILLA ANTERIOR: "<< casillaActual <<endl;
+	// falta incrementar la casilla actual
+	cout << "CASILLA ACTUAL: " << casillaActual << endl;
 	return a;
-}
-
-int efectoTiradas(int casillaActual, int numeroDeTiradas) {
-
-	return 0;
 }
 
 
