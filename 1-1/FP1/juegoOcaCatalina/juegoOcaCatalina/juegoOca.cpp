@@ -3,7 +3,6 @@
 * Práctica Final Fundamentos de la Programación I
 * 07/10/2022 - 6/11/2022
 *
-*
 */
 
 #include <iostream>
@@ -45,17 +44,44 @@ int efectoTiradas(int casillaActual, int numeroDeTiradas);
 
 int main() {
 	int casilla;
-	int i = 0;
+	int iteracion = 0;
+	int j1 = 0, j2 = 0;
+	int ganador;
+	int empieza = quienEmpieza();
+
 	/*
 	cout << "Introduce casilla:";
 	cin >> casilla;
 	cout << esOca(casilla);
 	*/
 
+	// TO-DO:
+	// función debug
+	// método efectoTiradas()
 	// pedir quien empieza
-	// empezar el juego dentro del primer while mientras no haya ganador
+	// PENSAR COMO LO HAREMOS PARA EMPEZAR DESPUÉS DE HABER PEDIDO QUIEN EMPIEZA
+	// DOS WHILE
+	// CONSTRUIR TODO EL MAIN
+	// PROBAR MÉTODOS
+
 	// DOS WHILE ANIDADOS -- While 1:  mientras ninguno de los dos jugadores esté en una casilla igual o superior a la 63
 	// WHILE INTERNO MIENTRAS NO HAYA GANADOR Y NO TENGA NUMERO DE TIRADAS, TIRAR
+	
+
+	cout << ">>>>>>> EMPIEZA EL JUGADOR NÚMERO " << empieza << " <<<<<<<" << endl;
+	while (j1<63 && j2<63) {
+		//falta otro while
+	}
+	if (j1 >= 63) {
+		ganador = 1;
+	}
+	else if (j2>=63) {
+		ganador = 2;
+	} else {
+		ganador = 0;
+	}
+	cout << "HA GANADO EL JUGADOR: " << ganador << endl;
+	
 	return 0;
 }
 
@@ -188,7 +214,6 @@ int siguienteDado(int casilla) {
 
 int siguienteLaberinto() {
 	return CASILLA_LABERINTO - 12;
-	
 }
 
 int siguienteMuerte() {
@@ -206,7 +231,7 @@ int quienEmpieza() {
 }
 
 int efectoTiradas(int casillaActual, int numeroDeTiradas) {
-
+	//falta un trozo de código aqui
 	return 0;
 }
 
@@ -227,9 +252,7 @@ int efectoPosicion(int casillaActual) {
 	
 	}
 	cout<< "CASILLA ANTERIOR: "<< casillaActual <<endl;
-	// falta incrementar la casilla actual
-	cout << "CASILLA ACTUAL: " << casillaActual << endl;
+	cout << "CASILLA ACTUAL: " << a << endl;
 	return a;
+
 }
-
-
