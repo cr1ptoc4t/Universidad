@@ -5,6 +5,13 @@
 *
 */
 
+/*
+* falta poner frases tipo de oca en oca y tiro porque me toca o de puente a puente...
+* cout<< "has caido en el pozo";
+* turnos en efectoTiradas() --> ??????
+* 
+*/
+
 #include <iostream>
 #include <cstdlib>
 using namespace std;
@@ -47,13 +54,28 @@ int main() {
 	int iteracion = 0;
 	int j1 = 0, j2 = 0;
 	int ganador;
-	int empieza = quienEmpieza();
+	bool debug = false;
+	int empieza;
 
 	/*
 	cout << "Introduce casilla:";
 	cin >> casilla;
 	cout << esOca(casilla);
 	*/
+
+
+
+	//convertir esto a tirarDadoAleatorio y tirarDadoNormal
+	if (debug) {
+		cout << "Elige el jugador que va a empezar el juego: ";
+		cin >> empieza;
+	}
+	else {
+		empieza = quienEmpieza();
+	}
+	cout << ">>>>>>> EMPIEZA EL JUGADOR NÚMERO " << empieza << " <<<<<<<" << endl;
+
+
 
 	// TO-DO:
 	// función debug
@@ -64,21 +86,39 @@ int main() {
 	// CONSTRUIR TODO EL MAIN
 	// PROBAR MÉTODOS
 
+	//CUANDO HAY CAMBIO DE TURNO:
+	//numeroDeTiradas = -numeroDeTiradas +1;
+
 	// DOS WHILE ANIDADOS -- While 1:  mientras ninguno de los dos jugadores esté en una casilla igual o superior a la 63
 	// WHILE INTERNO MIENTRAS NO HAYA GANADOR Y NO TENGA NUMERO DE TIRADAS, TIRAR
+	// char c; cin c;
+	// while para testear con diferentes numeros de casilla;
 	
+	/*
+	* FUNCIONAMIENTO:
+	* se lanza el dado en modo debug o no
+	* se decrementa numeroDeTiradas
+	* se actualiza valor de la casilla actual
+	* se comprueba si la casilla es especial
+	* Se comprueba si hay que actualizar el numero de turnos
+	*/
 
-	cout << ">>>>>>> EMPIEZA EL JUGADOR NÚMERO " << empieza << " <<<<<<<" << endl;
-	while (j1<63 && j2<63) {
-		//falta otro while
+
+	while (!esMeta(j1) && !esMeta(j2)) {
+		//while (numeroDeTiradas > 0 && !esMeta(casillaActual)) {
+
+		//}
 	}
+
+
+	// muestra el ganador por pantalla
 	if (j1 >= 63) {
 		ganador = 1;
 	}
 	else if (j2>=63) {
 		ganador = 2;
 	} else {
-		ganador = 0;
+		ganador = NULL;
 	}
 	cout << "HA GANADO EL JUGADOR: " << ganador << endl;
 	
@@ -231,8 +271,20 @@ int quienEmpieza() {
 }
 
 int efectoTiradas(int casillaActual, int numeroDeTiradas) {
-	//falta un trozo de código aqui
-	return 0;
+	if (esOca(casillaActual) || esDados(casillaActual)) {
+		numeroDeTiradas++;
+	}
+	else if (esPozo(casillaActual)) {
+		numeroDeTiradas = numeroDeTiradas - 3;
+	}
+	else if (esPrision(casillaActual)) {
+		numeroDeTiradas = numeroDeTiradas - 2;
+	}
+	else if (esPosada(casillaActual)) {
+		numeroDeTiradas--;
+	}
+
+	return numeroDeTiradas;
 }
 
 int efectoPosicion(int casillaActual) {
@@ -251,7 +303,9 @@ int efectoPosicion(int casillaActual) {
 		a = casillaActual;
 	
 	}
-	cout<< "CASILLA ANTERIOR: "<< casillaActual <<endl;
+	if (casillaActual !=  a) {
+		cout << "CASILLA ANTERIOR: " << casillaActual << endl;
+	}
 	cout << "CASILLA ACTUAL: " << a << endl;
 	return a;
 
