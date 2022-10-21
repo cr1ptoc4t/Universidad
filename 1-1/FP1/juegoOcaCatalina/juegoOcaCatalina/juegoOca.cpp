@@ -28,6 +28,8 @@ const int CASILLA_PRISION = 52;
 const int CASILLA_MUERTE = 58;
 const int CASILLA_POZO = 31;
 
+const bool MODO_DEBUG = true;
+
 
 bool esOca(int casilla);
 bool esPuente(int casilla);
@@ -44,7 +46,7 @@ int siguientePuente(int casilla);
 int siguienteDado(int casilla);
 int siguienteLaberinto();
 int siguienteMuerte();
-int tirarDado();
+int tirarDado(bool d);
 int quienEmpieza();
 int efectoPosicion(int casillaActual);
 int efectoTiradas(int casillaActual, int numeroDeTiradas);
@@ -53,27 +55,18 @@ int main() {
 	int casilla;
 	int iteracion = 0;
 	int j1 = 0, j2 = 0;
+	int nTiradasj1 = 1;
 	int ganador;
-	bool debug = false;
+	
 	int empieza;
+	
 
-	/*
-	cout << "Introduce casilla:";
-	cin >> casilla;
-	cout << esOca(casilla);
-	*/
-
-
-
-	//convertir esto a tirarDadoAleatorio y tirarDadoNormal
-	if (debug) {
-		cout << "Elige el jugador que va a empezar el juego: ";
-		cin >> empieza;
+	if (MODO_DEBUG) {
+		cout << "-----MODO DEPURACIÓN: ACTIVADO-----" << endl;
 	}
-	else {
-		empieza = quienEmpieza();
-	}
-	cout << ">>>>>>> EMPIEZA EL JUGADOR NÚMERO " << empieza << " <<<<<<<" << endl;
+
+	empieza = quienEmpieza();
+	
 
 
 
@@ -106,10 +99,12 @@ int main() {
 
 	while (!esMeta(j1) && !esMeta(j2)) {
 		//while (numeroDeTiradas > 0 && !esMeta(casillaActual)) {
-
 		//}
+		
+		j1 = j1+ tirarDado(MODO_DEBUG);
+		efectoPosicion(j1);
+		nTiradasj1 = efectoTiradas(j1, nTiradasj1);
 	}
-
 
 	// muestra el ganador por pantalla
 	if (j1 >= 63) {
@@ -260,27 +255,39 @@ int siguienteMuerte() {
 	return 1;
 }
 
-int tirarDado() {
-	int a = rand() % 7;
+int tirarDado(bool d) {
+	int a=0;
+	if (d) {
+		cout << "Introduce valor del dado:";
+		cin >> a;
+		while (a>6 || a<1) {
+			cout << "ERROR: el numero debe pertenecer al intervalo [1,6]. Elige otro numero:";
+			cin >> a;
+		}
+	}
+	else {
+		int a = rand() % 7;
+		cout << "Valor del dado: " << a << endl;
+	}
+	 
 	return a;
 }
 
+
 int quienEmpieza() {
 	int a = rand() % 2;
+	cout << ">>>>>>> EMPIEZA EL JUGADOR NÚMERO " << a << " <<<<<<<" << endl;
 	return a;
 }
 
 int efectoTiradas(int casillaActual, int numeroDeTiradas) {
 	if (esOca(casillaActual) || esDados(casillaActual)) {
 		numeroDeTiradas++;
-	}
-	else if (esPozo(casillaActual)) {
+	} else if (esPozo(casillaActual)) {
 		numeroDeTiradas = numeroDeTiradas - 3;
-	}
-	else if (esPrision(casillaActual)) {
+	} else if (esPrision(casillaActual)) {
 		numeroDeTiradas = numeroDeTiradas - 2;
-	}
-	else if (esPosada(casillaActual)) {
+	} else if (esPosada(casillaActual)) {
 		numeroDeTiradas--;
 	}
 
@@ -291,22 +298,31 @@ int efectoPosicion(int casillaActual) {
 	int a;
 	if (esOca(casillaActual)) {
 		a=siguienteOca(casillaActual+1); //si no añadimos el +1, devuelve la misma oca - TESTEAR
+		cout << "De oca en oca y tiro porque me toca"<<endl;
 	} else if (esPuente(casillaActual)) {
 		a = siguientePuente(casillaActual);
+		cout << "De puente en puente y tiro porque me lleva la corriente" << endl;
 	} else if (esDados(casillaActual)) {
 		a = siguienteDado(casillaActual);
+		cout << "De dado a dado y tiro porque me ha tocado" << endl;
 	} else if (esLaberinto(casillaActual)) {
 		a = siguienteLaberinto();
+		cout << "Has caido en el laberinto, retrocedes 12 casillas:(" << endl;
 	} else if (esMuerte(casillaActual)) {
 		a = siguienteMuerte();
+		cout << "Has caido en la muerte! regresas a la casilla 0" << endl;
 	} else {
 		a = casillaActual;
-	
 	}
-	if (casillaActual !=  a) {
+
+	if (casillaActual != a && !esMuerte(casillaActual) && !esLaberinto(casillaActual)) {
+		cout << "Avanzas de casilla!" << endl;
 		cout << "CASILLA ANTERIOR: " << casillaActual << endl;
 	}
-	cout << "CASILLA ACTUAL: " << a << endl;
+	if (casillaActual<=63){
+		cout << "CASILLA ACTUAL: " << a << endl;
+	} else{ cout << "AVANZAS HASTA LA CASILLA: 63"<< endl; }
+	
 	return a;
 
 }
