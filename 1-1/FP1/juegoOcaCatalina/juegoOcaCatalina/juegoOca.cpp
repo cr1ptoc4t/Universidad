@@ -54,7 +54,7 @@ int efectoTiradas(int casillaActual, int numeroDeTiradas);
 int main() {
 	int casilla;
 	int iteracion = 0;
-	int j1 = 0, j2 = 0;
+	int j1 = 1, j2 = 1;
 	int nTiradasj1 = 1;
 	int ganador;
 	
@@ -89,11 +89,11 @@ int main() {
 	
 	/*
 	* FUNCIONAMIENTO:
-	* se lanza el dado en modo debug o no
-	* se decrementa numeroDeTiradas
-	* se actualiza valor de la casilla actual
-	* se comprueba si la casilla es especial
-	* Se comprueba si hay que actualizar el numero de turnos
+	* se lanza el dado en modo debug o no						hecho
+	* se decrementa numeroDeTiradas								
+	* se actualiza valor de la casilla actual					hecho
+	* se comprueba si la casilla es especial					hecho
+	* Se comprueba si hay que actualizar el numero de turnos	hecho
 	*/
 
 
@@ -103,7 +103,7 @@ int main() {
 		
 		j1 = j1+ tirarDado(MODO_DEBUG);
 		efectoPosicion(j1);
-		nTiradasj1 = efectoTiradas(j1, nTiradasj1);
+//		nTiradasj1 = efectoTiradas(j1, nTiradasj1);
 	}
 
 	// muestra el ganador por pantalla
@@ -215,7 +215,7 @@ bool esMeta(int casilla) {
 
 
 int siguienteOca(int casilla) {
-	int i = 0; bool b = true;
+	int i = 1; bool b = true;
 	while (i<5 && b) {
 		if(esOca(casilla+i)){
 			b = false;
@@ -226,7 +226,7 @@ int siguienteOca(int casilla) {
 }
 
 int siguientePuente(int casilla) {
-	int i = 0; bool b = true;
+	int i = 1; bool b = true;
 	while (b) {
 		if (esPuente(casilla + i)) {
 			b = false;
@@ -237,7 +237,7 @@ int siguientePuente(int casilla) {
 }
 
 int siguienteDado(int casilla) {
-	int i = 0; bool b = true;
+	int i = 1; bool b = true;
 	while (b) {
 		if (esDados(casilla + i)) {
 			b = false;
@@ -297,7 +297,7 @@ int efectoTiradas(int casillaActual, int numeroDeTiradas) {
 int efectoPosicion(int casillaActual) {
 	int a;
 	if (esOca(casillaActual)) {
-		a=siguienteOca(casillaActual+1); //si no añadimos el +1, devuelve la misma oca - TESTEAR
+		a=siguienteOca(casillaActual); //si no añadimos el +1, devuelve la misma oca - TESTEAR
 		cout << "De oca en oca y tiro porque me toca"<<endl;
 	} else if (esPuente(casillaActual)) {
 		a = siguientePuente(casillaActual);
@@ -310,18 +310,20 @@ int efectoPosicion(int casillaActual) {
 		cout << "Has caido en el laberinto, retrocedes 12 casillas:(" << endl;
 	} else if (esMuerte(casillaActual)) {
 		a = siguienteMuerte();
-		cout << "Has caido en la muerte! regresas a la casilla 0" << endl;
+		cout << "Has caido en la muerte! regresas a la primera casilla" << endl;
 	} else {
 		a = casillaActual;
 	}
 
-	if (casillaActual != a && !esMuerte(casillaActual) && !esLaberinto(casillaActual)) {
-		cout << "Avanzas de casilla!" << endl;
+	if (casillaActual != a) {
+		if (!esMuerte(casillaActual) && !esLaberinto(casillaActual)) {
+			cout << "Avanzas de casilla!" << endl;
+		}
 		cout << "CASILLA ANTERIOR: " << casillaActual << endl;
 	}
 	if (casillaActual<=63){
 		cout << "CASILLA ACTUAL: " << a << endl;
-	} else{ cout << "AVANZAS HASTA LA CASILLA: 63"<< endl; }
+	} else{ cout << "CASILLA ACTUAL: 63"<< endl; }
 	
 	return a;
 
