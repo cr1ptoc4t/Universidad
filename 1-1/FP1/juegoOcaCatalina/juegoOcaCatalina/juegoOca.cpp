@@ -6,8 +6,6 @@
 */
 
 /*
-* falta poner frases tipo de oca en oca y tiro porque me toca o de puente a puente...
-* cout<< "has caido en el pozo";
 * turnos en efectoTiradas() --> ??????
 * 
 */
@@ -51,18 +49,21 @@ int quienEmpieza();
 int efectoPosicion(int casillaActual);
 int efectoTiradas(int casillaActual, int numeroDeTiradas);
 
+
+void chequeaGanador(int j1, int j2);
+
+
 int main() {
-	int casilla;
-	int iteracion = 0;
+	//int casilla;
+	//int iteracion = 0;
 	int j1 = 1, j2 = 1;
 	int nTiradasj1 = 1;
-	int ganador;
 	
 	int empieza;
 	
 
 	if (MODO_DEBUG) {
-		cout << "-----MODO DEPURACIÓN: ACTIVADO-----" << endl;
+		cout << "-----MODO DEPURACION: ACTIVADO-----" << endl;
 	}
 
 	empieza = quienEmpieza();
@@ -102,20 +103,14 @@ int main() {
 		//}
 		
 		j1 = j1+ tirarDado(MODO_DEBUG);
-		efectoPosicion(j1);
+		j1 = efectoPosicion(j1);
+
 //		nTiradasj1 = efectoTiradas(j1, nTiradasj1);
 	}
 
 	// muestra el ganador por pantalla
-	if (j1 >= 63) {
-		ganador = 1;
-	}
-	else if (j2>=63) {
-		ganador = 2;
-	} else {
-		ganador = NULL;
-	}
-	cout << "HA GANADO EL JUGADOR: " << ganador << endl;
+	chequeaGanador(j1,j2);
+	
 	
 	return 0;
 }
@@ -257,11 +252,13 @@ int siguienteMuerte() {
 
 int tirarDado(bool d) {
 	int a=0;
+	cout << endl;
 	if (d) {
 		cout << "Introduce valor del dado:";
 		cin >> a;
 		while (a>6 || a<1) {
-			cout << "ERROR: el numero debe pertenecer al intervalo [1,6]. Elige otro numero:";
+			cout << "ERROR: el numero debe pertenecer al intervalo [1,6]." << endl;
+			cout << "Elige otro numero:";
 			cin >> a;
 		}
 	}
@@ -327,4 +324,16 @@ int efectoPosicion(int casillaActual) {
 	
 	return a;
 
+}
+
+
+void chequeaGanador(int j1, int j2) {
+	int ganador;
+	if (j1 >= 63) {
+		ganador = 1;
+	}
+	else if (j2 >= 63) {
+		ganador = 2;
+	}
+	cout << "HA GANADO EL JUGADOR: " << ganador << endl;
 }
