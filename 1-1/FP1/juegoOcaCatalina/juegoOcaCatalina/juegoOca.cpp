@@ -38,6 +38,7 @@ bool esPosada(int casilla);
 bool esPrision(int casilla);
 bool esPozo(int casilla);
 bool esMeta(int casilla);
+bool hayGanador(int j1, int j2);
 
 int siguienteOca(int  casilla);
 int siguientePuente(int casilla);
@@ -49,21 +50,24 @@ int quienEmpieza();
 int efectoPosicion(int casillaActual);
 int efectoTiradas(int casillaActual, int numeroDeTiradas);
 
+int juegoInterno(int jugador);
 
 void chequeaGanador(int j1, int j2);
 
 
 int main() {
 	//int casilla;
-	//int iteracion = 0;
-	int j1 = 1, j2 = 1;
+	int iteracion = 0;
+	int j1 = 1;
+	int j2 = 1;
 	int nTiradasj1 = 1;
+	int nTiradasj2 = 1;
 	
 	int empieza;
 	
 
 	if (MODO_DEBUG) {
-		cout << "-----MODO DEPURACION: ACTIVADO-----" << endl;
+		cout << "---------MODO DEPURACION: ACTIVADO---------" << endl;
 	}
 
 	empieza = quienEmpieza();
@@ -98,14 +102,35 @@ int main() {
 	*/
 
 
-	while (!esMeta(j1) && !esMeta(j2)) {
+	while (!hayGanador(j1, j2)) {
 		//while (numeroDeTiradas > 0 && !esMeta(casillaActual)) {
 		//}
+		cout << endl;
+		cout << "///////////////////////////////////////////" << endl;
+		if (iteracion%2==0) {
+			nTiradasj1 = 1;
+			cout << "TURNO JUGADOR 1" << endl;
+			while (nTiradasj1>0) {
+				cout << "Casilla actual:" << j1 << endl;
+				j1 = juegoInterno(j1);
+				nTiradasj1 = efectoTiradas(j1, nTiradasj1);
+			}
+		}
+		else {
+			nTiradasj2 = 1;
+			cout << "TURNO JUGADOR 2" << endl;
+			while (nTiradasj2>0) {
+				cout << "Casilla actual:" << j2 << endl;
+				j2 = juegoInterno(j2);
+				nTiradasj2 = efectoTiradas(j2,nTiradasj2);
+			}
+		}
 		
-		j1 = j1+ tirarDado(MODO_DEBUG);
-		j1 = efectoPosicion(j1);
 
-//		nTiradasj1 = efectoTiradas(j1, nTiradasj1);
+		//nTiradasj1 = efectoTiradas(j1, nTiradasj1);
+		iteracion++;
+		cout << "" << endl;
+
 	}
 
 	// muestra el ganador por pantalla
@@ -113,6 +138,12 @@ int main() {
 	
 	
 	return 0;
+}
+
+int juegoInterno(int jugador) {
+	jugador = jugador + tirarDado(MODO_DEBUG);
+	jugador = efectoPosicion(jugador);
+	return jugador;
 }
 
 
@@ -217,18 +248,20 @@ int siguienteOca(int casilla) {
 		}
 		else { i++; }
 	}
+	if (casilla >= 63) {
+		i = 0;
+	}
 	return casilla +i ;
 }
 
 int siguientePuente(int casilla) {
-	int i = 1; bool b = true;
-	while (b) {
-		if (esPuente(casilla + i)) {
-			b = false;
-		}
-		else { i++; }
+	if (casilla ==CASILLA_PUENTE_1) {
+		casilla = CASILLA_PUENTE_2;
 	}
-	return casilla + i;
+	else if(casilla== CASILLA_PUENTE_2) {
+		casilla = CASILLA_PUENTE_1;
+	}
+	return casilla;
 }
 
 int siguienteDado(int casilla) {
@@ -285,6 +318,9 @@ int efectoTiradas(int casillaActual, int numeroDeTiradas) {
 	} else if (esPrision(casillaActual)) {
 		numeroDeTiradas = numeroDeTiradas - 2;
 	} else if (esPosada(casillaActual)) {
+		numeroDeTiradas-=2;
+	}
+	else {
 		numeroDeTiradas--;
 	}
 
@@ -294,8 +330,11 @@ int efectoTiradas(int casillaActual, int numeroDeTiradas) {
 int efectoPosicion(int casillaActual) {
 	int a;
 	if (esOca(casillaActual)) {
-		a=siguienteOca(casillaActual); //si no añadimos el +1, devuelve la misma oca - TESTEAR
-		cout << "De oca en oca y tiro porque me toca"<<endl;
+		a = siguienteOca(casillaActual);
+		if (a!=63) {
+			cout << "De oca en oca y tiro porque me toca" << endl;
+
+		}
 	} else if (esPuente(casillaActual)) {
 		a = siguientePuente(casillaActual);
 		cout << "De puente en puente y tiro porque me lleva la corriente" << endl;
@@ -326,14 +365,30 @@ int efectoPosicion(int casillaActual) {
 
 }
 
-
+//mira quien es el ganador y lo imprime por pantall
 void chequeaGanador(int j1, int j2) {
 	int ganador;
-	if (j1 >= 63) {
-		ganador = 1;
+	if (esMeta(j1) || esMeta(j2)) {
+		if (esMeta(j1)) {
+			ganador = 1;
+		}
+		else if (esMeta(j2)) {
+			ganador = 2;
+		}
+		cout << "HA GANADO EL JUGADOR: " << ganador << endl;
 	}
-	else if (j2 >= 63) {
-		ganador = 2;
+}
+
+
+//devuelve si hay o no hay ganador
+bool hayGanador(int j1, int j2) {
+	bool a;
+	
+	if (esMeta(j1) || esMeta(j2)) {
+		a=true;
 	}
-	cout << "HA GANADO EL JUGADOR: " << ganador << endl;
+	else {
+		a= false;
+	}
+	return a;
 }
