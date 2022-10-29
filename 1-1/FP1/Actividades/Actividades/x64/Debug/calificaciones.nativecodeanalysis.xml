@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Catalina\Documents\Universidad\1-1\FP1\Actividades\Actividades\</FILEPATH>
+      <FILENAME>calificaciones.cpp</FILENAME>
+      <LINE>62</LINE>
+      <COLUMN>8</COLUMN>
+    </SFA>
+    <DEFECTCODE>6001</DEFECTCODE>
+    <DESCRIPTION>Usando la memoria sin inicializar 'calif'.</DESCRIPTION>
+    <FUNCTION>notaACalificacion</FUNCTION>
+    <DECORATED>?notaACalificacion@@YA?AW4tCalificacion@@N@Z</DECORATED>
+    <FUNCLINE>41</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>3</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>C:\Users\Catalina\Documents\Universidad\1-1\FP1\Actividades\Actividades\</FILEPATH>
+        <FILENAME>calificaciones.cpp</FILENAME>
+        <LINE>42</LINE>
+        <COLUMN>15</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'calif' no se ha inicializado</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\Catalina\Documents\Universidad\1-1\FP1\Actividades\Actividades\</FILEPATH>
+        <FILENAME>calificaciones.cpp</FILENAME>
+        <LINE>43</LINE>
+        <COLUMN>10</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Omitir esta bifurcación, (se asume que 'nota==0.000000' es false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\Catalina\Documents\Universidad\1-1\FP1\Actividades\Actividades\</FILEPATH>
+        <FILENAME>calificaciones.cpp</FILENAME>
+        <LINE>46</LINE>
+        <COLUMN>19</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Omitir esta bifurcación, (se asume que 'nota&gt;0.000000&amp;&amp;nota&lt;5.000000' es false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\Catalina\Documents\Universidad\1-1\FP1\Actividades\Actividades\</FILEPATH>
+        <FILENAME>calificaciones.cpp</FILENAME>
+        <LINE>49</LINE>
+        <COLUMN>20</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Omitir esta bifurcación, (se asume que 'nota&gt;=5.000000&amp;&amp;nota&lt;7.000000' es false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\Catalina\Documents\Universidad\1-1\FP1\Actividades\Actividades\</FILEPATH>
+        <FILENAME>calificaciones.cpp</FILENAME>
+        <LINE>52</LINE>
+        <COLUMN>20</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Omitir esta bifurcación, (se asume que 'nota&gt;=7.000000&amp;&amp;nota&lt;8.000000' es false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\Catalina\Documents\Universidad\1-1\FP1\Actividades\Actividades\</FILEPATH>
+        <FILENAME>calificaciones.cpp</FILENAME>
+        <LINE>55</LINE>
+        <COLUMN>20</COLUMN>
+        <KEYEVENT>
+          <ID>6</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Omitir esta bifurcación, (se asume que 'nota&gt;=8.000000&amp;&amp;nota&lt;9.000000' es false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\Catalina\Documents\Universidad\1-1\FP1\Actividades\Actividades\</FILEPATH>
+        <FILENAME>calificaciones.cpp</FILENAME>
+        <LINE>58</LINE>
+        <COLUMN>15</COLUMN>
+        <KEYEVENT>
+          <ID>7</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Omitir esta bifurcación, (se asume que 'nota&gt;=9.000000' es false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\Catalina\Documents\Universidad\1-1\FP1\Actividades\Actividades\</FILEPATH>
+        <FILENAME>calificaciones.cpp</FILENAME>
+        <LINE>62</LINE>
+        <COLUMN>1</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>C:\Users\Catalina\Documents\Universidad\1-1\FP1\Actividades\Actividades\</FILEPATH>
+        <FILENAME>calificaciones.cpp</FILENAME>
+        <LINE>62</LINE>
+        <COLUMN>8</COLUMN>
+        <KEYEVENT>
+          <ID>8</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Se usa 'calif', pero puede que no se haya inicializado</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+</DEFECTS>
