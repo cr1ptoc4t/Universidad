@@ -63,14 +63,14 @@ int main() {
 	if (MODO_DEBUG) {
 		cout << "---------MODO DEPURACION: ACTIVADO---------" << endl;
 	}
+	srand(time(NULL));
 
 	empieza = quienEmpieza();
-	//falta editar el codigo para que empiece el jugador que contiene la variable anterior
 
 	while (!hayGanador(j1, j2)) {
 		cout << endl;
 		cout << "///////////////////////////////////////////" << endl;
-		if (iteracion%2==0) {
+		if (iteracion%2==empieza-1) {
 			nTiradasj1 = 1;
 			cout << "TURNO JUGADOR 1" << endl;
 			cout << "CASILLA ACTUAL:" << j1 << endl;
@@ -267,10 +267,12 @@ int tirarDado(bool d) {
 
 
 int quienEmpieza() {
-	int a = rand() % 2;
-	cout << ">>>>>>> EMPIEZA EL JUGADOR NÚMERO " << a << " <<<<<<<" << endl;
-	return a;
+	int e = 1 + rand() % 2;
+	cout << "Empieza el jugador " << e << endl;
+
+	return e;
 }
+
 
 int efectoTiradas(int casillaActual, int numeroDeTiradas) {
 	if (esOca(casillaActual) || esDados(casillaActual)) {
@@ -282,7 +284,6 @@ int efectoTiradas(int casillaActual, int numeroDeTiradas) {
 	} else if (esPosada(casillaActual)) {
 		numeroDeTiradas-=2;
 	}
-
 	numeroDeTiradas--;
 
 	return numeroDeTiradas;
@@ -324,7 +325,7 @@ int efectoPosicion(int casillaActual) {
 
 }
 
-//mira quien es el ganador y lo imprime por pantall
+//mira quien es el ganador y lo imprime por pantalla
 void chequeaGanador(int j1, int j2) {
 	int ganador;
 	if (hayGanador(j1,j2)) {

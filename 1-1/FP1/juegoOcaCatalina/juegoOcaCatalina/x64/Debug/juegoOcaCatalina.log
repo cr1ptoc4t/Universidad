@@ -1,2 +1,3 @@
 ﻿  juegoOca.cpp
-  juegoOcaCatalina.vcxproj -> C:\Users\Catalina\Documents\Universidad\1-1\FP1\juegoOcaCatalina\x64\Debug\juegoOcaCatalina.exe
+C:\Users\Catalina\Documents\GitHub\Universidad\1-1\FP1\juegoOcaCatalina\juegoOcaCatalina\juegoOca.cpp(66,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  juegoOcaCatalina.vcxproj -> C:\Users\Catalina\Documents\GitHub\Universidad\1-1\FP1\juegoOcaCatalina\x64\Debug\juegoOcaCatalina.exe
