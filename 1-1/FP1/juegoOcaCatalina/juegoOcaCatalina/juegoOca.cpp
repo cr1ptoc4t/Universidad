@@ -14,12 +14,17 @@ const int CASILLA_PUENTE_1 = 6;
 const int CASILLA_PUENTE_2 = 12;
 const int CASILLA_DADOS_1 = 26;
 const int CASILLA_DADOS_2 = 53;
-const int TURNOS_POSADA = 1;
 const int CASILLA_LABERINTO = 42;
 const int CASILLA_POSADA = 19;
 const int CASILLA_PRISION = 52;
 const int CASILLA_MUERTE = 58;
 const int CASILLA_POZO = 31;
+
+const int TURNOS_POSADA = 1;
+const int TURNOS_PRISION = 2;
+const int TURNOS_POZO = 3;
+
+
 
 const bool MODO_DEBUG = true;
 
@@ -277,12 +282,18 @@ int quienEmpieza() {
 int efectoTiradas(int casillaActual, int numeroDeTiradas) {
 	if (esOca(casillaActual) || esDados(casillaActual)) {
 		numeroDeTiradas++;
-	} else if (esPozo(casillaActual)) {
-		numeroDeTiradas = numeroDeTiradas - 3;
-	} else if (esPrision(casillaActual)) {
-		numeroDeTiradas = numeroDeTiradas - 2;
-	} else if (esPosada(casillaActual)) {
-		numeroDeTiradas-=2;
+	}
+	else if (esPozo(casillaActual)) {
+		numeroDeTiradas = numeroDeTiradas - TURNOS_POZO;
+	}
+	else if (esPrision(casillaActual)) {
+		numeroDeTiradas = numeroDeTiradas - TURNOS_PRISION;
+	}
+	else if (esPosada(casillaActual)) {
+		numeroDeTiradas = numeroDeTiradas - TURNOS_POSADA;
+	}
+	else if (esPuente(casillaActual)) {
+		numeroDeTiradas++;
 	}
 	numeroDeTiradas--;
 
