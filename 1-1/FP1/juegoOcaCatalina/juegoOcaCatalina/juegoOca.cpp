@@ -84,8 +84,7 @@ int main() {
 				j1 = juegoInterno(j1);
 				nTiradasj1 = efectoTiradas(j1, nTiradasj1);
 			}
-		}
-		else {
+		} else {
 			nTiradasj2 = 1;
 			cout << "TURNO JUGADOR 2" << endl;
 			cout << "CASILLA ACTUAL:" << j2 << endl;
