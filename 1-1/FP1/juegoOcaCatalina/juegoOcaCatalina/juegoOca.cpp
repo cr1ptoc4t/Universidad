@@ -50,8 +50,6 @@ int quienEmpieza();
 int efectoPosicion(int casillaActual);
 int efectoTiradas(int casillaActual, int numeroDeTiradas);
 
-int juegoInterno(int posicionJugador);
-
 void chequeaGanador(int j1, int j2);
 
 
@@ -59,8 +57,8 @@ int main() {
 	int iteracion = 0;
 	int j1 = 1;
 	int j2 = 1;
-	int nTiradasj1 = 1;
-	int nTiradasj2 = 1;
+	int nTiradasj1=1;
+	int nTiradasj2=1;
 	
 	int empieza;
 	
@@ -75,44 +73,51 @@ int main() {
 	while (!hayGanador(j1, j2)) {
 		cout << endl;
 		cout << "///////////////////////////////////////////" << endl;
-		if (iteracion%2==empieza-1) {
-			nTiradasj1 = 1;
+		if (iteracion % 2 == empieza - 1) {
 			cout << "TURNO JUGADOR 1" << endl;
 			cout << "CASILLA ACTUAL:" << j1 << endl;
-
-			while (nTiradasj1>0) {
-				j1 = juegoInterno(j1);
-				nTiradasj1 = efectoTiradas(j1, nTiradasj1);
+			if (nTiradasj1 > 0) {
+				while (nTiradasj1 > 0) {
+					j1 = j1 + tirarDado(MODO_DEBUG);
+					j1 = efectoPosicion(j1);
+					nTiradasj1 = efectoTiradas(j1, nTiradasj1);
+				}
+			} else {
+				cout << "No tienes turno :(" << endl;
 			}
+			nTiradasj1++;
+
 		} else {
-			nTiradasj2 = 1;
 			cout << "TURNO JUGADOR 2" << endl;
 			cout << "CASILLA ACTUAL:" << j2 << endl;
-
-			while (nTiradasj2>0) {
-				j2 = juegoInterno(j2);
-				nTiradasj2 = efectoTiradas(j2,nTiradasj2);
+			
+			if (nTiradasj2 > 0) {
+				while (nTiradasj2 > 0) {
+					j2 = j2 + tirarDado(MODO_DEBUG);
+					j2 = efectoPosicion(j2);
+					nTiradasj2 = efectoTiradas(j2, nTiradasj2);
+				}
 			}
+			else {
+				cout << "No tienes turno :(" << endl;
+			}
+			nTiradasj2++;
+			
 		}
+
+		if (!MODO_DEBUG) {
+			system("pause");
+		}
+		
 		
 		iteracion++;
 		cout << "" << endl;
 	}
-	// muestra el ganador por pantalla si hay
-	chequeaGanador(j1,j2);
-	
+	chequeaGanador(j1, j2);
+
 	return 0;
 }
 
-
-// Estructura estándar para el juego normal de un jugador
-int juegoInterno(int posicionJugador) {
-
-	posicionJugador = posicionJugador + tirarDado(MODO_DEBUG);
-	posicionJugador = efectoPosicion(posicionJugador);
-
-	return posicionJugador;
-}
 
 
 bool esOca(int casilla) {
@@ -121,6 +126,7 @@ bool esOca(int casilla) {
 		a = true;
 	}
 	else { a = false; }
+
 
 	return a;
 }
@@ -262,7 +268,8 @@ int tirarDado(bool d) {
 		}
 	}
 	else {
-		int a = rand() % 7;
+		
+		a = rand() % 6 + 1;
 		cout << "Valor del dado: " << a << endl;
 	}
 
@@ -279,22 +286,25 @@ int quienEmpieza() {
 
 
 int efectoTiradas(int casillaActual, int numeroDeTiradas) {
+	numeroDeTiradas--;
 	if (esOca(casillaActual) || esDados(casillaActual)) {
 		numeroDeTiradas++;
 	}
 	else if (esPozo(casillaActual)) {
 		numeroDeTiradas = numeroDeTiradas - TURNOS_POZO;
+		cout << "Has caido en el pozo, te quedas " << TURNOS_POZO << " turnos sin tirar" << endl;
 	}
 	else if (esPrision(casillaActual)) {
 		numeroDeTiradas = numeroDeTiradas - TURNOS_PRISION;
+		cout << "Has caido en la prision, te quedas " << TURNOS_PRISION << " turnos sin tirar"  << endl;
 	}
 	else if (esPosada(casillaActual)) {
 		numeroDeTiradas = numeroDeTiradas - TURNOS_POSADA;
+		cout << "Has caido en la posada, te quedas "<<TURNOS_POSADA<<" turno sin tirar" << endl;
 	}
 	else if (esPuente(casillaActual)) {
 		numeroDeTiradas++;
 	}
-	numeroDeTiradas--;
 
 	return numeroDeTiradas;
 }
@@ -322,7 +332,7 @@ int efectoPosicion(int casillaActual) {
 
 
 	if (casillaActual != a) { // si ha habido algun cambio de casilla:
-		if (!esMuerte(casillaActual) && !esLaberinto(casillaActual)) {
+		if (!esMuerte(casillaActual) && !esLaberinto(casillaActual) && casillaActual!= 12) {
 			cout << "Avanzas de casilla!" << endl;
 		}
 		cout << "CASILLA ANTERIOR: " << casillaActual << endl;
@@ -337,7 +347,7 @@ int efectoPosicion(int casillaActual) {
 
 //mira quien es el ganador y lo imprime por pantalla
 void chequeaGanador(int j1, int j2) {
-	int ganador;
+	int ganador=0;
 	if (hayGanador(j1,j2)) {
 		if (esMeta(j1)) {
 			ganador = 1;
