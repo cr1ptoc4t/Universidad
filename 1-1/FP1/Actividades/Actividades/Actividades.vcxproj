@@ -127,7 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="conversionDeUnidades.cpp" />
+    <ClCompile Include="calculaSumaDigitos.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="datos.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
