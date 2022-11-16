@@ -1,45 +1,97 @@
 #include <iostream>
+#include <string>
 #include <fstream>
 using namespace std;
 
-const int LONGITUD_ARRAY1 = 20;
-typedef int tArray[LONGITUD_ARRAY1];
+void introduceCantidadInicio(float num, fstream& archivo);
+void eliminaCantidadPosicion(float pos, fstream& archivo);
+int localizaCantidad(float num, fstream& archivo);
+void muestraLista(fstream& archivo);
+void introduceCantidadFinal(float n , fstream& archivo);
+void menu(fstream& archivo,int& opcion);
 
 int main() {
-	tArray array1;
-	for (int i = 0; i < LONGITUD_ARRAY1; i++) {
-		array1[i] = i;
-		cout << array1[i] << " | ";
-	}
-
-
-	/*
-	ifstream archivo;
-	archivo.open("datos.txt");
-	int num=1, sumaTotal = 0, sumaDiv;
-	if (archivo.is_open()) {
-		archivo >> num;
-		while (num!=0) {
-			
-			sumaDiv = 0;
-			for (int i = num - 1; i > 0; i--) {
-				if (num%i==0) {
-					sumaDiv = sumaDiv + i;
-				}
-			}
-			if (sumaDiv==num) {
-				sumaTotal++;
-				cout << num << endl;
-			}
-			archivo >> num;
+	fstream archivo1;
+	archivo1.open("lista.txt");
+	if (archivo1.is_open()) {
+		int n = 0;
+		int opcion = 0;
+		while (opcion != -1) {
+			menu(archivo1, opcion);
+			archivo1 << opcion;
 		}
+		archivo1.close();
 	}
-	else { cout << "ARCHIVO SIN ABRIR!!!" << endl; }
-	archivo.close();
-	cout << "hay un total de: " << sumaTotal << " numeros perfectos" << endl;
-	return 0;
-
-	*/
+	else cout << "no se abrió" << endl;
+	
 }
 
+void menu(fstream& archivo, int& opcion) {
+	cout << "1- nueva cantidad final lista" << endl;
+	cout << "2- nueva cantidad inicio lista" << endl;
+	cout << "3- eliminar cantidad posicion lista" << endl;
+	cout << "4- localizar cantidad lista" << endl;
+	cout << "5- mostrar lista" << endl;
+	cout << "6- guardar lista en el archivo" << endl;
 
+	cin >> opcion;
+	float num;
+	switch (opcion) {
+		case 1: {
+			cout << "numero a introducir: ";
+			cin >> num;
+			introduceCantidadFinal(num, archivo);
+		}break;
+		case 2: {
+			cout << "numero a introducir: ";
+			cin >> num;
+			introduceCantidadInicio(num, archivo);
+		} break;
+		case 3: {
+			cin >> num;
+			eliminaCantidadPosicion(num, archivo);
+		}break;
+		case 4: {
+			cin >> num;
+			localizaCantidad(num, archivo);
+		} break;
+		case 5: {
+			muestraLista(archivo);
+		}break;
+		case 6: {
+
+		}
+	}
+}
+
+void introduceCantidadFinal (float num, fstream& archivo){
+	int basura = 0;
+	while (basura != -1) {
+		archivo >> basura;
+	} archivo << num<< " ";
+}
+
+void introduceCantidadInicio(float num, fstream& archivo) {
+	archivo << num << " ";
+}
+
+void eliminaCantidadPosicion(float pos, fstream& archivo) {
+	int basura;
+	for (int i = 0; i < pos - 1; i++) {
+		archivo >> basura;
+	} archivo << "";
+}
+
+int localizaCantidad(float num, fstream& archivo) {
+	int pos=0;
+	return pos;
+}
+void muestraLista(fstream& archivo) {
+	cout << "MOSTRAR LISTA:" << endl;
+	int num = 0;
+	while (num!=-1) {
+		archivo >> num;
+		cout << num << " | ";
+	}
+	cout << endl;
+}
