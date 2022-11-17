@@ -44,6 +44,29 @@ string casillaAstring(tCasilla casilla);
 //---------------------------------------------------------------------------
 
 
+//---------------------------------------------------------------------------
+//
+void iniciaTablero(tTablero tablero);
+void efectoTirada(const tTablero tablero, int& casillaJ, int& penalizacionJ);
+
+bool esCasillaPremio(const tTablero tablero, int casilla);
+bool cargaTablero(tTablero tablero);
+
+int saltaACasilla(const tTablero tablero, int casillaActual);
+//---------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------
+//
+void buscaCasillaAvanzado(const tTablero tablero, tCasilla tipo, int& posicion);
+void buscaCasillaRetrocediendo(const tTablero tablero, tCasilla tipo, int& posicion);
+void iniciaJugadores(tJugadores casillasJ, tJugadores penalizacionesJ);
+void tirada(const tTablero tablero, int& casillaActual, int& penalizacion);
+
+int partida(const tTablero tablero);
+//---------------------------------------------------------------------------
+
+
+
 int main() {
 
 
@@ -152,5 +175,64 @@ void pintaJugadores(const tJugadores casillasJ, int fila, int casillasPorFila) {
         cout << "|";
     }
     cout << endl;
+
+}
+
+
+bool cargaTablero(tTablero tablero) {
+    bool aperturaCorrecta = false;
+    string nombreFichero = "";
+    fstream archivo;
+
+    cout << "Como se llama el fichero de texto? " << endl;
+    cin >> nombreFichero;
+
+    archivo.open(nombreFichero);
+    if (archivo.is_open()) {
+        aperturaCorrecta = false;
+        //actualizar las posiciones correspondientes del tablero;
+    }
+    return aperturaCorrecta;
+}
+void iniciaTablero(tTablero tablero) {
+
+}
+
+bool esCasillaPremio(const tTablero tablero, int casilla) {
+    bool premio = false;
+    /*if (tablero[casilla] == esOca(casilla) || tablero[casilla] == esPuente(casilla) || tablero[casilla] == esDadps(casilla)) {
+        premio = true;
+    }*/
+    return premio;
+}
+
+void efectoTirada(const tTablero tablero, int& casillaJ, int& penalizacionJ) {
+
+}
+
+int saltaACasilla(const tTablero tablero, int casillaActual) {
+
+}
+
+void buscaCasillaAvanzado(const tTablero tablero, tCasilla tipo, int& posicion) {
+
+}
+
+void buscaCasillaRetrocediendo(const tTablero tablero, tCasilla tipo, int& posicion){
+
+}
+
+void iniciaJugadores(tJugadores casillasJ, tJugadores penalizacionesJ) {
+
+}
+
+void tirada(const tTablero tablero, int& casillaActual, int& penalizacion){
+}
+
+int partida(const tTablero tablero) {
+
+}
+
+void pintaTablero(const tTablero tablero, const tJugadores casillasJ) {
 
 }
