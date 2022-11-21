@@ -2,7 +2,9 @@
 using namespace std;
 
 typedef enum { noPresentado, suspenso, aprobado, notable, sobresaliente, matriculaDeHonor } tCalificacion;
+
 tCalificacion notaACalificacion(double nota);
+string notaAString(double nota);
 
 
 int main() {
@@ -32,13 +34,8 @@ int main() {
 	cout << endl;
 
 
-	tCalificacion calif1, calif2;
-
-	calif1 = notaACalificacion(nota1);
-	calif2 = notaACalificacion(nota2);
-
-	cout << "nota 1: " << nota1 << ", calificación: " << calif1 << endl;
-	cout << "nota 2: " << nota2 << ", calificación: " << calif2 << endl;
+	cout << "nota 1: " << nota1 << ", calificación: " <<notaAString(nota1) << endl;
+	cout << "nota 2: " << nota2 << ", calificación: " << notaAString(nota2) << endl;
 
 }
 
@@ -63,6 +60,27 @@ tCalificacion notaACalificacion(double nota) {
 	else if (nota >= 9) {
 		calif = tCalificacion(5);
 	}
-
 	return calif;
+}
+
+string notaAString(double nota) {
+	string str = "no presentado";
+
+	if (notaACalificacion(nota) == tCalificacion(1)) {
+		str = "suspenso";
+	}
+	else if (notaACalificacion(nota) == tCalificacion(2)) {
+		str = "aprobado";
+	}
+	else if (notaACalificacion(nota) == tCalificacion(3)) {
+		str = "notable";
+	}
+	else if (notaACalificacion(nota) == tCalificacion(4)) {
+		str = "sobresaliente";
+	}
+	else if (notaACalificacion(nota) == tCalificacion(5)) {
+		str = "matricula";
+	}
+
+	return str;
 }
