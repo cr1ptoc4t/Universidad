@@ -48,27 +48,28 @@ string casillaAstring(tCasilla casilla);
 
 //---------------------------------------------------------------------------
 //
-void iniciaTablero(tTablero tablero);
+void iniciaTablero(tTablero& tablero);
 void efectoTirada(const tTablero tablero, int& casillaJ, int& penalizacionJ);
 
 bool esCasillaPremio(const tTablero tablero, int casilla);
-bool cargaTablero(tTablero tablero);
+bool cargaTablero(tTablero& tablero);
 
 int saltaACasilla(const tTablero tablero, int casillaActual);
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
 //
-void buscaCasillaAvanzado(const tTablero tablero, tCasilla tipo, int& posicion);
+void buscaCasillaAvanzando(const tTablero tablero, tCasilla tipo, int& posicion);
 void buscaCasillaRetrocediendo(const tTablero tablero, tCasilla tipo, int& posicion);
-void iniciaJugadores(tJugadores casillasJ, tJugadores penalizacionesJ);
+void iniciaJugadores(tJugadores& casillasJ, tJugadores& penalizacionesJ);
 void tirada(const tTablero tablero, int& casillaActual, int& penalizacion);
 
 int partida(const tTablero tablero);
-//---------------------------------------------------------------------------
+int tirarDadoManual();
+int tirarDado();
 
-void iniciaTablero(tTablero tablero);
-bool cargaTablero(tTablero tablero);
+int quienEmpieza();
+//---------------------------------------------------------------------------
 
 int main() {
     tTablero tablero;
@@ -76,6 +77,7 @@ int main() {
     iniciaTablero(tablero);
     cargaTablero(tablero);
     pintaTablero(tablero, casillasJ);
+    casillasJ[1] = 1;
 
     return 0;
 }
@@ -83,37 +85,34 @@ int main() {
 
 
 string casillaAstring(tCasilla casilla) {
-    string cadena;
+    string cadena = " ";
     switch (casilla) {
-    case NORMAL:
-        cadena = " ";
-        break;
-    case OCA:
-        cadena = "OCA";
-        break;
-    case DADO1:
-    case DADO2:
-        cadena = "DADO";
-        break;
-    case PUENTE1:
-    case PUENTE2:
-        cadena = "PNTE";
-        break;
-    case POSADA:
-        cadena = "PSDA";
-        break;
-    case CALAVERA:
-        cadena = "MUER";
-        break;
-    case LABERINTO:
-        cadena = "LBRN";
-        break;
-    case POZO:
-        cadena = "POZO";
-        break;
-    case CARCEL:
-        cadena = "CRCL";
-        break;
+        case OCA:
+            cadena = "OCA";
+            break;
+        case DADO1:
+        case DADO2:
+            cadena = "DADO";
+            break;
+        case PUENTE1:
+        case PUENTE2:
+            cadena = "PNTE";
+            break;
+        case POSADA:
+            cadena = "PSDA";
+            break;
+        case CALAVERA:
+            cadena = "MUER";
+            break;
+        case LABERINTO:
+            cadena = "LBRN";
+            break;
+        case POZO:
+            cadena = "POZO";
+            break;
+        case CARCEL:
+            cadena = "CRCL";
+            break;
     }
     return cadena;
 }
@@ -187,7 +186,7 @@ void pintaJugadores(const tJugadores casillasJ, int fila, int casillasPorFila) {
 
 
 //inicia el valor de las casillas a normal;
-void iniciaTablero(tTablero tablero) {
+void iniciaTablero(tTablero& tablero) {
     for (int i = 0; i <= CASILLA_META - 1; i++) {
         tablero[i] = NORMAL;
 
@@ -197,13 +196,12 @@ void iniciaTablero(tTablero tablero) {
 
 // lee el fichero de las casillas especiales.
 //almacena las casillas en el array Ttablero.
-bool cargaTablero(tTablero tablero) {
+bool cargaTablero(tTablero& tablero) {
     bool aperturaCorrecta=false;
     int i;
-    char aux;
-    string nombreF;
-    string casillaESP;
     int contador = 0;
+    char aux;
+    string nombreF, casillaESP;
     ifstream fichero;
    // cout << "Introduce el nombre del fichero que contiene el tablero: ";
    // cin >> nombreF;
@@ -266,17 +264,17 @@ void efectoTirada(const tTablero tablero, int& casillaJ, int& penalizacionJ) {
     if (tablero[casillaJ] == OCA) {
         casillaJ = tablero[casillaJ + OCA];
         penalizacionJ--;
-
     }
 }
 
 
 
 int saltaACasilla(const tTablero tablero, int casillaActual) {
-
+    int nuevaCasilla = 0;
+    return nuevaCasilla;
 }
 
-void buscaCasillaAvanzado(const tTablero tablero, tCasilla tipo, int& posicion) {
+void buscaCasillaAvanzando(const tTablero tablero, tCasilla tipo, int& posicion) {
 
 }
 
@@ -284,7 +282,8 @@ void buscaCasillaRetrocediendo(const tTablero tablero, tCasilla tipo, int& posic
 
 }
 
-void iniciaJugadores(tJugadores casillasJ, tJugadores penalizacionesJ) {
+void iniciaJugadores(tJugadores& casillasJ, tJugadores& penalizacionesJ) {
+
 
 }
 
@@ -292,9 +291,23 @@ void tirada(const tTablero tablero, int& casillaActual, int& penalizacion) {
 }
 
 int partida(const tTablero tablero) {
-
+    return 0;
 }
 
-void pintaTablero(const tTablero tablero, const tJugadores casillasJ) {
-
+int tirarDadoManual() {
+    int a = 0;
+    cout << endl;
+    cout << "Introduce valor del dado:";
+    cin >> a;
+    while (a > 6 || a < 1) {
+        cout << "ERROR: el numero debe pertenecer al intervalo [1,6]." << endl;
+        cout << "Elige otro numero:";
+        cin >> a;
+    }
+    return a;
 }
+
+
+int tirarDado() { return rand() % 6 + 1; }
+
+int quienEmpieza() { return 1 + rand() % NUM_JUGADORES; }
