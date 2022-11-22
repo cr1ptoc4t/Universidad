@@ -9,7 +9,7 @@
 using namespace std;
 
 
-const int MODO_DEBUG = true;
+const bool MODO_DEBUG = true;
 
 const int TURNOS_POSADA = 1;
 const int TURNOS_CARCEL = 2;
@@ -265,19 +265,31 @@ bool cargaTablero(tTablero& tablero) {
 
 bool esCasillaPremio(const tTablero tablero, int casilla) {
     bool premio=false;
-    for (int i = 0; i < NUM_CASILLAS; i++) {
-        if (tablero[i] == OCA || tablero[i] == PUENTE1 || tablero[i] == PUENTE2 || tablero[i] == DADO1 || tablero[i] == DADO2) {
-            premio = true;
-        }
+    if (tablero[casilla] == OCA || tablero[casilla] == PUENTE1 || tablero[casilla] == PUENTE2 || tablero[casilla] == DADO1 || tablero[casilla] == DADO2) {
+        premio = true;
     }
     return premio;
 }
 
 void efectoTirada(const tTablero tablero, int& casillaJ, int& penalizacionJ) {
-    if (tablero[casillaJ] == OCA) {
-        casillaJ = tablero[casillaJ + OCA];
-        penalizacionJ--;
-    }
+    //si hay salto --> actualizar casilla actual y penalizacion
+    //si casilla actual hay salto --> saltaACasilla()
+
+    /*
+    * switch(){
+    * case DADO2:
+       casillaActual = saltaACasilla(tablero, casillaActual);
+        …
+
+
+        if (!esMeta(casillaActual)) {cout << "Y VUELVES A TIRAR" << endl; }
+        break;
+        case POSADA:
+        cout << "HAS CAIDO EN LA POSADA." << endl;
+        cout << "PIERDES " << TURNOS_POSADA << " TURNOS" << endl;
+        penalizacion = TURNOS_POSADA;
+        break;
+    */
 }
 
 
@@ -319,10 +331,47 @@ void iniciaJugadores(tJugadores& casillasJ, tJugadores& penalizacionesJ) {
 }
 
 void tirada(const tTablero tablero, int& casillaActual, int& penalizacion) {
+    int dado;
+    if(MODO_DEBUG){
+        dado= tirarDadoManual();
+    } else { dado = tirarDado(); }
+    casillaActual += dado;
+    if(casillaActual<63&&esCasillaPremio(tablero, casillaActual)){
+        efectoTirada(tablero, casillaActual, casillaActual);
+    }
 }
 
 int partida(const tTablero tablero) {
-    return 0;
+    tJugadores casillasJug, penalizacionesJug;
+    iniciaJugadores(casillasJug, penalizacionesJug);
+    pintaTablero(tablero, casillasJug);
+    int empieza = quienEmpieza();
+    bool finPartida = false;
+
+    while (!finPartida) {
+
+    /*si penalizacionesJug[i - 1]>0{
+    * tirada();
+    * 
+    * } else{penalizacionesJug[i-1]--;}
+    * 
+    * si casillasJug[jugador-1]<meta && !escasillapremio[jugador]{
+    * cambio de turno
+    * }
+    * 
+    * if(casillasJug[jugador-1] >= CASILLA_META){
+    * finPartida = true
+    * }
+    * 
+    */
+
+
+    }
+
+    // cout<< "has ganado el jugador "<< jugador<<endl;
+
+    int gana = 1;
+    return gana;
 }
 
 int tirarDadoManual() {
@@ -342,7 +391,6 @@ int tirarDadoManual() {
 int tirarDado() { return rand() % 6 + 1; }
 
 int quienEmpieza() { return 1 + rand() % NUM_JUGADORES; }
-
 
 void printArray(tTablero array, int longitud) {
     for (int i = 0; i < longitud; i++) {
