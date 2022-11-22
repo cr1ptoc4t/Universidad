@@ -129,6 +129,9 @@
   <ItemGroup>
     <ClCompile Include="ocaV2.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="tablero.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

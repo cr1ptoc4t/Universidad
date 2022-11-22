@@ -127,10 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="calculaSumaDigitos.cpp" />
+    <Text Include="lista.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="lista.txt" />
+    <ClCompile Include="calificaciones.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
