@@ -17,20 +17,24 @@ const int TURNOS_POZO = 3;
 
 const int CENTINELA = 0;
 
+const int NUM_CASILLAS = 63;
+
 const int CASILLA_INICIAL = 1;
-const int CASILLA_META = 63;
+const int CASILLA_META = NUM_CASILLAS;
 
 const int RETROCESO_LABERINTO = 12;
 // numero de jugadores actual
-const int NUM_JUGADORES = 2;
+const int NUM_JUGADORES = 4;
 // maximo numero de jugadores
 const int MAX_JUGADORES = 4;
 // numero de filas a dibujar
 const int NUM_FILAS_A_DIBUJAR = 3;
 
+
+
 typedef enum { NORMAL, OCA, PUENTE1, PUENTE2, POZO, POSADA, LABERINTO, DADO1, DADO2, CARCEL, CALAVERA } tCasilla;
 
-typedef tCasilla tTablero[CASILLA_META];
+typedef tCasilla tTablero[NUM_CASILLAS];
 
 typedef int tJugadores[NUM_JUGADORES];
 
@@ -69,16 +73,25 @@ int tirarDadoManual();
 int tirarDado();
 
 int quienEmpieza();
+void printArray(tTablero array, int longitud);
+void printArray(tJugadores array, int longitud);
 //---------------------------------------------------------------------------
 
 int main() {
     tTablero tablero;
     tJugadores casillasJ;
+    tJugadores penalizacionesJ;
+
     iniciaTablero(tablero);
     cargaTablero(tablero);
     pintaTablero(tablero, casillasJ);
-    casillasJ[1] = 1;
+    iniciaJugadores(casillasJ, penalizacionesJ);
 
+
+    /*
+    printArray(casillasJ, NUM_JUGADORES);
+    printArray(penalizacionesJ, NUM_JUGADORES);
+    */
     return 0;
 }
 
@@ -187,7 +200,7 @@ void pintaJugadores(const tJugadores casillasJ, int fila, int casillasPorFila) {
 
 //inicia el valor de las casillas a normal;
 void iniciaTablero(tTablero& tablero) {
-    for (int i = 0; i <= CASILLA_META - 1; i++) {
+    for (int i = 0; i <= NUM_CASILLAS - 1; i++) {
         tablero[i] = NORMAL;
 
         if (i == CASILLA_META - 1) { tablero[i] = OCA; }
@@ -205,7 +218,7 @@ bool cargaTablero(tTablero& tablero) {
     ifstream fichero;
    // cout << "Introduce el nombre del fichero que contiene el tablero: ";
    // cin >> nombreF;
-    fichero.open("tablero.txt");
+    fichero.open("tablero.txt"); //Cambiar esto por la introduccion de texto
     if (fichero.is_open()) {
         aperturaCorrecta = true;
         fichero >> i;
@@ -252,14 +265,14 @@ bool cargaTablero(tTablero& tablero) {
 
 bool esCasillaPremio(const tTablero tablero, int casilla) {
     bool premio=false;
-    for (int i = 0; i < CASILLA_META; i++) {
+    for (int i = 0; i < NUM_CASILLAS; i++) {
         if (tablero[i] == OCA || tablero[i] == PUENTE1 || tablero[i] == PUENTE2 || tablero[i] == DADO1 || tablero[i] == DADO2) {
             premio = true;
         }
     }
-
     return premio;
 }
+
 void efectoTirada(const tTablero tablero, int& casillaJ, int& penalizacionJ) {
     if (tablero[casillaJ] == OCA) {
         casillaJ = tablero[casillaJ + OCA];
@@ -270,20 +283,38 @@ void efectoTirada(const tTablero tablero, int& casillaJ, int& penalizacionJ) {
 
 
 int saltaACasilla(const tTablero tablero, int casillaActual) {
-    int nuevaCasilla = 0;
-    return nuevaCasilla;
+
+    if (tablero[casillaActual - 1] == OCA) {
+        buscaCasillaAvanzando(tablero, OCA, casillaActual);
+    } else if (tablero[casillaActual - 1] == PUENTE1) {
+        buscaCasillaAvanzando(tablero, PUENTE2, casillaActual);
+    } else if(tablero[casillaActual - 1] == DADO1) {
+        buscaCasillaAvanzando(tablero, DADO2, casillaActual);
+    } else if  (tablero[casillaActual - 1] == PUENTE2) {
+        buscaCasillaRetrocediendo(tablero, PUENTE1, casillaActual);
+    }else if (tablero[casillaActual - 1] == DADO2) {
+        buscaCasillaRetrocediendo(tablero, DADO1, casillaActual);
+    }
+    return casillaActual;
 }
 
 void buscaCasillaAvanzando(const tTablero tablero, tCasilla tipo, int& posicion) {
-
+    while (tablero[posicion]!= tipo && posicion<CASILLA_META) {
+        posicion++;
+    }
 }
 
 void buscaCasillaRetrocediendo(const tTablero tablero, tCasilla tipo, int& posicion) {
-
+    while (tablero[posicion] != tipo && posicion !=0) {
+        posicion--;
+    }
 }
 
 void iniciaJugadores(tJugadores& casillasJ, tJugadores& penalizacionesJ) {
-
+    for (int i = 0; i < NUM_JUGADORES ;i++) {
+        casillasJ[i] = 1;
+        penalizacionesJ[i] = 0;
+    }
 
 }
 
@@ -311,3 +342,17 @@ int tirarDadoManual() {
 int tirarDado() { return rand() % 6 + 1; }
 
 int quienEmpieza() { return 1 + rand() % NUM_JUGADORES; }
+
+
+void printArray(tTablero array, int longitud) {
+    for (int i = 0; i < longitud; i++) {
+        cout << array[i] << " | ";
+    }
+}
+
+
+void printArray(tJugadores array, int longitud) {
+    for (int i = 0; i < longitud; i++) {
+        cout << array[i] << " | ";
+    }
+}
