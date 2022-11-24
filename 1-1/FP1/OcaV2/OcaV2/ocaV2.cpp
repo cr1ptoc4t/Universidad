@@ -9,7 +9,7 @@
 using namespace std;
 
 
-const bool MODO_DEBUG = true;
+const bool MODO_DEBUG = false;
 
 const int TURNOS_POSADA = 1;
 const int TURNOS_CARCEL = 2;
@@ -81,17 +81,24 @@ int main() {
     tTablero tablero;
     tJugadores casillasJ;
     tJugadores penalizacionesJ;
+    int ganador;
+    srand(time(NULL));
 
     iniciaTablero(tablero);
-    cargaTablero(tablero);
-    pintaTablero(tablero, casillasJ);
-    iniciaJugadores(casillasJ, penalizacionesJ);
-
+    if (!cargaTablero(tablero)) {
+        cout << "El fichero no existe" << endl;
+    }
+    else {
+        ganador = partida(tablero);
+        cout << endl << "------ GANA EL JUGADOR " << ganador + 1
+            << "---------" << endl;
+    }
 
     /*
     printArray(casillasJ, NUM_JUGADORES);
     printArray(penalizacionesJ, NUM_JUGADORES);
     */
+
     return 0;
 }
 
@@ -265,7 +272,7 @@ bool cargaTablero(tTablero& tablero) {
 
 bool esCasillaPremio(const tTablero tablero, int casilla) {
     bool premio=false;
-    if (tablero[casilla] == OCA || tablero[casilla] == PUENTE1 || tablero[casilla] == PUENTE2 || tablero[casilla] == DADO1 || tablero[casilla] == DADO2) {
+    if ((tablero[casilla] == OCA) || (tablero[casilla] == PUENTE1) || (tablero[casilla] == PUENTE2) || (tablero[casilla] == DADO1) || (tablero[casilla] == DADO2)) {
         premio = true;
     }
     return premio;
@@ -324,10 +331,9 @@ void buscaCasillaRetrocediendo(const tTablero tablero, tCasilla tipo, int& posic
 
 void iniciaJugadores(tJugadores& casillasJ, tJugadores& penalizacionesJ) {
     for (int i = 0; i < NUM_JUGADORES ;i++) {
-        casillasJ[i] = 1;
+        casillasJ[i] = 0;
         penalizacionesJ[i] = 0;
     }
-
 }
 
 void tirada(const tTablero tablero, int& casillaActual, int& penalizacion) {
@@ -343,34 +349,45 @@ void tirada(const tTablero tablero, int& casillaActual, int& penalizacion) {
 
 int partida(const tTablero tablero) {
     tJugadores casillasJug, penalizacionesJug;
+    
+    bool finPartida = false;
+    int gana = 1;
+    
     iniciaJugadores(casillasJug, penalizacionesJug);
     pintaTablero(tablero, casillasJug);
+
     int empieza = quienEmpieza();
-    bool finPartida = false;
+    cout << "empieza el jugador " << empieza<<endl;
+
+    int turno = empieza;
 
     while (!finPartida) {
+        pintaTablero(tablero, casillasJug);
+        if (penalizacionesJug[turno-1]<=0){
+            cout << "le toca al jugador: " << turno << endl;
+            tirada(tablero, casillasJug[turno-1], penalizacionesJug[turno-1] );
+        } else {
+            penalizacionesJug[turno-1]--;
+            cout <<"jugador "<<turno <<", te quedan " << penalizacionesJug[turno-1] << " turnos sin jugar" << endl;
+        }
 
-    /*si penalizacionesJug[i - 1]>0{
-    * tirada();
-    * 
-    * } else{penalizacionesJug[i-1]--;}
-    * 
-    * si casillasJug[jugador-1]<meta && !escasillapremio[jugador]{
-    * cambio de turno
-    * }
-    * 
-    * if(casillasJug[jugador-1] >= CASILLA_META){
-    * finPartida = true
-    * }
-    * 
-    */
+        //ganador
+        if (casillasJug[turno - 1] >= CASILLA_META) {
+            finPartida = true;
+            gana = turno;
+            pintaTablero(tablero, casillasJug);
+        }
 
-
+        //CAMBIO DE JUGADOR
+        if (casillasJug[turno-1]<CASILLA_META && !esCasillaPremio(tablero, casillasJug[turno-1])) {
+            if (turno<MAX_JUGADORES) turno++;
+            else turno = 1;
+        }
     }
 
     // cout<< "has ganado el jugador "<< jugador<<endl;
 
-    int gana = 1;
+    
     return gana;
 }
 
