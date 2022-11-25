@@ -24,7 +24,7 @@ const int CASILLA_META = NUM_CASILLAS;
 
 const int RETROCESO_LABERINTO = 12;
 // numero de jugadores actual
-const int NUM_JUGADORES = 4;
+const int NUM_JUGADORES = 2;
 // maximo numero de jugadores
 const int MAX_JUGADORES = 4;
 // numero de filas a dibujar
@@ -401,8 +401,11 @@ void tirada(const tTablero tablero, int& casillaActual, int& penalizacion) {
     if(MODO_DEBUG){
         dado= tirarDadoManual();
     } else { dado = tirarDado(); }
+    cout << "Dado: " << dado << endl;
     casillaActual += dado;
-    if(casillaActual<63){
+
+    if(casillaActual<CASILLA_META){    
+        cout << "Avanzas a la casilla " << casillaActual + 1 << endl;
         efectoTirada(tablero, casillaActual, penalizacion);
     }
 }
