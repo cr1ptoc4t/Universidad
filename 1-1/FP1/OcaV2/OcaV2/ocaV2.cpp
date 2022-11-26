@@ -5,10 +5,10 @@
 #include <time.h>
 #define inFile "Tablero.txt";
 
-
 using namespace std;
 
-
+//-------------------------------------------------------------------------
+//constantes
 const bool MODO_DEBUG = false;
 
 const int TURNOS_POSADA = 1;
@@ -29,9 +29,11 @@ const int NUM_JUGADORES = 2;
 const int MAX_JUGADORES = 4;
 // numero de filas a dibujar
 const int NUM_FILAS_A_DIBUJAR = 3;
+//-------------------------------------------------------------------------
 
 
-
+//-------------------------------------------------------------------------
+// 
 typedef enum { NORMAL, OCA, PUENTE1, PUENTE2, POZO, POSADA, LABERINTO, DADO1, DADO2, CARCEL, CALAVERA } tCasilla;
 
 typedef tCasilla tTablero[NUM_CASILLAS];
@@ -51,37 +53,38 @@ string casillaAstring(tCasilla casilla);
 
 
 //---------------------------------------------------------------------------
-//
+// Subprogramas que inician el juego
 void iniciaTablero(tTablero& tablero);
-void efectoTirada(const tTablero tablero, int& casillaJ, int& penalizacionJ);
-
-bool esCasillaPremio(const tTablero tablero, int casilla);
 bool cargaTablero(tTablero& tablero);
-
-int saltaACasilla(const tTablero tablero, int casillaActual);
+void iniciaJugadores(tJugadores& casillasJ, tJugadores& penalizacionesJ);
 //---------------------------------------------------------------------------
 
+
 //---------------------------------------------------------------------------
-//
+// Subprogramas para el funcionamiento interno del juego
 void buscaCasillaAvanzando(const tTablero tablero, tCasilla tipo, int& posicion);
 void buscaCasillaRetrocediendo(const tTablero tablero, tCasilla tipo, int& posicion);
-void iniciaJugadores(tJugadores& casillasJ, tJugadores& penalizacionesJ);
 void tirada(const tTablero tablero, int& casillaActual, int& penalizacion);
+void efectoTirada(const tTablero tablero, int& casillaJ, int& penalizacionJ);
 
+int saltaACasilla(const tTablero tablero, int casillaActual);
 int partida(const tTablero tablero);
 int tirarDadoManual();
 int tirarDado();
-
 int quienEmpieza();
-void printArray(tTablero array, int longitud);
-void printArray(tJugadores array, int longitud);
+
+bool esCasillaPremio(const tTablero tablero, int casilla);
 //---------------------------------------------------------------------------
+
+
 
 int main() {
     tTablero tablero;
     tJugadores casillasJ;
     tJugadores penalizacionesJ;
+
     int ganador;
+
     srand(time(NULL));
 
     iniciaTablero(tablero);
@@ -89,15 +92,9 @@ int main() {
         cout << "El fichero no existe" << endl;
     } else {
         ganador = partida(tablero);
-        cout << endl << "------------ GANA EL JUGADOR " << ganador + 1
+        cout << endl << "------------ GANA EL JUGADOR " << ganador
             << " ------------" << endl;
     }
-
-    /*
-    printArray(casillasJ, NUM_JUGADORES);
-    printArray(penalizacionesJ, NUM_JUGADORES);
-    */
-
     return 0;
 }
 
@@ -142,15 +139,16 @@ string casillaAstring(tCasilla casilla) {
 
 void pintaTablero(const tTablero tablero, const tJugadores casillasJ) {
 
-
     int casillasPorFila = CASILLA_META / NUM_FILAS_A_DIBUJAR;
     cout << endl;
+
     for (int fila = 0; fila < NUM_FILAS_A_DIBUJAR; fila++) {
         pintaBorde(casillasPorFila);
         pintaNumCasilla(fila, casillasPorFila);
         pintaTipoCasilla(tablero, fila, casillasPorFila);
         pintaJugadores(casillasJ, fila, casillasPorFila);
     }
+
     pintaBorde(casillasPorFila);
     cout << endl;
 }
@@ -210,6 +208,7 @@ void pintaJugadores(const tJugadores casillasJ, int fila, int casillasPorFila) {
 
 //inicia el valor de las casillas a normal;
 void iniciaTablero(tTablero& tablero) {
+
     for (int i = 0; i <= NUM_CASILLAS - 1; i++) {
         tablero[i] = NORMAL;
 
@@ -218,20 +217,26 @@ void iniciaTablero(tTablero& tablero) {
 }
 
 // lee el fichero de las casillas especiales.
-//almacena las casillas en el array Ttablero.
+// almacena las casillas en el array Ttablero.
 bool cargaTablero(tTablero& tablero) {
+
     bool aperturaCorrecta=false;
     int i;
     int contador = 0;
     char aux;
+
     string nombreF, casillaESP;
     ifstream fichero;
-   // cout << "Introduce el nombre del fichero que contiene el tablero: ";
-   // cin >> nombreF;
-    fichero.open("tablero.txt"); //Cambiar esto por la introduccion de texto
+
+    cout << "Introduce el nombre del fichero que contiene el tablero: ";
+    cin >> nombreF;
+    fichero.open(nombreF);
+
     if (fichero.is_open()) {
+
         aperturaCorrecta = true;
         fichero >> i;
+
         while (i != 0) {
             fichero.get(aux);
             getline(fichero, casillaESP);
@@ -277,74 +282,77 @@ bool cargaTablero(tTablero& tablero) {
 }
 
 bool esCasillaPremio(const tTablero tablero, int casilla) {
+    
     bool premio=false;
 
-    if ((tablero[casilla] == OCA) || (tablero[casilla] == PUENTE1) || (tablero[casilla] == PUENTE2) || (tablero[casilla] == DADO1) || (tablero[casilla] == DADO2)) {
+    if ((tablero[casilla] == OCA) || (tablero[casilla] == PUENTE1) || (tablero[casilla] == PUENTE2)
+        || (tablero[casilla] == DADO1) || (tablero[casilla] == DADO2)) {
         premio = true;
     }
     return premio;
 }
 
 void efectoTirada(const tTablero tablero, int& casillaJ, int& penalizacionJ) {
+    int casillaAnterior = casillaJ;
 
+    cout << "Casilla actual: " << casillaJ + 1 <<" ---- " << casillaAstring(tablero[casillaJ]) << endl;
     switch (tablero[casillaJ]) {
         case OCA:
-            cout << "Estas en la casilla Oca: " << casillaJ+1 << endl;
             casillaJ = saltaACasilla(tablero, casillaJ);
-            cout << "Saltas a la casilla Oca: " << casillaJ+1 << endl;
-            if (casillaJ != CASILLA_META) { cout << "Y VUELVES A TIRAR" << endl; }
+            if (casillaJ != CASILLA_META) { cout << "VUELVES A TIRAR" << endl; }
             break;
+
         case DADO1:
-            cout << "Estas en la casilla Dado: " << casillaJ + 1 << endl;
             casillaJ = saltaACasilla(tablero, casillaJ);
-            cout << "Saltas a la casilla Dado: " << casillaJ + 1 << endl;
-            if (casillaJ != CASILLA_META) { cout << "Y VUELVES A TIRAR" << endl; }
+            if (casillaJ != CASILLA_META) { cout << "VUELVES A TIRAR" << endl; }
             break;
+
         case DADO2:
-            cout << "Estas en la casilla Dado: " << casillaJ+1 << endl;
             casillaJ = saltaACasilla(tablero, casillaJ);
-            cout << "Saltas a la casilla Dado: " << casillaJ+1 << endl;
-            if (casillaJ != CASILLA_META) { cout << "Y VUELVES A TIRAR" << endl; }
+            if (casillaJ != CASILLA_META) { cout << "VUELVES A TIRAR" << endl; }
             break;
+
         case PUENTE1:
-            cout << "Estas en la casilla Puente: " << casillaJ+1 << endl;
             casillaJ = saltaACasilla(tablero, casillaJ);
-            cout << "Saltas a la casilla Puente: " << casillaJ+1 << endl;
-            if (casillaJ != CASILLA_META) { cout << "Y VUELVES A TIRAR" << endl; }
+            if (casillaJ != CASILLA_META) { cout << "VUELVES A TIRAR" << endl; }
             break;
+
         case PUENTE2:
-            cout << "Estas en la casilla Puente: " << casillaJ + 1 << endl;
             casillaJ = saltaACasilla(tablero, casillaJ);
-            cout << "Saltas a la casilla Puente: " << casillaJ + 1 << endl;
             if (casillaJ != CASILLA_META) { cout << "Y VUELVES A TIRAR" << endl; }
             break;
+
         case POSADA:
             cout << "HAS CAIDO EN LA POSADA." << endl;
             cout << "PIERDES " << TURNOS_POSADA << " TURNOS" << endl;
             penalizacionJ += TURNOS_POSADA;
             break;
+
         case CARCEL:
             cout << "HAS CAIDO EN LA POSADA." << endl;
             cout << "PIERDES " << TURNOS_CARCEL << " TURNOS" << endl;
             penalizacionJ += TURNOS_CARCEL;
             break;
+
         case POZO:
-            cout << "HAS CAIDO EN LA POSADA." << endl;
+            cout << "HAS CAIDO EN EL POZO." << endl;
             cout << "PIERDES " << TURNOS_POZO << " TURNOS" << endl;
             penalizacionJ += TURNOS_POZO;
             break;
+
         case CALAVERA:
-            cout << "Estas en la casilla Calavera: " << casillaJ << endl;
             casillaJ = saltaACasilla(tablero, casillaJ);
-            cout << "Retrocedes al inicio: " << casillaJ << endl;
+            cout << "Retrocedes al inicio" <<endl;
             break;
+
         case LABERINTO:
-            cout << "Estas en la casilla Laberinto: " << casillaJ << endl;
             casillaJ = saltaACasilla(tablero, casillaJ);
             cout << "Retrocedes doce casillas: " << casillaJ << endl;
-            break;
     }
-    
+    if (casillaAnterior != casillaJ) {
+        cout << "Saltas a la casilla: " << casillaJ + 1 << endl;
+    }
+
 }
 
 
@@ -400,8 +408,11 @@ void tirada(const tTablero tablero, int& casillaActual, int& penalizacion) {
     int dado;
     if(MODO_DEBUG){
         dado= tirarDadoManual();
-    } else { dado = tirarDado(); }
-    cout << "Dado: " << dado << endl;
+    } else { 
+        dado = tirarDado();
+        cout << "Dado: " << dado << endl;
+    }
+    
     casillaActual += dado;
 
     if(casillaActual<CASILLA_META){    
@@ -411,6 +422,7 @@ void tirada(const tTablero tablero, int& casillaActual, int& penalizacion) {
 }
 
 int partida(const tTablero tablero) {
+
     tJugadores casillasJug, penalizacionesJug;
     
     bool finPartida = false;
@@ -425,7 +437,15 @@ int partida(const tTablero tablero) {
     int turno = empieza;
 
     while (!finPartida) {
-        pintaTablero(tablero, casillasJug);
+
+        //ralentiza el juego cuando no está en modo depuracion para que se pueda entender
+        if (!MODO_DEBUG) { 
+            cout << endl;
+            system("pause");
+            cout << endl;
+        }
+
+        //decide si el jugador tirará en función de la penalizacion
         if (penalizacionesJug[turno-1]<=0){
             tirada(tablero, casillasJug[turno-1], penalizacionesJug[turno-1] );
         } else {
@@ -437,22 +457,29 @@ int partida(const tTablero tablero) {
         if (casillasJug[turno - 1] >= CASILLA_META) {
             finPartida = true;
             gana = turno;
-            pintaTablero(tablero, casillasJug);
         }
+
+        pintaTablero(tablero, casillasJug);
 
         //CAMBIO DE JUGADOR
         if (casillasJug[turno-1]<CASILLA_META && !esCasillaPremio(tablero, casillasJug[turno-1])) {
+
             if (turno<NUM_JUGADORES) turno++;
             else turno = 1;
+
             cout << endl;
-            cout << "//////////////////////////////////////// CAMBIO DE JUGADOR ////////////////////////////////////////" << endl;
+            cout << "/////////////////////////////////////////// CAMBIO DE JUGADOR ///////////////////////////////////////////" << endl;
             cout << "Turno del jugador: " << turno<<endl;
+
         }
+
+        
     }
 
     
     return gana;
 }
+
 
 int tirarDadoManual() {
     int a = 0;
@@ -467,20 +494,7 @@ int tirarDadoManual() {
     return a;
 }
 
-
 int tirarDado() { return rand() % 6 + 1; }
 
+//decide que jugador empezará el juego
 int quienEmpieza() { return 1 + rand() % NUM_JUGADORES; }
-
-void printArray(tTablero array, int longitud) {
-    for (int i = 0; i < longitud; i++) {
-        cout << array[i] << " | ";
-    }
-}
-
-
-void printArray(tJugadores array, int longitud) {
-    for (int i = 0; i < longitud; i++) {
-        cout << array[i] << " | ";
-    }
-}

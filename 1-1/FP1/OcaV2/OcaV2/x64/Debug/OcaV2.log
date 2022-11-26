@@ -1,5 +1,5 @@
 ﻿  ocaV2.cpp
-C:\Users\Catalina\Documents\Universidad\1-1\FP1\OcaV2\OcaV2\ocaV2.cpp(85,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-C:\Users\Catalina\Documents\Universidad\1-1\FP1\OcaV2\OcaV2\ocaV2.cpp(83,16): warning C4101: 'penalizacionesJ': variable local sin referencia
-C:\Users\Catalina\Documents\Universidad\1-1\FP1\OcaV2\OcaV2\ocaV2.cpp(82,16): warning C4101: 'casillasJ': variable local sin referencia
+C:\Users\Catalina\Documents\Universidad\1-1\FP1\OcaV2\OcaV2\ocaV2.cpp(88,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\Catalina\Documents\Universidad\1-1\FP1\OcaV2\OcaV2\ocaV2.cpp(84,16): warning C4101: 'penalizacionesJ': variable local sin referencia
+C:\Users\Catalina\Documents\Universidad\1-1\FP1\OcaV2\OcaV2\ocaV2.cpp(83,16): warning C4101: 'casillasJ': variable local sin referencia
   OcaV2.vcxproj -> C:\Users\Catalina\Documents\Universidad\1-1\FP1\OcaV2\x64\Debug\OcaV2.exe
