@@ -9,7 +9,7 @@ using namespace std;
 
 //-------------------------------------------------------------------------
 //constantes
-const bool MODO_DEBUG = false;
+const bool MODO_DEBUG = true;
 
 const int TURNOS_POSADA = 1;
 const int TURNOS_CARCEL = 2;
@@ -454,7 +454,7 @@ int partida(const tTablero tablero) {
         }
 
         //ganador
-        if (casillasJug[turno - 1] >= CASILLA_META) {
+        if (casillasJug[turno - 1] >= CASILLA_META-1) {
             finPartida = true;
             gana = turno;
         }
