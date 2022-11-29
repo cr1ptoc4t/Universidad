@@ -24,7 +24,7 @@ const int CASILLA_META = NUM_CASILLAS;
 
 const int RETROCESO_LABERINTO = 12;
 // numero de jugadores actual
-const int NUM_JUGADORES = 2;
+const int NUM_JUGADORES = 4;
 // maximo numero de jugadores
 const int MAX_JUGADORES = 4;
 // numero de filas a dibujar
