@@ -49,7 +49,7 @@ struct tEstadoJugador {
 typedef tEstadoJugador tEstadoJugadores[NUM_JUGADORES];
 
 struct tEstadoPartida {
-    tEstadoJugadores estado;
+    tEstadoJugadores estadoJ;
     tTablero tablero;
 };
 
@@ -228,12 +228,9 @@ void pintaJugadores(const tJugadores casillasJ, int fila, int casillasPorFila) {
 
 //inicia el valor de las casillas a normal;
 void iniciaTablero(tTablero& tablero) {
+    for (int i = 0; i <= NUM_CASILLAS - 2; i++) tablero[i] = NORMAL;
 
-    for (int i = 0; i <= NUM_CASILLAS - 1; i++) {
-        tablero[i] = NORMAL;
-
-        if (i == CASILLA_META - 1) { tablero[i] = OCA; }
-    }
+    tablero[CASILLA_META - 1] = OCA;
 }
 
 // lee el fichero de las casillas especiales.
@@ -302,14 +299,8 @@ bool cargaTablero(tTablero& tablero) {
 }
 
 bool esCasillaPremio(const tTablero tablero, int casilla) {
-
-    bool premio = false;
-
-    if ((tablero[casilla] == OCA) || (tablero[casilla] == PUENTE1) || (tablero[casilla] == PUENTE2)
-        || (tablero[casilla] == DADO1) || (tablero[casilla] == DADO2)) {
-        premio = true;
-    }
-    return premio;
+    return (tablero[casilla] == OCA) || (tablero[casilla] == PUENTE1) || (tablero[casilla] == PUENTE2)
+        || (tablero[casilla] == DADO1) || (tablero[casilla] == DADO2);
 }
 
 
@@ -379,27 +370,27 @@ void efectoTirada(const tTablero tablero,tEstadoJugador& estadoJug) {
 
 
 int saltaACasilla(const tTablero tablero, int casillaActual) {
-
-    if (tablero[casillaActual] == OCA) {
-        buscaCasillaAvanzando(tablero, OCA, casillaActual);
-    }
-    else if (tablero[casillaActual] == PUENTE1) {
-        buscaCasillaAvanzando(tablero, PUENTE2, casillaActual);
-    }
-    else if (tablero[casillaActual] == DADO1) {
-        buscaCasillaAvanzando(tablero, DADO2, casillaActual);
-    }
-    else if (tablero[casillaActual] == PUENTE2) {
-        buscaCasillaRetrocediendo(tablero, PUENTE1, casillaActual);
-    }
-    else if (tablero[casillaActual] == DADO2) {
-        buscaCasillaRetrocediendo(tablero, DADO1, casillaActual);
-    }
-    else if (tablero[casillaActual] == LABERINTO) {
-        casillaActual = casillaActual - 12;
-    }
-    else if (tablero[casillaActual] == CALAVERA) {
-        casillaActual = 0;
+    switch (tablero[casillaActual]) {
+        case OCA:
+            buscaCasillaAvanzando(tablero, OCA, casillaActual);
+            break;
+        case PUENTE1:
+            buscaCasillaAvanzando(tablero, PUENTE1, casillaActual);
+            break;
+        case PUENTE2:
+            buscaCasillaAvanzando(tablero, PUENTE2, casillaActual);
+            break;
+        case DADO1: 
+            buscaCasillaRetrocediendo(tablero, DADO1, casillaActual);
+            break;
+        case DADO2:
+            buscaCasillaRetrocediendo(tablero, DADO1, casillaActual);
+            break;
+        case LABERINTO:
+            casillaActual -= 12;
+            break;
+        case CALAVERA:
+            casillaActual = 0;
     }
     return casillaActual;
 }
@@ -420,7 +411,6 @@ void buscaCasillaRetrocediendo(const tTablero tablero, tCasilla tipo, int& posic
 
 void iniciaJugadores(tEstadoJugadores jugadores) {
     for (int i = 0; i < NUM_JUGADORES; i++) {
-
         //no se si esta bien
         jugadores[i].posicion = 0;
         jugadores[i].penalizacion = 0;
@@ -429,9 +419,7 @@ void iniciaJugadores(tEstadoJugadores jugadores) {
 
 void tirada(const tTablero tablero,tEstadoJugador& estadoJug) {
     int dado;
-    if (MODO_DEBUG) {
-        dado = tirarDadoManual();
-    }
+    if (MODO_DEBUG) dado = tirarDadoManual();
     else {
         dado = tirarDado();
         cout << "Dado: " << dado << endl;
@@ -471,9 +459,8 @@ int partida(tEstadoPartida& estado) {
 
         //decide si el jugador tirará en función de la penalizacion
         if (penalizacionesJug[turno - 1] <= 0) {
-            tirada(tablero, casillasJug[turno - 1], penalizacionesJug[turno - 1]);
-        }
-        else {
+            tirada(tablero, estado[turno - 1].estadoJ.posicion, estado[turno - 1].estadoJ.penalizacion);
+        }else {
             penalizacionesJug[turno - 1]--;
             cout << "jugador " << turno << ", te quedan " << penalizacionesJug[turno - 1] + 1 << " turnos sin jugar" << endl;
         }
