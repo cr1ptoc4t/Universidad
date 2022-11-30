@@ -76,9 +76,8 @@ string casillaAstring(tCasilla casilla);
 // Subprogramas que inician el juego
 void iniciaTablero(tTablero& tablero);
 bool cargaTablero(tTablero& tablero);
-void iniciaJugadores(tEstadoJugadores jugadores);
+void iniciaJugadores(tEstadoJugadores& jugadores);
 //---------------------------------------------------------------------------
-
 
 //---------------------------------------------------------------------------
 // Subprogramas para el funcionamiento interno del juego
@@ -100,9 +99,6 @@ bool esCasillaPremio(const tTablero tablero, int casilla);
 
 int main() {
     tTablero tablero;
-    //tJugadores casillasJ;
-    //tJugadores penalizacionesJ;
-
     int ganador;
 
     srand(time(NULL));
@@ -121,6 +117,7 @@ int main() {
 
 
 string casillaAstring(tCasilla casilla) {
+
     string cadena = " ";
     switch (casilla) {
     case OCA:
@@ -257,6 +254,9 @@ bool cargaTablero(tTablero& tablero) {
         while (i != 0) {
             fichero.get(aux);
             getline(fichero, casillaESP);
+             
+
+            //USAR SWITCH >> MÁS LIMPIO
             if (casillaESP == "OCA") {
                 tablero[i - 1] = OCA;
             }
@@ -295,6 +295,7 @@ bool cargaTablero(tTablero& tablero) {
     }
     else cout << "error";
     fichero.close();
+
     return aperturaCorrecta;
 }
 
@@ -304,94 +305,59 @@ bool esCasillaPremio(const tTablero tablero, int casilla) {
 }
 
 
-// FINALIZADO -- SIN TESTEAR
+// NO FINALIZADO -- SIN TESTEAR
 void efectoTirada(const tTablero tablero,tEstadoJugador& estadoJug) {
     int casillaAnterior = estadoJug.posicion;
 
     cout << "Casilla actual: " << estadoJug.posicion + 1 << " ---- " << casillaAstring(tablero[estadoJug.posicion]) << endl;
-    switch (tablero[estadoJug.posicion]) {
-    case OCA:
+    if((tablero[estadoJug.posicion] == OCA) || (tablero[estadoJug.posicion] == PUENTE1) || (tablero[estadoJug.posicion] == PUENTE2)
+            || (tablero[estadoJug.posicion] == DADO1) || (tablero[estadoJug.posicion] == DADO2)){
+        
         estadoJug.posicion = saltaACasilla(tablero, estadoJug.posicion);
         if (estadoJug.posicion != CASILLA_META) { cout << "VUELVES A TIRAR" << endl; }
-        break;
-
-    case DADO1:
-        estadoJug.posicion = saltaACasilla(tablero, estadoJug.posicion);
-        if (estadoJug.posicion != CASILLA_META) { cout << "VUELVES A TIRAR" << endl; }
-        break;
-
-    case DADO2:
-        estadoJug.posicion = saltaACasilla(tablero, estadoJug.posicion);
-        if (estadoJug.posicion != CASILLA_META) { cout << "VUELVES A TIRAR" << endl; }
-        break;
-
-    case PUENTE1:
-        estadoJug.posicion = saltaACasilla(tablero, estadoJug.posicion);
-        if (estadoJug.posicion != CASILLA_META) { cout << "VUELVES A TIRAR" << endl; }
-        break;
-
-    case PUENTE2:
-        estadoJug.posicion = saltaACasilla(tablero, estadoJug.posicion);
-        if (estadoJug.posicion != CASILLA_META) { cout << "Y VUELVES A TIRAR" << endl; }
-        break;
-
-    case POSADA:
-        cout << "HAS CAIDO EN LA POSADA." << endl;
+    
+    } else if (tablero[estadoJug.posicion] == POSADA) {
         cout << "PIERDES " << TURNOS_POSADA << " TURNOS" << endl;
         estadoJug.penalizacion += TURNOS_POSADA;
-        break;
 
-    case CARCEL:
-        cout << "HAS CAIDO EN LA POSADA." << endl;
+    } else if (tablero[estadoJug.posicion] == CARCEL) {
         cout << "PIERDES " << TURNOS_CARCEL << " TURNOS" << endl;
         estadoJug.penalizacion += TURNOS_CARCEL;
-        break;
 
-    case POZO:
-        cout << "HAS CAIDO EN EL POZO." << endl;
+    } else if (tablero[estadoJug.posicion] == POZO) {
         cout << "PIERDES " << TURNOS_POZO << " TURNOS" << endl;
         estadoJug.penalizacion += TURNOS_POZO;
-        break;
 
-    case CALAVERA:
+    } else if (tablero[estadoJug.posicion] == CALAVERA) {
         estadoJug.posicion = saltaACasilla(tablero, estadoJug.posicion);
         cout << "Retrocedes al inicio" << endl;
-        break;
 
-    case LABERINTO:
+    } else if (tablero[estadoJug.posicion] == LABERINTO) {
         estadoJug.posicion = saltaACasilla(tablero, estadoJug.posicion);
         cout << "Retrocedes doce casillas: " << estadoJug.posicion << endl;
+
     }
+
     if (casillaAnterior != estadoJug.posicion) {
         cout << "Saltas a la casilla: " << estadoJug.posicion + 1 << endl;
     }
+
 }
 
 
 
 int saltaACasilla(const tTablero tablero, int casillaActual) {
-    switch (tablero[casillaActual]) {
-        case OCA:
-            buscaCasillaAvanzando(tablero, OCA, casillaActual);
-            break;
-        case PUENTE1:
-            buscaCasillaAvanzando(tablero, PUENTE1, casillaActual);
-            break;
-        case PUENTE2:
-            buscaCasillaAvanzando(tablero, PUENTE2, casillaActual);
-            break;
-        case DADO1: 
-            buscaCasillaRetrocediendo(tablero, DADO1, casillaActual);
-            break;
-        case DADO2:
-            buscaCasillaRetrocediendo(tablero, DADO1, casillaActual);
-            break;
-        case LABERINTO:
-            casillaActual -= 12;
-            break;
-        case CALAVERA:
-            casillaActual = 0;
+
+    if (tablero[casillaActual] == OCA || tablero[casillaActual] == PUENTE1 ||
+        tablero[casillaActual] == DADO1) {
+        buscaCasillaAvanzando(tablero, tablero[casillaActual], casillaActual);
     }
+    else if (tablero[casillaActual] == PUENTE2 || tablero[casillaActual] == DADO2) {
+        buscaCasillaRetrocediendo(tablero, tablero[casillaActual], casillaActual);
+    }
+    else if (tablero[casillaActual] == LABERINTO) casillaActual -= 12;
+    else if (tablero[casillaActual] == CALAVERA) casillaActual = 0;
+
     return casillaActual;
 }
 
@@ -409,7 +375,7 @@ void buscaCasillaRetrocediendo(const tTablero tablero, tCasilla tipo, int& posic
     }
 }
 
-void iniciaJugadores(tEstadoJugadores jugadores) {
+void iniciaJugadores(tEstadoJugadores& jugadores) {
     for (int i = 0; i < NUM_JUGADORES; i++) {
         //no se si esta bien
         jugadores[i].posicion = 0;
@@ -441,16 +407,14 @@ int partida(tEstadoPartida& estado) {
     int gana = 1;
 
     iniciaJugadores(jugadores);
-    pintaTablero(tablero, casillasJug);
+    pintaTablero(estado.tablero, casillasJug);
 
-    int empieza = quienEmpieza();
-    cout << "empieza el jugador " << empieza << endl;
-
-    int turno = empieza;
+    int turno = quienEmpieza();
+    cout << "empieza el jugador " << turno << endl;
 
     while (!finPartida) {
 
-        //ralentiza el juego cuando no está en modo depuracion para que se pueda entender
+        //ralentiza el juego cuando no está en modo depuracion
         if (!MODO_DEBUG) {
             cout << endl;
             system("pause");
@@ -459,7 +423,7 @@ int partida(tEstadoPartida& estado) {
 
         //decide si el jugador tirará en función de la penalizacion
         if (penalizacionesJug[turno - 1] <= 0) {
-            tirada(tablero, estado[turno - 1].estadoJ.posicion, estado[turno - 1].estadoJ.penalizacion);
+            tirada(estado.tablero, estado[turno - 1].estadoJ.posicion, estado[turno - 1].estadoJ.penalizacion);
         }else {
             penalizacionesJug[turno - 1]--;
             cout << "jugador " << turno << ", te quedan " << penalizacionesJug[turno - 1] + 1 << " turnos sin jugar" << endl;
@@ -471,13 +435,11 @@ int partida(tEstadoPartida& estado) {
             gana = turno;
         }
 
-        pintaTablero(tablero, casillasJug);
+        pintaTablero(estado.tablero, casillasJug);
 
         //CAMBIO DE JUGADOR
-        if (casillasJug[turno - 1] < CASILLA_META && !esCasillaPremio(tablero, casillasJug[turno - 1])) {
-
-            if (turno < NUM_JUGADORES) turno++;
-            else turno = 1;
+        if (casillasJug[turno - 1] < CASILLA_META && !esCasillaPremio(estado.tablero, casillasJug[turno - 1])) {
+            turno = (turno + 1) % MAX_JUGADORES+1;
 
             cout << endl;
             cout << "/////////////////////////////////////////// CAMBIO DE JUGADOR ///////////////////////////////////////////" << endl;
