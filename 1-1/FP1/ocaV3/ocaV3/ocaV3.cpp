@@ -63,7 +63,7 @@ struct tListaPartidas {
 //-------------------------------------------------------------------------
 // Subprogramas para pintar el tablero o mostrar informacion
 
-void pintaTablero(const tTablero tablero, const tJugadores casillasJ);
+void pintaTablero(const tEstadoPartida& partida);
 void pintaNumCasilla(int fila, int casillasPorFila);
 void pintaBorde(int casillasPorFila);
 void pintaTipoCasilla(const tTablero tablero, int fila, int casillasPorFila);
@@ -100,6 +100,9 @@ bool esCasillaPremio(const tTablero tablero, int casilla);
 int main() {
     tTablero tablero;
     int ganador;
+    tEstadoPartida estado;
+
+
 
     srand(time(NULL));
 
@@ -107,7 +110,7 @@ int main() {
     if (!cargaTablero(tablero)) {
         cout << "El fichero no existe" << endl;
     } else {
-        ganador = partida(tablero);
+        ganador = partida(estado);
         cout << endl << "------------ GANA EL JUGADOR " << ganador
             << " ------------" << endl;
     }
@@ -154,16 +157,15 @@ string casillaAstring(tCasilla casilla) {
     return cadena;
 }
 
-void pintaTablero(const tTablero tablero, const tJugadores casillasJ) {
-
+void pintaTablero(const tEstadoPartida& partida) {
     int casillasPorFila = CASILLA_META / NUM_FILAS_A_DIBUJAR;
     cout << endl;
 
     for (int fila = 0; fila < NUM_FILAS_A_DIBUJAR; fila++) {
         pintaBorde(casillasPorFila);
         pintaNumCasilla(fila, casillasPorFila);
-        pintaTipoCasilla(tablero, fila, casillasPorFila);
-        pintaJugadores(casillasJ, fila, casillasPorFila);
+        pintaTipoCasilla(partida.tablero, fila, casillasPorFila);
+        pintaJugadores(partida.estadoJ, fila, casillasPorFila);
     }
 
     pintaBorde(casillasPorFila);
@@ -210,10 +212,12 @@ void pintaJugadores(const tJugadores casillasJ, int fila, int casillasPorFila) {
     for (int i = 1; i <= casillasPorFila; i++) {
         casilla = i - 1 + fila * casillasPorFila;
         for (int jug = 0; jug < NUM_JUGADORES; jug++) {
-            if (casillasJ[jug] == casilla)
+            if (casillasJ[jug] == casilla && !(casillasJ[jug] > NUM_CASILLAS))
                 cout << jug + 1;
-            else
-                cout << " ";
+
+            else if (casillasJ[jug] > NUM_CASILLAS) cout << jug + 1;
+  
+            else cout << " ";
         }
         cout << b;
         cout << "|";
@@ -406,8 +410,8 @@ int partida(tEstadoPartida& estado) {
     bool finPartida = false;
     int gana = 1;
 
-    iniciaJugadores(jugadores);
-    pintaTablero(estado.tablero, casillasJug);
+    //iniciaJugadores(jugadores); ________ LOS JUGADORES SE TIENEN QUE INICIALIZAR EN OTRO LADO
+    pintaTablero(estado);
 
     int turno = quienEmpieza();
     cout << "empieza el jugador " << turno << endl;
@@ -422,20 +426,20 @@ int partida(tEstadoPartida& estado) {
         }
 
         //decide si el jugador tirará en función de la penalizacion
-        if (penalizacionesJug[turno - 1] <= 0) {
-            tirada(estado.tablero, estado[turno - 1].estadoJ.posicion, estado[turno - 1].estadoJ.penalizacion);
+        if (estado.estadoJ.penalizacion[turno - 1] <= 0) {
+            tirada(estado.tablero, estado.estadoJ.posicion[turno - 1]);
         }else {
-            penalizacionesJug[turno - 1]--;
-            cout << "jugador " << turno << ", te quedan " << penalizacionesJug[turno - 1] + 1 << " turnos sin jugar" << endl;
+            estado.estadoJ.penalizacion[turno - 1]--;
+            cout << "jugador " << turno << ", te quedan " << estado.estadoJ.penalizacion[turno - 1] + 1 << " turnos sin jugar" << endl;
         }
 
         //ganador
-        if (casillasJug[turno - 1] >= CASILLA_META - 1) {
+        if (estado.estado.posicion[turno - 1] >= CASILLA_META - 1) {
             finPartida = true;
             gana = turno;
         }
 
-        pintaTablero(estado.tablero, casillasJug);
+        pintaTablero(estado);
 
         //CAMBIO DE JUGADOR
         if (casillasJug[turno - 1] < CASILLA_META && !esCasillaPremio(estado.tablero, casillasJug[turno - 1])) {

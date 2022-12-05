@@ -1,0 +1,9 @@
+﻿  ocaV3.cpp
+C:\Users\Catalina\Documents\Universidad\1-1\FP1\ocaV3\ocaV3\ocaV3.cpp(107,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\Catalina\Documents\Universidad\1-1\FP1\ocaV3\ocaV3\ocaV3.cpp(168,62): error C2664: 'void pintaJugadores(const int [],int,int)': el argumento 1 no puede convertirse de 'const tEstadoJugadores' a 'const int []'
+C:\Users\Catalina\Documents\Universidad\1-1\FP1\ocaV3\ocaV3\ocaV3.cpp(168,31): message : Los tipos señalados no están relacionados; la conversión requiere reinterpret_cast, conversión de estilo de C o conversión de estilo de función entre paréntesis
+C:\Users\Catalina\Documents\Universidad\1-1\FP1\ocaV3\ocaV3\ocaV3.cpp(70,6): message : vea la declaración de 'pintaJugadores'
+C:\Users\Catalina\Documents\Universidad\1-1\FP1\ocaV3\ocaV3\ocaV3.cpp(430,70): error C2660: 'tirada': la función no acepta 1 argumentos
+C:\Users\Catalina\Documents\Universidad\1-1\FP1\ocaV3\ocaV3\ocaV3.cpp(390,6): message : vea la declaración de 'tirada'
+C:\Users\Catalina\Documents\Universidad\1-1\FP1\ocaV3\ocaV3\ocaV3.cpp(437,20): error C2039: "estado": no es un miembro de "tEstadoPartida"
+C:\Users\Catalina\Documents\Universidad\1-1\FP1\ocaV3\ocaV3\ocaV3.cpp(51): message : vea la declaración de 'tEstadoPartida'
