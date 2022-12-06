@@ -34,7 +34,7 @@ const int NUM_FILAS_A_DIBUJAR = 3;
 
 
 //-------------------------------------------------------------------------
-// 
+// tipos definidos
 typedef enum { NORMAL, OCA, PUENTE1, PUENTE2, POZO, POSADA, LABERINTO, DADO1, DADO2, CARCEL, CALAVERA } tCasilla;
 
 typedef tCasilla tTablero[NUM_CASILLAS];
@@ -59,6 +59,9 @@ struct tListaPartidas {
     int cont;
     tArrayPartidas arrayPartidas;
 };
+//-------------------------------------------------------------------------
+
+
 
 //-------------------------------------------------------------------------
 // Subprogramas para pintar el tablero o mostrar informacion
@@ -116,6 +119,62 @@ int main() {
     }
     return 0;
 }
+
+
+int partida(tEstadoPartida& estado) {
+
+    //tJugadores casillasJug, penalizacionesJug; SE TIENE QUE INICIAR ANTES
+
+    bool finPartida = false;
+    int gana = 1;
+
+    //iniciaJugadores(jugadores); ________ LOS JUGADORES SE TIENEN QUE INICIALIZAR EN OTRO LADO
+    pintaTablero(estado);
+
+    int turno = quienEmpieza(); //turno tiene que ir fuera de la partida
+    cout << "empieza el jugador " << turno << endl;
+
+    while (!finPartida) {
+
+        //ralentiza el juego cuando no está en modo depuracion
+        if (!MODO_DEBUG) {
+            cout << endl;
+            system("pause");
+            cout << endl;
+        }
+
+        //decide si el jugador tirará en función de la penalizacion
+        if (estado.estadoJ[turno - 1].penalizacion <= 0) {
+            tirada(estado.tablero, estado.estadoJ[turno - 1]);
+        }
+        else {
+            estado.estadoJ[turno - 1].penalizacion--;
+            cout << "jugador " << turno << ", te quedan " << estado.estadoJ[turno - 1].penalizacion + 1 << " turnos sin jugar" << endl;
+        }
+
+        //ganador
+        if (estado.estadoJ[turno - 1].posicion >= CASILLA_META - 1) {
+            finPartida = true;
+            gana = turno;
+        }
+
+        pintaTablero(estado);
+
+        //CAMBIO DE JUGADOR
+        if (estado.estadoJ[turno - 1].posicion < CASILLA_META && !esCasillaPremio(estado.tablero, estado.estadoJ[turno - 1].penalizacion)) {
+            turno = (turno + 1) % MAX_JUGADORES + 1;
+
+
+            // posibilidad de abandonar
+            cout << endl;
+            cout << "/////////////////////////////////////////// CAMBIO DE JUGADOR ///////////////////////////////////////////" << endl;
+            cout << "Turno del jugador: " << turno << endl;
+
+        }
+    }
+    return gana;
+}
+
 
 
 
@@ -258,9 +317,7 @@ bool cargaTablero(tTablero& tablero) {
         while (i != 0) {
             fichero.get(aux);
             getline(fichero, casillaESP);
-             
 
-            //USAR SWITCH >> MÁS LIMPIO
             if (casillaESP == "OCA") {
                 tablero[i - 1] = OCA;
             }
@@ -339,7 +396,6 @@ void efectoTirada(const tTablero tablero,tEstadoJugador& estadoJug) {
     } else if (tablero[estadoJug.posicion] == LABERINTO) {
         estadoJug.posicion = saltaACasilla(tablero, estadoJug.posicion);
         cout << "Retrocedes doce casillas: " << estadoJug.posicion << endl;
-
     }
 
     if (casillaAnterior != estadoJug.posicion) {
@@ -401,61 +457,6 @@ void tirada(const tTablero tablero,tEstadoJugador& estadoJug) {
         cout << "Avanzas a la casilla " << estadoJug.posicion + 1 << endl;
         efectoTirada(tablero, estadoJug);
     }
-}
-
-int partida(tEstadoPartida& estado) {
-
-    tJugadores casillasJug, penalizacionesJug;
-
-    bool finPartida = false;
-    int gana = 1;
-
-    //iniciaJugadores(jugadores); ________ LOS JUGADORES SE TIENEN QUE INICIALIZAR EN OTRO LADO
-    pintaTablero(estado);
-
-    int turno = quienEmpieza();
-    cout << "empieza el jugador " << turno << endl;
-
-    while (!finPartida) {
-
-        //ralentiza el juego cuando no está en modo depuracion
-        if (!MODO_DEBUG) {
-            cout << endl;
-            system("pause");
-            cout << endl;
-        }
-
-        //decide si el jugador tirará en función de la penalizacion
-        if (estado.estadoJ.penalizacion[turno - 1] <= 0) {
-            tirada(estado.tablero, estado.estadoJ.posicion[turno - 1]);
-        }else {
-            estado.estadoJ.penalizacion[turno - 1]--;
-            cout << "jugador " << turno << ", te quedan " << estado.estadoJ.penalizacion[turno - 1] + 1 << " turnos sin jugar" << endl;
-        }
-
-        //ganador
-        if (estado.estado.posicion[turno - 1] >= CASILLA_META - 1) {
-            finPartida = true;
-            gana = turno;
-        }
-
-        pintaTablero(estado);
-
-        //CAMBIO DE JUGADOR
-        if (casillasJug[turno - 1] < CASILLA_META && !esCasillaPremio(estado.tablero, casillasJug[turno - 1])) {
-            turno = (turno + 1) % MAX_JUGADORES+1;
-
-            cout << endl;
-            cout << "/////////////////////////////////////////// CAMBIO DE JUGADOR ///////////////////////////////////////////" << endl;
-            cout << "Turno del jugador: " << turno << endl;
-
-        }
-
-
-    }
-
-
-    return gana;
 }
 
 
