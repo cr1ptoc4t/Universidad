@@ -113,6 +113,7 @@ int main() {
     if (!cargaTablero(tablero)) {
         cout << "El fichero no existe" << endl;
     } else {
+        iniciaJugadores(estado.estadoJ);
         ganador = partida(estado);
         cout << endl << "------------ GANA EL JUGADOR " << ganador
             << " ------------" << endl;
@@ -123,12 +124,9 @@ int main() {
 
 int partida(tEstadoPartida& estado) {
 
-    //tJugadores casillasJug, penalizacionesJug; SE TIENE QUE INICIAR ANTES
-
     bool finPartida = false;
     int gana = 1;
 
-    //iniciaJugadores(jugadores); ________ LOS JUGADORES SE TIENEN QUE INICIALIZAR EN OTRO LADO
     pintaTablero(estado);
 
     int turno = quienEmpieza(); //turno tiene que ir fuera de la partida
@@ -164,17 +162,22 @@ int partida(tEstadoPartida& estado) {
         if (estado.estadoJ[turno - 1].posicion < CASILLA_META && !esCasillaPremio(estado.tablero, estado.estadoJ[turno - 1].penalizacion)) {
             turno = (turno + 1) % MAX_JUGADORES + 1;
 
-
-            // posibilidad de abandonar
             cout << endl;
             cout << "/////////////////////////////////////////// CAMBIO DE JUGADOR ///////////////////////////////////////////" << endl;
             cout << "Turno del jugador: " << turno << endl;
 
         }
+        char opcion;
+        cout << "Quieres salir del juego? s/n" << endl;
+        cin >> opcion;
+
+        if (opcion == 's') { 
+            finPartida = true; 
+            gana = -1;
+        }
     }
     return gana;
 }
-
 
 
 
@@ -224,7 +227,7 @@ void pintaTablero(const tEstadoPartida& partida) {
         pintaBorde(casillasPorFila);
         pintaNumCasilla(fila, casillasPorFila);
         pintaTipoCasilla(partida.tablero, fila, casillasPorFila);
-        pintaJugadores(partida.estadoJ, fila, casillasPorFila);
+        pintaJugadores(partida.estadoJ.posicion, fila, casillasPorFila);
     }
 
     pintaBorde(casillasPorFila);
@@ -373,7 +376,6 @@ void efectoTirada(const tTablero tablero,tEstadoJugador& estadoJug) {
     cout << "Casilla actual: " << estadoJug.posicion + 1 << " ---- " << casillaAstring(tablero[estadoJug.posicion]) << endl;
     if((tablero[estadoJug.posicion] == OCA) || (tablero[estadoJug.posicion] == PUENTE1) || (tablero[estadoJug.posicion] == PUENTE2)
             || (tablero[estadoJug.posicion] == DADO1) || (tablero[estadoJug.posicion] == DADO2)){
-        
         estadoJug.posicion = saltaACasilla(tablero, estadoJug.posicion);
         if (estadoJug.posicion != CASILLA_META) { cout << "VUELVES A TIRAR" << endl; }
     
