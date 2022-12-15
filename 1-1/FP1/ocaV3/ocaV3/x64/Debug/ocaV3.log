@@ -1,4 +1,1 @@
-﻿  ocaV3.cpp
-C:\Users\Catalina\Documents\GitHub\Universidad\1-1\FP1\ocaV3\ocaV3\ocaV3.cpp(110,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-C:\Users\Catalina\Documents\GitHub\Universidad\1-1\FP1\ocaV3\ocaV3\ocaV3.cpp(227,40): error C2228: el operando izquierdo de '.posicion' debe tener class/struct/union
-C:\Users\Catalina\Documents\GitHub\Universidad\1-1\FP1\ocaV3\ocaV3\ocaV3.cpp(227,40): message : el tipo es 'const tEstadoJugadores'
+﻿  ocaV3.vcxproj -> C:\Users\Catalina\Documents\Universidad\1-1\FP1\ocaV3\x64\Debug\ocaV3.exe
