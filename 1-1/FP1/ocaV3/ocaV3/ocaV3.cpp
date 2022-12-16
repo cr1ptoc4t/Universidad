@@ -1,9 +1,10 @@
 //TO DO LIST
-// 1. MAIN ENTERO
+// 1. MAIN ENTERO 
 // 2. CAMBIAR PARTIDA
-// 3. CAMBIAR PINTAR JUGADORES PARA QUE NO QUEDE DESTABULADO
+// 3. CAMBIAR PINTAR JUGADORES PARA QUE NO QUEDE DESTABULADO --- HECHO
 // 4. MÉTODO ELIMINAR PARTIDA
 // 5. METODO INSERTAR NUEVA PARTIDA
+// 6. EN CASILLA 63 DIBUJAR GANADOR
 //
 
 
@@ -25,9 +26,7 @@ const int TURNOS_CARCEL = 2;
 const int TURNOS_POZO = 3;
 
 const int CENTINELA = 0;
-
 const int NUM_CASILLAS = 63;
-
 const int CASILLA_INICIAL = 1;
 const int CASILLA_META = NUM_CASILLAS;
 const int MAX_PARTIDAS = 10;
@@ -37,7 +36,7 @@ const int RETROCESO_LABERINTO = 12;
 const int NUM_JUGADORES = 2;
 // maximo numero de jugadores
 const int MAX_JUGADORES = 4;
-// numero de filas a dibujar
+
 const int NUM_FILAS_A_DIBUJAR = 3;
 //-------------------------------------------------------------------------
 
@@ -145,17 +144,17 @@ int main() {
     //pedir nombre archivo y declarar archivo
 
     cargaTablero(estado.tablero, archivo);
-        // TODO LO QUE ESTA ABAJO SE TIENE QUE CAMBIAR
-        // 
-        //
+    // TODO LO QUE ESTA ABAJO SE TIENE QUE CAMBIAR
+    // 
+    //
 
     iniciaJugadores(estado.estadoJ);
     estado.turno = quienEmpieza();
 
     ganador = partida(estado);
-    if (ganador > 0 && ganador < NUM_JUGADORES) { //porque si decides salir del juego se marca ganador= -1
+    if (ganador > 0 /* && ganador < NUM_JUGADORES*/) { //porque si decides salir del juego se marca ganador= -1
         cout << endl << "------------ GANA EL JUGADOR " << ganador << " ------------" << endl;
-    }
+    } else{}
 
     return 0;
 }
@@ -209,19 +208,19 @@ int partida(tEstadoPartida& estado) {
             cout << endl;
             cout << "/////////////////////////////////////////// CAMBIO DE JUGADOR ///////////////////////////////////////////" << endl;
             cout << "Turno del jugador: " << estado.turno<< endl;
+            /* COMENTADO POR COMODIDAD --- SE TIENE QUE DESCOMENTAR
+            char opcion;
+            cout << "Quieres salir del juego? s/n" << endl;
+            cin >> opcion;
 
+            if (opcion == 's') {
+                finPartida = true;
+                gana = -1;
+            }
+            */
         }
-
-        /*
-        char opcion;
-        cout << "Quieres salir del juego? s/n" << endl;
-        cin >> opcion;
-
-        if (opcion == 's') {
-            finPartida = true;
-            gana = -1;
-        }
-        */
+        
+        
     }
     return gana;
 }
@@ -385,6 +384,8 @@ void efectoTirada(const tTablero tablero, tEstadoJugador& estadoJug) {
     }
 
     if (casillaAnterior != estadoJug.posicion) {
+        
+        if (estadoJug.posicion > NUM_CASILLAS) { estadoJug.posicion = NUM_CASILLAS-2; }
         cout << "Saltas a la casilla: " << estadoJug.posicion + 1 << endl;
     }
 
@@ -411,7 +412,7 @@ void buscaCasillaAvanzando(const tTablero tablero, tCasilla tipo, int& posicion)
     posicion++;
     if (tipo == PUENTE1)    tipo = PUENTE2;
     else if (tipo == DADO1) tipo = DADO2;
-    while (tablero[posicion] != tipo && posicion < CASILLA_META) {
+    while (tablero[posicion] != tipo && posicion <=NUM_CASILLAS-1) {
         posicion++;
     }
 }
@@ -440,8 +441,9 @@ void tirada(const tTablero tablero, tEstadoJugador& estadoJug) {
         dado = tirarDado();
         cout << "Dado: " << dado << endl;
     }
-
-    estadoJug.posicion += dado;
+    if(estadoJug.posicion + dado>=NUM_CASILLAS){
+        estadoJug.posicion = NUM_CASILLAS-1;
+    }else    estadoJug.posicion += dado;
 
     if (estadoJug.posicion < CASILLA_META) {
         cout << "Avanzas a la casilla " << estadoJug.posicion + 1 << endl;
