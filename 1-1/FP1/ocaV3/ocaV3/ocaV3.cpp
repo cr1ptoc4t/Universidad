@@ -1,10 +1,11 @@
-//TO DO LIST
-// 1. MAIN ENTERO 
-// 2. CAMBIAR PARTIDA
+//TO DO LIST 
+// 1. MAIN ENTERO -- CASI TERMINADO ME FALTA POQUISIMO
+// 2. CAMBIAR PARTIDA   -- HECHO
 // 3. CAMBIAR PINTAR JUGADORES PARA QUE NO QUEDE DESTABULADO --- HECHO
-// 4. MÉTODO ELIMINAR PARTIDA
-// 5. METODO INSERTAR NUEVA PARTIDA
+// 4. MÉTODO ELIMINAR PARTIDA 
+// 5. METODO INSERTAR NUEVA PARTIDA -- HECHO
 // 6. EN CASILLA 63 DIBUJAR GANADOR
+// 7. GUARDAR PARTIDAS
 //
 
 
@@ -106,18 +107,18 @@ int tirarDado();
 int quienEmpieza();
 
 bool esCasillaPremio(const tTablero tablero, int casilla);
-int buscaPos(const tEstadoJugadores jugadores, int indice);
 //---------------------------------------------------------------------------
 
 
 
-void cargaTablero(tTablero tablero, ifstream& archivo);
+void cargaTablero(tTablero& tablero, ifstream& archivo);
 void cargaJugadores(tEstadoJugadores& jugadores, ifstream& archivo);
 void eliminarPartida(tListaPartidas& partidas, int indice);
 void guardaTablero(const tTablero tablero, ofstream& archivo);
 void guardaJugadores(const tEstadoJugadores jugadores, ofstream& archivo);
 bool cargaPartidas(tListaPartidas& partidas);
-
+bool insertaNuevaPartida(tListaPartidas& partidas, const tEstadoPartida& partidaOca);
+void guardaPartidas(const tListaPartidas& partidas);
 
 
 void imprimeArray(const tTablero tablero);
@@ -126,44 +127,60 @@ void imprimeArray(const tEstadoPartida estado);
 
 
 int main() {
-    int ganador;
-    char opcion;
-    tEstadoPartida estado;
-    tListaPartidas listaPartidas;
+    int ganador, partidaActual;
+    char opcion, opcion2;
+    tEstadoPartida estado{};
+    tListaPartidas listaPartidas{};
     ifstream archivo;
     string nombre;
+    bool exit = false;
 
     srand(time(NULL));
 
     iniciaTablero(listaPartidas.arrayPartidas[1].tablero);
     iniciaJugadores(listaPartidas.arrayPartidas[1].estadoJ);
+
     if(cargaPartidas(listaPartidas)){
         cout << "Quieres jugar una partida nueva o existente? (n/e) ";
         cin >> opcion;
         if (opcion=='n') {
-            //crear partida
+            partidaActual = listaPartidas.cont;
+            insertaNuevaPartida(listaPartidas, listaPartidas.arrayPartidas[partidaActual]);
         }
         else if (opcion == 'e') {
-            //mostrar numero de partidas disponibles y elegir con indicador (supongo que uso de contador)
-
+            cout << "Tienes " << listaPartidas.cont << " empezadas, a que partida quieres jugar? ";
+            cin >> partidaActual;
         }
-
-        // JUGAR PARTIDA
-        
-
-        //cout << "introduce el nombre del archivo en el que esta el tablero: ";
+        //cout<< "introduce el nombre del archivo en el que esta el tablero: ";
         //cin>>nombreArchivo;
         archivo.open("partidas.txt");
 
-        listaPartidas.arrayPartidas[1].turno = quienEmpieza()+1;
+        while (!exit){
+            
+            listaPartidas.arrayPartidas[partidaActual-1].turno = quienEmpieza() + 1;
+            cout << "/////////////////////////////////////////// PARTIDA N."<< partidaActual << " ///////////////////////////////////////////" << endl;
 
-        ganador = partida(listaPartidas.arrayPartidas[1]);
-        if (ganador > 0 /* && ganador < NUM_JUGADORES*/) { //porque si decides salir del juego se marca ganador= -1
-            cout << endl << "------------ GANA EL JUGADOR " << ganador << " ------------" << endl;
-            //ELIMINAR PARTIDA
-        } else if (ganador == -1) {
-            //ACTUALIZAR PARTIDA EN ARCHIVO
+            ganador = partida(listaPartidas.arrayPartidas[partidaActual - 1]);
+            if (ganador > 0 /* && ganador < NUM_JUGADORES*/) { //porque si decides salir del juego se marca ganador= -1
+                cout << endl << "------------ GANA EL JUGADOR " << ganador << " ------------" << endl;
+                eliminarPartida(listaPartidas, partidaActual - 1);
+                cout << listaPartidas.cont << endl;
+            }
+            else if (ganador == -1) {
+                //ACTUALIZAR PARTIDA EN ARCHIVO
+                guardaPartidas(listaPartidas);
+            }
+
+            cout << "Quieres jugar otra partida? (s/n) ";
+            cin >> opcion2;
+            if (opcion2=='n') {
+                exit = true;
+                cout << "Nos vemos pronto!!";
+            } else if (opcion2=='s') {
+                partidaActual++;
+            }
         }
+        
 
         }
 
@@ -214,6 +231,7 @@ int partida(tEstadoPartida& estado) {
             cout << endl;
             cout << "/////////////////////////////////////////// CAMBIO DE JUGADOR ///////////////////////////////////////////" << endl;
             cout << "Turno del jugador: " << estado.turno<< endl;
+            
             /* COMENTADO POR COMODIDAD --- SE TIENE QUE DESCOMENTAR
             char opcion;
             cout << "Quieres salir del juego? s/n" << endl;
@@ -474,7 +492,7 @@ int tirarDadoManual() {
 int tirarDado() { return rand() % 6 + 1; }
 
 //decide que jugador empezará el juego
-int quienEmpieza() { return 1 + rand() % NUM_JUGADORES; }
+int quienEmpieza() { return  rand() % NUM_JUGADORES; }
 
 
 void imprimeArray(const tTablero tablero) {
@@ -489,6 +507,16 @@ void imprimeArray(const tEstadoPartida estado) {
     }
 }
 
+void imprimeArray(const tListaPartidas listaPartidas) {
+    for (int i = 0; i < listaPartidas.cont;i++) {
+        cout << "Partida " << i + 1 << ":" << endl;
+        for (int j = 0; j < NUM_JUGADORES; j++){
+            cout << listaPartidas.arrayPartidas[i].estadoJ[j].posicion << " - ";
+        }
+        cout<<endl;
+    }
+}
+
 
 //TERMINADO- SIN TESTEAR
 bool cargaPartidas(tListaPartidas& partidas) {
@@ -496,11 +524,13 @@ bool cargaPartidas(tListaPartidas& partidas) {
     ifstream fichero;
     bool cargado = false;
 
-    cout << "introduce el nombre del fichero de texto:"<<endl;
-    cin >> nombreFichero;
+    //cout << "introduce el nombre del fichero de texto:";
+    //cin >> nombreFichero;
     
-    fichero.open(nombreFichero);
+    //fichero.open(nombreFichero);
     
+    fichero.open("partidas.txt");
+
     if (fichero.is_open()) {
         
         fichero >> partidas.cont;
@@ -513,7 +543,7 @@ bool cargaPartidas(tListaPartidas& partidas) {
         }
 
         //HASTA AQUI
-        imprimeArray(partidas.arrayPartidas[1].tablero);
+        imprimeArray(partidas);
 
 
         cargado = true;
@@ -524,7 +554,7 @@ bool cargaPartidas(tListaPartidas& partidas) {
 }
 
 //ESTE MÉTODO FUNCIONA -- NO TOCAR
-void cargaTablero(tTablero tablero, ifstream& archivo) {
+void cargaTablero(tTablero& tablero, ifstream& archivo) {
     string casillaESP;
     int i; char aux;
     if (archivo.is_open()) {
@@ -569,6 +599,7 @@ void cargaTablero(tTablero tablero, ifstream& archivo) {
             }
             archivo >> i;
         }
+        imprimeArray(tablero);
     }
     else cout << "error";
     archivo.close();
@@ -584,14 +615,12 @@ void cargaJugadores(tEstadoJugadores& jugadores, ifstream& archivo) {
 }
 
 
-
-//revisar esto!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 void eliminarPartida(tListaPartidas& partidas, int indice) {
-    int i = buscaPos(partidas, indice);
+    
     if (indice < partidas.cont) { // el elemento existe
-        // desplazamos los elementos a izquierda
-        for (int j = i; j < partidas.cont - 1; j++) {
-            partidas.arrayPartidas[j] = partidas.arrayPartidas[j + 1];
+
+        for (int j = partidas.cont - 1; j > indice; j--) { //puede que en indice haya que poner indice -1
+            partidas.arrayPartidas[j - 1] = partidas.arrayPartidas[j];
         }
         partidas.cont--;
     }
@@ -615,6 +644,7 @@ bool insertaNuevaPartida(tListaPartidas& partidas, const tEstadoPartida& partida
         //INSERTAR PARTIDA
 
         insertado = true;
+        partidas.cont++;
     }
     else cout << "tienes demasiadas partidas" << endl;
 
