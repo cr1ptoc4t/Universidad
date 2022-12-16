@@ -106,6 +106,7 @@ int tirarDado();
 int quienEmpieza();
 
 bool esCasillaPremio(const tTablero tablero, int casilla);
+int buscaPos(const tEstadoJugadores jugadores, int indice);
 //---------------------------------------------------------------------------
 
 
@@ -126,35 +127,45 @@ void imprimeArray(const tEstadoPartida estado);
 
 int main() {
     int ganador;
+    char opcion;
     tEstadoPartida estado;
+    tListaPartidas listaPartidas;
+    ifstream archivo;
+    string nombre;
 
     srand(time(NULL));
 
-    //cargar partidas
-    //pedir si partida nueva o existente (char n/e)
-    // si nueva>crear partida. jugar partida
-    // si existente> mostrar numero de partidas disponibles y elegir con indicadores
-    //      existente se abandona > se actualiza la partida en la lista
-    // 
-    // si una partida se gana esta se elimina (metodo eliminar)
-    // 
-    ifstream archivo;
-    archivo.open("tablero.txt");
-    iniciaTablero(estado.tablero);
-    //pedir nombre archivo y declarar archivo
+    iniciaTablero(listaPartidas.arrayPartidas[1].tablero);
+    iniciaJugadores(listaPartidas.arrayPartidas[1].estadoJ);
+    if(cargaPartidas(listaPartidas)){
+        cout << "Quieres jugar una partida nueva o existente? (n/e) ";
+        cin >> opcion;
+        if (opcion=='n') {
+            //crear partida
+        }
+        else if (opcion == 'e') {
+            //mostrar numero de partidas disponibles y elegir con indicador (supongo que uso de contador)
 
-    cargaTablero(estado.tablero, archivo);
-    // TODO LO QUE ESTA ABAJO SE TIENE QUE CAMBIAR
-    // 
-    //
+        }
 
-    iniciaJugadores(estado.estadoJ);
-    estado.turno = quienEmpieza();
+        // JUGAR PARTIDA
+        
 
-    ganador = partida(estado);
-    if (ganador > 0 /* && ganador < NUM_JUGADORES*/) { //porque si decides salir del juego se marca ganador= -1
-        cout << endl << "------------ GANA EL JUGADOR " << ganador << " ------------" << endl;
-    } else{}
+        //cout << "introduce el nombre del archivo en el que esta el tablero: ";
+        //cin>>nombreArchivo;
+        archivo.open("partidas.txt");
+
+        listaPartidas.arrayPartidas[1].turno = quienEmpieza()+1;
+
+        ganador = partida(listaPartidas.arrayPartidas[1]);
+        if (ganador > 0 /* && ganador < NUM_JUGADORES*/) { //porque si decides salir del juego se marca ganador= -1
+            cout << endl << "------------ GANA EL JUGADOR " << ganador << " ------------" << endl;
+            //ELIMINAR PARTIDA
+        } else if (ganador == -1) {
+            //ACTUALIZAR PARTIDA EN ARCHIVO
+        }
+
+        }
 
     return 0;
 }
@@ -162,11 +173,6 @@ int main() {
 
 int partida(tEstadoPartida& estado) {
 
-    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    // la inicialización del estado de los jugadores y el establecimiento
-    // de quién tiene el turno se realizarán antes de la invocación al 
-    // subprograma partida y no como parte de la funcionalidad del mismo.
-    
     bool finPartida = false;
     int gana = 1;
     
@@ -335,7 +341,7 @@ void pintaJugadores(const tEstadoJugadores casillasJ, int fila, int casillasPorF
 
 
 
-//inicia el valor de las casillas a normal;
+//inicia el valor de las casillas a normal
 void iniciaTablero(tTablero& tablero) {
     for (int i = 0; i <= NUM_CASILLAS - 2; i++) tablero[i] = NORMAL;
 
@@ -380,7 +386,7 @@ void efectoTirada(const tTablero tablero, tEstadoJugador& estadoJug) {
     }
     else if (tablero[estadoJug.posicion] == LABERINTO) {
         estadoJug.posicion = saltaACasilla(tablero, estadoJug.posicion);
-        cout << "Retrocedes doce casillas: " << estadoJug.posicion << endl;
+        cout << "Retrocedes doce casillas"<< endl;
     }
 
     if (casillaAnterior != estadoJug.posicion) {
@@ -498,12 +504,18 @@ bool cargaPartidas(tListaPartidas& partidas) {
     if (fichero.is_open()) {
         
         fichero >> partidas.cont;
+        //ERROR DESDE AQUI
         for (int i = 0; i <partidas.cont-1;i++) {
             cargaTablero(partidas.arrayPartidas[i].tablero, fichero);
             for (int j = 0; j < NUM_JUGADORES - 1; j++) {
                 cargaJugadores(partidas.arrayPartidas[i].estadoJ, fichero);
             }
         }
+
+        //HASTA AQUI
+        imprimeArray(partidas.arrayPartidas[1].tablero);
+
+
         cargado = true;
 
     } else cout << "No se ha podido abrir el fichero " << nombreFichero << endl;
@@ -511,6 +523,7 @@ bool cargaPartidas(tListaPartidas& partidas) {
     return cargado;
 }
 
+//ESTE MÉTODO FUNCIONA -- NO TOCAR
 void cargaTablero(tTablero tablero, ifstream& archivo) {
     string casillaESP;
     int i; char aux;
@@ -556,11 +569,12 @@ void cargaTablero(tTablero tablero, ifstream& archivo) {
             }
             archivo >> i;
         }
-        //imprimeArray(tablero);
     }
     else cout << "error";
     archivo.close();
 }
+
+
 
 void cargaJugadores(tEstadoJugadores& jugadores, ifstream& archivo) {
     for (int i = 0; i < NUM_JUGADORES;i++) {
@@ -569,8 +583,28 @@ void cargaJugadores(tEstadoJugadores& jugadores, ifstream& archivo) {
     }
 }
 
-void eliminarPartida(tListaPartidas& partidas, int indice) {
 
+
+//revisar esto!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+void eliminarPartida(tListaPartidas& partidas, int indice) {
+    int i = buscaPos(partidas, indice);
+    if (indice < partidas.cont) { // el elemento existe
+        // desplazamos los elementos a izquierda
+        for (int j = i; j < partidas.cont - 1; j++) {
+            partidas.arrayPartidas[j] = partidas.arrayPartidas[j + 1];
+        }
+        partidas.cont--;
+    }
+}
+
+int buscaPos(const tListaPartidas partidas, int indice) {
+   
+    int i = 0;
+    while (i != indice -1) { // este -1 no estoy segura de que deba estar aqui
+        i++;
+    }
+    return i;
+    
 }
 
 bool insertaNuevaPartida(tListaPartidas& partidas, const tEstadoPartida& partidaOca) {
@@ -607,7 +641,7 @@ void guardaPartidas(const tListaPartidas& partidas) {
     } else {
         cout << "Error al abrir el archivo" << endl;
         //terminar programa
-        exit(0);//NO SE SI FUNCIONA ESTO
+        exit(0); //no se si esto funciona del todo
     }
 }
 
@@ -662,3 +696,4 @@ string casillaAstringSinAbreviar(tCasilla casilla) {
     }
     return cadena;
 }
+
