@@ -1,8 +1,6 @@
 //TO DO LIST
 // 1. MAIN ENTERO
 // 2. CAMBIAR PARTIDA
-//      turno antes
-//      
 // 3. CAMBIAR PINTAR JUGADORES PARA QUE NO QUEDE DESTABULADO
 // 4. MÉTODO ELIMINAR PARTIDA
 // 5. METODO INSERTAR NUEVA PARTIDA
@@ -141,28 +139,24 @@ int main() {
     // 
     // si una partida se gana esta se elimina (metodo eliminar)
     // 
-
-
+    ifstream archivo;
+    archivo.open("tablero.txt");
     iniciaTablero(estado.tablero);
     //pedir nombre archivo y declarar archivo
 
-    if (!cargaTablero(estado.tablero, archivo)) {
-        cout << "El fichero no existe" << endl;
-    }
-    else {
-
+    cargaTablero(estado.tablero, archivo);
         // TODO LO QUE ESTA ABAJO SE TIENE QUE CAMBIAR
         // 
         //
 
-        iniciaJugadores(estado.estadoJ);
-        estado.turno = quienEmpieza();
-        ganador = partida(estado);
-        if (ganador>0 && ganador<NUM_JUGADORES) { //porque si decides salir del juego se marca ganador= -1
-            cout << endl << "------------ GANA EL JUGADOR " << ganador << " ------------" << endl;
-        }
-        
+    iniciaJugadores(estado.estadoJ);
+    estado.turno = quienEmpieza();
+
+    ganador = partida(estado);
+    if (ganador > 0 && ganador < NUM_JUGADORES) { //porque si decides salir del juego se marca ganador= -1
+        cout << endl << "------------ GANA EL JUGADOR " << ganador << " ------------" << endl;
     }
+
     return 0;
 }
 
@@ -173,9 +167,6 @@ int partida(tEstadoPartida& estado) {
     // la inicialización del estado de los jugadores y el establecimiento
     // de quién tiene el turno se realizarán antes de la invocación al 
     // subprograma partida y no como parte de la funcionalidad del mismo.
-
-
-    //iniciaTablero(estado.tablero);
     
     bool finPartida = false;
     int gana = 1;
@@ -195,31 +186,33 @@ int partida(tEstadoPartida& estado) {
 
     
         //decide si el jugador tirará en función de la penalizacion
-        if (estado.estadoJ[estado.turno].penalizacion <= 0) {
-            tirada(estado.tablero, estado.estadoJ[estado.turno]);
+        if (estado.estadoJ[estado.turno-1].penalizacion <= 0) {
+            tirada(estado.tablero, estado.estadoJ[estado.turno - 1]);
         }
         else {
-            estado.estadoJ[estado.turno].penalizacion--;
-            cout << "jugador " << estado.turno + 1 << ", te quedan " << estado.estadoJ[estado.turno].penalizacion + 1 << " turnos sin jugar" << endl;
+            estado.estadoJ[estado.turno - 1].penalizacion--;
+            cout << "jugador " << estado.turno << ", te quedan " << estado.estadoJ[estado.turno - 1].penalizacion + 1 << " turnos sin jugar" << endl;
         }
 
         //ganador
-        if (estado.estadoJ[estado.turno].posicion >= CASILLA_META - 1) {
+        if (estado.estadoJ[estado.turno - 1].posicion >= CASILLA_META - 1) {
             finPartida = true;
-            gana = estado.turno + 1;
+            gana = estado.turno;
         }
 
         pintaTablero(estado);
 
         //CAMBIO DE JUGADOR
-        if (estado.estadoJ[estado.turno].posicion < CASILLA_META && !esCasillaPremio(estado.tablero, estado.estadoJ[estado.turno].posicion)) {
-            estado.turno = (estado.turno + 1) % NUM_JUGADORES;
+        if (estado.estadoJ[estado.turno - 1].posicion < CASILLA_META && !esCasillaPremio(estado.tablero, estado.estadoJ[estado.turno - 1].posicion)) {
+            estado.turno = 1+ (estado.turno) % NUM_JUGADORES;
 
             cout << endl;
             cout << "/////////////////////////////////////////// CAMBIO DE JUGADOR ///////////////////////////////////////////" << endl;
-            cout << "Turno del jugador: " << estado.turno + 1 << endl;
+            cout << "Turno del jugador: " << estado.turno<< endl;
 
         }
+
+        /*
         char opcion;
         cout << "Quieres salir del juego? s/n" << endl;
         cin >> opcion;
@@ -228,6 +221,7 @@ int partida(tEstadoPartida& estado) {
             finPartida = true;
             gana = -1;
         }
+        */
     }
     return gana;
 }
@@ -317,22 +311,21 @@ void pintaTipoCasilla(const tTablero tablero, int fila, int casillasPorFila) {
 
 }
 
+
 void pintaJugadores(const tEstadoJugadores casillasJ, int fila, int casillasPorFila) {
     int casilla;
 
     int blancos = MAX_JUGADORES - NUM_JUGADORES;
     string b = "";
-    for (int i = 1; i < blancos; i++) b = b + " ";
+    for (int i = 0; i < blancos; i++) b = b + " ";
     cout << "|";
     for (int i = 1; i <= casillasPorFila; i++) {
         casilla = i - 1 + fila * casillasPorFila;
         for (int jug = 0; jug < NUM_JUGADORES; jug++) {
-            if (casillasJ[jug].posicion == casilla && !(casillasJ[jug].posicion > NUM_CASILLAS))
+            if (casillasJ[jug].posicion == casilla)
                 cout << jug + 1;
-
-            else if (casillasJ[jug].posicion > NUM_CASILLAS) cout << jug + 1;
-
-            else cout << " ";
+            else
+                cout << " ";
         }
         cout << b;
         cout << "|";
@@ -340,6 +333,7 @@ void pintaJugadores(const tEstadoJugadores casillasJ, int fila, int casillasPorF
     cout << endl;
 
 }
+
 
 
 //inicia el valor de las casillas a normal;
@@ -415,6 +409,8 @@ int saltaACasilla(const tTablero tablero, int casillaActual) {
 
 void buscaCasillaAvanzando(const tTablero tablero, tCasilla tipo, int& posicion) {
     posicion++;
+    if (tipo == PUENTE1)    tipo = PUENTE2;
+    else if (tipo == DADO1) tipo = DADO2;
     while (tablero[posicion] != tipo && posicion < CASILLA_META) {
         posicion++;
     }
@@ -422,6 +418,9 @@ void buscaCasillaAvanzando(const tTablero tablero, tCasilla tipo, int& posicion)
 
 void buscaCasillaRetrocediendo(const tTablero tablero, tCasilla tipo, int& posicion) {
     posicion--;
+    if (tipo == PUENTE2) tipo = PUENTE1;
+    else if (tipo == DADO2) tipo = DADO1;
+
     while (tablero[posicion] != tipo && posicion != 0) {
         posicion--;
     }
@@ -498,7 +497,7 @@ bool cargaPartidas(tListaPartidas& partidas) {
         
         fichero >> partidas.cont;
         for (int i = 0; i <partidas.cont-1;i++) {
-            cargaTablero(partidas.arrayPartidas[i].tablero);
+            cargaTablero(partidas.arrayPartidas[i].tablero, fichero);
             for (int j = 0; j < NUM_JUGADORES - 1; j++) {
                 cargaJugadores(partidas.arrayPartidas[i].estadoJ, fichero);
             }

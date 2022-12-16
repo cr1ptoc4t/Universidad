@@ -1,6 +1,3 @@
 ﻿  ocaV3.cpp
-C:\Users\Catalina\Documents\GitHub\Universidad\1-1\FP1\ocaV3\ocaV3\ocaV3.cpp(110,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-C:\Users\Catalina\Documents\GitHub\Universidad\1-1\FP1\ocaV3\ocaV3\ocaV3.cpp(227,9): error C2664: 'void pintaJugadores(const int [],int,int)': el argumento 1 no puede convertirse de 'const tEstadoJugadores' a 'const int []'
-C:\Users\Catalina\Documents\GitHub\Universidad\1-1\FP1\ocaV3\ocaV3\ocaV3.cpp(227,31): message : Los tipos señalados no están relacionados; la conversión requiere reinterpret_cast, conversión de estilo de C o conversión de estilo de función entre paréntesis
-C:\Users\Catalina\Documents\GitHub\Universidad\1-1\FP1\ocaV3\ocaV3\ocaV3.cpp(73,6): message : vea la declaración de 'pintaJugadores'
-C:\Users\Catalina\Documents\GitHub\Universidad\1-1\FP1\ocaV3\ocaV3\ocaV3.cpp(227,9): message : al hacer coincidir la lista de argumentos '(const tEstadoJugadores, int, int)'
+C:\Users\Catalina\Documents\GitHub\Universidad\1-1\FP1\ocaV3\ocaV3\ocaV3.cpp(132,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  ocaV3.vcxproj -> C:\Users\Catalina\Documents\GitHub\Universidad\1-1\FP1\ocaV3\x64\Debug\ocaV3.exe
