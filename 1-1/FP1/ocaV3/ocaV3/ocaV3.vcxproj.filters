@@ -26,5 +26,8 @@
     <Text Include="tablero.txt">
       <Filter>Archivos de origen</Filter>
     </Text>
+    <Text Include="partidaGuardada.txt">
+      <Filter>Archivos de origen</Filter>
+    </Text>
   </ItemGroup>
 </Project>

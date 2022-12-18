@@ -132,6 +132,7 @@
   <ItemGroup>
     <Text Include="partidas.txt" />
     <Text Include="tablero.txt" />
+    <Text Include="partidaGuardada.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
