@@ -2,10 +2,11 @@
 // 1. MAIN ENTERO -- CASI TERMINADO ME FALTA POQUISIMO
 // 2. CAMBIAR PARTIDA   -- HECHO
 // 3. CAMBIAR PINTAR JUGADORES PARA QUE NO QUEDE DESTABULADO --- HECHO
-// 4. MÉTODO ELIMINAR PARTIDA 
+// 4. MÉTODO ELIMINAR PARTIDA -- HECHO
 // 5. METODO INSERTAR NUEVA PARTIDA -- HECHO
-// 6. EN CASILLA 63 DIBUJAR GANADOR
+// 6. EN CASILLA 63 DIBUJAR GANADOR 
 // 7. GUARDAR PARTIDAS
+// 8. CARGAR PARTIDA -- SOLO CARGA LA PRIMERA -- ARREGLADO
 //
 
 
@@ -141,17 +142,19 @@ int main() {
     iniciaJugadores(listaPartidas.arrayPartidas[1].estadoJ);
 
     if(cargaPartidas(listaPartidas)){
+
+        partidaActual = listaPartidas.cont;
+
         cout << "Quieres jugar una partida nueva o existente? (n/e) ";
         cin >> opcion;
         if (opcion=='n') {
-            partidaActual = listaPartidas.cont;
             insertaNuevaPartida(listaPartidas, listaPartidas.arrayPartidas[partidaActual]);
         }
         else if (opcion == 'e') {
             cout << "Tienes " << listaPartidas.cont << " empezadas, a que partida quieres jugar? ";
             cin >> partidaActual;
         }
-        //cout<< "introduce el nombre del archivo en el que esta el tablero: ";
+        //cout<< "introduce el nombre del archivo en el que estan los tableros: ";
         //cin>>nombreArchivo;
         archivo.open("partidas.txt");
 
@@ -164,7 +167,7 @@ int main() {
             if (ganador > 0 /* && ganador < NUM_JUGADORES*/) { //porque si decides salir del juego se marca ganador= -1
                 cout << endl << "------------ GANA EL JUGADOR " << ganador << " ------------" << endl;
                 eliminarPartida(listaPartidas, partidaActual - 1);
-                cout << listaPartidas.cont << endl;
+                
             }
             else if (ganador == -1) {
                 //ACTUALIZAR PARTIDA EN ARCHIVO
@@ -204,8 +207,6 @@ int partida(tEstadoPartida& estado) {
             system("pause");
             cout << endl;
         }
-        //imprimeArray(estado);
-
     
         //decide si el jugador tirará en función de la penalizacion
         if (estado.estadoJ[estado.turno-1].penalizacion <= 0) {
@@ -534,16 +535,16 @@ bool cargaPartidas(tListaPartidas& partidas) {
     if (fichero.is_open()) {
         
         fichero >> partidas.cont;
-        //ERROR DESDE AQUI
-        for (int i = 0; i <partidas.cont-1;i++) {
+
+        for (int i = 0; i <partidas.cont;i++) {
             cargaTablero(partidas.arrayPartidas[i].tablero, fichero);
+            fichero>>partidas.arrayPartidas[i].turno;
             for (int j = 0; j < NUM_JUGADORES - 1; j++) {
                 cargaJugadores(partidas.arrayPartidas[i].estadoJ, fichero);
             }
         }
-
-        //HASTA AQUI
-        imprimeArray(partidas);
+        fichero.close();
+        //imprimeArray(partidas);
 
 
         cargado = true;
@@ -556,60 +557,62 @@ bool cargaPartidas(tListaPartidas& partidas) {
 //ESTE MÉTODO FUNCIONA -- NO TOCAR
 void cargaTablero(tTablero& tablero, ifstream& archivo) {
     string casillaESP;
-    int i; char aux;
+    int x; char aux;
     if (archivo.is_open()) {
-        archivo >> i;
+        archivo >> x;
 
-        while (i != 0) {
+        while (x != 0) {
             archivo.get(aux);
             getline(archivo, casillaESP);
 
             if (casillaESP == "OCA") {
-                tablero[i - 1] = OCA;
+                tablero[x - 1] = OCA;
             }
             else if (casillaESP == "PUENTE1") {
-                tablero[i - 1] = PUENTE1;
+                tablero[x - 1] = PUENTE1;
             }
             else if (casillaESP == "PUENTE2") {
-                tablero[i - 1] = PUENTE2;
+                tablero[x - 1] = PUENTE2;
             }
             else if (casillaESP == "DADO1") {
-                tablero[i - 1] = DADO1;
+                tablero[x - 1] = DADO1;
             }
             else if (casillaESP == "DADO2") {
-                tablero[i - 1] = DADO2;
+                tablero[x - 1] = DADO2;
             }
             else if (casillaESP == "NORMAL") {
-                tablero[i - 1] = NORMAL;
+                tablero[x - 1] = NORMAL;
             }
             else if (casillaESP == "POZO") {
-                tablero[i - 1] = POZO;
+                tablero[x - 1] = POZO;
             }
             else if (casillaESP == "LABERINTO") {
-                tablero[i - 1] = LABERINTO;
+                tablero[x - 1] = LABERINTO;
             }
             else if (casillaESP == "CARCEL") {
-                tablero[i - 1] = CARCEL;
+                tablero[x - 1] = CARCEL;
             }
             else if (casillaESP == "CALAVERA") {
-                tablero[i - 1] = CALAVERA;
+                tablero[x - 1] = CALAVERA;
             }
             else if (casillaESP == "POSADA") {
-                tablero[i - 1] = POSADA;
+                tablero[x - 1] = POSADA;
             }
-            archivo >> i;
+            archivo >> x;
         }
-        imprimeArray(tablero);
+        //imprimeArray(tablero);
     }
-    else cout << "error";
-    archivo.close();
+    else cout << "error!";
+    
 }
 
 
 
 void cargaJugadores(tEstadoJugadores& jugadores, ifstream& archivo) {
+    
     for (int i = 0; i < NUM_JUGADORES;i++) {
         archivo >> jugadores[i].posicion;
+        jugadores[i].posicion--;
         archivo >> jugadores[i].penalizacion;
     }
 }
@@ -626,15 +629,6 @@ void eliminarPartida(tListaPartidas& partidas, int indice) {
     }
 }
 
-int buscaPos(const tListaPartidas partidas, int indice) {
-   
-    int i = 0;
-    while (i != indice -1) { // este -1 no estoy segura de que deba estar aqui
-        i++;
-    }
-    return i;
-    
-}
 
 bool insertaNuevaPartida(tListaPartidas& partidas, const tEstadoPartida& partidaOca) {
 
@@ -651,6 +645,7 @@ bool insertaNuevaPartida(tListaPartidas& partidas, const tEstadoPartida& partida
     return insertado;
 }
 
+
 void guardaPartidas(const tListaPartidas& partidas) {
 
     ofstream archivoGuardar;
@@ -662,7 +657,7 @@ void guardaPartidas(const tListaPartidas& partidas) {
     archivoGuardar.open(nombre);
     if (archivoGuardar.is_open()) {
         archivoGuardar << partidas.cont << endl;
-        for (int i = 0; i < partidas.cont ;i++) {
+        for (int i = 0; i < partidas.cont ;i++) {// esto no se si esta bien
             guardaTablero(partidas.arrayPartidas[i].tablero, archivoGuardar);
             archivoGuardar << partidas.arrayPartidas[i].turno << endl;
             guardaJugadores(partidas.arrayPartidas[i].estadoJ, archivoGuardar);
@@ -726,4 +721,3 @@ string casillaAstringSinAbreviar(tCasilla casilla) {
     }
     return cadena;
 }
-
