@@ -23,7 +23,7 @@ const int MAX_PARTIDAS = 10;
 
 const int RETROCESO_LABERINTO = 12;
 // numero de jugadores actual
-const int NUM_JUGADORES = 4;
+const int NUM_JUGADORES = 2;
 // maximo numero de jugadores
 const int MAX_JUGADORES = 4;
 
