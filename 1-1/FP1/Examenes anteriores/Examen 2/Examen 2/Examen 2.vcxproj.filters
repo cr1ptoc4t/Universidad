@@ -23,5 +23,8 @@
     <Text Include="juguetes.txt">
       <Filter>Archivos de origen</Filter>
     </Text>
+    <Text Include="cartas.txt">
+      <Filter>Archivos de origen</Filter>
+    </Text>
   </ItemGroup>
 </Project>
