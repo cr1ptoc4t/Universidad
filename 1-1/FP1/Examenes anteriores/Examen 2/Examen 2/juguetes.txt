@@ -1,0 +1,8 @@
+Colores 10.5 10
+Coche 50.0 5
+Cocina 150.5 2
+Libro 20.0 20
+Diana 200.0 1
+Pelota 25.5 20
+Patinete 300.0 5
+Bicicleta 400.0 1
