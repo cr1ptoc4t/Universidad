@@ -36,7 +36,7 @@ struct tListaCartas {
 //----------------------------------------------------------------------------
 bool cargarJuguetes(tListaJuguetes& lista);
 bool cargarCartas(tListaCartas& lista);
-bool comprobarPedido(const tListaJuguetes juguetes, string pedido[MAX_PEDIDOS]);
+bool comprobarPedido(string pedido[MAX_PEDIDOS], const tListaJuguetes juguetes);
 
 void listarJuguetes(const tListaJuguetes lista);
 void cargarTrineos(tListaCartas& cartas, tListaJuguetes& listaJuguetes);
@@ -129,10 +129,21 @@ int buscarJuguete(const string nombre, const tListaJuguetes lista){
 }
 
 double trineoDestino(string& ciudad, tListaCartas& listaCartas, tListaJuguetes& listaJuguetes){
+	for (int i = 0; i < MAX_CARTAS;i++) {
+		if (listaCartas.listaCartas[i].ciudad == ciudad) {
+			if (comprobarPedido(listaCartas.listaCartas[i].listaJug, listaJuguetes)) {
+
+			}
+		}
+	}
+
 	return 0.1;
 }
 
-bool comprobarPedido(const tListaJuguetes juguetes, string pedido[MAX_PEDIDOS]){
+bool comprobarPedido(string pedido[MAX_PEDIDOS], const tListaJuguetes juguetes){
+	for (int i = 0; i < MAX_JUGUETES; i++) {
+
+	}
 	return true;
 }
 
@@ -140,18 +151,16 @@ void cargarTrineos(tListaCartas& cartas, tListaJuguetes& listaJuguetes){
 
 }
 
-void listarPendientes(const tListaCartas cartas){
-	cout << endl;
-	cout << "Regalos pendientes: " << endl;
-	cout << setw(MAX_NOMBRES) << left << "Nombre" << setw(MAX_NOMBRES) << "Ciudad" << setw(MAX_NOMBRES) << "Juguetes" << '\n';
-
-	for (int i = 0; i < cartas.cont - 1; i++) {
-		if(cartas.listaCartas[i].pendiente){
-			cout << setw(MAX_NOMBRES) << left << cartas.listaCartas[i].persona;
-			cout << setw(MAX_NOMBRES) << fixed << setprecision(2) << cartas.listaCartas[i].ciudad;
-			for (int j = 0; j < MAX_JUGUETES;j++) {
-				cout << cartas.listaCartas[i].listaJug.juguetes[j].nombre<<"   ";
-			}
+void listarPendientes(tListaCartas l) {
+	cout << "\nListado de cartas sin cargar en los trineos \n\n";
+	cout << setw(10) << left << "Nombre" << left << setw(10) << "Ciudad" << left << setw(30) << "Juguetes" << '\n';
+	for (int i = 0; i < l.cont; i++) {
+		if (l.listaCartas[i].pendiente) {
+			cout << left << setw(MAX_NOMBRES) << l.listaCartas[i].persona;
+			cout << left << setw(MAX_NOMBRES) << l.listaCartas[i].ciudad;
+			for (int j = 0; j < MAX_PEDIDOS; j++)
+				cout << left << setw(MAX_NOMBRES) << l.listaCartas[i].listaJug.juguetes[j].nombre;
+			cout << '\n';
 		}
 	}
 }
@@ -160,7 +169,3 @@ void listarPendientes(const tListaCartas cartas){
 int buscarCiudad(string& ciudad, const tListaCartas& listaCartas) {
 	return 1;
 }
-// El programa principal carga los dos ficheros de datos en sus listas.
-// Luego muestra los juguetes de la fábrica, carga los trineos y por último 
-// lista las cartas que no han sido cargadas en los trineos.
-//
