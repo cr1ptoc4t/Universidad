@@ -1,0 +1,4 @@
+﻿  examen.cpp
+C:\Users\Catalina\Documents\Universidad\1-1\FP1\Examenes anteriores\Examen 1 puri\Examen 1 puri\examen.cpp(215,61): warning C4244: '+=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Catalina\Documents\Universidad\1-1\FP1\Examenes anteriores\Examen 1 puri\Examen 1 puri\examen.cpp(150): warning C4715: 'carga': no todas las rutas de acceso de control devuelven un valor
+  Examen 1 puri.vcxproj -> C:\Users\Catalina\Documents\Universidad\1-1\FP1\Examenes anteriores\Examen 1 puri\x64\Debug\Examen 1 puri.exe

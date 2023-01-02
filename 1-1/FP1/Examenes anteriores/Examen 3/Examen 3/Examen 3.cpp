@@ -28,19 +28,56 @@ struct tListaHospitales {
 };
 
 void estadoSistema(tListaHospitales listaHosp);
-tListaHospitales cargar();
+void cargar(tListaHospitales& lh);
 bool buscarCIPA(const tListaHospitales lista, string CIPA);
 int buscarHospital(tListaHospitales lista, string nombre);
 void insertarListaCitas(tListaCitas lista, tCita cita);
 int localizarHospitalMasLibre(tListaHospitales lista);
 void pedirCita(tListaHospitales& listaHosp);
+int menu();
+
 
 int main() {
+	tListaHospitales lh;
+	int opcion;
 
+	setlocale(LC_ALL, "spanish");
+
+	cargar(lh);
+	opcion = menu();
+	while (opcion != 0) {
+		switch (opcion) {
+		case 1:
+			pedirCita(lh);
+			break;
+		case 2:
+			estadoSistema(lh);
+			break;
+			/*case 3:
+				cout << "Introduzca el turno (M, T, I): ";
+				cin >> turno;
+				turno = toupper(turno);
+				disponibles(lh, turno);
+				break;*/
+		}
+		opcion = menu();
+	}
+	return 0;
 }
 
-tListaHospitales cargar() {
+void cargar(tListaHospitales& lh) {
+	 ifstream fh;
 
+    fh.open("hospitales.txt");
+    if (fh.is_open()) {
+        fh >> lh.cont;
+        for (int i = 0; i < lh.cont; i++) {
+            fh >> lh.listaHospi[i].nombre >> lh.listaHospi[i].turno;
+            lh.listaHospi[i].listaCitas.cont = 0;
+        }
+        fh.close();
+    }
+    else lh.cont = 0;
 }
 
 bool buscarCIPA(const tListaHospitales lista, string CIPA) {
@@ -107,4 +144,21 @@ void estadoSistema(tListaHospitales listaHosp) {
 		}
 		cout << endl;
 	}
+}
+
+int menu() {
+	int opcion;
+
+	cout << "\n1. Pedir cita - ";
+	cout << "2. Estado del sistema - ";
+	//cout << "3. Hospitales con citas libres - ";
+	cout << "0. Salir\n";
+	do {
+		cout << "Opcion (entre 0 y 2): ";
+		cin >> opcion;
+	} while (opcion < 0 || opcion > 2);
+	cout << endl;
+
+
+	return opcion;
 }

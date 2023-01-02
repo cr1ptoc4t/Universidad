@@ -1,0 +1,9 @@
+8
+clinico_san_carlos M
+doce_octubre M
+la_paz M
+gregorio_marannon T
+jimenez_diaz T
+ramon_y_cajal M
+infanta_leonor T
+infanta_sofia T
