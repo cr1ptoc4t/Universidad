@@ -1,2 +1,5 @@
 ﻿  examen2.cpp
-  Examen 2.vcxproj -> C:\Users\Catalina\Documents\Universidad\1-1\FP1\Examenes anteriores\Examen 2\x64\Debug\Examen 2.exe
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(702,5): error MSB6006: "CL.exe" salió con el código 2.
+C:\Users\Catalina\Documents\Universidad\1-1\FP1\Examenes anteriores\Examen 2\Examen 2\examen2.cpp(134,7): error C2664: 'bool comprobarPedido(std::string [],const tListaJuguetes)': el argumento 1 no puede convertirse de 'tListaJuguetes' a 'std::string []'
+C:\Users\Catalina\Documents\Universidad\1-1\FP1\Examenes anteriores\Examen 2\Examen 2\examen2.cpp(134,50): message : No hay disponible ningún operador de conversión definido por el usuario que pueda realizar esta conversión, o bien no se puede llamar al operador
+C:\Users\Catalina\Documents\Universidad\1-1\FP1\Examenes anteriores\Examen 2\Examen 2\examen2.cpp(39,6): message : vea la declaración de 'comprobarPedido'

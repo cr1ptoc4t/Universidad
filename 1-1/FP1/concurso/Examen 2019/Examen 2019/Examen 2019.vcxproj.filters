@@ -20,10 +20,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\..\..\..\..\AppData\Local\Temp\Rar$DRa8084.46935\mesas.txt">
+    <Text Include="mesas.txt">
       <Filter>Archivos de origen</Filter>
     </Text>
-    <Text Include="..\..\..\..\..\..\..\AppData\Local\Temp\Rar$DRa8084.46935\reservas.txt">
+    <Text Include="reservas.txt">
       <Filter>Archivos de origen</Filter>
     </Text>
   </ItemGroup>

@@ -130,8 +130,8 @@
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\..\..\..\..\AppData\Local\Temp\Rar$DRa8084.46935\mesas.txt" />
-    <Text Include="..\..\..\..\..\..\..\AppData\Local\Temp\Rar$DRa8084.46935\reservas.txt" />
+    <Text Include="mesas.txt" />
+    <Text Include="reservas.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
