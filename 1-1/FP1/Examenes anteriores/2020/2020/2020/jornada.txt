@@ -1,0 +1,5 @@
+ATM 5 Celta 0
+DEP 3 BCN 1
+GET2 4 GET1 4
+RM 0 ZARA 9
+VAL 1 Sevilla 1

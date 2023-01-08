@@ -10,15 +10,12 @@ const int MAX_MESAS = 20;
 const int MAX_RESERVAS = 50;
 const int MAX_CANC = 20;
 
-typedef enum tipoReserva {RESERVA, CANCELACION} tipo;
-
-
-//cambiar solo tenemos mesas pares y tendriamos que poner con n-1 tambien
+typedef enum {RESERVA, CANCELACION} tipo;
 
 struct tMesa{
 	int cap;
 	char ubi;
-	bool reservada;
+	bool reservada=false;
 	string cliente;
 	int com;
 };
@@ -28,7 +25,7 @@ struct tReserva {
 	int com; //comensales	
 	string cliente;
 	char ubi;
-	bool realizado;
+	bool realizado=false;
 	int mesa=0;
 };
 
@@ -67,6 +64,8 @@ int main() {
 	tListaMes lm;
 	tListaRes lr;
 	if (cargarMesas(lm) && cargarReservas(lr)){
+		mostrar(lm, lr);
+		for (int z = 0; z < 5;z++) cout << endl;
 		for (int i = 0; i < lr.cont;i++) {
 			reservar(lm, lr, lr.lr[i]);
 		}
@@ -116,7 +115,6 @@ bool cargarReservas(tListaRes& lr) {
 			if (c=='R') lr.lr[i].tipo = RESERVA;
 			else lr.lr[i].tipo = CANCELACION;
 
-
 			archivo >> lr.lr[i].cliente;
 
 			if (c=='R') {
@@ -162,13 +160,15 @@ void reservar(tListaMes lm, tListaRes lr, tReserva res) {
 	}
 	else {
 		//reservar mesa
+
+		lr.lr[lr.cont].mesa = i;
 		lm.lm[i].reservada = true;
 		lm.lm[i].cliente = res.cliente;
 		lm.lm[i].com = res.com;
 
 		lr.lr[lr.cont].cliente = res.cliente;
 		lr.lr[lr.cont].com = res.com;
-		lr.lr[lr.cont].mesa = i;
+		
 		lr.cont++;
 	}
 }
@@ -188,7 +188,7 @@ void mostrar(tListaMes lm, tListaRes lr){
 		}
 		cout << endl;
 	}
-
+	        
 
 	for (int i = 0; i < lm.cont; i++) {
 		cout << "Mesa " << i << " (" << lm.lm[i].ubi << lm.lm[i].cap;
