@@ -1,0 +1,30 @@
+Inf 200 Arquitectura de Computadores IV
+Mat 150 Matematicas Basicas III
+Mat 100 Matematicas Discretas I
+Fis 100 Introduccion a Fisicas
+Inf 350 Arquitectura de Computadores III
+Inf 250 Programacion Avanzada III
+Mat 250 Matematicas Avanzadas I
+Inf 250 Programacion de Computadores IV
+Mat 150 Matematicas Avanzadas III
+Mat 150 Matematicas Discretas II
+Mat 300 Matematicas Basicas IV
+Fis 200 Fisica Basica II
+Inf 500 Programacion de Computadores I
+Fis 250 Fisica Avanzada I
+Mat 300 Matematicas Discretas III
+Inf 250 Programacion Avanzada II
+Mat 400 Matematicas Basicas II
+Inf 350 Introduccion a Computadores
+Mat 350 Matematicas Avanzadas II
+Inf 400 Arquitectura de Computadores I
+Fis 250 Fisica Basica I
+Inf 300 Arquitectura de Computadores II
+Mat 250 Matematicas Basicas I
+Inf 250 Programacion de Computadores II
+Fis 150 Fisica Basica III
+Inf 300 Programacion de Computadores III
+Inf 300 Programacion de Computadores V
+Fis 250 Fisica Avanzada II
+Inf 350 Programacion Avanzada I
+XXX

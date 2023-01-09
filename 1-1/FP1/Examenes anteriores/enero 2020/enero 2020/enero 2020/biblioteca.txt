@@ -1,0 +1,12 @@
+10
+Mat 1000
+Inf 900
+Mat 800
+Fis 700
+Inf 1200
+Fis 1000
+Mat 600
+Inf 1000
+Fis 500
+Inf 700
+XXX
