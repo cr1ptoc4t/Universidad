@@ -18,9 +18,9 @@ typedef struct {
 
 
 typedef struct {
-	int cont = 0;
+	int cont;
 	tEquipo le[MAX_EQUIPOS];
-}tClasificacion;
+} tClasificacion;
 
 
 typedef struct {
@@ -28,20 +28,21 @@ typedef struct {
 	tEquipo equipo2;
 	int res1;
 	int res2;
-}tPartido;
+} tPartido;
 
 
 typedef struct {
-	int cont = 0;
+	int cont;
 	tEquipo le[MAX_EQUIPOS];
 	tPartido partidos[MAX_EQUIPOS / 2];
-}tJornada;
+} tJornada;
 
 typedef struct{
-	int cont = 0;
+	int cont;
 	tEquipo le[MAX_EQUIPOS];
 	tJornada lj[MAX_JORNADAS];
-}tLiga;
+	tClasificacion lc;
+} tLiga;
 
 
 //
@@ -52,7 +53,7 @@ bool cargarJornada(tJornada& jornada, int numEquipos);
 void mostrarLiga(const tLiga& liga);
 void actualizarLiga(const tJornada& jornada, tLiga& liga);
 void primeroYultimo(const tLiga& liga, string& primero, string& ultimo);
-/* incorpora aquí el prototipo de tu subprograma buscar*/
+int buscar(string acr, tLiga clas);
 
 
 
@@ -61,7 +62,7 @@ int main() {
 	tJornada jornada;
 	string primero, ultimo;
 
-	if (!cargarLiga(liga)) {
+	if (!cargarLiga(liga)||!cargarJornada(jornada, 9)) {
 
 		cout << "carga fallida" << endl;
 	}
@@ -96,7 +97,6 @@ bool cargarLiga(tLiga& liga) {
 			liga.le[liga.cont].nombre = equipo;
 			archivo >> liga.le[liga.cont].puntos;
 			archivo >> equipo;
-
 			liga.cont++;
 		}
 		cargado = true;
@@ -107,16 +107,15 @@ bool cargarLiga(tLiga& liga) {
 
 bool cargarJornada(tJornada& jornada, int numEquipos) {
 	ifstream archivo;
-
+	string cadena;
 	bool cargado = false;
-	archivo.open("liga.txt");
-
+	archivo.open("jornada.txt");
+	cout << endl;
 	if (archivo.is_open()) {
 		for (int i = 0; i < numEquipos; i++) {
-			archivo >> jornada.partidos[i].equipo1;
+			archivo >> jornada.partidos[i].equipo1.nombre;
 			archivo >> jornada.partidos[i].res1;
-			archivo >> jornada.partidos[i].equipo2;
-			archivo >> jornada.partidos[i].equipo1;
+			archivo >> jornada.partidos[i].equipo2.nombre;
 			archivo >> jornada.partidos[i].res2;
 
 		}jornada.cont = numEquipos;
@@ -136,14 +135,43 @@ void mostrarLiga(const tLiga& liga) {
 
 
 void actualizarLiga(const tJornada& jornada, tLiga& liga) {
-	// incluye aquí tu código
-
-
+	cout << endl<<"ACTUALIZANDO..." << endl;
+	liga.lc.cont=liga.cont;
+	for (int i = 0; i < liga.cont/2;i++) {
+		if (jornada.partidos[i].res1 == jornada.partidos[i].res2) {
+			liga.le[buscar(jornada.partidos[i].equipo1.nombre, liga)].puntos++;
+			liga.le[buscar(jornada.partidos[i].equipo2.nombre, liga)].puntos++;
+			cout << jornada.partidos[i].equipo1.nombre << " y " << jornada.partidos[i].equipo2.nombre << ": +1" << endl;
+		}
+		else if (jornada.partidos[i].res1 > jornada.partidos[i].res2) {
+			liga.le[buscar(jornada.partidos[i].equipo1.nombre, liga)].puntos+=3;
+			cout << jornada.partidos[i].equipo1.nombre << ": +3" << endl;
+		}
+		else {
+			liga.le[buscar(jornada.partidos[i].equipo2.nombre, liga)].puntos+=3;
+			cout << jornada.partidos[i].equipo2.nombre << ": +3" << endl;
+			
+		}
+	}
 }
 
 
 void primeroYultimo(const tLiga& liga, string& primero, string& ultimo) {
-	// incluye aquí tu código
+
+	int min=0;
+	int max=0;
+	for (int i = 0; i < liga.cont;i++) {
+		if (liga.le[min].puntos > liga.le[i].puntos) min = i;
+		else if (liga.le[max].puntos < liga.le[i].puntos) max = i;
+	}
+
+	ultimo = liga.le[min].nombre;
+	primero  = liga.le[max].nombre;
 
 }
 
+int buscar(string acr, tLiga clas) {
+	int i = 0;
+	while (clas.le[i].nombre!=acr && i<clas.cont) i++;
+	return i;
+}
