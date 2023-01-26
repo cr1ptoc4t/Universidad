@@ -1,0 +1,16 @@
+Tema 1
+
+Ensamblador vs lenguaje máquina
+- electrico		voltios
+- ensamblador		codigo operacion - registro destino - registro fuente 1 - registro fuente 2
+- lenguaje maquina 	0 y 1
+
+Temporizacion:
+Flanco de subida --> se carga la informacion en camino de datos y unidad de control
+
+Modelo Von Neumann
+- computador con programa almacenado en memoria
+- memoria formada por palabras organizadas de forma lineal y del mismo tamaño
+- las instrucciones del proograma se ejecutan secuencialmente
+	- el mismo orden en que están almacenadas
+	- contador de programa que almacena la direccion de memoria que ocupa la instrucción a ejecutar
