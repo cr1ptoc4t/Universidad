@@ -1,0 +1,7 @@
+13:00:07 **** Clean-only build of configuration Debug for project ej02 ****
+make clean 
+rm -rf  ./ej02.o  ej02.hex  ej02.lst  ej02.siz  ./ej02.d  ej02.elf
+' '
+
+13:00:07 Build Finished. 0 errors, 0 warnings. (took 329ms)
+

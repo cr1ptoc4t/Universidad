@@ -1,0 +1,96 @@
+13:00:07 **** Clean-only build of configuration Debug for project ej02 ****
+make clean 
+rm -rf  ./ej02.o  ej02.hex  ej02.lst  ej02.siz  ./ej02.d  ej02.elf
+' '
+13:00:07 **** Clean-only build of configuration Debug for project ej03 ****
+make clean 
+rm -rf  ./ej03.o  ej03.hex  ej03.lst  ej03.siz  ./ej03.d  ej03.elf
+' '
+13:00:07 **** Clean-only build of configuration Debug for project ej04 ****
+make clean 
+rm -rf  ./ej04.o  ej04.hex  ej04.lst  ej04.siz  ./ej04.d  ej04.elf
+' '
+13:00:07 **** Clean-only build of configuration Debug for project ej05 ****
+make clean 
+rm -rf  ./ej05.o  ej05.hex  ej05.lst  ej05.siz  ./ej05.d  ej05.elf
+' '
+13:00:08 **** Clean-only build of configuration Debug for project ej06 ****
+make clean 
+rm -rf  ./ej02.o  ej02.hex  ej02.lst  ej02.siz  ./ej02.d  ej02.elf
+' '
+13:00:08 **** Clean-only build of configuration Debug for project ej07 ****
+make clean 
+rm -rf  ./ej07.o  ej07.hex  ej07.lst  ej07.siz  ./ej07.d  ej07.elf
+' '
+13:00:08 **** Clean-only build of configuration Debug for project ej08 ****
+make clean 
+rm -rf  ./ej02.o  ej02.hex  ej02.lst  ej02.siz  ./ej02.d  ej02.elf
+' '
+13:00:08 **** Clean-only build of configuration Debug for project ej09 ****
+make clean 
+rm -rf  ./ej09.o  ej09.hex  ej09.lst  ej09.siz  ./ej09.d  ej09.elf
+' '
+13:00:08 **** Clean-only build of configuration Debug for project ej10 ****
+make clean 
+rm -rf  ./ej10.o  ej10.hex  ej10.lst  ej10.siz  ./ej10.d  ej10.elf
+' '
+13:00:08 **** Clean-only build of configuration Debug for project ej11 ****
+make clean 
+rm -rf  ./ej11.o  ej11.hex  ej11.lst  ej11.siz  ./ej11.d  ej11.elf
+' '
+13:00:08 **** Clean-only build of configuration Debug for project ej12 ****
+make clean 
+rm -rf  ./ej12.o  ej12.hex  ej12.lst  ej12.siz  ./ej12.d  ej12.elf
+' '
+13:00:08 **** Clean-only build of configuration Debug for project ej13 ****
+make clean 
+rm -rf  ./ej13.o  ej13.hex  ej13.lst  ej13.siz  ./ej13.d  ej13.elf
+' '
+13:00:09 **** Clean-only build of configuration Debug for project ej14 ****
+make clean 
+rm -rf  ./ej02.o  ej02.hex  ej02.lst  ej02.siz  ./ej02.d  ej02.elf
+' '
+13:00:09 **** Clean-only build of configuration Debug for project ej15 ****
+make clean 
+rm -rf  ./ej15.o  ej15.hex  ej15.lst  ej15.siz  ./ej15.d  ej15.elf
+' '
+13:00:09 **** Clean-only build of configuration Debug for project ej16 ****
+make clean 
+rm -rf  ./ej16.o  ej16.hex  ej16.lst  ej16.siz  ./ej16.d  ej16.elf
+' '
+13:00:09 **** Clean-only build of configuration Debug for project ej17 ****
+make clean 
+rm -rf  ./ej17.o  ej17.hex  ej17.lst  ej17.siz  ./ej17.d  ej17.elf
+' '
+13:00:09 **** Clean-only build of configuration Debug for project ej18 ****
+make clean 
+rm -rf  ./ej18.o  ej18.hex  ej18.lst  ej18.siz  ./ej18.d  ej18.elf
+' '
+13:00:09 **** Clean-only build of configuration Debug for project ej19 ****
+make clean 
+rm -rf  ./ej19.o  ej19.hex  ej19.lst  ej19.siz  ./ej19.d  ej19.elf
+' '
+13:00:09 **** Clean-only build of configuration Debug for project ej20 ****
+make clean 
+rm -rf  ./ej20.o  ej20.hex  ej20.lst  ej20.siz  ./ej20.d  ej20.elf
+' '
+13:00:09 **** Clean-only build of configuration Debug for project ej21 ****
+make clean 
+rm -rf  ./ej21.o  ej21.hex  ej21.lst  ej21.siz  ./ej21.d  ej21.elf
+' '
+13:00:10 **** Clean-only build of configuration Debug for project ej22 ****
+make clean 
+rm -rf  ./ej22.o  ej22.hex  ej22.lst  ej22.siz  ./ej22.d  ej22.elf
+' '
+13:00:10 **** Clean-only build of configuration Debug for project ej23 ****
+make clean 
+rm -rf  ./ej23.o  ej23.hex  ej23.lst  ej23.siz  ./ej23.d  ej23.elf
+' '
+13:00:10 **** Clean-only build of configuration Debug for project ej24 ****
+make clean 
+rm -rf  ./ej24.o  ej24.hex  ej24.lst  ej24.siz  ./ej24.d  ej24.elf
+' '
+13:00:10 **** Clean-only build of configuration Debug for project ej25 ****
+make clean 
+rm -rf  ./ej25.o  ej25.hex  ej25.lst  ej25.siz  ./ej25.d  ej25.elf
+' '

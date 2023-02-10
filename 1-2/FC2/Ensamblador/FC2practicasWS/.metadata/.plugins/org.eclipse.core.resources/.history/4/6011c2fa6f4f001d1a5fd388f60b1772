@@ -1,0 +1,9 @@
+ENTRY( main )               /*ejecuta comenzando en ''main''		*/
+SECTIONS {                  /*distribución del código en memoria	*/
+    . = 0x0;                /*escribe desde la dirección 0			*/
+    .text   : {* (.text)}   /*coloca .text (desde la dirección 0)	*/
+    . = 0x10000;            /*escribe desde la dirección 0x10000	*/
+    .data   : {* (.data)}   /*coloca .data (desde la dir 0x10000)	*/
+    .bss    : {* (.bss)}    /*coloca .bss (después de .data)		*/
+    .rodata : {* (.rodata)} /*coloca .rodata (después de .bss)		*/
+}

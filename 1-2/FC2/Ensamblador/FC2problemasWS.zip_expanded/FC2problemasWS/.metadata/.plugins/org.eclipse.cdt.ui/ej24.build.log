@@ -1,0 +1,7 @@
+13:00:10 **** Clean-only build of configuration Debug for project ej24 ****
+make clean 
+rm -rf  ./ej24.o  ej24.hex  ej24.lst  ej24.siz  ./ej24.d  ej24.elf
+' '
+
+13:00:10 Build Finished. 0 errors, 0 warnings. (took 193ms)
+

@@ -1,0 +1,62 @@
+
+Discarded input sections
+
+ .data          0x0000000000000000        0x0 ./ej19.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD ./ej19.o
+LOAD c:/eclipserv/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a
+START GROUP
+LOAD c:/eclipserv/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a
+LOAD c:/eclipserv/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a
+END GROUP
+LOAD c:/eclipserv/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a
+                0x0000000000000000                . = 0x0
+
+.text           0x0000000000000000       0x60
+ *(.text)
+ .text          0x0000000000000000       0x60 ./ej19.o
+                0x0000000000000000                main
+
+.rela.dyn       0x0000000000000060        0x0
+ .rela.text     0x0000000000000060        0x0 ./ej19.o
+                0x0000000000010000                . = 0x10000
+
+.data
+ *(.data)
+
+.bss            0x0000000000010000        0x4
+ *(.bss)
+ .bss           0x0000000000010000        0x4 ./ej19.o
+
+.rodata
+ *(.rodata)
+                0x0000000000020000                PROVIDE (_stack = 0x20000)
+OUTPUT(ej19.elf elf32-littleriscv)
+
+.riscv.attributes
+                0x0000000000000000       0x1f
+ .riscv.attributes
+                0x0000000000000000       0x1f ./ej19.o
+
+.debug_line     0x0000000000000000       0xba
+ .debug_line    0x0000000000000000       0xba ./ej19.o
+
+.debug_info     0x0000000000000000       0x26
+ .debug_info    0x0000000000000000       0x26 ./ej19.o
+
+.debug_abbrev   0x0000000000000000       0x14
+ .debug_abbrev  0x0000000000000000       0x14 ./ej19.o
+
+.debug_aranges  0x0000000000000000       0x20
+ .debug_aranges
+                0x0000000000000000       0x20 ./ej19.o
+
+.debug_str      0x0000000000000000       0x53
+ .debug_str     0x0000000000000000       0x53 ./ej19.o

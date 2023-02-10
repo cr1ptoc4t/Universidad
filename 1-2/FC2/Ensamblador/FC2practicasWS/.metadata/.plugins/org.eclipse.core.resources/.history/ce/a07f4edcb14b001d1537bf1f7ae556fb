@@ -1,0 +1,16 @@
+.global main
+.equ N, 8
+.equ INT_MAX, 2147483647
+.data
+V:   .word -7,3,-9,8,15,-16,0,3
+
+.bss
+max: .space 4
+
+.text
+main:
+    la t0, max
+    li t1, INT_MAX
+    sw t1, 0(t0)
+
+//codificar

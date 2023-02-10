@@ -1,0 +1,7 @@
+13:00:08 **** Clean-only build of configuration Debug for project ej13 ****
+make clean 
+rm -rf  ./ej13.o  ej13.hex  ej13.lst  ej13.siz  ./ej13.d  ej13.elf
+' '
+
+13:00:09 Build Finished. 0 errors, 0 warnings. (took 93ms)
+

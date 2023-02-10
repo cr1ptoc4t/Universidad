@@ -1,0 +1,109 @@
+
+Discarded input sections
+
+ .data          0x0000000000000000        0x0 ./fun_asm.o
+ .bss           0x0000000000000000        0x0 ./fun_asm.o
+ .group         0x0000000000000000        0xc ./pr4.o
+ .text          0x0000000000000000        0x0 ./pr4.o
+ .data          0x0000000000000000        0x0 ./pr4.o
+ .bss           0x0000000000000000        0x0 ./pr4.o
+ .text.i_sqrt   0x0000000000000000       0x5c ./pr4.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD ./fun_asm.o
+LOAD ./pr4.o
+LOAD c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a
+START GROUP
+LOAD c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a
+LOAD c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a
+END GROUP
+LOAD c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a
+                0x0000000000000000                . = 0x0
+
+.text           0x0000000000000000       0x70
+ *(.text)
+ .text          0x0000000000000000       0x70 ./fun_asm.o
+                0x0000000000000000                eucl_dist
+                0x0000000000000068                guardar
+
+.text.mul       0x0000000000000070       0x84
+ .text.mul      0x0000000000000070       0x84 ./pr4.o
+                0x0000000000000070                mul
+
+.text.main      0x00000000000000f4       0x74
+ .text.main     0x00000000000000f4       0x74 ./pr4.o
+                0x00000000000000f4                main
+                0x0000000000010000                . = 0x10000
+
+.data
+ *(.data)
+
+.data.U         0x0000000000010000       0x14
+ .data.U        0x0000000000010000       0x14 ./pr4.o
+                0x0000000000010000                U
+
+.data.V         0x0000000000010014       0x14
+ .data.V        0x0000000000010014       0x14 ./pr4.o
+                0x0000000000010014                V
+
+.bss
+ *(.bss)
+
+.sbss.mayor_u   0x0000000000010028        0x1
+ .sbss.mayor_u  0x0000000000010028        0x1 ./pr4.o
+                0x0000000000010028                mayor_u
+
+.rodata
+ *(.rodata)
+                [!provide]                        PROVIDE (_stack = 0x20000)
+OUTPUT(pr4.elf elf32-littleriscv)
+
+.riscv.attributes
+                0x0000000000000000       0x21
+ .riscv.attributes
+                0x0000000000000000       0x1f ./fun_asm.o
+ .riscv.attributes
+                0x000000000000001f       0x21 ./pr4.o
+
+.comment        0x0000000000000000       0x12
+ .comment       0x0000000000000000       0x12 ./pr4.o
+                                         0x13 (size before relaxing)
+
+.debug_line     0x0000000000000000      0x218
+ .debug_line    0x0000000000000000       0xe1 ./fun_asm.o
+ .debug_line    0x00000000000000e1      0x137 ./pr4.o
+
+.debug_info     0x0000000000000000      0x171
+ .debug_info    0x0000000000000000       0x26 ./fun_asm.o
+ .debug_info    0x0000000000000026      0x14b ./pr4.o
+
+.debug_abbrev   0x0000000000000000      0x100
+ .debug_abbrev  0x0000000000000000       0x14 ./fun_asm.o
+ .debug_abbrev  0x0000000000000014       0xec ./pr4.o
+
+.debug_aranges  0x0000000000000000       0x50
+ .debug_aranges
+                0x0000000000000000       0x20 ./fun_asm.o
+ .debug_aranges
+                0x0000000000000020       0x30 ./pr4.o
+
+.debug_str      0x0000000000000000     0x23f9
+ .debug_str     0x0000000000000000       0x47 ./fun_asm.o
+ .debug_str     0x0000000000000047     0x23b2 ./pr4.o
+                                       0x23f0 (size before relaxing)
+
+.debug_ranges   0x0000000000000000       0x20
+ .debug_ranges  0x0000000000000000       0x20 ./pr4.o
+
+.debug_macro    0x0000000000000000      0x6ff
+ .debug_macro   0x0000000000000000       0x17 ./pr4.o
+ .debug_macro   0x0000000000000017      0x6e8 ./pr4.o
+
+.debug_frame    0x0000000000000000       0x84
+ .debug_frame   0x0000000000000000       0x84 ./pr4.o

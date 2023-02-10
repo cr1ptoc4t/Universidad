@@ -1,0 +1,7 @@
+13:07:41 **** Clean-only build of configuration Debug for project practica_1 ****
+make clean 
+rm -rf  ./pr1.o  practica_1.hex  practica_1.lst  practica_1.siz  ./pr1.d  practica_1.elf
+' '
+
+13:07:41 Build Finished. 0 errors, 0 warnings. (took 227ms)
+
