@@ -1,7 +1,11 @@
-14:46:02 **** Clean-only build of configuration Debug for project pr1_lab ****
-make clean 
-rm -rf  ./pr1_lab.o  pr1_lab.hex  pr1_lab.lst  pr1_lab.siz  ./pr1_lab.d  pr1_lab.elf
+10:26:12 **** Incremental Build of configuration Debug for project pr1_lab ****
+make all 
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "pr1_lab.elf"
+   text	   data	    bss	    dec	    hex	filename
+     68	      8	      4	     80	     50	pr1_lab.elf
+'Finished building: pr1_lab.siz'
 ' '
 
-14:46:02 Build Finished. 0 errors, 0 warnings. (took 136ms)
+10:26:13 Build Finished. 0 errors, 0 warnings. (took 213ms)
 

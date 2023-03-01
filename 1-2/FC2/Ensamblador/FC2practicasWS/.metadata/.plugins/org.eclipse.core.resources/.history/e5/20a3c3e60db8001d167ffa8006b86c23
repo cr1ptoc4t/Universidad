@@ -12,19 +12,24 @@
 **
 **  Notas de diseño:
 **	propuesta para el laboratorio:
-**	A=10
-**	B=5
-**	multiplicación =0
-**	for (i=0;i<A;i++){
-**		multiplicación =multiplicacion +B
-**	}
+
+A=10
+B=5
+multiplicación =0
+for (i=0;i<A;i++){
+	multiplicación =multiplicacion +B
+}
+tanto las variables de entrada como el resultado se tienen que almacenar en memoria
+Saludos
+Ver el mensaje en su contexto
+
 **-------------------------------------------------------------------*/
 
 .global main
 
 .data
-	a: .word 5
-	b: .word 3
+	a: .word 10
+	b: .word 5
 .bss
 	multiplicacion: .space 4
 
@@ -32,15 +37,15 @@
 main:
 	la t0, a	//	t0 = A
 	lw t4, 0(t0)
-	la t1, b	//	t1 = B
+	la t1, B	//	t1 = B
 	lw t5, 0(t1)
 	li t2, 0	//	t2 = i
 	li t3, 0 	//	t3 = multiplicacion
 	la t6, multiplicacion
 
 for:
-	bge t2, t4, end_for		//si condicion contraria saltar al end for
-	add t3, t3, t5			//mult+=b
+	bge t2, t0, end_for		//si condicion contraria saltar al end for
+	add t3, t3, t2			//mult+=b
 	addi t2, t2, 1			// incrementar indice
 	j for
 

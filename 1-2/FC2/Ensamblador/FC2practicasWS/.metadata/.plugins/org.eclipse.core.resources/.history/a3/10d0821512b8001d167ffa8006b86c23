@@ -23,8 +23,8 @@
 .global main
 
 .data
-	a: .word 5
-	b: .word 3
+	a: .word 10
+	b: .word 5
 .bss
 	multiplicacion: .space 4
 
