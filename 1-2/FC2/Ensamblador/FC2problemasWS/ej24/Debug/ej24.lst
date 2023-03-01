@@ -1,0 +1,216 @@
+
+ej24.elf:     file format elf32-littleriscv
+ej24.elf
+architecture: riscv:rv32, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x00000000
+
+Program Header:
+    LOAD off    0x00001000 vaddr 0x00000000 paddr 0x00000000 align 2**12
+         filesz 0x000000b8 memsz 0x000000b8 flags r-x
+    LOAD off    0x00002000 vaddr 0x00010000 paddr 0x00010000 align 2**12
+         filesz 0x00000018 memsz 0x0000001c flags rw-
+
+Sections:
+Idx Name              Size      VMA       LMA       File off  Algn  Flags
+  0 .text             000000b8  00000000  00000000  00001000  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data             00000018  00010000  00010000  00002000  2**0  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss              00000004  00010018  00010018  00002018  2**0  ALLOC
+  3 .riscv.attributes 0000001f  00000000  00000000  00002018  2**0  CONTENTS, READONLY
+  4 .debug_line       00000132  00000000  00000000  00002037  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  5 .debug_info       00000026  00000000  00000000  00002169  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  6 .debug_abbrev     00000014  00000000  00000000  0000218f  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  7 .debug_aranges    00000020  00000000  00000000  000021a8  2**3  CONTENTS, READONLY, DEBUGGING, OCTETS
+  8 .debug_str        0000006e  00000000  00000000  000021c8  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+SYMBOL TABLE:
+00000000 l    d  .text	00000000 .text
+00010000 l    d  .data	00000000 .data
+00010018 l    d  .bss	00000000 .bss
+00000000 l    d  .riscv.attributes	00000000 .riscv.attributes
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    df *ABS*	00000000 ./ej24.o
+00000006 l       *ABS*	00000000 n
+00010000 l       .data	00000000 V
+00010018 l       .bss	00000000 melcho
+00000064 l       .text	00000000 sumavector
+00000030 l       .text	00000000 do
+00000050 l       .text	00000000 meltrue
+00000060 l       .text	00000000 fin
+00000084 l       .text	00000000 for
+000000a0 l       .text	00000000 fin_for
+00000000 g       .text	00000000 main
+00020000 g       *ABS*	00000000 _stack
+
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+main():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:23
+V:      .word 2,1,10,2,2,3
+.bss
+melcho: .space 4
+.text
+main:
+    la   sp,_stack
+   0:	00020117          	auipc	sp,0x20
+   4:	00010113          	mv	sp,sp
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:24
+    mv   fp,zero
+   8:	00000413          	li	s0,0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:25
+    la   a0,V
+   c:	00010517          	auipc	a0,0x10
+  10:	ff450513          	addi	a0,a0,-12 # 10000 <V>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:26
+    li   a1,n
+  14:	00600593          	li	a1,6
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:27
+    call sumavector
+  18:	04c000ef          	jal	ra,64 <sumavector>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:28
+    mv   s1,a0    #s1 contiene el sumatorio del vector
+  1c:	00050493          	mv	s1,a0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:29
+    la   t1,V     #s1=@V
+  20:	00010317          	auipc	t1,0x10
+  24:	fe030313          	addi	t1,t1,-32 # 10000 <V>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:30
+    mv   t2,zero  #t2=i
+  28:	00000393          	li	t2,0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:31
+    li   t3,n
+  2c:	00600e13          	li	t3,6
+
+00000030 <do>:
+do():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:33
+do:
+    slli t3,t2,2
+  30:	00239e13          	slli	t3,t2,0x2
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:34
+    add  t3,t3,t1
+  34:	006e0e33          	add	t3,t3,t1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:35
+    lw   s2,0(t3)
+  38:	000e2903          	lw	s2,0(t3)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:36
+    slli s2,s2,1
+  3c:	00191913          	slli	s2,s2,0x1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:37
+    beq  s2,s1,meltrue
+  40:	00990863          	beq	s2,s1,50 <meltrue>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:38
+    addi t2,t2,1        #i++
+  44:	00138393          	addi	t2,t2,1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:39
+    bge  t2,t3, fin
+  48:	01c3dc63          	bge	t2,t3,60 <fin>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:40
+    j    do
+  4c:	fe5ff06f          	j	30 <do>
+
+00000050 <meltrue>:
+meltrue():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:42
+meltrue:
+    addi s1,zero,1
+  50:	00100493          	li	s1,1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:43
+    la   t1,melcho
+  54:	00010317          	auipc	t1,0x10
+  58:	fc430313          	addi	t1,t1,-60 # 10018 <melcho>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:44
+    sw   s1, 0(t1)
+  5c:	00932023          	sw	s1,0(t1)
+
+00000060 <fin>:
+fin():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:46
+fin:
+    j .
+  60:	0000006f          	j	60 <fin>
+
+00000064 <sumavector>:
+sumavector():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:50
+
+sumavector:
+    #prólogo
+    addi sp,sp,-12
+  64:	ff410113          	addi	sp,sp,-12 # 1fff4 <melcho+0xffdc>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:51
+    sw   s0,0(sp)
+  68:	00812023          	sw	s0,0(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:52
+    sw   s1,4(sp)
+  6c:	00912223          	sw	s1,4(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:53
+    sw   s2,8(sp)
+  70:	01212423          	sw	s2,8(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:55
+    #cuerpo
+    mv   s0,a0        #s0=@V
+  74:	00050413          	mv	s0,a0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:56
+    mv   s1,a1        #s1=n
+  78:	00058493          	mv	s1,a1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:57
+    mv   s2,zero  #s2=i
+  7c:	00000913          	li	s2,0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:58
+    mv   s5,zero  #acumulador
+  80:	00000a93          	li	s5,0
+
+00000084 <for>:
+for():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:60
+for:
+    bge  s2,s1,fin_for
+  84:	00995e63          	bge	s2,s1,a0 <fin_for>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:61
+    slli s3,s2,2
+  88:	00291993          	slli	s3,s2,0x2
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:62
+    add  s3,s3,s0
+  8c:	008989b3          	add	s3,s3,s0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:63
+    lw   s4,0(s3)
+  90:	0009aa03          	lw	s4,0(s3)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:64
+    add  s5,s5,s4
+  94:	014a8ab3          	add	s5,s5,s4
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:65
+    addi s2,s2,1
+  98:	00190913          	addi	s2,s2,1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:66
+    j    for
+  9c:	fe9ff06f          	j	84 <for>
+
+000000a0 <fin_for>:
+fin_for():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:68
+fin_for:
+    mv   a0,s5
+  a0:	000a8513          	mv	a0,s5
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:70
+    #epílogo
+    lw   s0,0(sp)
+  a4:	00012403          	lw	s0,0(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:71
+    lw   s1,4(sp)
+  a8:	00412483          	lw	s1,4(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:72
+    lw   s2,8(sp)
+  ac:	00812903          	lw	s2,8(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:73
+    addi sp,sp,12
+  b0:	00c10113          	addi	sp,sp,12
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\Debug/../ej24.asm:74
+    ret
+  b4:	00008067          	ret

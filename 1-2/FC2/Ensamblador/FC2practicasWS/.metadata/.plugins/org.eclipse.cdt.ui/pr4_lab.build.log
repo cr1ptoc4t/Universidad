@@ -1,7 +1,26 @@
-14:46:03 **** Clean-only build of configuration Debug for project pr4_lab ****
-make clean 
-rm -rf  ./fun_asm.o ./pr4_lab.o  pr4_lab.hex  pr4_lab.lst  pr4_lab.siz  ./fun_asm.d  ./pr4_lab.d  pr4_lab.elf
+13:13:35 **** Build of configuration Debug for project pr4_lab ****
+make all 
+'Building file: ../fun_asm.asm'
+'Invoking: GNU RISC-V Cross Assembler'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"fun_asm.d" -MT"fun_asm.o" -c -o "fun_asm.o" "../fun_asm.asm"
+'Finished building: ../fun_asm.asm'
 ' '
+'Building file: ../pr4_lab.c'
+'Invoking: GNU RISC-V Cross C Compiler'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -std=gnu11 -MMD -MP -MF"pr4_lab.d" -MT"pr4_lab.o" -c -o "pr4_lab.o" "../pr4_lab.c"
+'Finished building: ../pr4_lab.c'
+' '
+'Building target: pr4_lab.elf'
+'Invoking: GNU RISC-V Cross C Linker'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr4_lab\ldscript.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"pr4_lab.map" -o "pr4_lab.elf"  ./fun_asm.o ./pr4_lab.o   
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/bin/ld.exe: warning: cannot find entry symbol main; not setting start address
+'Finished building target: pr4_lab.elf'
+' '
+'Invoking: GNU RISC-V Cross Create Flash Image'
+riscv64-unknown-elf-objcopy -O ihex "pr4_lab.elf"  "pr4_lab.hex"
+riscv64-unknown-elf-objcopy: error: the input file 'pr4_lab.elf' has no sections
+make: *** [pr4_lab.hex] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
 
-14:46:03 Build Finished. 0 errors, 0 warnings. (took 163ms)
+13:13:36 Build Failed. 1 errors, 1 warnings. (took 1s.156ms)
 

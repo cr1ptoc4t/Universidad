@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------
-**
+**	CATALINA FULLANA MORA
 **  Fichero:
 **    pr1_a.asm  19/10/2022
 **
@@ -20,14 +20,32 @@
 **
 **-------------------------------------------------------------------*/
 
+.global main
 //defino la constante N
 .equ N, 10
 //reservo espacio para el resultado
 .bss
-	res: 	.space 4
+res:	.space 4
+
 //programa
 .text
-.global main
 main:
+	li t2, N 			//t2=N
+	li t3, 0			//t3=i
+	li t4, 0			//t4=res
+	li t5, 0
 
-//Completar el código
+for:
+	bge t3, t2, fin_for //	Si condicion contraria n<i saltar al final del for
+	add t4, t4, t3		//	Instruccion res+=i
+	addi t3, t3, 1		//	Incrementar indice
+	j for				//	Volver a empezar bucle
+
+fin_for:
+	la t5, res     		// Carga la dirección de memoria de "res" en t5
+	sw t4, 0(t5)		// Guardar t4(contenido) en la dirección de memoria de "res"
+	j end				//	Terminar programa
+
+end:
+	j .
+.end
