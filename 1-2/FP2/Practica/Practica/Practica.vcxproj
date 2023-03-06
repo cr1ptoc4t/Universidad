@@ -129,7 +129,14 @@
   <ItemGroup>
     <ClCompile Include="celda.cpp" />
     <ClCompile Include="celda.h" />
+    <ClCompile Include="colores.h" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="reglasJuego.cpp" />
+    <ClCompile Include="tablero.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="reglasJuego.h" />
+    <ClInclude Include="tablero.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

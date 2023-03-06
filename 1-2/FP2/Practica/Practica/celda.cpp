@@ -14,8 +14,8 @@ char celdaToChar(const tCelda& celda) {
 tCelda charToCelda(char c) {
 	tCelda celda;
 
-	if		(c == 'b' ) celda.tipo = BOMBILLA;
-	else if (c =='p')	celda.tipo = PARED;
+	if		(c == 'b')  celda.tipo = BOMBILLA;
+	else if (c == 'p')	celda.tipo = PARED;
 	else if (c == 'l')	celda.tipo = LIBRE;
 
 	return celda;
