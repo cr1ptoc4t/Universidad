@@ -1,0 +1,35 @@
+﻿  celda.cpp
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(3,30): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(3,30): error C2143: error de sintaxis: falta ',' delante de '&'
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(7,19): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(7,8): error C2146: error de sintaxis: falta ';' delante del identificador 'charToCelda'
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(7,28): error C2143: error de sintaxis: falta ';' delante de '{'
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(7,28): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.cpp(7,30): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.cpp(7,30): error C2143: error de sintaxis: falta ',' delante de '&'
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.cpp(8,19): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.cpp(8,1): error C2086: 'int tCelda': nueva definición
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(7): message : vea la declaración de 'tCelda'
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.cpp(8,8): error C2146: error de sintaxis: falta ';' delante del identificador 'charToCelda'
+  celda.h
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(3,30): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(3,30): error C2143: error de sintaxis: falta ',' delante de '&'
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(7,19): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(7,8): error C2146: error de sintaxis: falta ';' delante del identificador 'charToCelda'
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(7,28): error C2143: error de sintaxis: falta ';' delante de '{'
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(7,28): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
+  main.cpp
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(3,30): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(3,30): error C2143: error de sintaxis: falta ',' delante de '&'
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(7,19): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(7,8): error C2146: error de sintaxis: falta ';' delante del identificador 'charToCelda'
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(7,28): error C2143: error de sintaxis: falta ';' delante de '{'
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(7,28): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\main.cpp(9,43): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tTipo' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\main.cpp(10,43): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tDir' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\main.cpp(15,8): error C2378: 'tCelda': nueva definición; no se puede sobrecargar el símbolo con typedef
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(7): message : vea la declaración de 'tCelda'
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\main.cpp(20,9): error C3646: 'tablero': especificador de invalidación desconocido
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\main.cpp(20,16): error C2143: error de sintaxis: falta ',' delante de '['
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\main.cpp(20,36): error C2238: símbolos (token) inesperados delante de ';'
+  Generando código...

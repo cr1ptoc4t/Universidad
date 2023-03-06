@@ -1,0 +1,11 @@
+﻿  listapolinomios.cpp
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\polinomios\polinomios\polinomio.h(9,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tPolinomio' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\polinomios\polinomios\listapolinomios.h(8,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tListaPolinomios' cuando no hay ninguna variable declarada
+  main.cpp
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\polinomios\polinomios\polinomio.h(9,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tPolinomio' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\polinomios\polinomios\listapolinomios.h(8,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tListaPolinomios' cuando no hay ninguna variable declarada
+  monomio.cpp
+  polinomio.cpp
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\polinomios\polinomios\polinomio.h(9,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tPolinomio' cuando no hay ninguna variable declarada
+  Generando código...
+  polinomios.vcxproj -> C:\Users\Catalina\Documents\Universidad\1-2\FP2\polinomios\x64\Debug\polinomios.exe
