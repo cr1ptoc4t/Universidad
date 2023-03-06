@@ -41,10 +41,13 @@ main:
     li t2, 0		//t2=i
 
 for:
-	bge t2, t1, fin_for
-	addi t2, t2, 1 			//incrementar indice
-	//bge s0, v[i], si_menor
-	//si condicion contraria v[i]<min (s0), si_menor
+	bge t2, t1, end_loop
+	lw t3, 0(V+t2)	//t3 = V[i]
+	lw t4, 0(s0)	//t4 = min
+	blt t3, t4, update_min
+
+	# Incrementar i
+	addi t2, t2, 1
 	j for
 
 fin_for:
@@ -57,3 +60,11 @@ end:
 si_menor:
 	//min toma valor de v[i]
 	j for
+
+update_min:
+	# Actualizar min
+	sw t3, 0(s0)	# *s0 = V[i]
+
+	# Incrementar i
+	addi t2, t2, 1
+	j loop

@@ -43,7 +43,7 @@ main:
 for:
 	bge t2, t1, fin_for
 	addi t2, t2, 1 			//incrementar indice
-	//bge s0, v[i], si_menor
+	bge s0, v[i], si_menor
 	//si condicion contraria v[i]<min (s0), si_menor
 	j for
 
