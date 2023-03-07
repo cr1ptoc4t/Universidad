@@ -1,34 +1,50 @@
-10:31:22 **** Build of configuration Debug for project ej24 ****
+18:33:29 **** Build of configuration Debug for project ej10 ****
 make all 
-'Building file: ../ej24.asm'
+'Building file: ../ej10.asm'
 'Invoking: GNU RISC-V Cross Assembler'
-riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"ej24.d" -MT"ej24.o" -c -o "ej24.o" "../ej24.asm"
-'Finished building: ../ej24.asm'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"ej10.d" -MT"ej10.o" -c -o "ej10.o" "../ej10.asm"
+'Finished building: ../ej10.asm'
 ' '
-'Building target: ej24.elf'
+'Building target: ej10.elf'
 'Invoking: GNU RISC-V Cross C Linker'
-riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej24\ldscript.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"ej24.map" -o "ej24.elf"  ./ej24.o   
-'Finished building target: ej24.elf'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej10\ldscript.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"ej10.map" -o "ej10.elf"  ./ej10.o   
+'Finished building target: ej10.elf'
 ' '
 'Invoking: GNU RISC-V Cross Create Flash Image'
-riscv64-unknown-elf-objcopy -O ihex "ej24.elf"  "ej24.hex"
-'Finished building: ej24.hex'
+riscv64-unknown-elf-objcopy -O ihex "ej10.elf"  "ej10.hex"
+'Finished building: ej10.hex'
 ' '
 'Invoking: GNU RISC-V Cross Create Listing'
-riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --line-numbers --wide "ej24.elf" > "ej24.lst"
-'Finished building: ej24.lst'
+riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --line-numbers --wide "ej10.elf" > "ej10.lst"
+'Finished building: ej10.lst'
 ' '
 'Invoking: GNU RISC-V Cross Print Size'
-riscv64-unknown-elf-size --format=berkeley "ej24.elf"
+riscv64-unknown-elf-size --format=berkeley "ej10.elf"
    text	   data	    bss	    dec	    hex	filename
-    184	     24	      4	    212	     d4	ej24.elf
-'Finished building: ej24.siz'
+     72	     24	      4	    100	     64	ej10.elf
+'Finished building: ej10.siz'
 ' '
-10:31:37 **** Incremental Build of configuration Debug for project ej24 ****
+18:33:56 **** Build of configuration Debug for project ej24 ****
 make all 
 'Invoking: GNU RISC-V Cross Print Size'
 riscv64-unknown-elf-size --format=berkeley "ej24.elf"
    text	   data	    bss	    dec	    hex	filename
     184	     24	      4	    212	     d4	ej24.elf
 'Finished building: ej24.siz'
+' '
+18:35:51 **** Incremental Build of configuration Debug for project ej10 ****
+make all 
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "ej10.elf"
+   text	   data	    bss	    dec	    hex	filename
+     72	     24	      4	    100	     64	ej10.elf
+'Finished building: ej10.siz'
+' '
+18:44:39 **** Incremental Build of configuration Debug for project ej10 ****
+make all 
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "ej10.elf"
+   text	   data	    bss	    dec	    hex	filename
+     72	     24	      4	    100	     64	ej10.elf
+'Finished building: ej10.siz'
 ' '
