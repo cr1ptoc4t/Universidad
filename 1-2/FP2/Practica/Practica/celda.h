@@ -17,6 +17,6 @@ bool esBombilla(const tCelda& c);
 bool estaApagada(const tCelda& c);
 bool estaIluminada(const tCelda& c);
 
-void apagaCelda(const tCelda& c);
-void actualizaIluminacionCelda(const tCelda& c);
-void ponBombilla(const tCelda& c);
+void apagaCelda( tCelda& c);
+void actualizaIluminacionCelda( tCelda& c);
+void ponBombilla( tCelda& c);

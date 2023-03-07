@@ -1,4 +1,4 @@
-﻿  tablero.cpp
+﻿  main.cpp
 C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\celda.h(3,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tTipo' cuando no hay ninguna variable declarada
-x64\Debug\celda.obj : warning LNK4042: objeto especificado más de una vez; omitidos los sobrantes
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\tablero.h(9,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tDir' cuando no hay ninguna variable declarada
   Practica.vcxproj -> C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\x64\Debug\Practica.exe

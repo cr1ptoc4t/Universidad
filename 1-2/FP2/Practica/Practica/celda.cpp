@@ -28,21 +28,24 @@ bool numParedRestringida(const tCelda& c) {
 	return false;
 }
 bool esBombilla(const tCelda& c) {
-	return false;
+	return c.tipo==BOMBILLA;
 }
 bool estaApagada(const tCelda& c) {
+	
 	return false;
 }
 bool estaIluminada(const tCelda& c) {
 	return false;
 }
 
-void apagaCelda(const tCelda& c) {
+void apagaCelda( tCelda& c) {
+	c.tipo = LIBRE;
 
 }
-void actualizaIluminacionCelda(const tCelda& c) {
+void actualizaIluminacionCelda( tCelda& c) {
 
 }
-void ponBombilla(const tCelda& c) {
-
+void ponBombilla( tCelda& c) {
+	c.tipo = BOMBILLA;
+	//iluminar las dos diagonales?
 }
