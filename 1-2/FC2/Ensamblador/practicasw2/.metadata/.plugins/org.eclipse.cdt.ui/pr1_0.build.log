@@ -1,0 +1,7 @@
+16:00:46 **** Clean-only build of configuration Debug for project pr1_0 ****
+make clean 
+rm -rf  ./pr1_0.o  pr1_0.hex  pr1_0.lst  pr1_0.siz  ./pr1_0.d  pr1_0.elf
+' '
+
+16:00:46 Build Finished. 0 errors, 0 warnings. (took 137ms)
+
