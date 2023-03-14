@@ -1,68 +1,154 @@
-10:54:06 **** Incremental Build of configuration Debug for project ej02 ****
+18:26:17 **** Incremental Build of configuration Debug for project ej05 ****
 make all 
-'Building file: ../ej02.asm'
+'Building file: ../ej05.asm'
 'Invoking: GNU RISC-V Cross Assembler'
-riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"ej02.d" -MT"ej02.o" -c -o "ej02.o" "../ej02.asm"
-'Finished building: ../ej02.asm'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"ej05.d" -MT"ej05.o" -c -o "ej05.o" "../ej05.asm"
+'Finished building: ../ej05.asm'
 ' '
-'Building target: ej02.elf'
+'Building target: ej05.elf'
 'Invoking: GNU RISC-V Cross C Linker'
-riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\Problemas\ej02\ldscript.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"ej02.map" -o "ej02.elf"  ./ej02.o   
-'Finished building target: ej02.elf'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\Problemas\ej05\ldscript.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"ej05.map" -o "ej05.elf"  ./ej05.o   
+'Finished building target: ej05.elf'
 ' '
 'Invoking: GNU RISC-V Cross Create Flash Image'
-riscv64-unknown-elf-objcopy -O ihex "ej02.elf"  "ej02.hex"
-'Finished building: ej02.hex'
+riscv64-unknown-elf-objcopy -O ihex "ej05.elf"  "ej05.hex"
+'Finished building: ej05.hex'
 ' '
 'Invoking: GNU RISC-V Cross Create Listing'
-riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --line-numbers --wide "ej02.elf" > "ej02.lst"
-'Finished building: ej02.lst'
+riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --line-numbers --wide "ej05.elf" > "ej05.lst"
+'Finished building: ej05.lst'
 ' '
 'Invoking: GNU RISC-V Cross Print Size'
-riscv64-unknown-elf-size --format=berkeley "ej02.elf"
+riscv64-unknown-elf-size --format=berkeley "ej05.elf"
    text	   data	    bss	    dec	    hex	filename
-     48	      8	      0	     56	     38	ej02.elf
-'Finished building: ej02.siz'
+     48	      0	      0	     48	     30	ej05.elf
+'Finished building: ej05.siz'
 ' '
-10:54:17 **** Incremental Build of configuration Debug for project ej02 ****
+18:26:24 **** Incremental Build of configuration Debug for project ej05 ****
 make all 
 'Invoking: GNU RISC-V Cross Print Size'
-riscv64-unknown-elf-size --format=berkeley "ej02.elf"
+riscv64-unknown-elf-size --format=berkeley "ej05.elf"
    text	   data	    bss	    dec	    hex	filename
-     48	      8	      0	     56	     38	ej02.elf
-'Finished building: ej02.siz'
+     48	      0	      0	     48	     30	ej05.elf
+'Finished building: ej05.siz'
 ' '
-10:54:58 **** Incremental Build of configuration Debug for project ej02 ****
+18:32:08 **** Incremental Build of configuration Debug for project ej05 ****
 make all 
-'Building file: ../ej02.asm'
+'Building file: ../ej05.asm'
 'Invoking: GNU RISC-V Cross Assembler'
-riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"ej02.d" -MT"ej02.o" -c -o "ej02.o" "../ej02.asm"
-'Finished building: ../ej02.asm'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"ej05.d" -MT"ej05.o" -c -o "ej05.o" "../ej05.asm"
+'Finished building: ../ej05.asm'
 ' '
-'Building target: ej02.elf'
+'Building target: ej05.elf'
 'Invoking: GNU RISC-V Cross C Linker'
-riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\Problemas\ej02\ldscript.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"ej02.map" -o "ej02.elf"  ./ej02.o   
-'Finished building target: ej02.elf'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\Problemas\ej05\ldscript.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"ej05.map" -o "ej05.elf"  ./ej05.o   
+'Finished building target: ej05.elf'
 ' '
 'Invoking: GNU RISC-V Cross Create Flash Image'
-riscv64-unknown-elf-objcopy -O ihex "ej02.elf"  "ej02.hex"
-'Finished building: ej02.hex'
+riscv64-unknown-elf-objcopy -O ihex "ej05.elf"  "ej05.hex"
+'Finished building: ej05.hex'
 ' '
 'Invoking: GNU RISC-V Cross Create Listing'
-riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --line-numbers --wide "ej02.elf" > "ej02.lst"
-'Finished building: ej02.lst'
+riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --line-numbers --wide "ej05.elf" > "ej05.lst"
+'Finished building: ej05.lst'
 ' '
 'Invoking: GNU RISC-V Cross Print Size'
-riscv64-unknown-elf-size --format=berkeley "ej02.elf"
+riscv64-unknown-elf-size --format=berkeley "ej05.elf"
    text	   data	    bss	    dec	    hex	filename
-     48	      8	      0	     56	     38	ej02.elf
-'Finished building: ej02.siz'
+     48	      0	      0	     48	     30	ej05.elf
+'Finished building: ej05.siz'
 ' '
-10:55:29 **** Incremental Build of configuration Debug for project ej02 ****
+18:32:57 **** Incremental Build of configuration Debug for project ej05 ****
+make all 
+'Building file: ../ej05.asm'
+'Invoking: GNU RISC-V Cross Assembler'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"ej05.d" -MT"ej05.o" -c -o "ej05.o" "../ej05.asm"
+'Finished building: ../ej05.asm'
+' '
+'Building target: ej05.elf'
+'Invoking: GNU RISC-V Cross C Linker'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\Problemas\ej05\ldscript.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"ej05.map" -o "ej05.elf"  ./ej05.o   
+'Finished building target: ej05.elf'
+' '
+'Invoking: GNU RISC-V Cross Create Flash Image'
+riscv64-unknown-elf-objcopy -O ihex "ej05.elf"  "ej05.hex"
+'Finished building: ej05.hex'
+' '
+'Invoking: GNU RISC-V Cross Create Listing'
+riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --line-numbers --wide "ej05.elf" > "ej05.lst"
+'Finished building: ej05.lst'
+' '
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "ej05.elf"
+   text	   data	    bss	    dec	    hex	filename
+     48	      0	      0	     48	     30	ej05.elf
+'Finished building: ej05.siz'
+' '
+19:48:08 **** Build of configuration Debug for project ej08 ****
+make all 
+'Building file: ../ej08.asm'
+'Invoking: GNU RISC-V Cross Assembler'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"ej08.d" -MT"ej08.o" -c -o "ej08.o" "../ej08.asm"
+'Finished building: ../ej08.asm'
+' '
+'Building target: ej08.elf'
+'Invoking: GNU RISC-V Cross C Linker'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\Problemas\ej08\ldscript.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"ej08.map" -o "ej08.elf"  ./ej08.o   
+'Finished building target: ej08.elf'
+' '
+'Invoking: GNU RISC-V Cross Create Flash Image'
+riscv64-unknown-elf-objcopy -O ihex "ej08.elf"  "ej08.hex"
+'Finished building: ej08.hex'
+' '
+'Invoking: GNU RISC-V Cross Create Listing'
+riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --line-numbers --wide "ej08.elf" > "ej08.lst"
+'Finished building: ej08.lst'
+' '
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "ej08.elf"
+   text	   data	    bss	    dec	    hex	filename
+     72	     48	      4	    124	     7c	ej08.elf
+'Finished building: ej08.siz'
+' '
+19:55:05 **** Incremental Build of configuration Debug for project ej08 ****
 make all 
 'Invoking: GNU RISC-V Cross Print Size'
-riscv64-unknown-elf-size --format=berkeley "ej02.elf"
+riscv64-unknown-elf-size --format=berkeley "ej08.elf"
    text	   data	    bss	    dec	    hex	filename
-     48	      8	      0	     56	     38	ej02.elf
-'Finished building: ej02.siz'
+     72	     48	      4	    124	     7c	ej08.elf
+'Finished building: ej08.siz'
+' '
+20:00:27 **** Build of configuration Debug for project ej09 ****
+make all 
+'Building file: ../ej09.asm'
+'Invoking: GNU RISC-V Cross Assembler'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"ej09.d" -MT"ej09.o" -c -o "ej09.o" "../ej09.asm"
+'Finished building: ../ej09.asm'
+' '
+'Building target: ej09.elf'
+'Invoking: GNU RISC-V Cross C Linker'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\Problemas\ej09\ldscript.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"ej09.map" -o "ej09.elf"  ./ej09.o   
+'Finished building target: ej09.elf'
+' '
+'Invoking: GNU RISC-V Cross Create Flash Image'
+riscv64-unknown-elf-objcopy -O ihex "ej09.elf"  "ej09.hex"
+'Finished building: ej09.hex'
+' '
+'Invoking: GNU RISC-V Cross Create Listing'
+riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --line-numbers --wide "ej09.elf" > "ej09.lst"
+'Finished building: ej09.lst'
+' '
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "ej09.elf"
+   text	   data	    bss	    dec	    hex	filename
+     52	     40	      0	     92	     5c	ej09.elf
+'Finished building: ej09.siz'
+' '
+20:10:32 **** Incremental Build of configuration Debug for project ej09 ****
+make all 
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "ej09.elf"
+   text	   data	    bss	    dec	    hex	filename
+     52	     40	      0	     92	     5c	ej09.elf
+'Finished building: ej09.siz'
 ' '

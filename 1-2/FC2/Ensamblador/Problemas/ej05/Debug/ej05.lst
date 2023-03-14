@@ -1,0 +1,91 @@
+
+ej05.elf:     file format elf32-littleriscv
+ej05.elf
+architecture: riscv:rv32, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x00000000
+
+Program Header:
+    LOAD off    0x00001000 vaddr 0x00000000 paddr 0x00000000 align 2**12
+         filesz 0x00000030 memsz 0x00000030 flags r-x
+
+Sections:
+Idx Name              Size      VMA       LMA       File off  Algn  Flags
+  0 .text             00000030  00000000  00000000  00001000  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .riscv.attributes 0000001f  00000000  00000000  00001030  2**0  CONTENTS, READONLY
+  2 .debug_line       0000007e  00000000  00000000  0000104f  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  3 .debug_info       00000026  00000000  00000000  000010cd  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  4 .debug_abbrev     00000014  00000000  00000000  000010f3  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  5 .debug_aranges    00000020  00000000  00000000  00001108  2**3  CONTENTS, READONLY, DEBUGGING, OCTETS
+  6 .debug_str        00000069  00000000  00000000  00001128  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+SYMBOL TABLE:
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .riscv.attributes	00000000 .riscv.attributes
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    df *ABS*	00000000 ./ej05.o
+0000002c l       .text	00000000 end
+00000018 l       .text	00000000 while
+00000000 g       .text	00000000 main
+
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+main():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\Problemas\ej05\Debug/../ej05.asm:39
+faux : .space 4
+
+.text
+main:
+//declarar
+	li t1, 5 		//n=t1
+   0:	00500313          	li	t1,5
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\Problemas\ej05\Debug/../ej05.asm:40
+	li t2, 2		//i=t2
+   4:	00200393          	li	t2,2
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\Problemas\ej05\Debug/../ej05.asm:41
+	li t3, 1		//fant=t3
+   8:	00100e13          	li	t3,1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\Problemas\ej05\Debug/../ej05.asm:42
+	li t4, 1		//f=t4
+   c:	00100e93          	li	t4,1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\Problemas\ej05\Debug/../ej05.asm:43
+	li t5, 0		//faux=t5
+  10:	00000f13          	li	t5,0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\Problemas\ej05\Debug/../ej05.asm:44
+	blt t1, t2, end
+  14:	00734c63          	blt	t1,t2,2c <end>
+
+00000018 <while>:
+while():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\Problemas\ej05\Debug/../ej05.asm:48
+
+while:
+	//cuerpo del bucle
+	sw t4, 0(t5)
+  18:	01df2023          	sw	t4,0(t5)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\Problemas\ej05\Debug/../ej05.asm:49
+	add t4, t4, t3
+  1c:	01ce8eb3          	add	t4,t4,t3
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\Problemas\ej05\Debug/../ej05.asm:50
+	sw t4, 0(t3)
+  20:	01de2023          	sw	t4,0(t3)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\Problemas\ej05\Debug/../ej05.asm:51
+	addi t2, t2, 1
+  24:	00138393          	addi	t2,t2,1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\Problemas\ej05\Debug/../ej05.asm:52
+	bge t1, t2, while
+  28:	fe7358e3          	bge	t1,t2,18 <while>
+
+0000002c <end>:
+end():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\Problemas\ej05\Debug/../ej05.asm:55
+
+end:
+	j .
+  2c:	0000006f          	j	2c <end>

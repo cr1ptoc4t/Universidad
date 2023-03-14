@@ -32,7 +32,7 @@ main:
     la   t4,b       # t4 es la dirección base de e
     li   t5,n       # t5contiene el índice, en este caso 4
     slli t5,t5,2    # se multiplica en índice por 4 porque
-                    # el tamaño es palabra (4 bytes)
+                    // el tamaño es palabra (4 bytes)
     add  t5,t5,t4   # @=dirbase+indice*4
     lw   t5,0(t5)   # t5=B[4]
     add  s2,s2,s3   # g+h
