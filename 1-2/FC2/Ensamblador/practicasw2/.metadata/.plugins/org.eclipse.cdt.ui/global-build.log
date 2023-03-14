@@ -1,0 +1,44 @@
+16:00:46 **** Clean-only build of configuration Debug for project pr1_0 ****
+make clean 
+rm -rf  ./pr1_0.o  pr1_0.hex  pr1_0.lst  pr1_0.siz  ./pr1_0.d  pr1_0.elf
+' '
+16:00:46 **** Clean-only build of configuration Debug for project pr1_a ****
+make clean 
+rm -rf  ./pr1_a.o  pr1_a.hex  pr1_a.lst  pr1_a.siz  ./pr1_a.d  pr1_a.elf
+' '
+16:00:46 **** Clean-only build of configuration Debug for project pr1_lab ****
+make clean 
+rm -rf  ./pr1_lab.o  pr1_lab.hex  pr1_lab.lst  pr1_lab.siz  ./pr1_lab.d  pr1_lab.elf
+' '
+16:00:46 **** Clean-only build of configuration Debug for project pr2_a ****
+make clean 
+rm -rf  ./pr2_a.o  pr2_a.hex  pr2_a.lst  pr2_a.siz  ./pr2_a.d  pr2_a.elf
+' '
+16:00:47 **** Clean-only build of configuration Debug for project pr2_b ****
+make clean 
+rm -rf  ./pr2_b.o  pr2_b.hex  pr2_b.lst  pr2_b.siz  ./pr2_b.d  pr2_b.elf
+' '
+16:00:47 **** Clean-only build of configuration Debug for project pr2_lab ****
+make clean 
+rm -rf  ./pr2_lab.o  pr2_lab.hex  pr2_lab.lst  pr2_lab.siz  ./pr2_lab.d  pr2_lab.elf
+' '
+16:00:47 **** Clean-only build of configuration Debug for project pr3_a ****
+make clean 
+rm -rf  ./pr3_a.o  pr3_a.hex  pr3_a.lst  pr3_a.siz  ./pr3_a.d  pr3_a.elf
+' '
+16:00:47 **** Clean-only build of configuration Debug for project pr3_lab ****
+make clean 
+rm -rf  ./pr3_lab.o  pr3_lab.hex  pr3_lab.lst  pr3_lab.siz  ./pr3_lab.d  pr3_lab.elf
+' '
+16:00:47 **** Clean-only build of configuration Debug for project pr4 ****
+make clean 
+rm -rf  ./fun_asm.o ./pr4.o  pr4.hex  pr4.lst  pr4.siz  ./fun_asm.d  ./pr4.d  pr4.elf
+' '
+16:00:47 **** Clean-only build of configuration Debug for project pr4_lab ****
+make clean 
+rm -rf  ./fun_asm.o ./pr4_lab.o  pr4_lab.hex  pr4_lab.lst  pr4_lab.siz  ./fun_asm.d  ./pr4_lab.d  pr4_lab.elf
+' '
+16:00:47 **** Clean-only build of configuration Debug for project pr5 ****
+make clean 
+rm -rf  ./fun_asm.o ./fun_c.o  pr5.hex  pr5.lst  pr5.siz  ./fun_asm.d  ./fun_c.d  pr5.elf
+' '

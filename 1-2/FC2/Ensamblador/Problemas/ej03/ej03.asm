@@ -30,20 +30,23 @@ y:  .word   10
 
 .text               # sección de instrucciones
 main:
-    la   t0,x       # pseudoinstruccions t0=@x
-    la   t1,y       # pseudoinstruccions t1=@y
-    lw   s1,0(t0)   # s1=5
-    lw   s2, 0(t1)  # s2=10
-    blt  s1,s2,else # condición inversa s1<s2
-    addi s1,s1,2    # x=x+2
-    addi s2,s2,2    # y=y+2
-    j    fin_if
+	la t2, x
+	lw t0, 0(t2)
+
+	la t3, y
+	lw t1, 0(t3)
+
+if:
+	blt t0, t1, else
+	addi t0, t0, 2
+	addi t1, t1, 2
+	j end
+
 else:
-    addi s1,s1,-2   # x = x-2;
-    addi s2,s2,-2   # y = y-2
-fin_if:
-    sw   s1,0(t0)
-    sw   s2,0(t1)
-fin:
-    j .
-.end
+	addi t0, t0, -2
+	addi t1, t1, -2
+	j end
+
+end:
+	j .
+	.end

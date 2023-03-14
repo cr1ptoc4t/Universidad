@@ -1,0 +1,7 @@
+16:00:47 **** Clean-only build of configuration Debug for project pr4_lab ****
+make clean 
+rm -rf  ./fun_asm.o ./pr4_lab.o  pr4_lab.hex  pr4_lab.lst  pr4_lab.siz  ./fun_asm.d  ./pr4_lab.d  pr4_lab.elf
+' '
+
+16:00:47 Build Finished. 0 errors, 0 warnings. (took 150ms)
+

@@ -1,7 +1,11 @@
-14:46:02 **** Clean-only build of configuration Debug for project pr3_a ****
-make clean 
-rm -rf  ./pr3_a.o  pr3_a.hex  pr3_a.lst  pr3_a.siz  ./pr3_a.d  pr3_a.elf
+21:31:40 **** Incremental Build of configuration Debug for project pr3_a ****
+make all 
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "pr3_a.elf"
+   text	   data	    bss	    dec	    hex	filename
+      0	     32	    180	    212	     d4	pr3_a.elf
+'Finished building: pr3_a.siz'
 ' '
 
-14:46:03 Build Finished. 0 errors, 0 warnings. (took 166ms)
+21:31:43 Build Finished. 0 errors, 0 warnings. (took 2s.450ms)
 

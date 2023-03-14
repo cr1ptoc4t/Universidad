@@ -1,7 +1,11 @@
-13:00:08 **** Clean-only build of configuration Debug for project ej09 ****
-make clean 
-rm -rf  ./ej09.o  ej09.hex  ej09.lst  ej09.siz  ./ej09.d  ej09.elf
+20:10:32 **** Incremental Build of configuration Debug for project ej09 ****
+make all 
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "ej09.elf"
+   text	   data	    bss	    dec	    hex	filename
+     52	     40	      0	     92	     5c	ej09.elf
+'Finished building: ej09.siz'
 ' '
 
-13:00:08 Build Finished. 0 errors, 0 warnings. (took 153ms)
+20:10:33 Build Finished. 0 errors, 0 warnings. (took 1s.181ms)
 

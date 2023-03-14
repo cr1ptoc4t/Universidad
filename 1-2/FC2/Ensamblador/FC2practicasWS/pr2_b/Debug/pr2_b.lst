@@ -7,21 +7,21 @@ start address 0x00000000
 
 Program Header:
     LOAD off    0x00001000 vaddr 0x00000000 paddr 0x00000000 align 2**12
-         filesz 0x00000098 memsz 0x00000098 flags r-x
+         filesz 0x00000088 memsz 0x00000088 flags r-x
     LOAD off    0x00002000 vaddr 0x00010000 paddr 0x00010000 align 2**12
          filesz 0x00000020 memsz 0x00000048 flags rw-
 
 Sections:
 Idx Name              Size      VMA       LMA       File off  Algn  Flags
-  0 .text             00000098  00000000  00000000  00001000  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  0 .text             00000088  00000000  00000000  00001000  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
   1 .data             00000020  00010000  00010000  00002000  2**0  CONTENTS, ALLOC, LOAD, DATA
   2 .bss              00000028  00010020  00010020  00002020  2**0  ALLOC
   3 .riscv.attributes 0000001f  00000000  00000000  00002020  2**0  CONTENTS, READONLY
-  4 .debug_line       000000f1  00000000  00000000  0000203f  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
-  5 .debug_info       00000026  00000000  00000000  00002130  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
-  6 .debug_abbrev     00000014  00000000  00000000  00002156  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
-  7 .debug_aranges    00000020  00000000  00000000  00002170  2**3  CONTENTS, READONLY, DEBUGGING, OCTETS
-  8 .debug_str        00000070  00000000  00000000  00002190  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  4 .debug_line       000000e5  00000000  00000000  0000203f  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  5 .debug_info       00000026  00000000  00000000  00002124  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  6 .debug_abbrev     00000014  00000000  00000000  0000214a  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  7 .debug_aranges    00000020  00000000  00000000  00002160  2**3  CONTENTS, READONLY, DEBUGGING, OCTETS
+  8 .debug_str        00000070  00000000  00000000  00002180  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
 SYMBOL TABLE:
 00000000 l    d  .text	00000000 .text
 00010000 l    d  .data	00000000 .data
@@ -45,7 +45,7 @@ SYMBOL TABLE:
 00000068 l       .text	00000000 fin_segundo_for
 00000048 l       .text	00000000 if
 00000060 l       .text	00000000 fin_if
-00000094 l       .text	00000000 end
+00000084 l       .text	00000000 end
 00000000 g       .text	00000000 main
 
 
@@ -175,27 +175,17 @@ C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_b
 
 00000080 <fin_for>:
 fin_for():
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_b\Debug/../pr2_b.asm:92
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_b\Debug/../pr2_b.asm:90
+
 
 fin_for:
 
-
-
-	la s3, min
-  80:	00010997          	auipc	s3,0x10
-  84:	fc098993          	addi	s3,s3,-64 # 10040 <min>
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_b\Debug/../pr2_b.asm:93
-	la s5, min
-  88:	00010a97          	auipc	s5,0x10
-  8c:	fb8a8a93          	addi	s5,s5,-72 # 10040 <min>
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_b\Debug/../pr2_b.asm:95
-
 	j end
-  90:	0040006f          	j	94 <end>
+  80:	0040006f          	j	84 <end>
 
-00000094 <end>:
+00000084 <end>:
 end():
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_b\Debug/../pr2_b.asm:97
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_b\Debug/../pr2_b.asm:92
 end:
 	j .
-  94:	0000006f          	j	94 <end>
+  84:	0000006f          	j	84 <end>

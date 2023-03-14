@@ -34,34 +34,23 @@ i: .space 4
 faux : .space 4
 
 .text
-main :
-    la t1,f
-    li s1,1         # cargo f en s1 y la guardo
-    sw s1,0(t1)
-    la t0,i
-    li s2,2         # cargo i en s2 y la guardo
-    sw s2,0(t0)
-    la t0,fprev
-    li s3,1         # cargo fprev en s3 y la guardo
-    sw s3,0(t0)
-    la t0,n
-    li s4,5         # cargo n en s4 y la guardo
-    sw s4,0(t0)
+main:
+//declarar
+	li t1, 5 		//n=t1
+	li t2, 2		//i=t2
+	li t3, 1		//fant=t3
+	li t4, 1		//f=t4
+	li t5, 0		//faux=t5
+	blt t1, t2, end
 
-while :
-    bgt s2,s4,end
-    mv t2,s1        # t2 es faux , guardo al modificar
-    la t3,faux
-    sw t2,0(t3)
-    add s1,s1,s3        # f = f + fprev
-    sw s1,0(t1)         # guardo f al modificarse
-    mv s3,t2        # modifico fprev , la guardo
-    la t3,fprev
-    sw s3,0(t3)
-    addi s2,s2,1        # modifico i, la guardo
-    la t3,i
-    sw s2,0(t3)
-    j while
+while:
+	//cuerpo del bucle
+	sw t4, 0(t5)
+	add t4, t4, t3
+	sw t4, 0(t3)
+	addi t2, t2, 1
+	bge t1, t2, while
+
 end:
-    j .
-.end
+	j .
+	.end

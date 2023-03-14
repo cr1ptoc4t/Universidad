@@ -1,4 +1,4 @@
-10:55:29 **** Incremental Build of configuration Debug for project ej02 ****
+18:11:22 **** Build of configuration Debug for project ej02 ****
 make all 
 'Invoking: GNU RISC-V Cross Print Size'
 riscv64-unknown-elf-size --format=berkeley "ej02.elf"
@@ -7,5 +7,5 @@ riscv64-unknown-elf-size --format=berkeley "ej02.elf"
 'Finished building: ej02.siz'
 ' '
 
-10:55:29 Build Finished. 0 errors, 0 warnings. (took 714ms)
+18:11:23 Build Finished. 0 errors, 0 warnings. (took 1s.213ms)
 

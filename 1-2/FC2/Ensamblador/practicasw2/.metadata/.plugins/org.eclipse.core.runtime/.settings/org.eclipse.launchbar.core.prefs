@@ -1,0 +1,11 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:pr1_0 Debug,org.eclipse.launchbar.core.descriptorType.default\:pr1_a Debug,org.eclipse.launchbar.core.descriptorType.default\:pr1_lab Debug,org.eclipse.launchbar.core.descriptorType.default\:pr2_a Debug,org.eclipse.launchbar.core.descriptorType.default\:pr2_b Debug,org.eclipse.launchbar.core.descriptorType.default\:pr2_lab Debug,org.eclipse.launchbar.core.descriptorType.default\:pr3_a Debug,org.eclipse.launchbar.core.descriptorType.default\:pr3_b Debug,org.eclipse.launchbar.core.descriptorType.default\:pr3_lab Debug,org.eclipse.launchbar.core.descriptorType.default\:pr4_lab Debug,org.eclipse.launchbar.core.descriptorType.default\:pr5 Debug,org.eclipse.launchbar.core.descriptorType.default\:pr4 Debug
+eclipse.preferences.version=1
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:practica_1\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:practica_1\ Debug/activeLaunchTarget=null\:---
+org.eclipse.launchbar.core.descriptorType.default\:pr1\ Debug/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:pr1\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:pr1_0\ Debug/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:pr1_0\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
