@@ -11,3 +11,7 @@ bool estaTerminado(tTablero const& tab) {
 bool esPosQuit(int x, int y) {
 	return x == 1 && y == 0;
 }
+
+void ejecutarPos(tTablero& tab, int x, int y) {
+
+}

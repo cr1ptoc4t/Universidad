@@ -42,4 +42,9 @@
       <Filter>Archivos de origen</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="tablero.txt">
+      <Filter>Archivos de origen</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

@@ -4,7 +4,7 @@
 #include <fstream>
 
 const int MAX_FILS = 10;
-const int MAX_COLS = 10;
+const int MAX_COLS = 15;
 
 typedef enum tDir { NORTE, SUR, ESTE, OESTE };
 
