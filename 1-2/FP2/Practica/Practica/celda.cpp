@@ -21,8 +21,12 @@ tCelda charToCelda(char c) {
 	return celda;
 }
 
+bool esPared(const tCelda& c){
+	return c.tipo == PARED;
+}
+
 bool esParedRestringida(const tCelda& c) {
-	return false;
+	return c.numBombillas;
 }
 bool numParedRestringida(const tCelda& c) {
 	return false;
