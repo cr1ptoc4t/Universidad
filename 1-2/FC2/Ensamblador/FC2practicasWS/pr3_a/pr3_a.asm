@@ -66,7 +66,7 @@ main:
 	sw a0, 0(t0)	//guardado de res
 	//guarda normA en var
 
-	//call dot_prod2
+	call dot_prod2
 	//normB eb var
 	if:
 		//bge normB, normA, else
@@ -82,10 +82,10 @@ end:
 	j .
 
 dot_prod:
-	addi sp , sp , -24 // ///
+	addi sp , sp , -24
 	sw ra , 20( sp) //
 	sw s0 , 16( sp) //
-	sw s1 , 12( sp) // PRÓ LOGO
+	sw s1 , 12( sp) // PRÓLOGO
 	sw s2 , 8( sp) //
 	sw s3 , 4( sp) //
 	sw s4 , 0( sp) // ///
@@ -96,14 +96,13 @@ dot_prod:
 	mv s4 , a2 // s4 guarda n
 	for:
 		bge s1, s4, fin_for
-		/*
 		la t1, V
 		slli t3, s2, 2
 		add t2, t1, t3
 		lw s3, 0(t2)
 		//acc += mul(V[i], W[i]); donde v(i) es s3, acc es s4 y w[i] es x
 
-		sw s3, 0(t2)*/
+		sw s3, 0(t2)
 		nextiter:
 		addi s1 , s1 , 1 // actualizo iterador
 		addi s2 , s2 , 4 //A++

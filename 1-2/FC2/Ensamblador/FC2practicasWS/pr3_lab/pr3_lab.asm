@@ -11,10 +11,9 @@
 **    Fichero de código para la práctica 3_lab
 **
 **-------------------------------------------------------------------*/
-.extern _stack
+//.extern _stack
 .global main
 .equ N, 4
-
 
 .data
 A: .word 3, 5, 1, 9
@@ -23,13 +22,12 @@ B: .word 1, 6, 2, 3
 res: .space 4
 main:
 	li a2, N	//n=4
-
 	la a0, A	//a0=A
 	la a1, B
 
-	call dot_prod	//llamar a la funcion
-	la t0, res		//dotprod devuelve res
-	sw a0, 0(t0)	//guardado de res
+	//call dot_prod	//llamar a la funcion
+	//la t0, res		//dotprod devuelve res
+	//sw a0, 0(t0)	//guardado de res
 	//guarda normA en var
 
 	//call dot_prod2
@@ -38,10 +36,8 @@ main:
 		//bge normB, normA, else
 
 		//mv t2, 0xa //res=0xa
-
 	else:
 		//res=0xb
-
 
 
 end:

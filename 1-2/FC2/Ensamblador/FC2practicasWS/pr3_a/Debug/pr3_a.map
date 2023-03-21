@@ -27,10 +27,13 @@ LOAD c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32i
  *(.data)
  .data          0x0000000000010000       0x20 ./pr3_a.o
 
-.bss            0x0000000000010020       0xb4
+.bss            0x0000000000010020       0xd4
  *(.bss)
- .bss           0x0000000000010020       0xb4 ./pr3_a.o
+ .bss           0x0000000000010020       0xd4 ./pr3_a.o
                 0x0000000000010024                main
+
+.rela.dyn       0x00000000000100f4        0x0
+ .rela.bss      0x00000000000100f4        0x0 ./pr3_a.o
 
 .rodata
  *(.rodata)
@@ -42,8 +45,8 @@ OUTPUT(pr3_a.elf elf32-littleriscv)
  .riscv.attributes
                 0x0000000000000000       0x1f ./pr3_a.o
 
-.debug_line     0x0000000000000000      0x127
- .debug_line    0x0000000000000000      0x127 ./pr3_a.o
+.debug_line     0x0000000000000000      0x14b
+ .debug_line    0x0000000000000000      0x14b ./pr3_a.o
 
 .debug_info     0x0000000000000000       0x26
  .debug_info    0x0000000000000000       0x26 ./pr3_a.o

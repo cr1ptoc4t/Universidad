@@ -1,4 +1,4 @@
-09:27:10 **** Build of configuration Debug for project pr1_a ****
+22:26:00 **** Incremental Build of configuration Debug for project pr1_a ****
 make all 
 'Invoking: GNU RISC-V Cross Print Size'
 riscv64-unknown-elf-size --format=berkeley "pr1_a.elf"
@@ -7,5 +7,5 @@ riscv64-unknown-elf-size --format=berkeley "pr1_a.elf"
 'Finished building: pr1_a.siz'
 ' '
 
-09:27:11 Build Finished. 0 errors, 0 warnings. (took 206ms)
+22:26:00 Build Finished. 0 errors, 0 warnings. (took 545ms)
 

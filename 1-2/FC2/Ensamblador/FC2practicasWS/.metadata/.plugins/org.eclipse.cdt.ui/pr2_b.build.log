@@ -1,23 +1,5 @@
-21:18:23 **** Build of configuration Debug for project pr2_b ****
+22:28:38 **** Build of configuration Debug for project pr2_b ****
 make all 
-'Building file: ../pr2_b.asm'
-'Invoking: GNU RISC-V Cross Assembler'
-riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"pr2_b.d" -MT"pr2_b.o" -c -o "pr2_b.o" "../pr2_b.asm"
-'Finished building: ../pr2_b.asm'
-' '
-'Building target: pr2_b.elf'
-'Invoking: GNU RISC-V Cross C Linker'
-riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_b\ldscript.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"pr2_b.map" -o "pr2_b.elf"  ./pr2_b.o   
-'Finished building target: pr2_b.elf'
-' '
-'Invoking: GNU RISC-V Cross Create Flash Image'
-riscv64-unknown-elf-objcopy -O ihex "pr2_b.elf"  "pr2_b.hex"
-'Finished building: pr2_b.hex'
-' '
-'Invoking: GNU RISC-V Cross Create Listing'
-riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --line-numbers --wide "pr2_b.elf" > "pr2_b.lst"
-'Finished building: pr2_b.lst'
-' '
 'Invoking: GNU RISC-V Cross Print Size'
 riscv64-unknown-elf-size --format=berkeley "pr2_b.elf"
    text	   data	    bss	    dec	    hex	filename
@@ -25,5 +7,5 @@ riscv64-unknown-elf-size --format=berkeley "pr2_b.elf"
 'Finished building: pr2_b.siz'
 ' '
 
-21:18:26 Build Finished. 0 errors, 0 warnings. (took 2s.338ms)
+22:28:39 Build Finished. 0 errors, 0 warnings. (took 561ms)
 

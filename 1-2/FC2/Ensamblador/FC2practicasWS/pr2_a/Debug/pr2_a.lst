@@ -131,16 +131,17 @@ fin_for:
   48:	00010997          	auipc	s3,0x10
   4c:	fd898993          	addi	s3,s3,-40 # 10020 <min>
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:64
-	j end
-  50:	00c0006f          	j	5c <end>
+	la s5, min //resultado en s5
+  50:	00010a97          	auipc	s5,0x10
+  54:	fd0a8a93          	addi	s5,s5,-48 # 10020 <min>
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:65
-	la s5, min
-  54:	00010a97          	auipc	s5,0x10
-  58:	fcca8a93          	addi	s5,s5,-52 # 10020 <min>
+	j end
+  58:	0040006f          	j	5c <end>
 
 0000005c <end>:
 end():
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:67
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:68
+
 end:
 	j .
   5c:	0000006f          	j	5c <end>

@@ -1,48 +1,171 @@
-21:30:07 **** Incremental Build of configuration Debug for project pr3_a ****
+23:22:31 **** Incremental Build of configuration Debug for project pr4 ****
 make all 
-'Invoking: GNU RISC-V Cross Print Size'
-riscv64-unknown-elf-size --format=berkeley "pr3_a.elf"
-   text	   data	    bss	    dec	    hex	filename
-      0	     32	    180	    212	     d4	pr3_a.elf
-'Finished building: pr3_a.siz'
+'Building file: ../fun_asm.asm'
+'Invoking: GNU RISC-V Cross Assembler'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"fun_asm.d" -MT"fun_asm.o" -c -o "fun_asm.o" "../fun_asm.asm"
+'Finished building: ../fun_asm.asm'
 ' '
-21:30:14 **** Incremental Build of configuration Debug for project pr3_a ****
-make all 
-'Invoking: GNU RISC-V Cross Print Size'
-riscv64-unknown-elf-size --format=berkeley "pr3_a.elf"
-   text	   data	    bss	    dec	    hex	filename
-      0	     32	    180	    212	     d4	pr3_a.elf
-'Finished building: pr3_a.siz'
+'Building target: pr4.elf'
+'Invoking: GNU RISC-V Cross C Linker'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr4\ldscript.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"pr4.map" -o "pr4.elf"  ./fun_asm.o ./pr4.o   
+'Finished building target: pr4.elf'
 ' '
-21:30:22 **** Incremental Build of configuration Debug for project pr3_a ****
-make all 
-'Invoking: GNU RISC-V Cross Print Size'
-riscv64-unknown-elf-size --format=berkeley "pr3_a.elf"
-   text	   data	    bss	    dec	    hex	filename
-      0	     32	    180	    212	     d4	pr3_a.elf
-'Finished building: pr3_a.siz'
+'Invoking: GNU RISC-V Cross Create Flash Image'
+riscv64-unknown-elf-objcopy -O ihex "pr4.elf"  "pr4.hex"
+'Finished building: pr4.hex'
 ' '
-21:30:23 **** Incremental Build of configuration Debug for project pr3_a ****
-make all 
-'Invoking: GNU RISC-V Cross Print Size'
-riscv64-unknown-elf-size --format=berkeley "pr3_a.elf"
-   text	   data	    bss	    dec	    hex	filename
-      0	     32	    180	    212	     d4	pr3_a.elf
-'Finished building: pr3_a.siz'
+'Invoking: GNU RISC-V Cross Create Listing'
+riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --line-numbers --wide "pr4.elf" > "pr4.lst"
+'Finished building: pr4.lst'
 ' '
-21:30:50 **** Incremental Build of configuration Debug for project pr3_a ****
-make all 
 'Invoking: GNU RISC-V Cross Print Size'
-riscv64-unknown-elf-size --format=berkeley "pr3_a.elf"
+riscv64-unknown-elf-size --format=berkeley "pr4.elf"
    text	   data	    bss	    dec	    hex	filename
-      0	     32	    180	    212	     d4	pr3_a.elf
-'Finished building: pr3_a.siz'
+    416	     40	      1	    457	    1c9	pr4.elf
+'Finished building: pr4.siz'
 ' '
-21:31:40 **** Incremental Build of configuration Debug for project pr3_a ****
+23:22:35 **** Incremental Build of configuration Debug for project pr4 ****
 make all 
 'Invoking: GNU RISC-V Cross Print Size'
-riscv64-unknown-elf-size --format=berkeley "pr3_a.elf"
+riscv64-unknown-elf-size --format=berkeley "pr4.elf"
    text	   data	    bss	    dec	    hex	filename
-      0	     32	    180	    212	     d4	pr3_a.elf
-'Finished building: pr3_a.siz'
+    416	     40	      1	    457	    1c9	pr4.elf
+'Finished building: pr4.siz'
+' '
+23:29:48 **** Incremental Build of configuration Debug for project pr4 ****
+make all 
+'Building file: ../fun_asm.asm'
+'Invoking: GNU RISC-V Cross Assembler'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"fun_asm.d" -MT"fun_asm.o" -c -o "fun_asm.o" "../fun_asm.asm"
+'Finished building: ../fun_asm.asm'
+' '
+'Building target: pr4.elf'
+'Invoking: GNU RISC-V Cross C Linker'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr4\ldscript.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"pr4.map" -o "pr4.elf"  ./fun_asm.o ./pr4.o   
+'Finished building target: pr4.elf'
+' '
+'Invoking: GNU RISC-V Cross Create Flash Image'
+riscv64-unknown-elf-objcopy -O ihex "pr4.elf"  "pr4.hex"
+'Finished building: pr4.hex'
+' '
+'Invoking: GNU RISC-V Cross Create Listing'
+riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --line-numbers --wide "pr4.elf" > "pr4.lst"
+'Finished building: pr4.lst'
+' '
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "pr4.elf"
+   text	   data	    bss	    dec	    hex	filename
+    420	     40	      1	    461	    1cd	pr4.elf
+'Finished building: pr4.siz'
+' '
+23:30:55 **** Incremental Build of configuration Debug for project pr4 ****
+make all 
+'Building file: ../fun_asm.asm'
+'Invoking: GNU RISC-V Cross Assembler'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"fun_asm.d" -MT"fun_asm.o" -c -o "fun_asm.o" "../fun_asm.asm"
+'Finished building: ../fun_asm.asm'
+' '
+'Building target: pr4.elf'
+'Invoking: GNU RISC-V Cross C Linker'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr4\ldscript.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"pr4.map" -o "pr4.elf"  ./fun_asm.o ./pr4.o   
+'Finished building target: pr4.elf'
+' '
+'Invoking: GNU RISC-V Cross Create Flash Image'
+riscv64-unknown-elf-objcopy -O ihex "pr4.elf"  "pr4.hex"
+'Finished building: pr4.hex'
+' '
+'Invoking: GNU RISC-V Cross Create Listing'
+riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --line-numbers --wide "pr4.elf" > "pr4.lst"
+'Finished building: pr4.lst'
+' '
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "pr4.elf"
+   text	   data	    bss	    dec	    hex	filename
+    420	     40	      1	    461	    1cd	pr4.elf
+'Finished building: pr4.siz'
+' '
+23:35:39 **** Incremental Build of configuration Debug for project pr4 ****
+make all 
+'Building file: ../fun_asm.asm'
+'Invoking: GNU RISC-V Cross Assembler'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"fun_asm.d" -MT"fun_asm.o" -c -o "fun_asm.o" "../fun_asm.asm"
+'Finished building: ../fun_asm.asm'
+' '
+'Building target: pr4.elf'
+'Invoking: GNU RISC-V Cross C Linker'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr4\ldscript.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"pr4.map" -o "pr4.elf"  ./fun_asm.o ./pr4.o   
+'Finished building target: pr4.elf'
+' '
+'Invoking: GNU RISC-V Cross Create Flash Image'
+riscv64-unknown-elf-objcopy -O ihex "pr4.elf"  "pr4.hex"
+'Finished building: pr4.hex'
+' '
+'Invoking: GNU RISC-V Cross Create Listing'
+riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --line-numbers --wide "pr4.elf" > "pr4.lst"
+'Finished building: pr4.lst'
+' '
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "pr4.elf"
+   text	   data	    bss	    dec	    hex	filename
+    416	     40	      1	    457	    1c9	pr4.elf
+'Finished building: pr4.siz'
+' '
+23:37:04 **** Incremental Build of configuration Debug for project pr4 ****
+make all 
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "pr4.elf"
+   text	   data	    bss	    dec	    hex	filename
+    416	     40	      1	    457	    1c9	pr4.elf
+'Finished building: pr4.siz'
+' '
+23:37:05 **** Incremental Build of configuration Debug for project pr4 ****
+make all 
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "pr4.elf"
+   text	   data	    bss	    dec	    hex	filename
+    416	     40	      1	    457	    1c9	pr4.elf
+'Finished building: pr4.siz'
+' '
+23:39:28 **** Incremental Build of configuration Debug for project pr4 ****
+make all 
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "pr4.elf"
+   text	   data	    bss	    dec	    hex	filename
+    416	     40	      1	    457	    1c9	pr4.elf
+'Finished building: pr4.siz'
+' '
+23:42:04 **** Incremental Build of configuration Debug for project pr4 ****
+make all 
+'Building file: ../fun_asm.asm'
+'Invoking: GNU RISC-V Cross Assembler'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"fun_asm.d" -MT"fun_asm.o" -c -o "fun_asm.o" "../fun_asm.asm"
+../fun_asm.asm: Assembler messages:
+../fun_asm.asm:34: Error: illegal operands `li t4'
+make: *** [fun_asm.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+23:42:13 **** Incremental Build of configuration Debug for project pr4 ****
+make all 
+'Building file: ../fun_asm.asm'
+'Invoking: GNU RISC-V Cross Assembler'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"fun_asm.d" -MT"fun_asm.o" -c -o "fun_asm.o" "../fun_asm.asm"
+'Finished building: ../fun_asm.asm'
+' '
+'Building target: pr4.elf'
+'Invoking: GNU RISC-V Cross C Linker'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr4\ldscript.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"pr4.map" -o "pr4.elf"  ./fun_asm.o ./pr4.o   
+'Finished building target: pr4.elf'
+' '
+'Invoking: GNU RISC-V Cross Create Flash Image'
+riscv64-unknown-elf-objcopy -O ihex "pr4.elf"  "pr4.hex"
+'Finished building: pr4.hex'
+' '
+'Invoking: GNU RISC-V Cross Create Listing'
+riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --line-numbers --wide "pr4.elf" > "pr4.lst"
+'Finished building: pr4.lst'
+' '
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "pr4.elf"
+   text	   data	    bss	    dec	    hex	filename
+    416	     40	      1	    457	    1c9	pr4.elf
+'Finished building: pr4.siz'
 ' '
