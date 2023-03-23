@@ -13,14 +13,25 @@ tCelda celdaEnPos(const tTablero& tab, int x, int y) {
 int getNumFilas(const tTablero& tab) {
 	return tab.nFils;
 }
+void setTipo(tTablero& tab, int x, int y,tTipo tipo) {
+	tab.tablero[x][y].tipo = tipo;
+}
 
 int getNumCols(const tTablero& tab) {
 	return tab.nCols;
 }
 
-bool leerTablero(ifstream& archivo, tTablero& tab) {
+void ponCeldaEnPos(tTablero& tab, int x, int y, const tCelda& c) {
+	tab.tablero[x][y].tipo = c.tipo;
+	tab.tablero[x][y].numBombillas = c.numBombillas;
+}
+
+
+// TERMINADO -- FUNCIONA
+bool leerTablero(ifstream& archivo, tTablero& tab){
 	bool abierto = false;
 	char str;
+	tCelda celda;
 	archivo.open("tablero.txt");
 	if (archivo.is_open()) {
 		archivo >> tab.nFils;
@@ -28,22 +39,27 @@ bool leerTablero(ifstream& archivo, tTablero& tab) {
 		for (int i = 0; i < tab.nCols; i++) {
 			for (int j = 0; j < tab.nFils;j++) {
 				archivo >> str;
-				//TERMINAR ESTOOOOOOOOOOOOOO
-				//tab.tablero[i][j].tipo = str;
+				celda.numBombillas = NULL;
+				if (isdigit(str)) {
+					celda.numBombillas = int(str);
+					celda.tipo = PARED;
+				} else if (str=='X') {
+					celda.tipo = PARED;
+				} else if (str == '*') {
+					celda.tipo = BOMBILLA;
+				} else if (str == '.') {
+					celda.tipo = LIBRE;
+				}
+				ponCeldaEnPos(tab,i, j, celda);
 			}
 		}
-
-		abierto = true;
 		archivo.close();
+		abierto = true;
 	}
 
 	return abierto;
 }
 
-void ponCeldaEnPos(tTablero& tab, int x, int y, const tCelda& c) {
-	tab.tablero[x][y].tipo = c.tipo;
-	tab.tablero[x][y].numBombillas = c.numBombillas;
-}
 
 void mostrarTablero(const tTablero& tab) {
 	cout << "  ";
@@ -59,7 +75,7 @@ void mostrarTablero(const tTablero& tab) {
 		cout<< BLUE << i+1 <<  " " << RESET;
 		for (int j = 0; j < tab.nCols;j++) {
 			cout << "|";
-			if (tab.tablero[i][j].tipo == BOMBILLA)		cout << BG_YELLOW;
+			if (tab.tablero[i][j].tipo == BOMBILLA)		cout <<RED<< BG_YELLOW;
 			else if (tab.tablero[i][j].tipo == PARED)	cout << BG_GRAY;
 			cout << " . "<< RESET;
 		}

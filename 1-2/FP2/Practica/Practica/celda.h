@@ -1,6 +1,6 @@
 #pragma once
 
-typedef enum tTipo { PARED, BOMBILLA, LIBRE };
+typedef enum { PARED, BOMBILLA, LIBRE }tTipo;
 
 typedef struct {
 	tTipo tipo;

@@ -1,7 +1,7 @@
 
 #include <iostream>
-#include<stdio.h>
-#include<ctype.h>
+#include <stdio.h>
+#include <ctype.h>
 #include "celda.h"
 using namespace std;
 
