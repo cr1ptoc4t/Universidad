@@ -17,21 +17,22 @@
 
 //nuestros dos vectores de N componentes
 int U[N] = {5, 2, -3, 7, 6};
-int V[N] = {6, -1, 1, 100, 3};
+int V[N] = {6, -1, 1, 0, 3};
 //variable que almacenará el resultado: 1 si U es mayor, 0 si es V
 char mayor_u;
 
 /**
  * Función que guarda un valor en el puntero proporcionado
  */
-/*
 void guardar(char valor, char * ubicación) {
 	*ubicación = valor;
 }
-*/
+//extern void guardar(char valor, char *ubicacion);
 /**
  * Función simple que multiplica dos números iterativamente
  */
+extern int mul(int a, int b);
+/*
 int mul(int a, int b) {
 	int res = 0, sign = 0;
 	if (a < 0) {
@@ -44,12 +45,13 @@ int mul(int a, int b) {
 	else
 		return res;
 }
-extern int eucl_dist(int * w, int size);
-extern void guardar(char valor, char * ubicación);
+*/
 /**
  * Función simple que obtiene la raíz cuadrada iterativamente
  */
 
+extern int i_sqrt(int a);
+/*
 int i_sqrt(int a) {
 	int root = 0;
 	while (mul(root, root) < a) {
@@ -57,19 +59,19 @@ int i_sqrt(int a) {
 	}
 	return root;
 }
+*/
 /**
  * Calculamos distancia euclídea. Sumamos todos los cuadrados
  * y terminamos sacando la raíz cuadrada (entera)
  */
-/*
-extern int eucl_dist(int * w, int size) {
+int eucl_dist(int w [], int size) {
 	int acc = 0;
 	for (int i = 0; i < size; i++) {
 		acc += mul(w[i], w[i]);
 	}
 	return i_sqrt(acc);
 }
-*/
+
 /**
  * Punto de entrada al programa
  */
@@ -80,4 +82,6 @@ void main() {
 	//vemos si U estaba más lejos
 	char mayor = d_u > d_v;
 	guardar(mayor, &mayor_u);
+
+	while(1); //quedo en un bucle infinito
 }
