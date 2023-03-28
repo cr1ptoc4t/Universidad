@@ -10,15 +10,16 @@ tCelda celdaEnPos(const tTablero& tab, int x, int y) {
 	return celda;
 }
 
-int getNumFilas(const tTablero& tab) {
-	return tab.nFils;
-}
 void setTipo(tTablero& tab, int x, int y,tTipo tipo) {
 	tab.tablero[x][y].tipo = tipo;
 }
 
 int getNumCols(const tTablero& tab) {
 	return tab.nCols;
+}
+
+int getNumFilas(const tTablero& tab) {
+	return tab.nFils;
 }
 
 void ponCeldaEnPos(tTablero& tab, int x, int y, const tCelda& c) {
@@ -40,15 +41,15 @@ bool leerTablero(ifstream& archivo, tTablero& tab){
 			for (int j = 0; j < tab.nFils;j++) {
 				archivo >> str;
 				celda.numBombillas = NULL;
-				if (isdigit(str)) {
-					celda.numBombillas = int(str);
-					celda.tipo = PARED;
-				} else if (str=='X') {
+				if (str=='X') {
 					celda.tipo = PARED;
 				} else if (str == '*') {
 					celda.tipo = BOMBILLA;
 				} else if (str == '.') {
 					celda.tipo = LIBRE;
+				} else{
+					celda.numBombillas = str -'0';
+					celda.tipo = PARED;
 				}
 				ponCeldaEnPos(tab,i, j, celda);
 			}
@@ -75,11 +76,16 @@ void mostrarTablero(const tTablero& tab) {
 		cout<< BLUE << i+1 <<  " " << RESET;
 		for (int j = 0; j < tab.nCols;j++) {
 			cout << "|";
-			if (tab.tablero[i][j].tipo == BOMBILLA)		cout <<RED<< BG_YELLOW;
-			else if (tab.tablero[i][j].tipo == PARED)	cout << BG_GRAY;
-			cout << " . "<< RESET;
+
+			if (tab.tablero[i][j].tipo == BOMBILLA) cout << RED << BG_YELLOW << " * ";
+			else if (tab.tablero[i][j].tipo == LIBRE && tab.tablero[i][j].numBombillas > 0)	cout << RED << BG_YELLOW << "   ";
+			else if (tab.tablero[i][j].tipo == PARED)	cout << BG_GRAY << BLACK<<" "<< tab.tablero[i][j].numBombillas<<" ";
+			else cout<<"   ";
+			cout << RESET;
 		}
 		cout << endl;
 
 	}
+
+	cout << endl;
 }
