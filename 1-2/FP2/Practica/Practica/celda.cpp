@@ -35,11 +35,14 @@ bool esParedRestringida(const tCelda& c) {
 }
 
 int numParedRestringida(const tCelda& c) {
-	return 2;
+	return c.numBombillas;
 }
 
 bool esBombilla(const tCelda& c) {
 	return c.tipo==BOMBILLA;
+}
+bool estaLibre(const tCelda& c) {
+	return c.tipo == LIBRE;
 }
 
 bool estaApagada(const tCelda& c) {
@@ -51,8 +54,8 @@ bool estaIluminada(const tCelda& c) {
 
 void apagaCelda( tCelda& c) {
 	c.tipo = LIBRE;
-
 }
+
 void actualizaIluminacionCelda( tCelda& c, bool iluminar) {
 	if (iluminar) c.numBombillas++;
 	else if(!iluminar && c.numBombillas >0)	c.numBombillas--;
