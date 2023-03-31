@@ -66,14 +66,14 @@ void mostrarTablero(const tTablero& tab) {
 	cout << "  ";
 	for (int i = 0; i < tab.nCols; i++) {
 		cout << BLUE << "|";
-		if(i<9) cout<<" "<< i + 1 << " " << RESET;
-		else if(i>=9&&i<100) cout << i + 1 << " " << RESET;
-		else cout << i + 1 << RESET;
+		if(i<9) cout<<" "<< i << " " << RESET;
+		else if(i>=9&&i<100) cout << i << " " << RESET;
+		else cout << i << RESET;
 	}
 	cout<< endl;
 
 	for (int i = 0; i < tab.nFils;i++) {
-		cout<< BLUE << i+1 <<  " " << RESET;
+		cout<< BLUE << i<<  " " << RESET;
 		for (int j = 0; j < tab.nCols;j++) {
 			cout << "|";
 

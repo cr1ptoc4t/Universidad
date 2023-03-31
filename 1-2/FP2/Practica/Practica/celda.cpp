@@ -34,7 +34,6 @@ bool esParedRestringida(const tCelda& c) {
 	return c.tipo ==PARED && c.numBombillas !=-1;
 }
 
-//FALTA ESTA
 int numParedRestringida(const tCelda& c) {
 	return 2;
 }

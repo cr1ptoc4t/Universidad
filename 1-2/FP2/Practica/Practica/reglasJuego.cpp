@@ -10,19 +10,14 @@ bool estaTerminado(tTablero const& tab) {
 }
 
 bool esPosQuit(int x, int y) {
-	return x == 1 && y == 0;
+	return x == -1 && y == 0;
 }
 
 void ejecutarPos(tTablero& tab, int x, int y) {
-	//esto no va aqui pero funciona
-	for (int i = 0; i < tab.nCols;i++) {
-		for (int j = 0; j < tab.nFils; j++) {
-			if (celdaEnPos(tab, i, j).tipo==BOMBILLA) iluminarDiagonales(tab, i, j);
-		}
-	}
+	ponBombilla(tab.tablero[x][y]);
+	iluminarDiagonales(tab, x, y);
 }
 
-//HAY UN BUGt
 void iluminarDiagonales(tTablero& tab, int x, int y) {
 	int z = 1;
 	//en el eje x hacia la izquierda hasta que encuentre una pared/inicio

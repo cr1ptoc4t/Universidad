@@ -8,18 +8,17 @@ using namespace std;
 int main() {
 	tTablero tablero;
 	ifstream archivo;
+	int a, b, numPasos=0;
 	if (leerTablero(archivo, tablero)) {
-		ejecutarPos(tablero, 3, 6);
-		//mostrar tablero
-		// while(){
-		//	introducir donde quiere poner las bombillas
-		//	preguntar si quiere chequear
-		//}
-	}
-	
+		cin >> a >> b;
+		while (!(estaTerminado(tablero)||esPosQuit(a,b))) { 
+			mostrarTablero(tablero);
+			ejecutarPos(tablero, a, b);
+			mostrarTablero(tablero);
+			numPasos++;
+			cin >> a >> b;
 
-	//ponBombilla(tablero.tablero[3][2]);
-	//tablero.tablero[1][5].tipo = PARED;
-	mostrarTablero(tablero);
+		}
+	
 	return 0;
 }
