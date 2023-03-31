@@ -1,0 +1,4 @@
+﻿  estructuras.cpp
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\parcial\parcial\estructuras.h(8,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tArray2' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\parcial\parcial\estructuras.h(12,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tArray' cuando no hay ninguna variable declarada
+  parcial.vcxproj -> C:\Users\Catalina\Documents\Universidad\1-2\FP2\parcial\x64\Debug\parcial.exe
