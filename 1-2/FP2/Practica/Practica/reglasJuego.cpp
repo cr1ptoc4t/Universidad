@@ -4,9 +4,24 @@
 
 using namespace std;
 
-
+//CHECK ESTO
 bool estaTerminado(tTablero const& tab) {
-	return false;
+	bool terminado = true;
+	int i = 0;
+	while (terminado&&i<tab.nCols) {
+		int j = 0;
+		while (terminado && j < tab.nFils) {
+			//(celdaEnPos(tab, i, j).numBombillas<=0&&!esPared(celdaEnPos(tab, i, j)))
+			//!(esParedRestringida(celdaEnPos(tab, i, j)) && numParedActual(tab, i, j) == celdaEnPos(tab, i, j).numBombillas))
+			if (casillaValida(tab, i, j)){
+				terminado = false;
+			}
+			j++;
+		}
+		i++;
+
+	}
+	return terminado;
 }
 
 bool esPosQuit(int x, int y) {
@@ -16,39 +31,47 @@ bool esPosQuit(int x, int y) {
 void ejecutarPos(tTablero& tab, int x, int y) {
 	if (sePuedePonerBombilla(tab, x, y)) {
 		ponBombilla(tab.tablero[x][y]);
-		iluminarDiagonales(tab, x, y);
-	} 
+		iluminarDiagonales(tab, x, y, true);
+	}
+	else if (esBombilla(celdaEnPos(tab, x, y))) {
+		quitaBombilla(tab.tablero[x][y]);
+		iluminarDiagonales(tab, x, y, false);
+	}
 	else cout << "No puedes poner una bombilla en esta celda! Intentalo de nuevo" << endl;
 }
 
-void iluminarDiagonales(tTablero& tab, int x, int y) {
+void iluminarDiagonales(tTablero& tab, int x, int y, bool iluminar) {
 	int z = 1;
 	//en el eje x hacia la izquierda hasta que encuentre una pared/inicio
 	while (y-z >= 0 &&!esPared(celdaEnPos(tab, x , y - z))) {
-		actualizaIluminacionCelda(tab.tablero[x][y - z], true);
+		actualizaIluminacionCelda(tab.tablero[x][y - z], iluminar);
 		z++;
 	}
 
 	z = 1;
 	//en el eje x hacia la derecha hasta que encuentre una pared/final
 	while (z + y <= getNumCols(tab) && !esPared(celdaEnPos(tab, x, y + z))) {
-		actualizaIluminacionCelda(tab.tablero[x][y + z], true);
+		actualizaIluminacionCelda(tab.tablero[x][y + z], iluminar);
 		z++;
 	}
 
 	z = 1;
 	// en el eje y hacia arriba
 	while (x-z >= 0 && celdaEnPos(tab, x - z, y).tipo != PARED ) {
-		actualizaIluminacionCelda(tab.tablero[x - z][y], true);
+		actualizaIluminacionCelda(tab.tablero[x - z][y], iluminar);
 		z++;
 	}
 
 	z = 1;
 	// en el eje y hacia abajo
-	while (z + x <= getNumFilas(tab) && celdaEnPos(tab, x + z, y ).tipo != PARED) {
+	while (x+z <= getNumFilas(tab) && celdaEnPos(tab, x + z, y ).tipo != PARED) {
 		actualizaIluminacionCelda(tab.tablero[x + z][y], true);
 		z++;
 	}
+}
+
+void apagarDiagonales(tTablero& tab, int x, int y)
+{
 }
 
 
@@ -68,4 +91,9 @@ bool sePuedePonerBombilla(const tTablero& tab, int x, int y) {
 
 bool esPosicionValida(const tTablero tab, int x, int y) {
 	return x >= 0 && x < tab.nFils&& y >= 0 && y < tab.nCols;
+}
+//mirar requisitos aquí
+bool casillaValida(const tTablero& tab, int x, int y) {
+	tCelda c=celdaEnPos(tab, x, y);
+	return !((c.numBombillas>0&& !esPared(c))||(esParedRestringida(c)&&(numParedActual(tab,x,y)!= c.numBombillas))||esPared(c));
 }

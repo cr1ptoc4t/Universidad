@@ -43,13 +43,14 @@ bool leerTablero(ifstream& archivo, tTablero& tab){
 				celda.numBombillas = NULL;
 				if (str=='X') {
 					celda.tipo = PARED;
-					celda.numBombillas = NULL;
+					celda.numBombillas = NULL; //tiene que ser -1
 				} else if (str == '*') {
 					celda.tipo = BOMBILLA;
 				} else if (str == '.') {
 					celda.tipo = LIBRE;
+					celda.numBombillas = 0;
 				} else{
-					celda.numBombillas = str -'0';
+					celda.numBombillas = str -'0'; //para convertir un char a un int -'0'
 					celda.tipo = PARED;
 				}
 				ponCeldaEnPos(tab,i, j, celda);

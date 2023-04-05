@@ -54,6 +54,7 @@ bool estaIluminada(const tCelda& c) {
 
 void apagaCelda( tCelda& c) {
 	c.tipo = LIBRE;
+	c.numBombillas=0;
 }
 
 void actualizaIluminacionCelda( tCelda& c, bool iluminar) {
@@ -63,4 +64,11 @@ void actualizaIluminacionCelda( tCelda& c, bool iluminar) {
 
 void ponBombilla( tCelda& c) {
 	c.tipo = BOMBILLA;
+	c.numBombillas++;
+}
+
+
+void quitaBombilla(tCelda& c) {
+	c.tipo = LIBRE;
+	c.numBombillas--;
 }

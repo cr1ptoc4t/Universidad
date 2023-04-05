@@ -14,14 +14,20 @@ int main() {
 		cout << "Donde quieres poner la primera bombilla? ";
 		cin >> a >> b;
 		mostrarTablero(tablero);
-
-		while (!(estaTerminado(tablero) || esPosQuit(a, b))) {
-			ejecutarPos(tablero, a, b);
+		ejecutarPos(tablero, a, b);
+		while (!(estaTerminado(tablero) || esPosQuit(a, b))) {			//DEMORGAN
+			
 			mostrarTablero(tablero);
 			numPasos++;
 			cout << "Donde quieres poner la bombilla " << numPasos << "? ";
 			cin >> a >> b;
+			ejecutarPos(tablero, a, b);
 		}
+		if (esPosQuit(a,b)) cout << "Gracias por jugar, nos vemos a la proxima"<<endl;
+		else {
+			cout << "has completado el juego" << endl; mostrarTablero(tablero);
+		}
+
 		return 0;
 	}
 }
