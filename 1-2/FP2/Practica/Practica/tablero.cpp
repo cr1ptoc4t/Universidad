@@ -6,8 +6,7 @@
 using namespace std;
 
 tCelda celdaEnPos(const tTablero& tab, int x, int y) {
-	tCelda celda = tab.tablero[x][y];
-	return celda;
+	return tab.tablero[x][y];
 }
 
 void setTipo(tTablero& tab, int x, int y,tTipo tipo) {
@@ -40,10 +39,10 @@ bool leerTablero(ifstream& archivo, tTablero& tab){
 		for (int i = 0; i < tab.nCols; i++) {
 			for (int j = 0; j < tab.nFils;j++) {
 				archivo >> str;
-				celda.numBombillas = NULL;
+				celda.numBombillas = -1;
 				if (str=='X') {
 					celda.tipo = PARED;
-					celda.numBombillas = NULL; //tiene que ser -1
+					celda.numBombillas = -1; 
 				} else if (str == '*') {
 					celda.tipo = BOMBILLA;
 				} else if (str == '.') {
@@ -82,7 +81,7 @@ void mostrarTablero(const tTablero& tab) {
 			if (tab.tablero[i][j].tipo == BOMBILLA) cout << RED << BG_YELLOW << " * ";
 			else if (tab.tablero[i][j].tipo == LIBRE && tab.tablero[i][j].numBombillas > 0)	cout << RED << BG_YELLOW << "   ";
 			else if (tab.tablero[i][j].tipo == PARED)
-				if(tab.tablero[i][j].numBombillas==NULL) cout << BG_GRAY << BLACK << "   ";
+				if(tab.tablero[i][j].numBombillas==-1) cout << BG_GRAY << BLACK << "   ";
 				else cout << BG_GRAY << BLACK<<" "<< tab.tablero[i][j].numBombillas<<" ";
 			else cout<<"   ";
 			cout << RESET;

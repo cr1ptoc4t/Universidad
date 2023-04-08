@@ -11,9 +11,7 @@ bool estaTerminado(tTablero const& tab) {
 	while (terminado&&i<tab.nCols) {
 		int j = 0;
 		while (terminado && j < tab.nFils) {
-			//(celdaEnPos(tab, i, j).numBombillas<=0&&!esPared(celdaEnPos(tab, i, j)))
-			//!(esParedRestringida(celdaEnPos(tab, i, j)) && numParedActual(tab, i, j) == celdaEnPos(tab, i, j).numBombillas))
-			if (casillaValida(tab, i, j)){
+			if (!casillaValida(tab, i, j)){
 				terminado = false;
 			}
 			j++;
@@ -65,14 +63,11 @@ void iluminarDiagonales(tTablero& tab, int x, int y, bool iluminar) {
 	z = 1;
 	// en el eje y hacia abajo
 	while (x+z <= getNumFilas(tab) && celdaEnPos(tab, x + z, y ).tipo != PARED) {
-		actualizaIluminacionCelda(tab.tablero[x + z][y], true);
+		actualizaIluminacionCelda(tab.tablero[x + z][y], iluminar);
 		z++;
 	}
 }
 
-void apagarDiagonales(tTablero& tab, int x, int y)
-{
-}
 
 
 int numParedActual(const tTablero& tab, int x, int y) {
@@ -86,14 +81,14 @@ int numParedActual(const tTablero& tab, int x, int y) {
 }
 
 bool sePuedePonerBombilla(const tTablero& tab, int x, int y) {
-	return estaLibre(celdaEnPos(tab, x, y))/*&& (numParedActual(tab, x, y)<numParedRestringida(celdaEnPos(tab, x, y)))*/ && esPosicionValida(tab, x, y);
+	return estaLibre(celdaEnPos(tab, x, y)) && esPosicionValida(tab, x, y);
 }
 
 bool esPosicionValida(const tTablero tab, int x, int y) {
 	return x >= 0 && x < tab.nFils&& y >= 0 && y < tab.nCols;
 }
-//mirar requisitos aquí
+
 bool casillaValida(const tTablero& tab, int x, int y) {
-	tCelda c=celdaEnPos(tab, x, y);
-	return !((c.numBombillas>0&& !esPared(c))||(esParedRestringida(c)&&(numParedActual(tab,x,y)!= c.numBombillas))||esPared(c));
+	tCelda c = celdaEnPos(tab, x, y);
+	return (c.numBombillas>0&& !esPared(c))||(esParedRestringida(c)&&(numParedActual(tab,x,y)== c.numBombillas))||(esPared(c)&&c.numBombillas==-1);
 }
