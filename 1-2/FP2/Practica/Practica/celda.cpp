@@ -17,10 +17,16 @@ tCelda charToCelda(char c) {
 	tCelda celda;
 
 	if (c == '*')  celda.tipo = BOMBILLA;
-	else if (c == 'X') celda.tipo = PARED;
-	else if (c == '.')	celda.tipo = LIBRE;
+	else if (c == 'X'){
+		celda.tipo = PARED;
+		celda.numBombillas = -1;
+	}
+	else if (c == '.'){
+		celda.tipo = LIBRE;
+		celda.numBombillas = 0;
+	}
 	else if (isdigit(int(c))) {
-		celda.numBombillas = c;
+		celda.numBombillas = c-'0';
 		celda.tipo = PARED;
 	}
 	return celda;
