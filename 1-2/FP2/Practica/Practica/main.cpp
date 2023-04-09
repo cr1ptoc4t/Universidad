@@ -16,11 +16,11 @@ int main() {
 		mostrarTablero(tablero);
 		ejecutarPos(tablero, a, b);
 		while (!(estaTerminado(tablero) || esPosQuit(a, b))) {			//DEMORGAN
-			
 			mostrarTablero(tablero);
 			numPasos++;
 			cout << "Donde quieres poner la bombilla " << numPasos << "? ";
 			cin >> a >> b;
+			if (esPosReset(a, b)) resetear(tablero);
 			ejecutarPos(tablero, a, b);
 		}
 		if (esPosQuit(a,b)) cout << "Gracias por jugar, nos vemos a la proxima"<<endl;

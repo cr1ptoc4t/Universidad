@@ -10,8 +10,9 @@ tCelda celdaEnPos(const tTablero& tab, int x, int y) {
 }
 
 void setTipo(tTablero& tab, int x, int y,tTipo tipo) {
-	//no se si aqui hay que crear una tCelda y despues pon celda en tal
-	tab.tablero[x][y].tipo = tipo;
+	tCelda c = celdaEnPos(tab, x, y);
+	c.tipo = tipo;
+	ponCeldaEnPos(tab, x, y, c);
 }
 
 int getNumCols(const tTablero& tab) {
@@ -80,4 +81,20 @@ void mostrarTablero(const tTablero& tab) {
 	}
 
 	cout << endl;
+}
+
+
+
+
+void resetear(tTablero& tab) {
+	for (int i = 0; i < tab.nFils; i++) {
+		for (int j = 0; j < tab.nCols; j++) {
+			if(!esPared(celdaEnPos(tab, i, j))) {
+				tCelda c = celdaEnPos(tab, i, j);
+				apagaCelda(c);
+				ponCeldaEnPos(tab, i, j, c);
+			}
+		}
+
+	}
 }

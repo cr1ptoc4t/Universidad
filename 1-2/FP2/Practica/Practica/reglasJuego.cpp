@@ -22,77 +22,65 @@ bool esPosQuit(int x, int y) {
 	return x == -1 && y == 0;
 }
 
-//esto se tiene que poder simplificar
+bool esPosReset(int x, int y) {
+	return x == -1 && y == -1;
+}
+
 void ejecutarPos(tTablero& tab, int x, int y) {
 	if (sePuedePonerBombilla(tab, x, y)) {
 		tCelda c = celdaEnPos(tab, x, y);
 		ponBombilla(c);
 		ponCeldaEnPos(tab, x, y, c);
 
-		iluminarDiagonales(tab, x, y, true);
+		iluminarDiagonales2(tab, x, y, true);
 	} else if (esBombilla(celdaEnPos(tab, x, y))) {
 
 		tCelda c = celdaEnPos(tab, x, y);
 		quitaBombilla(c);
 		ponCeldaEnPos(tab, x, y, c);
+		iluminarDiagonales2(tab, x, y, false);
 
-		iluminarDiagonales(tab, x, y, false);
 	}
-	else cout << "No puedes poner una bombilla en esta celda! Intentalo de nuevo" << endl;
-}
-
-
-//esto estaa  mal, hay que usar tDir y no se puede hacer tipo:  tab.tablero[x][y - z]
-//es un for y dentro un while
-void iluminarDiagonales(tTablero& tab, int x, int y, bool iluminar) {
-
-	int z = 1;
-	//en el eje x hacia la izquierda hasta que encuentre una pared/inicio
-	while (y-z >= 0 &&!esPared(celdaEnPos(tab, x , y - z))) {
-		tCelda c = celdaEnPos(tab, x, y-z);
-		actualizaIluminacionCelda(c, iluminar);
-		ponCeldaEnPos(tab, x, y-z, c);
-		z++;
+	else if (esPosReset(x, y)) {
+		cout << "...................RESEANDO................." << endl;
 	}
 
-	z = 1;
-	//en el eje x hacia la derecha hasta que encuentre una pared/final
-	while (z + y <= getNumCols(tab) && !esPared(celdaEnPos(tab, x, y + z))) {
-		actualizaIluminacionCelda(tab.tablero[x][y + z], iluminar);
-		z++;
-	}
-
-	z = 1;
-	// en el eje y hacia arriba
-	while (x-z >= 0 && celdaEnPos(tab, x - z, y).tipo != PARED ) {
-		actualizaIluminacionCelda(tab.tablero[x - z][y], iluminar);
-		z++;
-	}
-
-	z = 1;
-	// en el eje y hacia abajo
-	while (x+z <= getNumFilas(tab) && celdaEnPos(tab, x + z, y ).tipo != PARED) {
-		actualizaIluminacionCelda(tab.tablero[x + z][y], iluminar);
-		z++;
+	else {
+		cout << "No puedes poner una bombilla en esta celda! Intentalo de nuevo" << endl;
 	}
 }
 
-
-//AQUI HAY QYE USAR tDIR!!!!!!!
+//norte= x, y-1
+//sur x, y+1
+//este x-1, y
+//oeste x+1, y
 int numParedActual(const tTablero& tab, int x, int y) {
 	int bombillas = 0;
 	
-	/* tiene que ser algo asi
-	for (int i = 0; i < 3; i++) {
-		if (esBombilla(celdaEnPos(tab, dir)))bombillas++;
+	for (int i = 0; i < 4; i++) {
+		int x1 = x;
+		int y1 = y;
+		tDiraCoordenada(tDir(i), x1, y1);
+		if (esBombilla(celdaEnPos(tab, x1, y1))) bombillas++;
 	}
-	*/
-	if (esBombilla(celdaEnPos(tab, x, y + 1)))	bombillas++;
-	if (esBombilla(celdaEnPos(tab, x, y - 1)))	bombillas++;
-	if (esBombilla(celdaEnPos(tab, x - 1, y)))	bombillas++;
-	if (esBombilla(celdaEnPos(tab, x + 1, y)))	bombillas++;
-
 	return bombillas;
+}
+
+void tDiraCoordenada(tDir dir, int& x, int& y){
+	switch (dir) {
+	case NORTE: {
+		y --;
+	}break;
+	case SUR: {
+		y ++;
+	}break;
+	case ESTE: {
+		x--;
+	}break;
+	case OESTE: {
+		x++;
+	}
+	}
 }
 
 bool sePuedePonerBombilla(const tTablero& tab, int x, int y) {
@@ -109,31 +97,19 @@ bool casillaValida(const tTablero& tab, int x, int y) {
 }
 
 void iluminarDiagonales2(tTablero& tab, int x, int y, bool iluminar) {
-	for (int i = 0; i < 3;i++) {
+	for (int i = 0; i < 4;i++) {
 		iluminarDiagonal(tab, x,y, iluminar,tDir(i));
 	}
 }
 
-
-//esto tendria que ser algo así
 void iluminarDiagonal(tTablero& tab, int x, int y, bool iluminar, tDir dir) {
-	int z = 0, k=0;
+	tDiraCoordenada(dir, x, y);
+	while (x>=0 && y>=0 && x<tab.nFils && y<tab.nCols && !esPared(celdaEnPos(tab,x,y))) {
+		
+		tCelda c = celdaEnPos(tab, x, y);
+		actualizaIluminacionCelda(c, iluminar);
+		ponCeldaEnPos(tab, x, y, c);
+		tDiraCoordenada(dir, x, y);
 
-	while (/*no haya pared y no termine ni empiece el tablero:*/ false) {
-		switch (dir) {
-		case NORTE: {
-
-		}break;
-		case SUR: {
-
-		}break; 
-		case ESTE: {
-
-		}break; 
-		case OESTE: {
-
-		}break;
-
-		}
 	}
 }
