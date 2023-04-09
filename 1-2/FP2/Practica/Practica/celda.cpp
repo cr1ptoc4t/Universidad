@@ -43,6 +43,9 @@ bool esParedRestringida(const tCelda& c) {
 int numParedRestringida(const tCelda& c) {
 	return c.numBombillas;
 }
+int numBombillas(const tCelda& c) {
+	return c.numBombillas;
+}
 
 bool esBombilla(const tCelda& c) {
 	return c.tipo==BOMBILLA;

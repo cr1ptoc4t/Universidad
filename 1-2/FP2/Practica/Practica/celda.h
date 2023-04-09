@@ -24,3 +24,4 @@ void actualizaIluminacionCelda( tCelda& c, bool iluminar);
 void ponBombilla( tCelda& c);
 
 int numParedRestringida(const tCelda& c);
+int numBombillas(const tCelda& c);

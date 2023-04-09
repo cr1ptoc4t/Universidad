@@ -32,20 +32,18 @@ void ejecutarPos(tTablero& tab, int x, int y) {
 		ponBombilla(c);
 		ponCeldaEnPos(tab, x, y, c);
 
-		iluminarDiagonales2(tab, x, y, true);
+		iluminarDiagonales(tab, x, y, true);
 	} else if (esBombilla(celdaEnPos(tab, x, y))) {
 
 		tCelda c = celdaEnPos(tab, x, y);
 		quitaBombilla(c);
 		ponCeldaEnPos(tab, x, y, c);
-		iluminarDiagonales2(tab, x, y, false);
+		iluminarDiagonales(tab, x, y, false);
 
 	}
 	else if (esPosReset(x, y)) {
-		cout << "...................RESEANDO................." << endl;
-	}
-
-	else {
+		cout << "...................RESETANDO................." << endl;
+	} else if (!esPosQuit(x, y)){
 		cout << "No puedes poner una bombilla en esta celda! Intentalo de nuevo" << endl;
 	}
 }
@@ -96,7 +94,7 @@ bool casillaValida(const tTablero& tab, int x, int y) {
 	return (c.numBombillas>0&& !esPared(c))||(esParedRestringida(c)&&(numParedActual(tab,x,y)== c.numBombillas))||(esPared(c)&&c.numBombillas==-1);
 }
 
-void iluminarDiagonales2(tTablero& tab, int x, int y, bool iluminar) {
+void iluminarDiagonales(tTablero& tab, int x, int y, bool iluminar) {
 	for (int i = 0; i < 4;i++) {
 		iluminarDiagonal(tab, x,y, iluminar,tDir(i));
 	}

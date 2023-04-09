@@ -2,6 +2,7 @@
 #include <iostream>
 #include "tablero.h"
 #include "colores.h"
+#include "reglasJuego.h"
 
 using namespace std;
 
@@ -28,16 +29,14 @@ void ponCeldaEnPos(tTablero& tab, int x, int y, const tCelda& c) {
 	tab.tablero[x][y].numBombillas = c.numBombillas;
 }
 
-
-// usar char to celda
 bool leerTablero(ifstream& archivo, tTablero& tab){
 	bool abierto = false;
 	char str;
+	int numBombillas, x, y;
 	tCelda celda;
 	archivo.open("tablero.txt");
 	if (archivo.is_open()) {
-		archivo >> tab.nFils;
-		archivo >> tab.nCols;
+		archivo >> tab.nFils >> tab.nCols;
 		for (int i = 0; i < tab.nCols; i++) {
 			for (int j = 0; j < tab.nFils;j++) {
 				archivo >> str;
@@ -45,6 +44,17 @@ bool leerTablero(ifstream& archivo, tTablero& tab){
 				ponCeldaEnPos(tab, i, j, celda);
 			}
 		}
+
+		archivo >> numBombillas;
+		for (int i = 0; i < numBombillas;i++) {
+			archivo >> x;
+			archivo >> y;
+			tCelda c = celdaEnPos(tab, x, y);
+			ponBombilla(c);
+			ponCeldaEnPos(tab, x, y, c);
+			iluminarDiagonales(tab, x, y, true);
+		}
+
 		archivo.close();
 		abierto = true;
 	}
@@ -52,7 +62,6 @@ bool leerTablero(ifstream& archivo, tTablero& tab){
 	return abierto;
 }
 
-//usar celda to char
 void mostrarTablero(const tTablero& tab) {
 	cout << "  ";
 	for (int i = 0; i < tab.nCols; i++) {
@@ -68,12 +77,15 @@ void mostrarTablero(const tTablero& tab) {
 		for (int j = 0; j < tab.nCols;j++) {
 			cout << "|";
 
-			if		(esBombilla(celdaEnPos(tab,i,j)))		cout << RED << BG_YELLOW << " * ";
-			else if (estaIluminada(celdaEnPos(tab,i,j)))	cout << BG_YELLOW << "   ";
-			else if (esPared(celdaEnPos(tab,i,j)))
-				if(!esParedRestringida(celdaEnPos(tab,i,j)))cout << BG_GRAY << BLACK << "   ";
-				else cout << BG_GRAY << BLACK<<" "<< celdaEnPos(tab,i,j).numBombillas<<" ";
-			else cout<<"   ";
+			if (esBombilla(celdaEnPos(tab, i, j)))		cout << RED << BG_YELLOW;
+			else if (estaIluminada(celdaEnPos(tab, i, j)))	cout << BG_YELLOW;
+			else if (esPared(celdaEnPos(tab, i, j)))cout << BG_GRAY << BLACK;
+			
+			if(esParedRestringida(celdaEnPos(tab, i, j)))
+				cout << " " << numBombillas(celdaEnPos(tab, i, j)) << " ";
+			else
+				cout << " " << celdaToChar(celdaEnPos(tab, i, j)) << " ";
+			
 			cout << RESET;
 		}
 		cout << endl;
@@ -95,6 +107,5 @@ void resetear(tTablero& tab) {
 				ponCeldaEnPos(tab, i, j, c);
 			}
 		}
-
 	}
 }
