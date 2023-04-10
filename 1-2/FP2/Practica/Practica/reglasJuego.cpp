@@ -29,22 +29,22 @@ bool esPosReset(int x, int y) {
 }
 
 void ejecutarPos(tTablero& tab, int x, int y) {
-	if(!esPosReset(x, y)&& !esPosQuit(x, y) && esPosicionValida(tab, x,y)) {
+	if (sePuedePonerBombilla(tab, x, y)|| esBombilla(celdaEnPos(tab, x, y))) {
 		tCelda c = celdaEnPos(tab, x, y);
-
-		if (sePuedePonerBombilla(tab, x, y)){
+		if (sePuedePonerBombilla(tab, x, y)) {
 			ponBombilla(c);
-		}	else if (esBombilla(c)) {
+		}else if (esBombilla(c)) {
 			quitaBombilla(c);
 		}
-
 		ponCeldaEnPos(tab, x, y, c);
-		iluminarDiagonales(tab, x, y, esBombilla(c));
 
-	} else if (esPosReset(x, y)) {
-		cout << "...................RESETANDO................." << endl;
+		iluminarDiagonales(tab, x, y, esBombilla);
+
+	}
+	else if (esPosReset(x, y)) {
+		cout << "...................RESETEANDO................." << endl;
 		resetear(tab);
-	} else if (!esPosicionValida(tab,x, y)){
+	} else if (!sePuedePonerBombilla(tab, x,y)){
 		cout << "No puedes poner una bombilla en esta celda! Intentalo de nuevo" << endl;
 	}
 }
@@ -79,8 +79,10 @@ void tDiraCoordenada(tDir dir, int& x, int& y){
 }
 
 bool sePuedePonerBombilla(const tTablero& tab, int x, int y) {
-	return estaLibre(celdaEnPos(tab, x, y)) && esPosicionValida(tab, x, y);
+	tCelda c = celdaEnPos(tab, x, y);
+	return estaLibre(celdaEnPos(tab, x, y)) && esPosicionValida(tab, x, y) && (c.numBombillas == 0);
 }
+
 
 bool esPosicionValida(const tTablero tab, int x, int y) {
 	return x >= 0 && x < tab.nFils&& y >= 0 && y < tab.nCols;
