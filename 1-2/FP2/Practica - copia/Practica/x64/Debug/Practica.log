@@ -1,0 +1,3 @@
+﻿  reglasJuego.cpp
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\tablero.h(10,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tDir' cuando no hay ninguna variable declarada
+  Practica.vcxproj -> C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\x64\Debug\Practica.exe
