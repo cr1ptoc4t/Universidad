@@ -30,16 +30,14 @@ bool esPosReset(int x, int y) {
 
 void ejecutarPos(tTablero& tab, int x, int y) {
 	if (sePuedePonerBombilla(tab, x, y)|| esBombilla(celdaEnPos(tab, x, y))) {
+
 		tCelda c = celdaEnPos(tab, x, y);
-		if (sePuedePonerBombilla(tab, x, y)) {
-			ponBombilla(c);
-		}else if (esBombilla(c)) {
-			quitaBombilla(c);
-		}
+
+		if (sePuedePonerBombilla(tab, x, y))	ponBombilla(c);
+		else if (esBombilla(c))					quitaBombilla(c);
+	
 		ponCeldaEnPos(tab, x, y, c);
-
-		iluminarDiagonales(tab, x, y, esBombilla);
-
+		iluminarDiagonales(tab, x, y, esBombilla(c));
 	}
 	else if (esPosReset(x, y)) {
 		cout << "...................RESETEANDO................." << endl;
