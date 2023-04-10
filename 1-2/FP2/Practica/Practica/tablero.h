@@ -25,6 +25,3 @@ void setTipo(tTablero& tab, int x, int y, tTipo tipo);
 void resetear(tTablero& tab);
 
 bool leerTablero(ifstream& archivo, tTablero& tab);
-
-//ifstream& operator>>(ifstream& archivo, tTablero& tab);
-//ostream& operator<<(ostream& out, const tTablero& tab);

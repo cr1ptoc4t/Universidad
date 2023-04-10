@@ -6,10 +6,12 @@ using namespace std;
 bool estaTerminado(tTablero const& tab) {
 	bool terminado = true;
 	int i = 0, j=0;
-	while (terminado&&i<tab.nCols) {
+	while (terminado&&i<tab.nFils) {
 		int j = 0;
-		while (terminado && j < tab.nFils) {
-			if (!casillaValida(tab, i, j))	terminado = false;
+		while (terminado && j < tab.nCols) {
+			if (!casillaValida(tab, i, j)) {
+				terminado = false;
+			}
 			j++;
 		}
 		i++;
@@ -27,31 +29,26 @@ bool esPosReset(int x, int y) {
 }
 
 void ejecutarPos(tTablero& tab, int x, int y) {
-	if (sePuedePonerBombilla(tab, x, y)) {
+	if(!esPosReset(x, y)&& !esPosQuit(x, y) && esPosicionValida(tab, x,y)) {
 		tCelda c = celdaEnPos(tab, x, y);
-		ponBombilla(c);
+
+		if (sePuedePonerBombilla(tab, x, y)){
+			ponBombilla(c);
+		}	else if (esBombilla(c)) {
+			quitaBombilla(c);
+		}
+
 		ponCeldaEnPos(tab, x, y, c);
+		iluminarDiagonales(tab, x, y, esBombilla(c));
 
-		iluminarDiagonales(tab, x, y, true);
-	} else if (esBombilla(celdaEnPos(tab, x, y))) {
-
-		tCelda c = celdaEnPos(tab, x, y);
-		quitaBombilla(c);
-		ponCeldaEnPos(tab, x, y, c);
-		iluminarDiagonales(tab, x, y, false);
-
-	}
-	else if (esPosReset(x, y)) {
+	} else if (esPosReset(x, y)) {
 		cout << "...................RESETANDO................." << endl;
-	} else if (!esPosQuit(x, y)){
+		resetear(tab);
+	} else if (!esPosicionValida(tab,x, y)){
 		cout << "No puedes poner una bombilla en esta celda! Intentalo de nuevo" << endl;
 	}
 }
 
-//norte= x, y-1
-//sur x, y+1
-//este x-1, y
-//oeste x+1, y
 int numParedActual(const tTablero& tab, int x, int y) {
 	int bombillas = 0;
 	
@@ -91,7 +88,10 @@ bool esPosicionValida(const tTablero tab, int x, int y) {
 
 bool casillaValida(const tTablero& tab, int x, int y) {
 	tCelda c = celdaEnPos(tab, x, y);
-	return (c.numBombillas>0&& !esPared(c))||(esParedRestringida(c)&&(numParedActual(tab,x,y)== c.numBombillas))||(esPared(c)&&c.numBombillas==-1);
+		// si esta libre, que esté iluminada   numParedRestringida == numBombillas que la rodean
+	return (c.numBombillas>0&& estaLibre(c))|| (esParedRestringida(c)&&(numParedActual(tab,x,y)== c.numBombillas))
+		|| (esPared(c)&&c.numBombillas==-1) || esBombilla(c)&&c.numBombillas==1;
+		//si es pared, numBombillas = 1			si es bombilla, que no esté dos veces iluminada
 }
 
 void iluminarDiagonales(tTablero& tab, int x, int y, bool iluminar) {
@@ -103,7 +103,6 @@ void iluminarDiagonales(tTablero& tab, int x, int y, bool iluminar) {
 void iluminarDiagonal(tTablero& tab, int x, int y, bool iluminar, tDir dir) {
 	tDiraCoordenada(dir, x, y);
 	while (x>=0 && y>=0 && x<tab.nFils && y<tab.nCols && !esPared(celdaEnPos(tab,x,y))) {
-		
 		tCelda c = celdaEnPos(tab, x, y);
 		actualizaIluminacionCelda(c, iluminar);
 		ponCeldaEnPos(tab, x, y, c);

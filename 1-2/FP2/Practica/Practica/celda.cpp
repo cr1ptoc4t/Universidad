@@ -1,7 +1,5 @@
 
 #include <iostream>
-#include <stdio.h>
-#include <ctype.h>
 #include "celda.h"
 using namespace std;
 
@@ -26,8 +24,8 @@ tCelda charToCelda(char c) {
 		celda.numBombillas = 0;
 	}
 	else if (isdigit(int(c))) {
-		celda.numBombillas = c-'0';
 		celda.tipo = PARED;
+		celda.numBombillas = c-'0';
 	}
 	return celda;
 }
@@ -40,6 +38,23 @@ bool esParedRestringida(const tCelda& c) {
 	return c.tipo ==PARED && c.numBombillas !=-1;
 }
 
+bool esBombilla(const tCelda& c) {
+	return c.tipo == BOMBILLA;
+}
+
+bool estaLibre(const tCelda& c) {
+	return c.tipo == LIBRE;
+}
+
+bool estaApagada(const tCelda& c) {
+	return c.tipo == LIBRE && c.numBombillas == 0;
+}
+
+bool estaIluminada(const tCelda& c) {
+	return c.tipo == LIBRE && c.numBombillas > 0;
+}
+
+
 int numParedRestringida(const tCelda& c) {
 	return c.numBombillas;
 }
@@ -47,19 +62,6 @@ int numBombillas(const tCelda& c) {
 	return c.numBombillas;
 }
 
-bool esBombilla(const tCelda& c) {
-	return c.tipo==BOMBILLA;
-}
-bool estaLibre(const tCelda& c) {
-	return c.tipo == LIBRE;
-}
-
-bool estaApagada(const tCelda& c) {
-	return c.tipo== LIBRE && c.numBombillas==0;
-}
-bool estaIluminada(const tCelda& c) {
-	return c.tipo == LIBRE && c.numBombillas > 0;
-}
 
 void apagaCelda( tCelda& c) {
 	c.tipo = LIBRE;
@@ -75,7 +77,6 @@ void ponBombilla( tCelda& c) {
 	c.tipo = BOMBILLA;
 	c.numBombillas++;
 }
-
 
 void quitaBombilla(tCelda& c) {
 	c.tipo = LIBRE;
