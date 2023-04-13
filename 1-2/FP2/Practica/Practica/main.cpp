@@ -15,7 +15,8 @@ int main() {
         mostrarTablero(tablero);
 
         while (!(estaTerminado(tablero) || esPosQuit(a, b))) {
-            cout << "Donde quieres poner la bombilla " << numPasos << "? ";
+            //cout << "Donde quieres poner la bombilla " << numPasos << "? ";
+            cout << "Pos: ";
             cin >> a >> b;
 
             if (esPosReset(a, b)) {

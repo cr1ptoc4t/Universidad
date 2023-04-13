@@ -60,24 +60,25 @@ bool leerTablero(ifstream& archivo, tTablero& tab){
 void mostrarTablero(const tTablero& tab) {
 
 	//indices eje x
-	cout << "  ";
 	for (int i = 0; i < tab.nCols; i++) {
-		cout << RED << "|";
-		if(i<9) cout<<" "<< i << " " << RESET;
-		else if(i>=9&&i<100) cout << i << " " << RESET;
-		else cout << i << RESET;
+		cout << RESET << " | "<<LBLUE<< i;
 	}
-	cout<< endl;
+
+	cout <<RESET<< endl << "-+";
+	for (int j = 0; j < tab.nCols; j++)
+		cout << "---+";
+
+	cout << endl;
 
 	for (int i = 0; i < tab.nFils;i++) {
-		cout<< RED << i <<  " " << RESET;		//indices eje y
+		cout<< LBLUE << i << RESET;		//indices eje y
 		for (int j = 0; j < tab.nCols;j++) {
 			cout << "|";
 			
 			//elegir color
-			if (esBombilla(celdaEnPos(tab, i, j)))			cout << RED << BG_YELLOW;
+			if (esBombilla(celdaEnPos(tab, i, j)))			cout << BLACK << BG_YELLOW;
 			else if (estaIluminada(celdaEnPos(tab, i, j)))	cout << BG_YELLOW;
-			else if (esPared(celdaEnPos(tab, i, j)))		cout << BG_GRAY << BLACK;
+			else if (estaLibre(celdaEnPos(tab, i, j)))		cout << BG_WHITE;
 			
 			//output
 			if(esParedRestringida(celdaEnPos(tab, i, j)))
@@ -86,7 +87,13 @@ void mostrarTablero(const tTablero& tab) {
 				cout << " " << celdaToChar(celdaEnPos(tab, i, j)) << " ";
 			
 			cout << RESET;
+
 		}
+		cout<< endl<<  "-+";
+		
+		for(int j=0; j<tab.nCols;j++)
+			cout << "---+";
+
 		cout << endl;
 	}
 	cout << endl;
