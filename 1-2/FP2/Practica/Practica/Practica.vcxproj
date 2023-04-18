@@ -130,16 +130,25 @@
     <ClCompile Include="celda.cpp" />
     <ClCompile Include="celda.h" />
     <ClCompile Include="colores.h" />
+    <ClCompile Include="listaPartidas.cpp" />
+    <ClCompile Include="listaPosiciones.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="partida.cpp" />
+    <ClCompile Include="posicion.cpp" />
     <ClCompile Include="reglasJuego.cpp" />
     <ClCompile Include="tablero.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="listaPartidas.h" />
+    <ClInclude Include="listaPosiciones.h" />
+    <ClInclude Include="partida.h" />
+    <ClInclude Include="posicion.h" />
     <ClInclude Include="reglasJuego.h" />
     <ClInclude Include="tablero.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="tablero.txt" />
+    <Text Include="tableros.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
