@@ -47,7 +47,7 @@ bool leerTablero(ifstream& archivo, tTablero& tab){
 			tCelda c = celdaEnPos(tab, x, y);
 			ponBombilla(c);
 			ponCeldaEnPos(tab, x, y, c);
-			iluminarDiagonales(tab, x, y, true);
+			iluminarEjes(tab, x, y, true);
 		}
 
 		archivo.close();
@@ -101,15 +101,3 @@ void mostrarTablero(const tTablero& tab) {
 
 
 
-
-void resetear(tTablero& tab) {
-	for (int i = 0; i < tab.nFils; i++) {
-		for (int j = 0; j < tab.nCols; j++) {
-			if(!esPared(celdaEnPos(tab, i, j))) {
-				tCelda c = celdaEnPos(tab, i, j);
-				apagaCelda(c);
-				ponCeldaEnPos(tab, i, j, c);
-			}
-		}
-	}
-}

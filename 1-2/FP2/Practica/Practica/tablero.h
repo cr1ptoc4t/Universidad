@@ -22,6 +22,5 @@ int getNumCols(const tTablero& tab);
 void ponCeldaEnPos(tTablero& tab, int x, int y, const tCelda& c);
 void mostrarTablero(const tTablero& tab);
 void setTipo(tTablero& tab, int x, int y, tTipo tipo);
-void resetear(tTablero& tab);
 
 bool leerTablero(ifstream& archivo, tTablero& tab);

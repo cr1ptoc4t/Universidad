@@ -44,7 +44,7 @@ bool esPared(const tCelda& c){
 }
 
 bool esParedRestringida(const tCelda& c) {
-	return c.tipo ==PARED && c.numBombillas !=-1;
+	return c.tipo ==PARED && numBombillas(c) !=-1;
 }
 
 bool esBombilla(const tCelda& c) {
@@ -56,11 +56,11 @@ bool estaLibre(const tCelda& c) {
 }
 
 bool estaApagada(const tCelda& c) {
-	return c.tipo == LIBRE && c.numBombillas == 0;
+	return c.tipo == LIBRE && numBombillas(c) == 0;
 }
 
 bool estaIluminada(const tCelda& c) {
-	return c.tipo == LIBRE && c.numBombillas > 0;
+	return c.tipo == LIBRE && numBombillas(c) > 0;
 }
 
 

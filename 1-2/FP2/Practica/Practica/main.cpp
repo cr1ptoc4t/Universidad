@@ -11,8 +11,8 @@ int main() {
     ifstream archivo;
     tListaPartidas lp;
 
-    iniciaListaPartidas(lp);
-    cargarListaPartidas(archivo, lp);
+    //iniciaListaPartidas(lp);
+    //cargarListaPartidas(archivo, lp);
     //seleccionar nuvel
     //elige partida
     //juega();
@@ -22,7 +22,7 @@ int main() {
 
 
 
-    /*
+   
     int a=0, b=0, numPasos = 1;
 
     archivo.open("tablero.txt");
@@ -51,7 +51,6 @@ int main() {
             mostrarTablero(tablero);
         }
     }
-    else cout << "tablero";
-    */
+    else cout << "problema en la carga del tablero";
     return 0;
 }

@@ -2,9 +2,11 @@
 #include "tablero.h"
 
 void ejecutarPos (tTablero& tab, int x, int y);
-void iluminarDiagonal(tTablero& tab, int x, int y, bool iluminar, tDir dir);
+void iluminarEje(tTablero& tab, int x, int y, bool iluminar, tDir dir);
 void tDiraCoordenada(tDir dir, int& x, int& y);
-void iluminarDiagonales(tTablero& tab, int x, int y, bool iluminar);
+void iluminarEjes(tTablero& tab, int x, int y, bool iluminar);
+void resetear(tTablero& tab);
+
 
 int  numParedActual(const tTablero& tab, int x, int y);
 
