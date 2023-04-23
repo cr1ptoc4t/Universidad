@@ -1,4 +1,4 @@
-
+//ALBA GALIANO CAMPILLO -- CATALINA FULLANA MORA
 #include <iostream>
 #include <fstream>
 #include "reglasJuego.h"
