@@ -59,6 +59,8 @@ int numParedActual(const tTablero& tab, int x, int y) {
 	return bombillas;
 }
 
+
+
 void tDiraCoordenada(tDir dir, int& x, int& y){
 	switch (dir) {
 	case NORTE: {

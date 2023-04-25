@@ -10,6 +10,7 @@ void iniciaListaPosiciones(tListaPosiciones& lp) {
 void destruyeListaPosiciones(tListaPosiciones& lp) {
 
 }
+
 void insertar(tListaPosiciones& lp, const tPosicion& pos) {
 
 
@@ -22,5 +23,7 @@ tPosicion dameElem(const tListaPosiciones& lp, int i) {
 	return lp.arrayPos[i];
 }
 void guardarListaBombillas(ofstream& archivo, const tListaPosiciones& lp) {
-
+	archivo << lp.cont<<endl;
+	for (int i = 0; i < lp.cont; i++)
+		guardarPosicion(archivo,lp.arrayPos[i]);
 }

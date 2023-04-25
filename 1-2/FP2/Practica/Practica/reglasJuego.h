@@ -9,6 +9,7 @@ void resetear(tTablero& tab);
 
 
 int  numParedActual(const tTablero& tab, int x, int y);
+int  elegirPartida();
 
 bool sePuedePonerBombilla (const tTablero& tab, int x, int y);
 bool esPosicionValida (const tTablero tab, int x, int y);

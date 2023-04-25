@@ -10,11 +10,14 @@ int main() {
     tTablero tablero;
     ifstream archivo;
     tListaPartidas lp;
-
-    //iniciaListaPartidas(lp);
-    //cargarListaPartidas(archivo, lp);
-    //seleccionar nuvel
-    //elige partida
+    int nivel;
+    cargarListaPartidas(archivo, lp);
+    iniciaListaPartidas(lp);
+    
+    
+    //seleccionar nm,uvel
+    //elige partidaP    
+    elegirPartida();
     //juega();
     //si se ha terminado --> eliminar de lp
     //se guarda la lista de partidas en un fichero
@@ -53,4 +56,17 @@ int main() {
     }
     else cout << "problema en la carga del tablero";
     return 0;
+}
+int elegirPartida(const tListaPartidas& lp)
+{
+    int nivel, i;
+    bool existe;
+    cout << "¿Que nivel quieres jugar? ";
+    cin >> nivel;
+    //buscar si hay una del nivel nivel
+    //while (i < lp.nElem && nivel < lp.datos[i].nivel) {
+    //    i++;
+    //} 
+    nivel = i;
+    return nivel;
 }

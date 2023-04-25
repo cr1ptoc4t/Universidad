@@ -12,11 +12,12 @@ char celdaToChar(const tCelda& celda) {
 }
 
 
-//revisar el tema de las paredes restringidas
 char celdaToCharArchivo(const tCelda& celda) {
 	char c = '.';
-	if (celda.tipo == PARED) c = celda.numBombillas;
-	return 0;
+	if (esParedRestringida(celda))
+		c = celda.numBombillas;
+	else if (esPared(celda)) c = 'X';
+	return c;
 }
 
 
