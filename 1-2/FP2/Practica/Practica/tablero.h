@@ -1,5 +1,6 @@
 #pragma once
 #include "celda.h"
+#include "colores.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -21,6 +22,8 @@ int getNumCols(const tTablero& tab);
 
 void ponCeldaEnPos(tTablero& tab, int x, int y, const tCelda& c);
 void mostrarTablero(const tTablero& tab);
-void setTipo(tTablero& tab, int x, int y, tTipo tipo);
+void setNumCols(tTablero& tab, int i);
+void setNumFils(tTablero& tab, int i);
+
 
 bool leerTablero(ifstream& archivo, tTablero& tab);

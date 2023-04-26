@@ -21,3 +21,5 @@ int dameX(const tPosicion& pos) {
 int dameY(const tPosicion& pos) {
 	return pos.y;
 }
+
+

@@ -1,4 +1,5 @@
 #pragma once
+using namespace std;
 
 typedef enum { PARED, BOMBILLA, LIBRE }tTipo;
 
@@ -10,6 +11,7 @@ typedef struct {
 tCelda charToCelda(char c);
 
 char celdaToChar(const tCelda& celda);
+char celdaToCharArchivo(const tCelda& celda);
 
 bool esPared(const tCelda& c);
 bool esParedRestringida(const tCelda& c);
@@ -18,6 +20,7 @@ bool estaApagada(const tCelda& c);
 bool estaIluminada(const tCelda& c);
 bool estaLibre(const tCelda& c);
 
+void setTipo(tCelda& c, tTipo tipo);
 void quitaBombilla(tCelda& c);
 void apagaCelda( tCelda& c);
 void actualizaIluminacionCelda( tCelda& c, bool iluminar);

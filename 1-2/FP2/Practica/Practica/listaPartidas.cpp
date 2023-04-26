@@ -3,10 +3,16 @@ using namespace std;
 
 void iniciaListaPartidas(tListaPartidas& listaPartidas) {
 	listaPartidas.nElem = 0;
+	for (int i = 0; i < MAX_PARTIDAS; i++) {
+		listaPartidas.datos[i] = new tPartida;
+	}
 }
 
 void cargarListaPartidas(ifstream& archivo, tListaPartidas& listaPartidas) {
-
+	archivo >> listaPartidas.nElem;
+	for (int i = 0; i < listaPartidas.nElem;i++) {
+		cargarPartida(archivo,*listaPartidas.datos[i]); //creo que el puntero va asi
+	}
 }
 
 void insertarOrd(tListaPartidas& listaPartidas, const tPartida& partida) {

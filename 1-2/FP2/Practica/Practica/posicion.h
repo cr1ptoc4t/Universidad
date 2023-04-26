@@ -1,4 +1,5 @@
 #pragma once
+#include "tablero.h"
 #include <fstream>
 using namespace std;
 typedef struct {
