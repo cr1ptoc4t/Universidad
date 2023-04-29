@@ -39,20 +39,6 @@ void cargarPartida(ifstream& archivo, tPartida& partida) {
 		partida.listaBombillas.arrayPos->y = y;
 
 	}
-	/*
-	int numPartidas;
-	archivo >> numPartidas;
-	for (int i = 0; i < numPartidas;i++) {
-		//guardar nivel
-		partida[]
-	}
-	//num partidas
-	//	nivel
-	//	num filas - columnas
-	//	partidas
-	//	bombillas
-	archivo<<
-	*/
 }
 bool operator<(const tPartida& partida, int nivel) {
 	return partida.nivel < nivel;

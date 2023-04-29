@@ -18,6 +18,7 @@ void guardarPosicion(ofstream& archivo, const tPosicion& p) {
 int dameX(const tPosicion& pos) {
 	return pos.x;
 }
+
 int dameY(const tPosicion& pos) {
 	return pos.y;
 }

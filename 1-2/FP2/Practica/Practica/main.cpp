@@ -67,5 +67,6 @@ int elegirPartida(const tListaPartidas& lp) {
     //i++;
     //} 
     //indice = i;
+
     return nivel;
 }
