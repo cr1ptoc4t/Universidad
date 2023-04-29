@@ -4,7 +4,7 @@ using namespace std;
 void iniciaListaPosiciones(tListaPosiciones& lp) {
 	lp.cont = 0;
 	lp.size = DIM;
-	//crear array lp
+	lp.arrayPos = new tPosicion[DIM];
 }
 void destruyeListaPosiciones(tListaPosiciones& lp) {
 	//for (int i = 0; i < lp.cont; i++) {

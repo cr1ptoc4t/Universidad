@@ -11,6 +11,7 @@ void iniciaListaPartidas(tListaPartidas& listaPartidas) {
 void cargarListaPartidas(ifstream& archivo, tListaPartidas& listaPartidas) {
 	archivo >> listaPartidas.nElem;
 	for (int i = 0; i < listaPartidas.nElem;i++) {
+		iniciaPartida(*listaPartidas.datos[i]);
 		cargarPartida(archivo,*listaPartidas.datos[i]); //creo que el puntero va asi
 	}
 }
@@ -40,5 +41,8 @@ void guardarListaPartidas(ofstream& archivo, const tListaPartidas& listaPartidas
 }
 
 void destruyeListaPartidas(tListaPartidas& listaPartidas) {
-
+	listaPartidas.nElem = 0;
+	for (int i = 0; i < MAX_PARTIDAS; i++) {
+		delete listaPartidas.datos[i];
+	}
 }

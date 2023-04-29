@@ -103,3 +103,8 @@ void mostrarTablero(const tTablero& tab) {
 	cout << endl;
 }
 //void colocarBombillas(tTablero& tablero,tPartida)
+
+void iniciarTablero(tTablero& tablero) {
+	tablero.nCols = 0;
+	tablero.nFils = 0;
+}

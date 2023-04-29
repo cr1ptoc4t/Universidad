@@ -6,8 +6,10 @@ using namespace std;
 
 
 void iniciaPartida(tPartida& partida) {
-	//crear array dinamico
+	iniciaListaPosiciones(partida.listaBombillas);
+	iniciarTablero(partida.tablero);
 }
+
 void cargarPartida(ifstream& archivo, tPartida& partida) {
 	char str;
 	string nivel;
@@ -28,13 +30,13 @@ void cargarPartida(ifstream& archivo, tPartida& partida) {
 
 	archivo >> n;
 	setCont(partida.listaBombillas, n);	//setCont(getListaBomb(partida), n);
-
+	tCelda celda;
 	int x, y;
 	for (int i = 0; i < n; i++) { //	partida.listaBombillas.cont
-		archivo >> x; //partida.listaBombillas.arrayPos[i].x
+		archivo >> x; 
 		archivo >> y;
-		//getListaBomb(partida).arrayPos->x = x;
-		//getListaBomb(partida).arrayPos->y = y;
+		partida.listaBombillas.arrayPos->x = x;				//esto hay qye cambiarlo
+		partida.listaBombillas.arrayPos->y = y;
 
 	}
 	/*
@@ -45,7 +47,7 @@ void cargarPartida(ifstream& archivo, tPartida& partida) {
 		partida[]
 	}
 	//num partidas
-	// nivel
+	//	nivel
 	//	num filas - columnas
 	//	partidas
 	//	bombillas
@@ -61,6 +63,8 @@ bool operator<(const tPartida& partida1, const tPartida& partida2) {
 bool juega(tPartida& partida, int& nIt) {
 	int a=0, b=0;
 	colocaBombillas(partida);
+	cout << "Tablero de nivel "<<partida.nivel<<endl;
+	mostrarTablero(partida.tablero);
 	//colocar bombillas almacenadas y iluminar diagonales
 	// COMENTARIO CAMPUS CON && NO NOS VA
 	while (!(estaTerminado(partida.tablero) || esPosQuit(a, b))) {
@@ -120,7 +124,9 @@ void setNivel(tPartida& partida, int nivel)
 void colocaBombillas(tPartida& partida) {
 	tCelda c;
 	for (int i = 0; i < dameNumElem(partida.listaBombillas); i++){
-		c = celdaEnPos(partida.tablero, dameX(dameElem(partida.listaBombillas, i)), dameY(dameElem(partida.listaBombillas, i)));
-		ponBombilla(c);
+		//c = celdaEnPos(partida.tablero, dameX(dameElem(partida.listaBombillas, i)), dameY(dameElem(partida.listaBombillas, i)));
+		//ponBombilla(c);
+		//ponCeldaEnPos(partida.tablero, dameX(dameElem(partida.listaBombillas, i)), dameY(dameElem(partida.listaBombillas, i)), c);
+		ejecutarPos(partida.tablero, dameX(dameElem(partida.listaBombillas, i)), dameY(dameElem(partida.listaBombillas, i)));
 	}
 }

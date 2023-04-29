@@ -24,6 +24,6 @@ void ponCeldaEnPos(tTablero& tab, int x, int y, const tCelda& c);
 void mostrarTablero(const tTablero& tab);
 void setNumCols(tTablero& tab, int i);
 void setNumFils(tTablero& tab, int i);
-
+void iniciarTablero(tTablero& tablero);
 
 bool leerTablero(ifstream& archivo, tTablero& tab);

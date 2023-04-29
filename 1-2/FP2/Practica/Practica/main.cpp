@@ -13,13 +13,13 @@ int main() {
     ifstream archivoEntrada;
     ofstream archivoSalida;
     tListaPartidas lp;
-    int partida, nPasos;
+    int partida, nPasos=0;
     archivoEntrada.open("tableros.txt");
     iniciaListaPartidas(lp);
     cargarListaPartidas(archivoEntrada, lp);
 
     partida = elegirPartida(lp);
-    //juega(lp.datos[partida], nPasos);
+    juega(*lp.datos[partida], nPasos);
     // 
     //if (estaTerminado(lp.datos[partida]))
         //eliminarPartida(lp,lp.datos[partida]);
@@ -64,7 +64,7 @@ int elegirPartida(const tListaPartidas& lp) {
     cin >> nivel;
     //buscar si hay una del nivel nivel
     //while (i < lp.nElem && nivel < lp.datos[i].nivel) {
-    i++;
+    //i++;
     //} 
     //indice = i;
     return nivel;
