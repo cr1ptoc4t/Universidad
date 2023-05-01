@@ -8,29 +8,31 @@ void iniciaListaPosiciones(tListaPosiciones& lp) {
 }
 
 void destruyeListaPosiciones(tListaPosiciones& lp) {
-	//mirar esto
 	lp.size = 0;
 	lp.cont = 0;
 	delete [] lp.arrayPos;
 	lp.arrayPos = nullptr;
 }
 
+
+//este metodo no lo estamos usando y deberíamos
 void insertar(tListaPosiciones& lp, const tPosicion& pos) {
 	if (lp.cont >= lp.size) {
 		//ampliar
-		//ESTO HAY QUE CAMBIARLO
-		tPosicion* puntero = lp.arrayPos;
-		lp.size *= 2;
+		tPosicion* aux = lp.arrayPos;
+		//doblamos espacio
+		lp.size = lp.size*2;
+		//construimos nuevo
 		lp.arrayPos = new tPosicion[lp.size];
+		//reemplazamos los valores antiguos
 		for (int i = 0; i < lp.cont; i++) {
-			lp.arrayPos[i] = puntero[i];
+			lp.arrayPos[i] = aux[i];
 		}
-		delete [] puntero;
+		//eliminamos el aux para liberar espacio en memoria
+		delete [] aux;
 	}
 	lp.arrayPos[lp.cont] = pos;
 	lp.cont++;
-
-
 }
 
 int dameNumElem(const tListaPosiciones& lp) {

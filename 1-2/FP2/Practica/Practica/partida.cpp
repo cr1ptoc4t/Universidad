@@ -77,8 +77,7 @@ bool juega(tPartida& partida, int& nIt) {
 	return esPosQuit(a, b);
 }
 
-int getNivel(const tPartida& partida)
-{
+int getNivel(const tPartida& partida) {
 	return partida.nivel;
 }
 
