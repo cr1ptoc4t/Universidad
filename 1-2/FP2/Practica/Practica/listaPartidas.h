@@ -1,5 +1,6 @@
 #pragma once
 #include <fstream>
+#include <iostream>
 #include "partida.h"
 
 using namespace std;
@@ -15,7 +16,6 @@ tPtrPartida dameElem(const tListaPartidas& listaPartidas, int pos);
 
 int buscaPos(const tListaPartidas& listaPartidas, int nivel);
 int dameNumElem(const tListaPartidas& listaPartidas);
-
 void iniciaListaPartidas(tListaPartidas& listaPartidas);
 void cargarListaPartidas(ifstream& archivo, tListaPartidas& listaPartidas);
 void insertarOrd(tListaPartidas& listaPartidas, const tPartida& partida);

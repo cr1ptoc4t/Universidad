@@ -7,6 +7,7 @@ void iniciaPosicion(tPosicion& pos, int xx, int yy) {
 	pos.x = xx;
 	pos.y = yy;
 }
+
 bool operator==(const tPosicion& p1, const tPosicion& p2) {
 	return p1.x == p2.x && p1.y == p2.y;
 }

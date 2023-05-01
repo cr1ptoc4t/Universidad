@@ -91,15 +91,14 @@ tListaPosiciones getListaBomb(tPartida& partida) {
 }
 
 void guardarPartida(ofstream& archivo, const tPartida& partida) {
-	archivo << "LEVEL " << partida.nivel << endl;
-	archivo << partida.tablero.nFils <<" " << partida.tablero.nCols << endl;
+	archivo << "LEVEL " << getNivel(partida) << endl;
+	archivo << getNumFilas(partida.tablero) <<" " << getNumCols(partida.tablero) << endl;
 	for (int i = 0; i < getNumFilas(partida.tablero); i++) {
 		for (int j = 0; j < getNumCols(partida.tablero); j++) {
 			char a = celdaToCharArchivo(celdaEnPos(partida.tablero, i, j));
 			if (esParedRestringida(celdaEnPos(partida.tablero, i, j)))
 				 archivo << int(a);
 			else archivo << a;
-			
 		}
 		archivo << endl;
 	}
@@ -113,6 +112,7 @@ void destruyePartida(tPartida& partida) {
 	setNumCols(partida.tablero, 0);
 	destruyeListaPosiciones(partida.listaBombillas);
 }
+
 void setNivel(tPartida& partida, int nivel) {
 	partida.nivel = nivel;
 }

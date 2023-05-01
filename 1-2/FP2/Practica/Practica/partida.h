@@ -1,5 +1,4 @@
 #pragma once
-
 #include <fstream>
 #include "listaPosiciones.h"
 #include "reglasJuego.h"

@@ -11,32 +11,24 @@ void destruyeListaPosiciones(tListaPosiciones& lp) {
 	//mirar esto
 	lp.size = 0;
 	lp.cont = 0;
-	delete lp.arrayPos;
+	delete [] lp.arrayPos;
 	lp.arrayPos = nullptr;
 }
 
 void insertar(tListaPosiciones& lp, const tPosicion& pos) {
 	if (lp.cont >= lp.size) {
-		tListaPosiciones* aux = new tListaPosiciones[2 * lp.size];//que cojones le pasa me quiero morir
-		aux->size = 2 * lp.size;
-
-
-		//copiamos el array
-		for (int i = 0; i < lp.size; i++) {
-			aux->arrayPos[i] = lp.arrayPos[i];
+		//ampliar
+		//ESTO HAY QUE CAMBIARLO
+		tPosicion* puntero = lp.arrayPos;
+		lp.size *= 2;
+		lp.arrayPos = new tPosicion[lp.size];
+		for (int i = 0; i < lp.cont; i++) {
+			lp.arrayPos[i] = puntero[i];
 		}
-		aux->cont = lp.cont;
-		delete[] lp.arrayPos;
-
-		for (int i = 0; i < aux->size; i++) {
-			lp.arrayPos[i] = aux->arrayPos[i];
-		}
-		lp.cont = aux->cont;
-		lp.size = aux->size;
-
-		delete[] aux;
+		delete [] puntero;
 	}
 	lp.arrayPos[lp.cont] = pos;
+	lp.cont++;
 
 
 }
