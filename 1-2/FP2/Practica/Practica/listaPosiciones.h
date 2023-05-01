@@ -12,7 +12,8 @@ typedef struct {
 void iniciaListaPosiciones(tListaPosiciones& lp);
 void destruyeListaPosiciones(tListaPosiciones& lp);
 void insertar(tListaPosiciones& lp, const tPosicion& pos);
-int dameNumElem(const tListaPosiciones& lp);
-tPosicion dameElem(const tListaPosiciones& lp, int i);
 void guardarListaBombillas(ofstream& archivo, const tListaPosiciones& lp);
 void setCont(tListaPosiciones& lp, int c);
+
+int dameNumElem(const tListaPosiciones& lp);
+tPosicion dameElem(const tListaPosiciones& lp, int i);

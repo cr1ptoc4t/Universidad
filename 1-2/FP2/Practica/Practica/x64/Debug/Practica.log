@@ -1,3 +1,10 @@
-﻿  posicion.cpp
+﻿  listaPartidas.cpp
 C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\tablero.h(11,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tDir' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\listaPartidas.cpp(53,12): warning C4101: 'pos': variable local sin referencia
+  main.cpp
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\tablero.h(11,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tDir' cuando no hay ninguna variable declarada
+  partida.cpp
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\tablero.h(11,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tDir' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\Practica\partida.cpp(33,9): warning C4101: 'celda': variable local sin referencia
+  Generando código...
   Practica.vcxproj -> C:\Users\Catalina\Documents\Universidad\1-2\FP2\Practica\x64\Debug\Practica.exe

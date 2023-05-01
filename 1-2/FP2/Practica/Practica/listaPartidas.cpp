@@ -17,11 +17,21 @@ void cargarListaPartidas(ifstream& archivo, tListaPartidas& listaPartidas) {
 }
 
 void insertarOrd(tListaPartidas& listaPartidas, const tPartida& partida) {
+	int indice = buscaPos(listaPartidas, partida.nivel);
+	//insertar
+	for (int i = listaPartidas.nElem; i > indice;i--) {
+		listaPartidas.datos[i + 1] = listaPartidas.datos[i];
+	}
+	*listaPartidas.datos[indice] = partida;
 
 }
 
 int buscaPos(const tListaPartidas& listaPartidas, int nivel) {
-	return 0;
+	int indice = 0;
+	while (operator<(*listaPartidas.datos[indice], nivel) && indice < listaPartidas.nElem)
+		indice++;
+
+	return indice;
 }
 
 tPtrPartida dameElem(const tListaPartidas& listaPartidas, int pos) {
@@ -33,16 +43,36 @@ int dameNumElem(const tListaPartidas& listaPartidas) {
 }
 
 void eliminarPartida(tListaPartidas& listaPartidas, const tPartida& partida) {
-
+	int posicion = buscaPos(listaPartidas,getNivel(partida));
+	for (int i = posicion; i < listaPartidas.nElem; i++)
+		listaPartidas.datos[i] = listaPartidas.datos[i + 1];
+	listaPartidas.nElem--;
 }
 
-void guardarListaPartidas(ofstream& archivo, const tListaPartidas& listaPartidas) {
+void actualizaBombillas(tPartida& partida) {
+	tPosicion pos;
+	partida.listaBombillas.cont = 0;
+	for (int i = 0; i <getNumFilas(partida.tablero); i++) {
+		for (int j = 0; j < getNumCols(partida.tablero); j++) {
+			if (esBombilla(celdaEnPos(partida.tablero,i,j))){
 
+				iniciaPosicion(partida.listaBombillas.arrayPos[dameNumElem(partida.listaBombillas)], i, j);	//GETTER
+				//incrementamos contador
+				setCont(partida.listaBombillas, dameNumElem(partida.listaBombillas)+1);
+			}
+		}
+	}
+	//vaciar array bombillas y recorrer todo tablero if(bombilla) guardar posicion
+}
+void guardarListaPartidas(ofstream& archivo, const tListaPartidas& listaPartidas) {
+	archivo << dameNumElem(listaPartidas) << endl;
+	for (int i = 0; i < dameNumElem(listaPartidas); i++) {
+		guardarPartida(archivo, *listaPartidas.datos[i]);
+	}
 }
 
 void destruyeListaPartidas(tListaPartidas& listaPartidas) {
-	listaPartidas.nElem = 0;
-	for (int i = 0; i < MAX_PARTIDAS; i++) {
-		delete listaPartidas.datos[i];
+	for (int i = 0; i < dameNumElem(listaPartidas); i++) {
+		destruyePartida(*listaPartidas.datos[i]);
 	}
 }

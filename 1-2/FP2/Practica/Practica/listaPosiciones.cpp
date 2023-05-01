@@ -6,11 +6,13 @@ void iniciaListaPosiciones(tListaPosiciones& lp) {
 	lp.size = DIM;
 	lp.arrayPos = new tPosicion[DIM];
 }
+
 void destruyeListaPosiciones(tListaPosiciones& lp) {
-	//for (int i = 0; i < lp.cont; i++) {
-	delete lp.arrayPos;
-	//}
+	//mirar esto
+	lp.size = 0;
 	lp.cont = 0;
+	delete lp.arrayPos;
+	lp.arrayPos = nullptr;
 }
 
 void insertar(tListaPosiciones& lp, const tPosicion& pos) {

@@ -9,14 +9,11 @@ bool estaTerminado(tTablero const& tab) {
 	while (terminado && i < getNumFilas(tab)) {
 		int j = 0;
 		while (terminado && j < getNumCols(tab)) {
-			if (!casillaValida(tab, i, j)) {
-				terminado = false;
-			}
+			if (!casillaValida(tab, i, j))	terminado = false;
 			j++;
 		}
 		i++;
 	}
-
 	return terminado;
 }
 
@@ -30,7 +27,6 @@ bool esPosReset(int x, int y) {
 
 void ejecutarPos(tTablero& tab, int x, int y) {
 	if (sePuedePonerBombilla(tab, x, y) || esBombilla(celdaEnPos(tab, x, y))) {
-
 		tCelda c = celdaEnPos(tab, x, y);
 
 		if (sePuedePonerBombilla(tab, x, y))	ponBombilla(c);
@@ -43,7 +39,7 @@ void ejecutarPos(tTablero& tab, int x, int y) {
 		cout << "...................RESETEANDO................." << endl;
 		resetear(tab);
 	}
-	else if (!sePuedePonerBombilla(tab, x, y)) {
+	else if (!sePuedePonerBombilla(tab, x, y)&&!esPosQuit(x,y)) {
 		cout << "No puedes poner una bombilla en esta celda! Intentalo de nuevo" << endl;
 	}
 }

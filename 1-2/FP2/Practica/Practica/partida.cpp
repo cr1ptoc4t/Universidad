@@ -35,7 +35,7 @@ void cargarPartida(ifstream& archivo, tPartida& partida) {
 	for (int i = 0; i < n; i++) { //	partida.listaBombillas.cont
 		archivo >> x; 
 		archivo >> y;
-		partida.listaBombillas.arrayPos->x = x;				//esto hay qye cambiarlo
+		partida.listaBombillas.arrayPos->x = x;				//GETTER
 		partida.listaBombillas.arrayPos->y = y;
 
 	}
@@ -43,16 +43,17 @@ void cargarPartida(ifstream& archivo, tPartida& partida) {
 bool operator<(const tPartida& partida, int nivel) {
 	return partida.nivel < nivel;
 }
+
 bool operator<(const tPartida& partida1, const tPartida& partida2) {
 	return partida1.nivel < partida2.nivel;
 }
+
 bool juega(tPartida& partida, int& nIt) {
 	int a=0, b=0;
 	colocaBombillas(partida);
 	cout << "Tablero de nivel "<<partida.nivel<<endl;
 	mostrarTablero(partida.tablero);
-	//colocar bombillas almacenadas y iluminar diagonales
-	// COMENTARIO CAMPUS CON && NO NOS VA
+
 	while (!(estaTerminado(partida.tablero) || esPosQuit(a, b))) {
 		cout << "Pos: ";
 		cin >> a >> b;
@@ -66,11 +67,9 @@ bool juega(tPartida& partida, int& nIt) {
 		nIt++;
 	}
 
-	if (esPosQuit(a, b)) {
+	if (esPosQuit(a, b))
 		cout << "Gracias por jugar, nos vemos a la proxima" << endl;
-
-	}
-	else {
+	else{
 		cout << "Has completado el juego" << endl;
 		mostrarTablero(partida.tablero);
 	}
@@ -78,41 +77,48 @@ bool juega(tPartida& partida, int& nIt) {
 	return esPosQuit(a, b);
 }
 
+int getNivel(const tPartida& partida)
+{
+	return partida.nivel;
+}
+
 tTablero getTablero( tPartida& partida)	{
 	return partida.tablero;
 }
+
 tListaPosiciones getListaBomb(tPartida& partida) {
 	return partida.listaBombillas;
 }
 
 void guardarPartida(ofstream& archivo, const tPartida& partida) {
-	archivo << partida.tablero.nFils << partida.tablero.nCols << endl;
-	for (int i = 0; i < partida.tablero.nFils; i++) {
-		for (int j = 0; j < partida.tablero.nCols; i++) {
-			archivo << celdaToCharArchivo(partida.tablero.tablero[i][j]) << endl;
+	archivo << "LEVEL " << partida.nivel << endl;
+	archivo << partida.tablero.nFils <<" " << partida.tablero.nCols << endl;
+	for (int i = 0; i < getNumFilas(partida.tablero); i++) {
+		for (int j = 0; j < getNumCols(partida.tablero); j++) {
+			char a = celdaToCharArchivo(celdaEnPos(partida.tablero, i, j));
+			if (esParedRestringida(celdaEnPos(partida.tablero, i, j)))
+				 archivo << int(a);
+			else archivo << a;
+			
 		}
+		archivo << endl;
 	}
-	archivo << partida.listaBombillas.cont << endl;
-	for (int i = 0; i < partida.listaBombillas.cont; i++) {
-		archivo << partida.listaBombillas.arrayPos->x << partida.listaBombillas.arrayPos->y;
-	}
+	archivo << dameNumElem(partida.listaBombillas) << endl;
+	for (int i = 0; i < dameNumElem(partida.listaBombillas); i++)
+		guardarPosicion(archivo,dameElem(partida.listaBombillas, i));	//ESTO NO ESTA BIEN
+	
 }
 void destruyePartida(tPartida& partida) {
-	delete[] partida.listaBombillas.arrayPos;
-	partida.listaBombillas.size = 0;
-	partida.listaBombillas.cont = 0;
-	partida.listaBombillas.arrayPos = nullptr;
+	setNumFils(partida.tablero,0);
+	setNumCols(partida.tablero, 0);
+	destruyeListaPosiciones(partida.listaBombillas);
 }
-void setNivel(tPartida& partida, int nivel)
-{
+void setNivel(tPartida& partida, int nivel) {
 	partida.nivel = nivel;
 }
+
 void colocaBombillas(tPartida& partida) {
-	tCelda c;
 	for (int i = 0; i < dameNumElem(partida.listaBombillas); i++){
-		//c = celdaEnPos(partida.tablero, dameX(dameElem(partida.listaBombillas, i)), dameY(dameElem(partida.listaBombillas, i)));
-		//ponBombilla(c);
-		//ponCeldaEnPos(partida.tablero, dameX(dameElem(partida.listaBombillas, i)), dameY(dameElem(partida.listaBombillas, i)), c);
 		ejecutarPos(partida.tablero, dameX(dameElem(partida.listaBombillas, i)), dameY(dameElem(partida.listaBombillas, i)));
 	}
 }

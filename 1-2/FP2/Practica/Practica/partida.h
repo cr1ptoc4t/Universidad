@@ -23,5 +23,7 @@ bool operator<(const tPartida& partida, int nivel);
 bool operator<(const tPartida& partida1, const tPartida& partida2);
 bool juega(tPartida& partida, int& nIt);
 
+int getNivel(const tPartida& partida);
+
 tTablero getTablero(tPartida& partida);
 tListaPosiciones getListaBomb(tPartida& partida);
