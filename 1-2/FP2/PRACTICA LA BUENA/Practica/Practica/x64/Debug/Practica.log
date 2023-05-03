@@ -1,0 +1,4 @@
+﻿  listaPartidas.cpp
+C:\Users\Catalina\Downloads\Practica\Practica\tablero.h(11,46): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tDir' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Downloads\Practica\Practica\listaPartidas.cpp(53,12): warning C4101: 'pos': variable local sin referencia
+  Practica.vcxproj -> C:\Users\Catalina\Downloads\Practica\x64\Debug\Practica.exe

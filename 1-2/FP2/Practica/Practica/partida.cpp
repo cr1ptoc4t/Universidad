@@ -36,8 +36,8 @@ void cargarPartida(ifstream& archivo, tPartida& partida) {
 		archivo >> x; 
 		archivo >> y;
 
-		partida.listaBombillas.arrayPos[i]->x = x;				//GETTER
-		partida.listaBombillas.arrayPos[i]->y = y;
+		partida.listaBombillas.arrayPos[i].x = x;				//GETTER
+		partida.listaBombillas.arrayPos[i].x = y;
 
 	}
 }
