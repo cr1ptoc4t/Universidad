@@ -1,0 +1,1 @@
+#include "equipo.h"

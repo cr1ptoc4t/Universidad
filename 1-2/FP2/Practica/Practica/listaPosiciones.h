@@ -6,7 +6,7 @@ const int DIM = 2;
 typedef struct {
 	int cont;
 	int size;
-	tPosicion* arrayPos;
+	tPosicion* arrayPos[DIM];
 } tListaPosiciones;
 
 void iniciaListaPosiciones(tListaPosiciones& lp);
