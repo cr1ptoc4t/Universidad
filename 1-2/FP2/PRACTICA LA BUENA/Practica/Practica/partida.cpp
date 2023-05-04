@@ -21,25 +21,29 @@ void cargarPartida(ifstream& archivo, tPartida& partida) {
 	setNumFils(partida.tablero, f);
 	setNumCols(partida.tablero, c);
 
-	for (int i = 0; i < f; i++) {		//partida.tablero.nFils
-		for (int j = 0; j < c; j++) {	//partida.tablero.nCols
+
+	//carga el tablero
+	for (int i = 0; i < f; i++) {
+		for (int j = 0; j < c; j++) {	
 			archivo >> str;
 			ponCeldaEnPos(partida.tablero, i, j, charToCelda(str));
 		}
 	}
 
+
+	//carga la lista de bombillas
 	archivo >> n;
 	setCont(partida.listaBombillas, n);	//setCont(getListaBomb(partida), n);
 	tCelda celda;
 	int x, y;
-	for (int i = 0; i < n; i++) { //	partida.listaBombillas.cont
+	for (int i = 0; i < n; i++) { 
 		archivo >> x; 
 		archivo >> y;
-
 		partida.listaBombillas.arrayPos[i].x = x;				//GETTER
 		partida.listaBombillas.arrayPos[i].y = y;
 
 	}
+	/*
 	for (int i = 0; i < getNumFilas(partida.tablero); i++) {
 		for (int j = 0; j < getNumCols(partida.tablero); j++) {
 			if (esBombilla(celdaEnPos(partida.tablero, i, j))) {
@@ -49,6 +53,7 @@ void cargarPartida(ifstream& archivo, tPartida& partida) {
 			}
 		}
 	  }
+	  */
 }
 bool operator<(const tPartida& partida, int nivel) {
 	return partida.nivel < nivel;

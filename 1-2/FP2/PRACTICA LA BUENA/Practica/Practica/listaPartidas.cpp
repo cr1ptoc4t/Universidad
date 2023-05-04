@@ -59,9 +59,11 @@ void actualizaBombillas(tPartida& partida) {
 
 			if (esBombilla(celdaEnPos(partida.tablero,i,j))){
 				//si hay bombilla en el tablero la metemos al array e incrementamos
-				iniciaPosicion(partida.listaBombillas.arrayPos[dameNumElem(partida.listaBombillas)], i, j);	//GETTER
-				//incrementamos contador
-				setCont(partida.listaBombillas, dameNumElem(partida.listaBombillas)+1);
+				//iniciaPosicion(partida.listaBombillas.arrayPos[dameNumElem(partida.listaBombillas)], i, j);	//GETTER
+				//incrementamos contador 
+				iniciaPosicion(pos, i, j);
+				insertar(partida.listaBombillas, pos );
+				//partida.listaBombillas.cont++;
 			}
 		}
 	}

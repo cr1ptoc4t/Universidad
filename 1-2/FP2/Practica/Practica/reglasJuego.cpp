@@ -50,8 +50,10 @@ int numParedActual(const tTablero& tab, int x, int y) {
 	for (int i = 0; i < 4; i++) {
 		int x1 = x;
 		int y1 = y;
-		tDiraCoordenada(tDir(i), x1, y1);
-		if (esBombilla(celdaEnPos(tab, x1, y1))) bombillas++;
+			tDiraCoordenada(tDir(i), x1, y1);
+			if (esBombilla(celdaEnPos(tab, x1, y1)))
+				bombillas++;
+		
 	}
 	return bombillas;
 }

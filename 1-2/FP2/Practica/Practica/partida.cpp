@@ -1,7 +1,7 @@
 #include "partida.h"
 #include "celda.h"
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 
@@ -21,25 +21,39 @@ void cargarPartida(ifstream& archivo, tPartida& partida) {
 	setNumFils(partida.tablero, f);
 	setNumCols(partida.tablero, c);
 
-	for (int i = 0; i < f; i++) {		//partida.tablero.nFils
-		for (int j = 0; j < c; j++) {	//partida.tablero.nCols
+
+	//carga el tablero
+	for (int i = 0; i < f; i++) {
+		for (int j = 0; j < c; j++) {	
 			archivo >> str;
 			ponCeldaEnPos(partida.tablero, i, j, charToCelda(str));
 		}
 	}
 
+
+	//carga la lista de bombillas
 	archivo >> n;
 	setCont(partida.listaBombillas, n);	//setCont(getListaBomb(partida), n);
 	tCelda celda;
 	int x, y;
-	for (int i = 0; i < n; i++) { //	partida.listaBombillas.cont
+	for (int i = 0; i < n; i++) { 
 		archivo >> x; 
 		archivo >> y;
-
 		partida.listaBombillas.arrayPos[i].x = x;				//GETTER
-		partida.listaBombillas.arrayPos[i].x = y;
+		partida.listaBombillas.arrayPos[i].y = y;
 
 	}
+	/*
+	for (int i = 0; i < getNumFilas(partida.tablero); i++) {
+		for (int j = 0; j < getNumCols(partida.tablero); j++) {
+			if (esBombilla(celdaEnPos(partida.tablero, i, j))) {
+				tPosicion pos;
+				iniciaPosicion(pos, i, j);
+				insertar(partida.listaBombillas,pos);
+			}
+		}
+	  }
+	  */
 }
 bool operator<(const tPartida& partida, int nivel) {
 	return partida.nivel < nivel;
@@ -92,25 +106,25 @@ tListaPosiciones getListaBomb(tPartida& partida) {
 
 void guardarPartida(ofstream& archivo, const tPartida& partida) {
 	archivo << "LEVEL " << getNivel(partida) << endl;
-	archivo << getNumFilas(partida.tablero) <<" " << getNumCols(partida.tablero) << endl;
+	archivo << to_string(getNumFilas(partida.tablero)) <<" " << to_string(getNumCols(partida.tablero)) << endl;
 	for (int i = 0; i < getNumFilas(partida.tablero); i++) {
 		for (int j = 0; j < getNumCols(partida.tablero); j++) {
 			char a = celdaToCharArchivo(celdaEnPos(partida.tablero, i, j));
 			if (esParedRestringida(celdaEnPos(partida.tablero, i, j)))
-				 archivo << int(a);
+				 archivo << to_string(int(a));
 			else archivo << a;
 		}
 		archivo << endl;
 	}
 	archivo << dameNumElem(partida.listaBombillas) << endl;
 	for (int i = 0; i < dameNumElem(partida.listaBombillas); i++)
-		guardarPosicion(archivo,dameElem(partida.listaBombillas, i));	//ESTO NO ESTA BIEN
-	
+		guardarPosicion(archivo,dameElem(partida.listaBombillas, i));
 }
+
 void destruyePartida(tPartida& partida) {
-	setNumFils(partida.tablero,0);
-	setNumCols(partida.tablero, 0);
 	destruyeListaPosiciones(partida.listaBombillas);
+	setNumFils(partida.tablero, 0);
+	setNumCols(partida.tablero, 0);
 }
 
 void setNivel(tPartida& partida, int nivel) {

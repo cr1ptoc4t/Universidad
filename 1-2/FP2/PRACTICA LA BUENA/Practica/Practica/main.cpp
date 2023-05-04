@@ -42,10 +42,13 @@ int elegirPartida(const tListaPartidas& lp) {
     cout << "Que nivel quieres jugar? ";
     cin >> nivel;
 
-    if (nivel < getNivel(*dameElem(lp, i)))                 
+    //if (nivel < getNivel(*dameElem(lp, i)))                 
         while (i < lp.nElem && getNivel(*dameElem(lp, i)) < nivel)
             i++;
-    else i = lp.nElem-1;
+    //else i = lp.nElem-1;
+        if (i > getNivel(*dameElem(lp, i)))
+            i = lp.nElem - 1;
+
     
     return i;
 }

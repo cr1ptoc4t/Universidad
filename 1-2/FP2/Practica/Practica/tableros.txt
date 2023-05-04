@@ -4,7 +4,7 @@ LEVEL 2
 ..
 2.
 0
-LEVEL 3
+LEVEL 5
 5 5
 .X.3.
 2....

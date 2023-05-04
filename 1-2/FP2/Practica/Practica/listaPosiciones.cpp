@@ -10,12 +10,11 @@ void iniciaListaPosiciones(tListaPosiciones& lp) {
 void destruyeListaPosiciones(tListaPosiciones& lp) {
 	lp.size = 0;
 	lp.cont = 0;
-	delete [] lp.arrayPos;
+	delete [] lp.arrayPos;					//error
 	lp.arrayPos = nullptr;
 }
 
 
-//este metodo no lo estamos usando y deberíamos
 void insertar(tListaPosiciones& lp, const tPosicion& pos) {
 	if (lp.cont >= lp.size) {
 		//ampliar
@@ -25,9 +24,8 @@ void insertar(tListaPosiciones& lp, const tPosicion& pos) {
 		//construimos nuevo
 		lp.arrayPos = new tPosicion[lp.size];
 		//reemplazamos los valores antiguos
-		for (int i = 0; i < lp.cont; i++) {
+		for (int i = 0; i < lp.cont; i++)
 			lp.arrayPos[i] = aux[i];
-		}
 		//eliminamos el aux para liberar espacio en memoria
 		delete [] aux;
 	}
