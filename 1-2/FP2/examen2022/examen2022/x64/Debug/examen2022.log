@@ -1,8 +1,12 @@
 ﻿  liga.cpp
-C:\Users\Catalina\Documents\Universidad\1-2\FP2\examen2022\examen2022\liga.h(18,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tEquipo' cuando no hay ninguna variable declarada
-C:\Users\Catalina\Documents\Universidad\1-2\FP2\examen2022\examen2022\liga.h(24,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tLiga' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\examen2022\examen2022\jugadoras.h(13,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tJugadora' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\examen2022\examen2022\jugadoras.h(23,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tJugadoras' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\examen2022\examen2022\liga.h(17,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tEquipo' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\examen2022\examen2022\liga.h(23,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tLiga' cuando no hay ninguna variable declarada
   main.cpp
-C:\Users\Catalina\Documents\Universidad\1-2\FP2\examen2022\examen2022\liga.h(18,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tEquipo' cuando no hay ninguna variable declarada
-C:\Users\Catalina\Documents\Universidad\1-2\FP2\examen2022\examen2022\liga.h(24,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tLiga' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\examen2022\examen2022\jugadoras.h(13,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tJugadora' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\examen2022\examen2022\jugadoras.h(23,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tJugadoras' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\examen2022\examen2022\liga.h(17,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tEquipo' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\examen2022\examen2022\liga.h(23,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tLiga' cuando no hay ninguna variable declarada
   Generando código...
   examen2022.vcxproj -> C:\Users\Catalina\Documents\Universidad\1-2\FP2\examen2022\x64\Debug\examen2022.exe

@@ -127,9 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="equipo.cpp" />
-    <ClCompile Include="equipos.cpp" />
-    <ClCompile Include="jugadora.cpp" />
     <ClCompile Include="jugadoras.cpp" />
     <ClCompile Include="liga.cpp" />
     <ClCompile Include="main.cpp" />
@@ -138,9 +135,6 @@
     <Text Include="entrada.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="equipo.h" />
-    <ClInclude Include="equipos.h" />
-    <ClInclude Include="jugadora.h" />
     <ClInclude Include="jugadoras.h" />
     <ClInclude Include="liga.h" />
   </ItemGroup>

@@ -3,7 +3,6 @@ using namespace std;
 
 #include <iostream>
 #include <fstream>
-#include "equipo.h"
 #include "jugadoras.h"
 
 const int MAX_EQUIPOS = 10;
@@ -27,5 +26,9 @@ void cargarEquipo(ifstream& archivo, tEquipo& equipo);
 void actualizaPuntos(tLiga& liga, string e1, int p1, string e2, int p2);
 void cargarEquipos(ifstream& archivo, tLiga& liga);
 void cargarPartidos(ifstream& archivo, tLiga& liga);
+void aumentarPresupuesto(const string id, tLiga& liga);
+
+
 tEquipo campeonLiga(ifstream& archivo, tLiga& liga);
 int buscaEquipoPorNombre(const tLiga& liga, string nombre);
+bool ficharNuevaJugadora(string nombreEquipo, int id, string nombreJ, string apellidoJ, int goles, tLiga& liga);

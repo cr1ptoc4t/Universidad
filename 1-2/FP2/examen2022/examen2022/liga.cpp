@@ -75,3 +75,23 @@ void cargarEquipo(ifstream& archivo, tEquipo& equipo)
 	for (int i = 0; i < equipo.num_jugadoras; i++)
 		archivo >> equipo.jugadoras[i];
 }
+
+void aumentarPresupuesto(const string id, tLiga& liga) {
+	int indice = buscaEquipoPorNombre(liga, id);
+	liga.listaEquipos[indice].presupuesto += 1000;
+	//aumentar tamaño
+}
+
+bool ficharNuevaJugadora(string nombreEquipo, int id, string nombreJ, string apellidoJ, int goles, tLiga& liga) {
+	bool successful= false;
+	int indice = buscaEquipoPorNombre(liga, nombreEquipo);
+	int max = 20;
+	if (liga.listaEquipos[indice].num_jugadoras<max) {
+		//liga.listaEquipos[indice].jugadoras[liga.listaEquipos[indice].num_jugadoras].id= id;
+		//meter la jugadora en el ultimo puesto de la lista
+	}
+	else {
+		successful = true;
+	}
+	return successful;
+}
