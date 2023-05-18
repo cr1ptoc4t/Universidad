@@ -1,24 +1,12 @@
 #include "liga.h"
+using namespace std;
 
-void cargarEquipos(ifstream archivo, tLiga& liga) {
-	archivo >> liga.cont;
-	for (int i = 0; i < liga.cont; i++) {
-		archivo >> liga.listaEquipos[i].nombre;
-		archivo >> liga.listaEquipos[i].presupuesto;
-		archivo >> liga.listaEquipos[i].puntos;
-		archivo >> liga.listaEquipos[i].num_jugadoras;
 
-		for (int j = 0; j < liga.listaEquipos[i].num_jugadoras; j++) {
-			archivo >> liga.listaEquipos[i].jugadoras->listaJugadoras[j].id;
-		}
-	}
-}
-
-void cargarPartidos(ifstream archivo, tLiga& liga) {
+void cargarPartidos(ifstream& archivo, tLiga& liga) {
 
 }
 
-tEquipo campeonLiga(ifstream archivo, tLiga& liga)
+tEquipo campeonLiga(ifstream& archivo, tLiga& liga)
 {
 	int numPartidos;
 	string e1, e2;
@@ -65,4 +53,25 @@ int buscaEquipoPorNombre(const tLiga& liga, string nombre) {
 	}
 	return i;
 
+}
+
+
+void cargarEquipos(ifstream& archivo, tLiga& liga) {
+	int num_equipos;
+	archivo >> num_equipos;
+	for (int i = 0; i < num_equipos; i++)
+	{
+		cargarEquipo(archivo, liga.listaEquipos[i]);
+		liga.cont++;
+	}
+}
+
+void cargarEquipo(ifstream& archivo, tEquipo& equipo)
+{
+	archivo >> equipo.nombre;
+	archivo >> equipo.presupuesto;
+	archivo >> equipo.num_jugadoras;
+	equipo.jugadoras = new int[equipo.presupuesto * 3 / 1000];
+	for (int i = 0; i < equipo.num_jugadoras; i++)
+		archivo >> equipo.jugadoras[i];
 }

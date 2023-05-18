@@ -22,4 +22,4 @@ ATM 60 Ludmila DaSilva 8
 BET 70 Dorine Nina 0
 ATH 80 Naia Landaluze 0
 ATM 90 Lola Gallardo 0
-BET 
+BET
