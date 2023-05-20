@@ -1,0 +1,9 @@
+﻿  furgonetas.cpp
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\examen 2022 ordinaria\examen 2022 ordinaria\paquetes.h(15,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tPaquete' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\examen 2022 ordinaria\examen 2022 ordinaria\paquetes.h(22,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tListaPaquetes' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\examen 2022 ordinaria\examen 2022 ordinaria\furgonetas.h(15,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tCargados' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\examen 2022 ordinaria\examen 2022 ordinaria\furgonetas.h(22,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tFurgoneta' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\examen 2022 ordinaria\examen 2022 ordinaria\furgonetas.h(27,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tListaFurgonetas' cuando no hay ninguna variable declarada
+main.obj : error LNK2005: ya se definió "void __cdecl cargarPaquetes(struct tListaFurgonetas,struct tListaPaquetes &)" (?cargarPaquetes@@YAXUtListaFurgonetas@@AEAUtListaPaquetes@@@Z) en furgonetas.obj
+main.obj : error LNK2019: símbolo externo "void __cdecl recogerPaquete(struct tListaPaquetes &)" (?recogerPaquete@@YAXAEAUtListaPaquetes@@@Z) sin resolver al que se hace referencia en la función main
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\examen 2022 ordinaria\x64\Debug\examen 2022 ordinaria.exe : fatal error LNK1120: 1 externos sin resolver
