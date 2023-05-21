@@ -1,13 +1,15 @@
-// examen 2022 ordinaria.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
-//
-
-#include <iostream>
-#include "furgonetas.h"
+#define _CRTDBG_MAP_ALLOC
+#include <crtdbg.h>
+#include <cstdlib>
 #include "paquetes.h"
+#include "furgonetas.h"
+#include <iostream>
 using namespace std;
 
 void cargarPaquetes(tListaFurgonetas listaFurgonetas, tListaPaquetes& listaPaquetes);
-int main(){
+
+int main()
+{
 	tListaPaquetes lpaquetes;
 	tListaFurgonetas lfurgos;
 
@@ -32,9 +34,9 @@ int main(){
 			cout << "- LISTA DE PAQUETES TRAS LA RECOGIDA EN MANO -" << endl;
 			mostrarPaquetes(lpaquetes);
 			cout << "----------------------------------------------" << endl;
-			//liberarFurgonetas(lfurgos);
+			liberarFurgonetas(lfurgos);
 		}
-		//liberarPaquetes(lpaquetes);
+		liberarPaquetes(lpaquetes);
 	}
 	_CrtDumpMemoryLeaks(); // detección de fugas de memoria
 	return 0;
@@ -54,7 +56,7 @@ void cargarPaquetes(tListaFurgonetas listaFurgonetas, tListaPaquetes& listaPaque
 			setCargado(listaPaquetes, i);
 			id_paquete = getIdPaquete(listaPaquetes, i);
 			setIdPaquete(listaFurgonetas, pos, id_paquete);
-			listaFurgonetas.listaFurgonetas[pos].listaCargados.cont++;
+			listaFurgonetas[pos].cargados.cont++;
 		}
 	}
 }

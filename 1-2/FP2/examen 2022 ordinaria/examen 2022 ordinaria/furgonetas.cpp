@@ -1,12 +1,15 @@
+
 #include "furgonetas.h"
-string paquetesAsignados(tFurgoneta furgoneta);
+#include "paquetes.h"
+#include <fstream>
+#include <iostream>
+using namespace std;
 
+int buscarFurgoneta(const tListaFurgonetas listaFurgonetas, int codigo_postal);
+int buscarFurgonetaAux(const tListaFurgonetas listaFurgonetas, int codigo_postal,
+	int ini, int fin);
 
-void cargarPaquete(tFurgoneta& furgoneta, tPaquete& paquete);
-int buscarFurgonetaAux(tListaFurgonetas lf, int codigo, int ini, int fin);
-
-
-bool cargarCodigos(tListaFurgonetas& listaFurgonetas)
+bool cargarCodigos(tListaFurgonetas listaFurgonetas) //Es array estático (no lista)
 {
 	ifstream fich;
 	bool ok = true;
@@ -18,92 +21,94 @@ bool cargarCodigos(tListaFurgonetas& listaFurgonetas)
 	{
 		for (int i = 0; i < NUM_FURGONETAS; i++)
 		{
-			fich >> listaFurgonetas.listaFurgonetas[i].cp;
-			listaFurgonetas.listaFurgonetas[i].listaCargados.array_nombres = new string[MAX_IDS]; //inic array din
-			listaFurgonetas.listaFurgonetas[i].listaCargados.cont = 0;
+			fich >> listaFurgonetas[i].codigo_postal;
+			listaFurgonetas[i].cargados.array = new string[MAX_IDS]; //inic array din
+			listaFurgonetas[i].cargados.cont = 0;
 		}
 		fich.close();
 	}
 	return ok;
 }
 
+
+
+
+
+
+
+
+
+
+
+
 void mostrarFurgonetas(const tListaFurgonetas listaFurgonetas)
 {
-	for (int i = 0; i < listaFurgonetas.cont;i++) {
-		cout << "Furgoneta " << i << " reparte en " << listaFurgonetas.listaFurgonetas[i].cp << paquetesAsignados(listaFurgonetas.listaFurgonetas[i])<<endl;
+	for (int f = 0; f < NUM_FURGONETAS; f++)
+	{
+		cout << "Furgoneta " << f + 1 << " reparte en " << listaFurgonetas[f].codigo_postal;
+		if (listaFurgonetas[f].cargados.cont == 0)
+			cout << " - Sin paquetes asignados" << endl;
+		else
+		{
+			cout << " - Paquetes asignados: ";
+			for (int c = 0; c < listaFurgonetas[f].cargados.cont; c++)
+				cout << listaFurgonetas[f].cargados.array[c] << " ";
+			cout << endl;
+		}
 	}
 }
 
 void cargarPaquetes(tListaFurgonetas listaFurgonetas, tListaPaquetes& listaPaquetes)
 {
-	int furgoneta;
-	for (int i = 0; i < listaPaquetes.cont;i++) {
-		furgoneta = buscarFurgoneta(listaFurgonetas, listaPaquetes.array_paquetes[i]->codigo_postal);
-		if(furgoneta!=-1)
-		cargarPaquete(listaFurgonetas.listaFurgonetas[furgoneta], *listaPaquetes.array_paquetes[i]);
-	}
-}
-
-void cargarPaquete(tFurgoneta& furgoneta, tPaquete& paquete) {
-	//furgoneta.listaCargados.array_nombres[furgoneta.listaCargados.cont] = new tPaquete(paquete);
-	furgoneta.listaCargados.cont++;
-	furgoneta.listaCargados.array_nombres[furgoneta.listaCargados.cont] = paquete.id;
-	paquete.cargado = true;
-}
-
-
-string paquetesAsignados(tFurgoneta furgoneta) {
-	string str = "sin paquetes asignados"; 
-	if (furgoneta.listaCargados.cont!=0) {
-		str = "Paquetes asignados: ";
-		for (int i = 0; i < furgoneta.listaCargados.cont; i++) {
-			str += furgoneta.listaCargados.array_nombres[i] + " ";
+	int codigo_postal;
+	int num_paquetes = getNumPaquetes(listaPaquetes);
+	for (int i = 0; i < num_paquetes; i++)
+	{
+		codigo_postal = getCodigoPostalPaquete(listaPaquetes, i);
+		int pos = buscarFurgoneta(listaFurgonetas, codigo_postal);
+		if (pos != -1 && listaFurgonetas[pos].cargados.cont < MAX_IDS)
+		{
+			setCargado(listaPaquetes, i);
+			listaFurgonetas[pos].cargados.array[listaFurgonetas[pos].cargados.cont] =
+				getIdPaquete(listaPaquetes, i);
+			listaFurgonetas[pos].cargados.cont++;
 		}
 	}
-
-	return str;
 }
 
-int buscarFurgoneta(const tListaFurgonetas listaFurgonetas, int codigo) {
-	return buscarFurgonetaAux(listaFurgonetas, codigo, 0, listaFurgonetas.cont);
-}
 
-int getNumCargados(tListaFurgonetas lf, int pos)
+
+
+
+
+
+
+int buscarFurgoneta(const tListaFurgonetas listaFurgonetas, int codigo_postal)
 {
-	return lf.listaFurgonetas[pos].listaCargados.cont;
+	return buscarFurgonetaAux(listaFurgonetas, codigo_postal, 0, NUM_FURGONETAS - 1);
 }
 
-void setCargado(tListaPaquetes& lp, int i)
+int buscarFurgonetaAux(const tListaFurgonetas listaFurgonetas, int codigo_postal,
+	int ini, int fin)
 {
-	lp.array_paquetes[i]->cargado = true;
-}
-
-string getIdPaquete(tListaPaquetes lp, int i)
-{
-	return lp.array_paquetes[i]->id;
-}
-
-void setIdPaquete(tListaFurgonetas& lf, int pos, string id_paquete)
-{
-	//lf.listaFurgonetas[pos].cp = id_paquete;
-}
-
-
-
-int buscarFurgonetaAux(tListaFurgonetas lf, int codigo, int ini, int fin) {
 	int pos = -1;
-	if (ini<=fin) {
+	if (ini <= fin)
+	{
 		int mitad = (ini + fin) / 2;
-		if (codigo == lf.listaFurgonetas[mitad].cp) {
+		if (codigo_postal == listaFurgonetas[mitad].codigo_postal)
 			pos = mitad;
-		}
-		else if (codigo< lf.listaFurgonetas[mitad].cp) {
-			pos = buscarFurgonetaAux(lf, codigo, ini, mitad-1);
-		}
-		else {
-			pos = buscarFurgonetaAux(lf, codigo, mitad-1, fin);
-		}
+		else if (codigo_postal < listaFurgonetas[mitad].codigo_postal)
+			pos = buscarFurgonetaAux(listaFurgonetas, codigo_postal, ini, mitad - 1);
+		else
+			pos = buscarFurgonetaAux(listaFurgonetas, codigo_postal, mitad + 1, fin);
 	}
 	return pos;
 }
 
+void liberarFurgonetas(tListaFurgonetas listaFurgonetas) {
+	for (int i = 0; i < NUM_FURGONETAS; i++) {
+		delete[]listaFurgonetas[i].cargados.array;
+		listaFurgonetas[i].cargados.array = nullptr;
+		listaFurgonetas[i].cargados.cont = 0;
+	}
+}

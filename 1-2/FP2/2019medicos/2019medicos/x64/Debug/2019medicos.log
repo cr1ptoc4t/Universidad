@@ -1,0 +1,7 @@
+﻿  main.cpp
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\2019medicos\2019medicos\medico.h(13,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tMedico' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\2019medicos\2019medicos\medico.h(20,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tListaMedicos' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\2019medicos\2019medicos\citas.h(11,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tCita' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\2019medicos\2019medicos\citas.h(18,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tListaCitas' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\2019medicos\2019medicos\main.cpp(40,6): warning C4101: 'codigo_medico': variable local sin referencia
+  2019medicos.vcxproj -> C:\Users\Catalina\Documents\Universidad\1-2\FP2\2019medicos\x64\Debug\2019medicos.exe
