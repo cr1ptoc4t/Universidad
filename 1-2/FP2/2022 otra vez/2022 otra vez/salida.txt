@@ -1,0 +1,73 @@
+- - - - -
+JUGADORAS
+- - - - -
+Nombre: Deyna Castellanos Goles: 10
+Nombre: Angela Sosa Goles: 5
+Nombre: Ane Azkona Goles: 10
+Nombre: Amanda Sampedro Goles: 4
+
+- - - - -
+EQUIPOS
+- - - - -
+Nombre: BET Presupuesto: 1000 Puntos: 0 Jugadoras: 1
+Plantilla: Sosa
+Nombre: ATM Presupuesto: 1000 Puntos: 0 Jugadoras: 2
+Plantilla: Castellanos Sampedro
+Nombre: LEV Presupuesto: 0 Puntos: 0 Jugadoras: 0
+Nombre: ATH Presupuesto: 1000 Puntos: 0 Jugadoras: 1
+Plantilla: Azkona
+
+El campeon de la liga es ATM con 7 puntos
+
+Se aumenta el presupuesto de LEV
+
+ATM no puede fichar mas jugadoras
+
+- - - - -
+JUGADORAS
+- - - - -
+
+Nombre: Deyna Castellanos Goles: 10
+Nombre: Angela Sosa Goles: 5
+Nombre: Ane Azkona Goles: 10
+Nombre: Amanda Sampedro Goles: 4
+Nombre: Alba Redondo Goles: 12
+Nombre: Ludmila DaSilva Goles: 8
+Nombre: Dorine Nina Goles: 0
+Nombre: Naia Landaluze Goles: 0
+
+- - - - -
+EQUIPOS
+- - - - -
+Nombre: BET Presupuesto: 1000 Puntos: 4 Jugadoras: 2
+Plantilla: Sosa Nina
+Nombre: ATM Presupuesto: 1000 Puntos: 7 Jugadoras: 3
+Plantilla: Castellanos Sampedro DaSilva
+Nombre: LEV Presupuesto: 1000 Puntos: 3 Jugadoras: 1
+Plantilla: Redondo
+Nombre: ATH Presupuesto: 1000 Puntos: 3 Jugadoras: 2
+Plantilla: Azkona Landaluze
+
+Desciende el equipo BET
+
+- - - - -
+JUGADORAS
+- - - - -
+Nombre: Deyna Castellanos Goles: 10
+Nombre: Ane Azkona Goles: 10
+Nombre: Amanda Sampedro Goles: 4
+Nombre: Alba Redondo Goles: 12
+Nombre: Ludmila DaSilva Goles: 8
+Nombre: Naia Landaluze Goles: 0
+
+- - - - -
+EQUIPOS
+- - - - -
+Nombre: ATM Presupuesto: 1000 Puntos: 7 Jugadoras: 3
+Plantilla: Castellanos Sampedro DaSilva
+Nombre: LEV Presupuesto: 1000 Puntos: 3 Jugadoras: 1
+Plantilla: Redondo
+Nombre: ATH Presupuesto: 1000 Puntos: 3 Jugadoras: 2
+Plantilla: Azkona Landaluze
+
+Se libera memoria dinamica

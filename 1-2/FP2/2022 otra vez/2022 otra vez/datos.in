@@ -1,0 +1,25 @@
+4
+10 Deyna Castellanos 10
+20 Angela Sosa 5
+30 Ane Azkona 10
+40 Amanda Sampedro 4
+4
+BET 1000 1 20
+ATM 1000 2 10 40
+LEV 0 0
+ATH 1000 1 30
+6
+ATM 2 BET 2
+LEV 1 ATH 3
+BET 1 ATH 0
+LEV 0 ATM 4
+BET 2 LEV 3
+ATM 2 ATH 1
+LEV
+5
+LEV 50 Alba Redondo 12
+ATM 60 Ludmila DaSilva 8
+BET 70 Dorine Nina 0
+ATH 80 Naia Landaluze 0
+ATM 90 Lola Gallardo 0
+BET
