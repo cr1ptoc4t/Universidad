@@ -1,0 +1,33 @@
+Pfizer 1 ValleOliva 2 Cerro 3 Portales -1
+Moderna 2 ValleOliva 3 Cerro 3 Portales 7 NuevoPueblo -1
+Jansen 1 ValleOliva -1
+AstraZeneca 5 ValleOliva 3 Cerro 9 NuevoPueblo -1
+AstraZeneca 4 ValleOliva 6 Cerro 6 Portales -1
+Moderna 3 ValleOliva 10 Cerro -1
+Moderna 12 ValleOliva -1
+AstraZeneca 2 ValleOliva 10 Cerro 5 NuevoPueblo -1
+Pfizer 10 ValleOliva 7 Cerro 2 Portales -1
+Moderna 30 ValleOliva 10 Cerro 53 Portales 27 NuevoPueblo -1
+Jansen 12 ValleOliva -1
+AstraZeneca 21 ValleOliva 10 Cerro 53 NuevoPueblo -1
+AstraZeneca 43 ValleOliva 12 Cerro 23 Portales -1
+Moderna 30 ValleOliva 10 Cerro -1
+Moderna 12 ValleOliva -1
+AstraZeneca 21 ValleOliva 10 Cerro 53 NuevoPueblo -1
+Pfizer 100 ValleOliva 50 Cerro 23 Portales -1
+Moderna 30 ValleOliva 10 Cerro 53 Portales 27 NuevoPueblo -1
+Jansen 12 ValleOliva -1
+AstraZeneca 21 ValleOliva 10 Cerro 53 NuevoPueblo -1
+Moderna 30 ValleOliva 10 Cerro -1
+Moderna 12 ValleOliva -1
+AstraZeneca 21 ValleOliva 10 Cerro 53 NuevoPueblo -1
+Pfizer 100 ValleOliva 50 Cerro 23 Portales -1
+Pfizer 100 ValleOliva 50 Cerro 23 Portales -1
+Moderna 30 ValleOliva 10 Cerro 53 Portales 27 NuevoPueblo -1
+Jansen 12 ValleOliva -1
+AstraZeneca 21 ValleOliva 10 Cerro 53 NuevoPueblo -1
+AstraZeneca 43 ValleOliva 12 Cerro 23 Portales -1
+Moderna 30 ValleOliva 10 Cerro -1
+Moderna 12 ValleOliva -1
+
+

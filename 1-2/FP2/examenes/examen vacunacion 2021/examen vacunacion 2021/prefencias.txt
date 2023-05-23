@@ -1,0 +1,22 @@
+Pfizer 1
+Moderna 0
+AstraZeneca 1
+Jansen 1
+Jansen 1
+Pfizer 0
+Pfizer 1
+Moderna 1
+Moderna 1
+Pfizer 1
+Moderna 1
+AstraZeneca 1
+Jansen 1
+Jansen 1
+Pfizer 0
+Pfizer 1
+Moderna 1
+Moderna 1
+Pfizer 1
+Pfizer 1
+Pfizer 1
+XXX

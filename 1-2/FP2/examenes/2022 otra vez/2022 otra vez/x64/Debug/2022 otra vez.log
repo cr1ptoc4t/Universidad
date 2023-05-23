@@ -1,0 +1,4 @@
+﻿  jugadoras.cpp
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\2022 otra vez\2022 otra vez\jugadoras.h(14,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tJugadora' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\2022 otra vez\2022 otra vez\jugadoras.h(24,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tJugadoras' cuando no hay ninguna variable declarada
+  2022 otra vez.vcxproj -> C:\Users\Catalina\Documents\Universidad\1-2\FP2\2022 otra vez\x64\Debug\2022 otra vez.exe

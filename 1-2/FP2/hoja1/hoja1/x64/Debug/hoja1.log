@@ -1,3 +1,0 @@
-﻿  Source.cpp
-U:\hlocal\hoja1\hoja1\Source.cpp(72,28): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-  hoja1.vcxproj -> U:\hlocal\hoja1\x64\Debug\hoja1.exe

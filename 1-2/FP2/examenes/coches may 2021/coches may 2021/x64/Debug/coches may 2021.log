@@ -1,0 +1,4 @@
+﻿  taller.cpp
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\examenes\coches may 2021\coches may 2021\taller.h(12,2): warning C4091: 'typedef ': se ha omitido a la izquierda de 'tCoche' cuando no hay ninguna variable declarada
+C:\Users\Catalina\Documents\Universidad\1-2\FP2\examenes\coches may 2021\coches may 2021\taller.cpp(112,7): warning C4101: 'reparado': variable local sin referencia
+  coches may 2021.vcxproj -> C:\Users\Catalina\Documents\Universidad\1-2\FP2\examenes\coches may 2021\x64\Debug\coches may 2021.exe
