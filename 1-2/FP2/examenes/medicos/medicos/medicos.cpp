@@ -40,3 +40,25 @@ void liberarMedicos(tListaMedicos& lm)
 	 delete lm.lm[i];
 	lm.cont = 0;
 }
+
+int buscaMedico(tListaMedicos& lm, int codMed)
+{
+	int i = 0;
+	while (lm.cont>i&& lm.lm[i]->numcol!=codMed)
+		i++;
+
+	if (i == lm.cont)
+		i = -1;
+
+	return i;
+}
+
+int getNumLib(const tListaMedicos& lm, int pos)
+{
+	return lm.lm[pos]->numlib;
+}
+
+void setNumLib(tListaMedicos& lm, int pos, int val)
+{
+	lm.lm[pos]->numlib = val;
+}

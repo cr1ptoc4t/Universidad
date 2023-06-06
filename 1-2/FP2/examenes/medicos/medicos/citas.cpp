@@ -51,6 +51,6 @@ void liberarCitas(tListaCitas& lc)
 
 void muestraListaCitas(tListaCitas& lc) {
 	for (int i = 0; i < lc.cont; i++) {
-		cout<<"el paciente " << lc.citas[i].codPac << " tiene hora con el medico " << lc.citas[i].codMed << endl;
+		cout<<"el paciente " << lc.citas[i].codPac << " pide hora con el medico " << lc.citas[i].codMed << endl;
 	}
 }
