@@ -10,12 +10,13 @@ int main() {
 
     // Crea la lista de coches
     ifstream archivo;
-    archivo.open("Coches.txt");
+    archivo.open("coche.txt");
     if (archivo.is_open()) {
         tListaCoches lc;
         iniciarListaCoches(lc);
         cargarCoches(archivo, lc);
         mostrarListaCoches(lc);
+        /*
         // Crea la lista de la seccion del motor
         tListaSeccion lmotor = crearListaSeccion(lc, "Motor");
         cout << "lista de coches que se van a arreglar del motor" << endl;
@@ -44,6 +45,7 @@ int main() {
 
         //mostrarListaCoches(lc);
        // liberaListaCoches(lc);
+       */
     }
     return 0;
 }

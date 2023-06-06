@@ -131,6 +131,7 @@
     <ClCompile Include="taller.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="coche.txt" />
     <Text Include="Coches.txt" />
   </ItemGroup>
   <ItemGroup>

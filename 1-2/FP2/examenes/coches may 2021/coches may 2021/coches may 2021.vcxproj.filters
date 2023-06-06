@@ -26,6 +26,9 @@
     <Text Include="Coches.txt">
       <Filter>Archivos de recursos</Filter>
     </Text>
+    <Text Include="coche.txt">
+      <Filter>Archivos de recursos</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="taller.h">

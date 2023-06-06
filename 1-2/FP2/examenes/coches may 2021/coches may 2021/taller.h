@@ -3,25 +3,25 @@
 #include <fstream>
 const int MAX_SECCION = 3;
 using namespace std;
-//typedef enum tAveria{CHASIS, MOTOR};
-
-typedef struct tCoche{
+struct tCoche {
 	string matricula;
 	string averia;
 	int estado;
 };
 
 struct tListaCoches {
-    tCoche* coches;                 //array dinámico
-    int numCoches;
-    int cap;
+	tCoche* coches;
+	int cont;
+	int cap;
 };
+
+typedef tCoche* coches[MAX_SECCION];
 
 struct tListaSeccion {
-    tCoche* coches[MAX_SECCION];    //array estático de punteros
-    int numCoches;
-};
+	coches lista;
+	int cont;
 
+};
 
 void cargarCoches(ifstream& archivo, tListaCoches& lc);
 void iniciarListaCoches(tListaCoches& lc);
