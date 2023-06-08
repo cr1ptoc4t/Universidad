@@ -54,7 +54,7 @@ void ampliar(tListaCoches& lc) {
 	for (int i = 0; i < lc.cont; i++)
 		aux[i] = lc.coches[i];
 
-	//delete[] lc.coches;
+	delete lc.coches;
 	lc.coches = aux;
 	lc.cap += 5;
 	aux = nullptr;
