@@ -1,7 +1,0 @@
-14:46:02 **** Clean-only build of configuration Debug for project pr3_a ****
-make clean 
-rm -rf  ./pr3_a.o  pr3_a.hex  pr3_a.lst  pr3_a.siz  ./pr3_a.d  pr3_a.elf
-' '
-
-14:46:03 Build Finished. 0 errors, 0 warnings. (took 166ms)
-

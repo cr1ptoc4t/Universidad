@@ -1,7 +1,0 @@
-13:00:09 **** Clean-only build of configuration Debug for project ej15 ****
-make clean 
-rm -rf  ./ej15.o  ej15.hex  ej15.lst  ej15.siz  ./ej15.d  ej15.elf
-' '
-
-13:00:09 Build Finished. 0 errors, 0 warnings. (took 92ms)
-

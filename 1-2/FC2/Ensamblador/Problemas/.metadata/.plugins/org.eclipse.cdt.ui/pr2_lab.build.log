@@ -1,7 +1,0 @@
-14:46:02 **** Clean-only build of configuration Debug for project pr2_lab ****
-make clean 
-rm -rf  ./pr2_lab.o  pr2_lab.hex  pr2_lab.lst  pr2_lab.siz  ./pr2_lab.d  pr2_lab.elf
-' '
-
-14:46:02 Build Finished. 0 errors, 0 warnings. (took 135ms)
-

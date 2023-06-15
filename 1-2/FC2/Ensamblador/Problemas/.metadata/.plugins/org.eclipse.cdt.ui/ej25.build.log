@@ -1,7 +1,0 @@
-13:00:10 **** Clean-only build of configuration Debug for project ej25 ****
-make clean 
-rm -rf  ./ej25.o  ej25.hex  ej25.lst  ej25.siz  ./ej25.d  ej25.elf
-' '
-
-13:00:10 Build Finished. 0 errors, 0 warnings. (took 148ms)
-

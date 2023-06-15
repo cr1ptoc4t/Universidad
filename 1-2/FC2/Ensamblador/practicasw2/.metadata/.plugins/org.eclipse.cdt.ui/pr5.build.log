@@ -1,7 +1,0 @@
-16:00:47 **** Clean-only build of configuration Debug for project pr5 ****
-make clean 
-rm -rf  ./fun_asm.o ./fun_c.o  pr5.hex  pr5.lst  pr5.siz  ./fun_asm.d  ./fun_c.d  pr5.elf
-' '
-
-16:00:47 Build Finished. 0 errors, 0 warnings. (took 98ms)
-

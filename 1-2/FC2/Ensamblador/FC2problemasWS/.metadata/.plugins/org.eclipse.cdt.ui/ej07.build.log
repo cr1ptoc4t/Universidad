@@ -1,7 +1,0 @@
-13:00:08 **** Clean-only build of configuration Debug for project ej07 ****
-make clean 
-rm -rf  ./ej07.o  ej07.hex  ej07.lst  ej07.siz  ./ej07.d  ej07.elf
-' '
-
-13:00:08 Build Finished. 0 errors, 0 warnings. (took 106ms)
-

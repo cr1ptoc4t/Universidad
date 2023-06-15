@@ -1,7 +1,0 @@
-13:00:10 **** Clean-only build of configuration Debug for project ej22 ****
-make clean 
-rm -rf  ./ej22.o  ej22.hex  ej22.lst  ej22.siz  ./ej22.d  ej22.elf
-' '
-
-13:00:10 Build Finished. 0 errors, 0 warnings. (took 153ms)
-

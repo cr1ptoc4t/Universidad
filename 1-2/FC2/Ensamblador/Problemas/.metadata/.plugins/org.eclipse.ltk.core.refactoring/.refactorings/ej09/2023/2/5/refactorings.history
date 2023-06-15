@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;ej09/ej02.asm&apos; to &apos;ej09.asm&apos;" description="Rename resource &apos;ej02.asm&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="ej02.asm" name="ej09.asm" stamp="1675337392650" updateReferences="true"/>
-</session>
