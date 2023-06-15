@@ -1,0 +1,11 @@
+18:33:56 **** Build of configuration Debug for project ej24 ****
+make all 
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "ej24.elf"
+   text	   data	    bss	    dec	    hex	filename
+    184	     24	      4	    212	     d4	ej24.elf
+'Finished building: ej24.siz'
+' '
+
+18:33:59 Build Finished. 0 errors, 0 warnings. (took 2s.159ms)
+

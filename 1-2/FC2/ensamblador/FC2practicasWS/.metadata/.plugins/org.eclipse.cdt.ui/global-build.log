@@ -1,0 +1,78 @@
+12:15:13 **** Incremental Build of configuration Debug for project pr4_lab ****
+make all 
+'Building file: ../pr4_lab.c'
+'Invoking: GNU RISC-V Cross C Compiler'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -std=gnu11 -MMD -MP -MF"pr4_lab.d" -MT"pr4_lab.o" -c -o "pr4_lab.o" "../pr4_lab.c"
+../pr4_lab.c: In function 'display':
+../pr4_lab.c:18:9: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   18 |         printf("%d ", arr[i]);
+      |         ^~~~~~
+../pr4_lab.c:18:9: warning: incompatible implicit declaration of built-in function 'printf'
+../pr4_lab.c:1:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+  +++ |+#include <stdio.h>
+    1 | /*---------------------------------------------------------------------
+../pr4_lab.c:20:5: warning: incompatible implicit declaration of built-in function 'printf'
+   20 |     printf("\n");
+      |     ^~~~~~
+../pr4_lab.c:20:5: note: include '<stdio.h>' or provide a declaration of 'printf'
+../pr4_lab.c: In function 'test':
+../pr4_lab.c:67:23: warning: implicit declaration of function 'calloc' [-Wimplicit-function-declaration]
+   67 |     int *arr = (int *)calloc(size, sizeof(int));
+      |                       ^~~~~~
+../pr4_lab.c:67:23: warning: incompatible implicit declaration of built-in function 'calloc'
+../pr4_lab.c:1:1: note: include '<stdlib.h>' or provide a declaration of 'calloc'
+  +++ |+#include <stdlib.h>
+    1 | /*---------------------------------------------------------------------
+../pr4_lab.c:72:18: warning: implicit declaration of function 'rand' [-Wimplicit-function-declaration]
+   72 |         arr[i] = rand() % 100;
+      |                  ^~~~
+../pr4_lab.c:83:5: warning: implicit declaration of function 'free' [-Wimplicit-function-declaration]
+   83 |     free(arr);
+      |     ^~~~
+../pr4_lab.c:83:5: warning: incompatible implicit declaration of built-in function 'free'
+../pr4_lab.c:83:5: note: include '<stdlib.h>' or provide a declaration of 'free'
+'Finished building: ../pr4_lab.c'
+' '
+'Building target: pr4_lab.elf'
+'Invoking: GNU RISC-V Cross C Linker'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr4_lab\ldscript.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"pr4_lab.map" -o "pr4_lab.elf"  ./fun_asm.o ./pr4_lab.o   
+'Finished building target: pr4_lab.elf'
+' '
+'Invoking: GNU RISC-V Cross Create Flash Image'
+riscv64-unknown-elf-objcopy -O ihex "pr4_lab.elf"  "pr4_lab.hex"
+'Finished building: pr4_lab.hex'
+' '
+'Invoking: GNU RISC-V Cross Create Listing'
+riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --line-numbers --wide "pr4_lab.elf" > "pr4_lab.lst"
+'Finished building: pr4_lab.lst'
+' '
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "pr4_lab.elf"
+   text	   data	    bss	    dec	    hex	filename
+   4552	   2108	     60	   6720	   1a40	pr4_lab.elf
+'Finished building: pr4_lab.siz'
+' '
+12:15:53 **** Build of configuration Debug for project pr4 ****
+make all 
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "pr4.elf"
+   text	   data	    bss	    dec	    hex	filename
+    552	     40	      1	    593	    251	pr4.elf
+'Finished building: pr4.siz'
+' '
+12:16:15 **** Incremental Build of configuration Debug for project pr4_lab ****
+make all 
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "pr4_lab.elf"
+   text	   data	    bss	    dec	    hex	filename
+   4552	   2108	     60	   6720	   1a40	pr4_lab.elf
+'Finished building: pr4_lab.siz'
+' '
+12:16:52 **** Incremental Build of configuration Debug for project pr4_lab ****
+make all 
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "pr4_lab.elf"
+   text	   data	    bss	    dec	    hex	filename
+   4552	   2108	     60	   6720	   1a40	pr4_lab.elf
+'Finished building: pr4_lab.siz'
+' '

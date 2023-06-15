@@ -1,0 +1,968 @@
+Archive member included to satisfy reference by file (symbol)
+
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-calloc.o)
+                              ./pr4_lab.o (calloc)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-callocr.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-calloc.o) (_calloc_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-impure.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-calloc.o) (_impure_ptr)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-malloc.o)
+                              ./pr4_lab.o (free)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mallocr.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-callocr.o) (_malloc_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memset.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-callocr.o) (memset)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mlock.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mallocr.o) (__malloc_lock)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-printf.o)
+                              ./pr4_lab.o (printf)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-putchar.o)
+                              ./pr4_lab.o (putchar)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-putc.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-putchar.o) (_putc_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-rand.o)
+                              ./pr4_lab.o (rand)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-sbrkr.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mallocr.o) (_sbrk_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-printf.o) (_vfprintf_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wbuf.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-putc.o) (__swbuf_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wsetup.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o) (__swsetup_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fflush.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o) (_fflush_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-findfp.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-putc.o) (__sinit)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-freer.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-malloc.o) (_free_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fwalk.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-findfp.o) (_fwalk)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-ldtoa.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o) (_ldtoa_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-localeconv.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o) (_localeconv_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-locale.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-localeconv.o) (__global_locale)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-makebuf.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wsetup.o) (__smakebuf_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mbtowc_r.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-locale.o) (__ascii_mbtowc)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memchr.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o) (memchr)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mprec.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-ldtoa.o) (_Balloc)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-reent.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-sbrkr.o) (errno)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-s_frexp.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o) (frexp)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-sprintf.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-ldtoa.o) (sprintf)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-stdio.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-findfp.o) (__sread)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strcmp.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-locale.o) (strcmp)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strcpy.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-ldtoa.o) (strcpy)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strlen.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o) (strlen)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strncpy.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o) (strncpy)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-svfprintf.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-sprintf.o) (_svfprintf_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfiprintf.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o) (__sprint_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wctomb_r.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-locale.o) (__ascii_wctomb)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-writer.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-stdio.o) (_write_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-assert.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mprec.o) (__assert_func)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-closer.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-stdio.o) (_close_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-ctype_.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-locale.o) (_ctype_)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fclose.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-findfp.o) (_fclose_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fiprintf.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-assert.o) (fiprintf)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fputwc.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfiprintf.o) (_fputwc_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fstatr.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-makebuf.o) (_fstat_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fvwrite.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfiprintf.o) (__sfvwrite_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-isattyr.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-makebuf.o) (_isatty_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-lseekr.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-stdio.o) (_lseek_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memcpy.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mprec.o) (memcpy)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memmove-stub.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fvwrite.o) (memmove)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-readr.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-stdio.o) (_read_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-reallocr.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fvwrite.o) (_realloc_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-svfiprintf.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-svfprintf.o) (__ssprint_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wcrtomb.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fputwc.o) (_wcrtomb_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-abort.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-assert.o) (abort)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-signal.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-abort.o) (raise)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-signalr.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-signal.o) (_kill_r)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_close.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-closer.o) (_close)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_exit.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-abort.o) (_exit)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_fstat.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fstatr.o) (_fstat)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_getpid.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-signalr.o) (_getpid)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_isatty.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-isattyr.o) (_isatty)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_kill.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-signalr.o) (_kill)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_lseek.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-lseekr.o) (_lseek)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_read.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-readr.o) (_read)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_sbrk.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-sbrkr.o) (_sbrk)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_write.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-writer.o) (_write)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_conv_stat.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_fstat.o) (_conv_stat)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-errno.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_close.o) (__errno)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_udivdi3.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o) (__udivdi3)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_umoddi3.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o) (__umoddi3)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(divdf3.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mprec.o) (__divdf3)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(muldf3.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mprec.o) (__muldf3)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(eqtf2.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o) (__eqtf2)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(getf2.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o) (__gttf2)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(letf2.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o) (__lttf2)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(multf3.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o) (__multf3)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(subtf3.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o) (__subtf3)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(fixtfsi.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o) (__fixtfsi)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(floatsitf.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o) (__floatsitf)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(extenddftf2.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o) (__extenddftf2)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(trunctfdf2.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o) (__trunctfdf2)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clz.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_udivdi3.o) (__clz_tab)
+c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+                              c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(divdf3.o) (__clzsi2)
+
+Discarded input sections
+
+ .text          0x0000000000000000        0x0 ./fun_asm.o
+ .data          0x0000000000000000        0x0 ./fun_asm.o
+ .bss           0x0000000000000000        0x0 ./fun_asm.o
+ .riscv.attributes
+                0x0000000000000000       0x1f ./fun_asm.o
+ .group         0x0000000000000000        0xc ./pr4_lab.o
+ .text          0x0000000000000000        0x0 ./pr4_lab.o
+ .data          0x0000000000000000        0x0 ./pr4_lab.o
+ .bss           0x0000000000000000        0x0 ./pr4_lab.o
+ .rodata        0x0000000000000000        0x4 ./pr4_lab.o
+ .text.display  0x0000000000000000       0x80 ./pr4_lab.o
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-calloc.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-calloc.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-callocr.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-callocr.o)
+ .text          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-impure.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-impure.o)
+ .srodata       0x0000000000000000        0x4 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-impure.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-malloc.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-malloc.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memset.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memset.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mlock.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mlock.o)
+ .text          0x0000000000000000       0x98 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-printf.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-printf.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-printf.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-printf.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-printf.o)
+ .text          0x0000000000000000       0x28 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-putchar.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-putchar.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-putchar.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-putchar.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-putchar.o)
+ .text          0x0000000000000000      0x150 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-putc.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-putc.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-putc.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-putc.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-putc.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-rand.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-rand.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-sbrkr.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-sbrkr.o)
+ .text          0x0000000000000000     0x2bd4 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o)
+ .rodata.str1.4
+                0x0000000000000000       0x42 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o)
+ .rodata        0x0000000000000000      0x18c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfprintf.o)
+ .text          0x0000000000000000      0x1b4 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wbuf.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wbuf.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wbuf.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wbuf.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wbuf.o)
+ .text          0x0000000000000000      0x178 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wsetup.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wsetup.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wsetup.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wsetup.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wsetup.o)
+ .text          0x0000000000000000      0x360 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fflush.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fflush.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fflush.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fflush.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fflush.o)
+ .text          0x0000000000000000      0x3d8 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-findfp.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-findfp.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-findfp.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-findfp.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-findfp.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-freer.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-freer.o)
+ .text          0x0000000000000000      0x158 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fwalk.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fwalk.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fwalk.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fwalk.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fwalk.o)
+ .text          0x0000000000000000     0x2db8 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-ldtoa.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-ldtoa.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-ldtoa.o)
+ .rodata.str1.4
+                0x0000000000000000       0x26 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-ldtoa.o)
+ .rodata        0x0000000000000000      0x252 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-ldtoa.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-ldtoa.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-ldtoa.o)
+ .text          0x0000000000000000       0x20 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-localeconv.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-localeconv.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-localeconv.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-localeconv.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-localeconv.o)
+ .text          0x0000000000000000      0x11c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-locale.o)
+ .data          0x0000000000000000      0x16c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-locale.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-locale.o)
+ .rodata.str1.4
+                0x0000000000000000       0x12 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-locale.o)
+ .sbss          0x0000000000000000        0x4 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-locale.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-locale.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-locale.o)
+ .text          0x0000000000000000      0x274 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-makebuf.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-makebuf.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-makebuf.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-makebuf.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-makebuf.o)
+ .text          0x0000000000000000       0x74 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mbtowc_r.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mbtowc_r.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mbtowc_r.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mbtowc_r.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mbtowc_r.o)
+ .text          0x0000000000000000       0xc8 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memchr.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memchr.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memchr.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memchr.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memchr.o)
+ .text          0x0000000000000000     0x128c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mprec.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mprec.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mprec.o)
+ .rodata.str1.4
+                0x0000000000000000       0x79 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mprec.o)
+ .srodata.cst8  0x0000000000000000       0x10 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mprec.o)
+ .rodata        0x0000000000000000      0x128 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mprec.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mprec.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mprec.o)
+ .text          0x0000000000000000      0x1e4 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-reent.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-reent.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-reent.o)
+ .text          0x0000000000000000       0xb0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-s_frexp.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-s_frexp.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-s_frexp.o)
+ .srodata.cst8  0x0000000000000000        0x8 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-s_frexp.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-s_frexp.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-s_frexp.o)
+ .text          0x0000000000000000       0xf0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-sprintf.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-sprintf.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-sprintf.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-sprintf.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-sprintf.o)
+ .text          0x0000000000000000      0x170 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-stdio.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-stdio.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-stdio.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-stdio.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-stdio.o)
+ .text          0x0000000000000000      0x17c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strcmp.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strcmp.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strcmp.o)
+ .riscv.attributes
+                0x0000000000000000       0x1f c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strcmp.o)
+ .text          0x0000000000000000       0xb0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strcpy.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strcpy.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strcpy.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strcpy.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strcpy.o)
+ .text          0x0000000000000000       0x8c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strlen.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strlen.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strlen.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strlen.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strlen.o)
+ .text          0x0000000000000000       0xa8 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strncpy.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strncpy.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strncpy.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strncpy.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-strncpy.o)
+ .text          0x0000000000000000     0x2a78 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-svfprintf.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-svfprintf.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-svfprintf.o)
+ .rodata.str1.4
+                0x0000000000000000       0x42 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-svfprintf.o)
+ .rodata        0x0000000000000000      0x18c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-svfprintf.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-svfprintf.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-svfprintf.o)
+ .text          0x0000000000000000     0x14c8 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfiprintf.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfiprintf.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfiprintf.o)
+ .rodata.str1.4
+                0x0000000000000000       0x2f c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfiprintf.o)
+ .rodata        0x0000000000000000      0x18c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfiprintf.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfiprintf.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-vfiprintf.o)
+ .text          0x0000000000000000       0x3c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wctomb_r.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wctomb_r.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wctomb_r.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wctomb_r.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wctomb_r.o)
+ .text          0x0000000000000000       0x70 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-writer.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-writer.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-writer.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-writer.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-writer.o)
+ .text          0x0000000000000000       0x78 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-assert.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-assert.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-assert.o)
+ .rodata.str1.4
+                0x0000000000000000       0x43 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-assert.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-assert.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-assert.o)
+ .text          0x0000000000000000       0x64 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-closer.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-closer.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-closer.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-closer.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-closer.o)
+ .text          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-ctype_.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-ctype_.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-ctype_.o)
+ .rodata        0x0000000000000000      0x101 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-ctype_.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-ctype_.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-ctype_.o)
+ .text          0x0000000000000000      0x1d0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fclose.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fclose.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fclose.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fclose.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fclose.o)
+ .text          0x0000000000000000       0x90 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fiprintf.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fiprintf.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fiprintf.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fiprintf.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fiprintf.o)
+ .text          0x0000000000000000      0x1f0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fputwc.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fputwc.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fputwc.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fputwc.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fputwc.o)
+ .text          0x0000000000000000       0x6c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fstatr.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fstatr.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fstatr.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fstatr.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fstatr.o)
+ .text          0x0000000000000000      0x4cc c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fvwrite.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fvwrite.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fvwrite.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fvwrite.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-fvwrite.o)
+ .text          0x0000000000000000       0x64 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-isattyr.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-isattyr.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-isattyr.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-isattyr.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-isattyr.o)
+ .text          0x0000000000000000       0x70 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-lseekr.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-lseekr.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-lseekr.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-lseekr.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-lseekr.o)
+ .text          0x0000000000000000      0x11c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memcpy.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memcpy.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memcpy.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memcpy.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memcpy.o)
+ .text          0x0000000000000000      0x120 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memmove-stub.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memmove-stub.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memmove-stub.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memmove-stub.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memmove-stub.o)
+ .text          0x0000000000000000       0x70 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-readr.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-readr.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-readr.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-readr.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-readr.o)
+ .text          0x0000000000000000      0x5a8 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-reallocr.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-reallocr.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-reallocr.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-reallocr.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-reallocr.o)
+ .text          0x0000000000000000     0x12f4 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-svfiprintf.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-svfiprintf.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-svfiprintf.o)
+ .rodata.str1.4
+                0x0000000000000000       0x2f c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-svfiprintf.o)
+ .rodata        0x0000000000000000      0x18c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-svfiprintf.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-svfiprintf.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-svfiprintf.o)
+ .text          0x0000000000000000      0x10c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wcrtomb.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wcrtomb.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wcrtomb.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wcrtomb.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-wcrtomb.o)
+ .text          0x0000000000000000       0x20 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-abort.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-abort.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-abort.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-abort.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-abort.o)
+ .text          0x0000000000000000      0x5b8 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-signal.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-signal.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-signal.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-signal.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-signal.o)
+ .text          0x0000000000000000       0x74 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-signalr.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-signalr.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-signalr.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-signalr.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-signalr.o)
+ .text          0x0000000000000000       0x5c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_close.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_close.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_close.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_close.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_close.o)
+ .text          0x0000000000000000       0x48 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_exit.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_exit.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_exit.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_exit.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_exit.o)
+ .text          0x0000000000000000       0x78 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_fstat.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_fstat.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_fstat.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_fstat.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_fstat.o)
+ .text          0x0000000000000000        0x8 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_getpid.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_getpid.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_getpid.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_getpid.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_getpid.o)
+ .text          0x0000000000000000       0x44 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_isatty.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_isatty.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_isatty.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_isatty.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_isatty.o)
+ .text          0x0000000000000000       0x28 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_kill.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_kill.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_kill.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_kill.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_kill.o)
+ .text          0x0000000000000000       0x54 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_lseek.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_lseek.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_lseek.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_lseek.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_lseek.o)
+ .text          0x0000000000000000       0x54 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_read.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_read.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_read.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_read.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_read.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_sbrk.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_sbrk.o)
+ .text          0x0000000000000000       0x54 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_write.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_write.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_write.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_write.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_write.o)
+ .text          0x0000000000000000       0xa4 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_conv_stat.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_conv_stat.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_conv_stat.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_conv_stat.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_conv_stat.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-errno.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-errno.o)
+ .text          0x0000000000000000      0x434 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_udivdi3.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_udivdi3.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_udivdi3.o)
+ .debug_info    0x0000000000000000      0x7b2 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_udivdi3.o)
+ .debug_abbrev  0x0000000000000000      0x19d c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_udivdi3.o)
+ .debug_loc     0x0000000000000000      0xbcd c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_udivdi3.o)
+ .debug_aranges
+                0x0000000000000000       0x20 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_udivdi3.o)
+ .debug_ranges  0x0000000000000000       0xf8 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_udivdi3.o)
+ .debug_line    0x0000000000000000      0x764 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_udivdi3.o)
+ .debug_str     0x0000000000000000      0x2e6 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_udivdi3.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_udivdi3.o)
+ .eh_frame      0x0000000000000000       0x28 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_udivdi3.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_udivdi3.o)
+ .text          0x0000000000000000      0x404 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_umoddi3.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_umoddi3.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_umoddi3.o)
+ .debug_info    0x0000000000000000      0x80c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_umoddi3.o)
+ .debug_abbrev  0x0000000000000000      0x1b9 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_umoddi3.o)
+ .debug_loc     0x0000000000000000      0x930 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_umoddi3.o)
+ .debug_aranges
+                0x0000000000000000       0x20 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_umoddi3.o)
+ .debug_ranges  0x0000000000000000       0xd8 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_umoddi3.o)
+ .debug_line    0x0000000000000000      0x808 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_umoddi3.o)
+ .debug_str     0x0000000000000000      0x2e6 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_umoddi3.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_umoddi3.o)
+ .eh_frame      0x0000000000000000       0x28 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_umoddi3.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_umoddi3.o)
+ .text          0x0000000000000000      0x6f0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .rodata        0x0000000000000000       0x3c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .debug_info    0x0000000000000000      0x72a c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .debug_abbrev  0x0000000000000000      0x173 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .debug_loc     0x0000000000000000     0x1494 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .debug_aranges
+                0x0000000000000000       0x20 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .debug_ranges  0x0000000000000000      0x198 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .debug_line    0x0000000000000000      0xf7f c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .debug_str     0x0000000000000000      0x403 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .debug_frame   0x0000000000000000       0x58 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(divdf3.o)
+ .text          0x0000000000000000      0x5d8 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .rodata        0x0000000000000000       0x3c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .debug_info    0x0000000000000000      0x766 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .debug_abbrev  0x0000000000000000      0x185 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .debug_loc     0x0000000000000000      0xd56 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .debug_aranges
+                0x0000000000000000       0x20 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .debug_ranges  0x0000000000000000      0x1e0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .debug_line    0x0000000000000000      0xdba c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .debug_str     0x0000000000000000      0x45b c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .debug_frame   0x0000000000000000       0x54 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(muldf3.o)
+ .text          0x0000000000000000       0xcc c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(eqtf2.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(eqtf2.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(eqtf2.o)
+ .debug_info    0x0000000000000000      0x265 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(eqtf2.o)
+ .debug_abbrev  0x0000000000000000      0x159 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(eqtf2.o)
+ .debug_loc     0x0000000000000000       0x87 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(eqtf2.o)
+ .debug_aranges
+                0x0000000000000000       0x20 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(eqtf2.o)
+ .debug_ranges  0x0000000000000000       0x60 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(eqtf2.o)
+ .debug_line    0x0000000000000000      0x2b9 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(eqtf2.o)
+ .debug_str     0x0000000000000000      0x24f c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(eqtf2.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(eqtf2.o)
+ .debug_frame   0x0000000000000000       0x2c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(eqtf2.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(eqtf2.o)
+ .text          0x0000000000000000      0x144 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(getf2.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(getf2.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(getf2.o)
+ .debug_info    0x0000000000000000      0x263 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(getf2.o)
+ .debug_abbrev  0x0000000000000000      0x16c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(getf2.o)
+ .debug_loc     0x0000000000000000      0x134 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(getf2.o)
+ .debug_aranges
+                0x0000000000000000       0x20 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(getf2.o)
+ .debug_ranges  0x0000000000000000       0x78 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(getf2.o)
+ .debug_line    0x0000000000000000      0x394 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(getf2.o)
+ .debug_str     0x0000000000000000      0x273 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(getf2.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(getf2.o)
+ .debug_frame   0x0000000000000000       0x2c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(getf2.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(getf2.o)
+ .text          0x0000000000000000      0x144 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(letf2.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(letf2.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(letf2.o)
+ .debug_info    0x0000000000000000      0x263 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(letf2.o)
+ .debug_abbrev  0x0000000000000000      0x16c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(letf2.o)
+ .debug_loc     0x0000000000000000      0x134 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(letf2.o)
+ .debug_aranges
+                0x0000000000000000       0x20 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(letf2.o)
+ .debug_ranges  0x0000000000000000       0x78 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(letf2.o)
+ .debug_line    0x0000000000000000      0x394 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(letf2.o)
+ .debug_str     0x0000000000000000      0x273 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(letf2.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(letf2.o)
+ .debug_frame   0x0000000000000000       0x2c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(letf2.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(letf2.o)
+ .text          0x0000000000000000     0x101c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(multf3.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(multf3.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(multf3.o)
+ .rodata        0x0000000000000000       0x3c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(multf3.o)
+ .debug_info    0x0000000000000000     0x12b8 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(multf3.o)
+ .debug_abbrev  0x0000000000000000      0x1c7 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(multf3.o)
+ .debug_loc     0x0000000000000000     0x68ea c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(multf3.o)
+ .debug_aranges
+                0x0000000000000000       0x20 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(multf3.o)
+ .debug_ranges  0x0000000000000000      0x7e0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(multf3.o)
+ .debug_line    0x0000000000000000     0x22df c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(multf3.o)
+ .debug_str     0x0000000000000000      0x5fa c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(multf3.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(multf3.o)
+ .debug_frame   0x0000000000000000       0x68 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(multf3.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(multf3.o)
+ .text          0x0000000000000000     0x1550 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(subtf3.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(subtf3.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(subtf3.o)
+ .debug_info    0x0000000000000000      0xe65 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(subtf3.o)
+ .debug_abbrev  0x0000000000000000      0x1cd c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(subtf3.o)
+ .debug_loc     0x0000000000000000     0x1fc1 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(subtf3.o)
+ .debug_aranges
+                0x0000000000000000       0x20 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(subtf3.o)
+ .debug_ranges  0x0000000000000000      0x4a8 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(subtf3.o)
+ .debug_line    0x0000000000000000     0x279f c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(subtf3.o)
+ .debug_str     0x0000000000000000      0x4db c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(subtf3.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(subtf3.o)
+ .debug_frame   0x0000000000000000       0x5c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(subtf3.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(subtf3.o)
+ .text          0x0000000000000000      0x114 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(fixtfsi.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(fixtfsi.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(fixtfsi.o)
+ .debug_info    0x0000000000000000      0x28a c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(fixtfsi.o)
+ .debug_abbrev  0x0000000000000000      0x180 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(fixtfsi.o)
+ .debug_loc     0x0000000000000000      0x322 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(fixtfsi.o)
+ .debug_aranges
+                0x0000000000000000       0x20 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(fixtfsi.o)
+ .debug_ranges  0x0000000000000000       0x70 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(fixtfsi.o)
+ .debug_line    0x0000000000000000      0x324 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(fixtfsi.o)
+ .debug_str     0x0000000000000000      0x2b7 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(fixtfsi.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(fixtfsi.o)
+ .debug_frame   0x0000000000000000       0x2c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(fixtfsi.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(fixtfsi.o)
+ .text          0x0000000000000000      0x15c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(floatsitf.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(floatsitf.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(floatsitf.o)
+ .debug_info    0x0000000000000000      0x3b9 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(floatsitf.o)
+ .debug_abbrev  0x0000000000000000      0x1c0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(floatsitf.o)
+ .debug_loc     0x0000000000000000      0x219 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(floatsitf.o)
+ .debug_aranges
+                0x0000000000000000       0x20 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(floatsitf.o)
+ .debug_ranges  0x0000000000000000       0xa0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(floatsitf.o)
+ .debug_line    0x0000000000000000      0x36f c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(floatsitf.o)
+ .debug_str     0x0000000000000000      0x39f c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(floatsitf.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(floatsitf.o)
+ .debug_frame   0x0000000000000000       0x40 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(floatsitf.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(floatsitf.o)
+ .text          0x0000000000000000      0x204 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(extenddftf2.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(extenddftf2.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(extenddftf2.o)
+ .debug_info    0x0000000000000000      0x406 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(extenddftf2.o)
+ .debug_abbrev  0x0000000000000000      0x1bb c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(extenddftf2.o)
+ .debug_loc     0x0000000000000000      0x42a c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(extenddftf2.o)
+ .debug_aranges
+                0x0000000000000000       0x20 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(extenddftf2.o)
+ .debug_ranges  0x0000000000000000       0x80 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(extenddftf2.o)
+ .debug_line    0x0000000000000000      0x5cf c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(extenddftf2.o)
+ .debug_str     0x0000000000000000      0x2ec c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(extenddftf2.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(extenddftf2.o)
+ .debug_frame   0x0000000000000000       0x40 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(extenddftf2.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(extenddftf2.o)
+ .text          0x0000000000000000      0x364 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(trunctfdf2.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(trunctfdf2.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(trunctfdf2.o)
+ .debug_info    0x0000000000000000      0x516 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(trunctfdf2.o)
+ .debug_abbrev  0x0000000000000000      0x1a6 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(trunctfdf2.o)
+ .debug_loc     0x0000000000000000      0x56d c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(trunctfdf2.o)
+ .debug_aranges
+                0x0000000000000000       0x20 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(trunctfdf2.o)
+ .debug_ranges  0x0000000000000000      0x120 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(trunctfdf2.o)
+ .debug_line    0x0000000000000000      0x70f c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(trunctfdf2.o)
+ .debug_str     0x0000000000000000      0x41a c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(trunctfdf2.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(trunctfdf2.o)
+ .debug_frame   0x0000000000000000       0x3c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(trunctfdf2.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(trunctfdf2.o)
+ .text          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .rodata        0x0000000000000000      0x100 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .debug_info    0x0000000000000000       0xd7 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .debug_abbrev  0x0000000000000000       0x70 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .debug_aranges
+                0x0000000000000000       0x18 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .debug_line    0x0000000000000000       0x6e c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .debug_str     0x0000000000000000      0x22d c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clz.o)
+ .text          0x0000000000000000       0x4c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .data          0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .bss           0x0000000000000000        0x0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .debug_info    0x0000000000000000      0x144 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .debug_abbrev  0x0000000000000000       0xca c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .debug_loc     0x0000000000000000       0x6b c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .debug_aranges
+                0x0000000000000000       0x20 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .debug_ranges  0x0000000000000000       0x20 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .debug_line    0x0000000000000000       0xfa c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .debug_str     0x0000000000000000      0x24a c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .comment       0x0000000000000000       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .debug_frame   0x0000000000000000       0x20 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+ .riscv.attributes
+                0x0000000000000000       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a(_clzsi2.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD ./fun_asm.o
+LOAD ./pr4_lab.o
+LOAD c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a
+START GROUP
+LOAD c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a
+LOAD c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a
+END GROUP
+LOAD c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a
+                0x0000000000000000                . = 0x0
+
+.text           0x0000000000000000      0xf50
+ *(.text)
+ .text          0x0000000000000000       0x18 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-calloc.o)
+                0x0000000000000000                calloc
+ .text          0x0000000000000018       0xb0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-callocr.o)
+                0x0000000000000018                _calloc_r
+ .text          0x00000000000000c8       0x20 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-malloc.o)
+                0x00000000000000c8                malloc
+                0x00000000000000d8                free
+ .text          0x00000000000000e8      0x7b8 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mallocr.o)
+                0x00000000000000e8                _malloc_r
+ .text          0x00000000000008a0       0xdc c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memset.o)
+                0x00000000000008a0                memset
+ .text          0x000000000000097c        0x8 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mlock.o)
+                0x000000000000097c                __malloc_lock
+                0x0000000000000980                __malloc_unlock
+ .text          0x0000000000000984       0x6c c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-rand.o)
+                0x0000000000000984                srand
+                0x0000000000000998                rand
+ .text          0x00000000000009f0       0x60 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-sbrkr.o)
+                0x00000000000009f0                _sbrk_r
+ .text          0x0000000000000a50      0x454 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-freer.o)
+                0x0000000000000a50                _malloc_trim_r
+                0x0000000000000b90                _free_r
+ .text          0x0000000000000ea4       0xa0 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_sbrk.o)
+                0x0000000000000ea4                _sbrk
+ .text          0x0000000000000f44        0xc c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-errno.o)
+                0x0000000000000f44                __errno
+
+.text.swap      0x0000000000000f50       0x4c
+ .text.swap     0x0000000000000f50       0x4c ./pr4_lab.o
+                0x0000000000000f50                swap
+
+.text.bubbleSort
+                0x0000000000000f9c      0x100
+ .text.bubbleSort
+                0x0000000000000f9c      0x100 ./pr4_lab.o
+                0x0000000000000f9c                bubbleSort
+
+.text.test      0x000000000000109c       0xf8
+ .text.test     0x000000000000109c       0xf8 ./pr4_lab.o
+                0x000000000000109c                test
+
+.text.main      0x0000000000001194       0x34
+ .text.main     0x0000000000001194       0x34 ./pr4_lab.o
+                0x0000000000001194                main
+                0x0000000000010000                . = 0x10000
+
+.data           0x0000000000010000      0x830
+ *(.data)
+ .data          0x0000000000010000      0x428 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-impure.o)
+ .data          0x0000000000010428      0x408 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mallocr.o)
+                0x0000000000010428                __malloc_av_
+
+.sdata          0x0000000000010830        0xc
+ .sdata         0x0000000000010830        0x4 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-impure.o)
+                0x0000000000010830                _impure_ptr
+ .sdata         0x0000000000010834        0x8 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mallocr.o)
+                0x0000000000010834                __malloc_sbrk_base
+                0x0000000000010838                __malloc_trim_threshold
+
+.bss            0x000000000001083c       0x28
+ *(.bss)
+ .bss           0x000000000001083c       0x28 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mallocr.o)
+                0x000000000001083c                __malloc_current_mallinfo
+
+.sbss           0x0000000000010864       0x14
+ .sbss          0x0000000000010864        0xc c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mallocr.o)
+                0x0000000000010864                __malloc_max_total_mem
+                0x0000000000010868                __malloc_max_sbrked_mem
+                0x000000000001086c                __malloc_top_pad
+ .sbss          0x0000000000010870        0x4 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-reent.o)
+                0x0000000000010870                errno
+ .sbss          0x0000000000010874        0x4 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_sbrk.o)
+
+.rodata
+ *(.rodata)
+                [!provide]                        PROVIDE (_stack = 0x20000)
+OUTPUT(pr4_lab.elf elf32-littleriscv)
+
+.debug_info     0x0000000000000000      0x27a
+ .debug_info    0x0000000000000000      0x27a ./pr4_lab.o
+
+.debug_abbrev   0x0000000000000000      0x16d
+ .debug_abbrev  0x0000000000000000      0x16d ./pr4_lab.o
+
+.debug_aranges  0x0000000000000000       0x40
+ .debug_aranges
+                0x0000000000000000       0x40 ./pr4_lab.o
+
+.debug_ranges   0x0000000000000000       0x60
+ .debug_ranges  0x0000000000000000       0x60 ./pr4_lab.o
+
+.debug_macro    0x0000000000000000      0x6f9
+ .debug_macro   0x0000000000000000       0x11 ./pr4_lab.o
+ .debug_macro   0x0000000000000011      0x6e8 ./pr4_lab.o
+
+.debug_line     0x0000000000000000      0x2d3
+ .debug_line    0x0000000000000000      0x2d3 ./pr4_lab.o
+
+.debug_str      0x0000000000000000     0x244e
+ .debug_str     0x0000000000000000     0x244e ./pr4_lab.o
+                                       0x2460 (size before relaxing)
+
+.comment        0x0000000000000000       0x12
+ .comment       0x0000000000000000       0x12 ./pr4_lab.o
+                                         0x13 (size before relaxing)
+ .comment       0x0000000000000012       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-calloc.o)
+ .comment       0x0000000000000012       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-callocr.o)
+ .comment       0x0000000000000012       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-impure.o)
+ .comment       0x0000000000000012       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-malloc.o)
+ .comment       0x0000000000000012       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mallocr.o)
+ .comment       0x0000000000000012       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mlock.o)
+ .comment       0x0000000000000012       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-rand.o)
+ .comment       0x0000000000000012       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-sbrkr.o)
+ .comment       0x0000000000000012       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-freer.o)
+ .comment       0x0000000000000012       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-reent.o)
+ .comment       0x0000000000000012       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_sbrk.o)
+ .comment       0x0000000000000012       0x13 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-errno.o)
+
+.riscv.attributes
+                0x0000000000000000       0x21
+ .riscv.attributes
+                0x0000000000000000       0x21 ./pr4_lab.o
+ .riscv.attributes
+                0x0000000000000021       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-calloc.o)
+ .riscv.attributes
+                0x0000000000000042       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-callocr.o)
+ .riscv.attributes
+                0x0000000000000063       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-impure.o)
+ .riscv.attributes
+                0x0000000000000084       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-malloc.o)
+ .riscv.attributes
+                0x00000000000000a5       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mallocr.o)
+ .riscv.attributes
+                0x00000000000000c6       0x1f c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-memset.o)
+ .riscv.attributes
+                0x00000000000000e5       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mlock.o)
+ .riscv.attributes
+                0x0000000000000106       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-rand.o)
+ .riscv.attributes
+                0x0000000000000127       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-sbrkr.o)
+ .riscv.attributes
+                0x0000000000000148       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-freer.o)
+ .riscv.attributes
+                0x0000000000000169       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-reent.o)
+ .riscv.attributes
+                0x000000000000018a       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_sbrk.o)
+ .riscv.attributes
+                0x00000000000001ab       0x21 c:/programas/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-errno.o)
+
+.debug_frame    0x0000000000000000       0xd4
+ .debug_frame   0x0000000000000000       0xd4 ./pr4_lab.o

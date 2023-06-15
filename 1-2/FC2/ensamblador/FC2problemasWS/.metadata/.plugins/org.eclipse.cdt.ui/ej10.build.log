@@ -1,0 +1,11 @@
+18:44:39 **** Incremental Build of configuration Debug for project ej10 ****
+make all 
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "ej10.elf"
+   text	   data	    bss	    dec	    hex	filename
+     72	     24	      4	    100	     64	ej10.elf
+'Finished building: ej10.siz'
+' '
+
+18:44:40 Build Finished. 0 errors, 0 warnings. (took 758ms)
+
