@@ -7,28 +7,26 @@ using namespace std;
 
 const int MAX_EQUIPOS = 10;
 typedef int* tArrayJugEquipo;
-
-typedef struct tEquipo {
+struct tEquipo {
 	string nombre;
-	int puntos=0;
+	int puntos;
 	int presupuesto;
-	tArrayJugEquipo jugadoras;
+	tArrayJugEquipo j;
 	int num_jugadoras;
+	int capacidad;
 };
 
-
-typedef struct tLiga {
-	tEquipo listaEquipos[MAX_EQUIPOS];
+struct tLiga {
+	tEquipo equipo[MAX_EQUIPOS];
 	int cont;
 };
 
-void cargarEquipo(ifstream& archivo, tEquipo& equipo);
-void actualizaPuntos(tLiga& liga, string e1, int p1, string e2, int p2);
 void cargarEquipos(ifstream& archivo, tLiga& liga);
-void cargarPartidos(ifstream& archivo, tLiga& liga);
-void aumentarPresupuesto(const string id, tLiga& liga);
-
-
+void mostrarEquipos(const tLiga& liga, const tJugadoras& jugadoras);
 tEquipo campeonLiga(ifstream& archivo, tLiga& liga);
-int buscaEquipoPorNombre(const tLiga& liga, string nombre);
-bool ficharNuevaJugadora(string nombreEquipo, int id, string nombreJ, string apellidoJ, int goles, tLiga& liga);
+void aumentarPresupuesto(tLiga& liga, string nombre);
+bool ficharNuevaJugadora(tJugadoras& lista_jugadoras, tLiga& liga, string equipo, int id_jug, string nombre_jug, string apellido_jug, int goles_jug);
+void descensoEquipo(string eq, tLiga& liga, tJugadoras& jugadoras);
+string getNombre(const tEquipo& equipo);
+int getPuntos(const tEquipo& equipo);
+void liberar_memoria(tLiga& liga);

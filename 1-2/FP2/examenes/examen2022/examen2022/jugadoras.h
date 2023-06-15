@@ -3,23 +3,21 @@
 #include <fstream>
 using namespace std;
 
-const int MAX_JUG = 100;
-typedef struct tJugadora
-{
+const int MAX_JUGADORAS = 100;
+struct tJugadora {
 	int id;
 	string nombre;
 	string apellido;
-	int goles = 0;
+	int goles;
 };
 
-typedef tJugadora* tJugadoraPtr;
-
-typedef tJugadoraPtr tArrayJug[MAX_JUG];
-
-typedef struct tJugadoras
-{
-	tArrayJug array_jugadoras;
-	int cont = 0;
+struct tJugadoras {
+	tJugadora* array [MAX_JUGADORAS];
+	int cont;
 };
+
 bool cargarJugadoras(ifstream& archivo, tJugadoras& lj);
-void cargarJugadora(ifstream& archivo, tJugadora& j);
+void mostrarJugadoras(const tJugadoras& lj);
+bool buscarJugadora(int id, const tJugadoras& lista_jug, tJugadora& jug);
+string getApellido(const tJugadora& jug);
+void liberar_memoria(tJugadoras& lista_jugadoras);

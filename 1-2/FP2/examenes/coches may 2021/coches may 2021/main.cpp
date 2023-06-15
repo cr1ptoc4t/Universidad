@@ -16,7 +16,7 @@ int main() {
         iniciarListaCoches(lc);
         cargarCoches(archivo, lc);
         mostrarListaCoches(lc);
-        /*
+        
         // Crea la lista de la seccion del motor
         tListaSeccion lmotor = crearListaSeccion(lc, "Motor");
         cout << "lista de coches que se van a arreglar del motor" << endl;
@@ -42,10 +42,10 @@ int main() {
             else cout << "NO\n";
         }
         marcarTerminados(lmotor);
-
+        
         //mostrarListaCoches(lc);
-       // liberaListaCoches(lc);
-       */
+        liberaListaCoches(lc);
+       
     }
     return 0;
 }
