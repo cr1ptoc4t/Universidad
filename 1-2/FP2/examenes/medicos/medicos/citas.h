@@ -3,15 +3,15 @@ using namespace std;
 #include <string>
 #include <fstream>
 
-struct tCita {
-	int codMed;
-	string codPac;
-};
+const int CAP_INI = 20;
 
+struct tCita {
+	int nmedico;
+	string npaciente;
+};
 struct tListaCitas {
-	tCita* citas;
-	int cap;
-	int cont;
+	tCita* lc;
+	int cont; int cap;
 };
 
 void inicializarListaCitas (tListaCitas& lc);
@@ -21,3 +21,5 @@ void liberarCitas(tListaCitas& lc);
 
 
 void muestraListaCitas(tListaCitas& lc);
+int getNumElems(const tListaCitas& listaCitas);
+int getCodigoMedico(const tListaCitas& listaCitas, int pos);

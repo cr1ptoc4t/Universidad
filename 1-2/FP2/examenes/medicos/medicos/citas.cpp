@@ -1,56 +1,81 @@
 #include "citas.h"
+#include <fstream>
 
 void inicializarListaCitas(tListaCitas& lc)
 {
-	lc.cap = 20;
+	lc.cap = CAP_INI;
+	lc.lc = new tCita[CAP_INI];
 	lc.cont = 0;
-	lc.citas = new tCita [lc.cap];
 }
 
-bool cargaListaCitas(tListaCitas& lc) {
-	ifstream archivo;
-	archivo.open("citas.txt");
-	bool ok = false;
-	if (archivo.is_open()) {
-		int num;
-		archivo >> num;
+bool cargaListaCitas(tListaCitas& lc)
+{
+	bool cargado = true;
+	ifstream entrada;
+	int codigo;
+	char espacio;
 
-		for (int i = 0; i < num; i++) {
-			if (i >= lc.cap)
+	entrada.open("citas.txt");
+	if (entrada.is_open())
+	{
+		entrada >> codigo;
+		while (codigo != -1)
+		{
+			if (lc.cont == lc.cap)
 				ampliar(lc);
-			archivo >> lc.citas[i].codMed >> lc.citas[i].codPac;
+
+			lc.lc[lc.cont].nmedico = codigo;
+			entrada.get(espacio);
+			getline(entrada, lc.lc[lc.cont].npaciente);
 			lc.cont++;
+			entrada >> codigo;
 		}
-		
-		ok = true;
+		entrada.close();
+	}
+	else {
+		cout << "Error, no se pudo abrir el archivo 'Citas.txt'" << endl;
+		cargado = false;
 	}
 
-	return ok;
+	return cargado;
 }
 
 void ampliar(tListaCitas& lc)
 {
-	tCita* aux = new tCita[lc.cap+5];
+	tCita* aux = new tCita[lc.cap+ 3];
 
-	for (int i = 0; i < lc.cont;i++)
-		aux[i] = lc.citas[i];
+	for (int i = 0; i < lc.cont; i++) {
+		aux[i] = lc.lc[i];
+	}
 
-	delete[] lc.citas;
-	lc.citas = aux;
-	lc.cap += 5;
+	delete[] lc.lc;
+	lc.cap += 3;
+	lc.lc = aux;
 	aux = nullptr;
 }
 
 void liberarCitas(tListaCitas& lc)
 {
+	delete[]lc.lc;
+	lc.lc = nullptr;
 	lc.cap = 0;
-	delete [] lc.citas;
-	lc.citas = nullptr;
 	lc.cont = 0;
 }
 
-void muestraListaCitas(tListaCitas& lc) {
+void muestraListaCitas(tListaCitas& lc)
+{
 	for (int i = 0; i < lc.cont; i++) {
-		cout<<"el paciente " << lc.citas[i].codPac << " pide hora con el medico " << lc.citas[i].codMed << endl;
+		cout << lc.lc[i].nmedico << "  " << lc.lc[i].npaciente << endl;
 	}
+}
+
+
+int getNumElems(const tListaCitas& listaCitas)
+{
+	return listaCitas.cont;
+}
+
+int getCodigoMedico(const tListaCitas& listaCitas, int pos)
+{
+	return listaCitas.lc[pos].nmedico;
 }
