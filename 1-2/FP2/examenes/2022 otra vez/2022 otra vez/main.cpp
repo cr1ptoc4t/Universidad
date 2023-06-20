@@ -1,128 +1,91 @@
+
+#include <iostream> 
+#include <fstream> 
+#include <string> 
+#include "jugadoras.h" 
+#include "liga.h" 
 using namespace std;
-#include <iostream>
-#include <fstream>
-#include <string>
-#include "liga.h"
+
+void fichajes(ifstream& archivo, tJugadoras& lista_jugadoras, tLiga liga);
+
+int main()
+{
+	tJugadoras lista_jugadoras;
+	tLiga liga;
+	ifstream archivo;
+	tEquipo equipo_campeon;
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
+	archivo.open("entrada.txt");
+	bool abierto = archivo.is_open();
+	if (abierto)
+	{
+		cargarJugadoras(archivo, lista_jugadoras);
+		mostrarJugadoras(lista_jugadoras);
+		cargarEquipos(archivo, liga);
+		mostrarEquipos(liga);
+		
+		//mostrarEquipos(liga, lista_jugadoras);
+
+		//Equipo campeón 
+		
+		equipo_campeon = campeonLiga(archivo, liga);
+		cout << "El campeón de la liga es: " << getNombre(equipo_campeon)
+			<< " con " << getPuntos(equipo_campeon) << " puntos" <<
+			endl << endl;
+
+		//Aumentar presupuesto 
+		/*
+		string equipo;
+		archivo >> equipo;
+		aumentarPresupuesto(liga, equipo);
+		mostrarEquipos(liga, lista_jugadoras);
 
 
 
-//#define _CRTDBG_MAP_ALLOC
-//#include <crtdbg.h>
+		//Fichajes 
+		fichajes(archivo, lista_jugadoras, liga);
+		mostrarJugadoras(lista_jugadoras);
+		mostrarEquipos(liga, lista_jugadoras);
 
-void fichaJugadoras(ifstream& archivo, tJugadoras& jugadoras, tLiga& liga);
+		//Descenso equipo 
 
-void resuelve_caso() {
-    tJugadoras jugadoras;
-    tLiga liga;
-    ifstream archivo;
-
-
-    archivo.open("datos.in");
-    cargarJugadoras(archivo, jugadoras);
-    cargarEquipos(archivo, liga);
-        
-    mostrarJugadoras(jugadoras);
-    mostrarEquipos(liga);
-    
-    
-    tEquipo campeon = campeonLiga(archivo, liga);
-    //mostrar campeon
-    cout << "El campeon es "<<getNombre(campeon)<<endl;
-
-    //aumentar presupuesto
-    string equipo;
-    archivo >> equipo;
-    aumentarPresupuesto(equipo, liga);
-
-    //cout << endl << "a quien quieres aumentar el presupuesto?" << endl;
-    //cin >> equipo;
-   //aumentarPresupuesto(equipo, liga);
-
-
-
-    fichaJugadoras(archivo, jugadoras, liga);
-
-    //comenzamos con los fichajes
-    cout << "comenzamos con los fichajes: " << endl<< "cuantos fichajes quieres hacer? ";
-    
-    
-    //leo el numero de fichajes
-    int fichajes, id;
-    cin >> fichajes;
-
-    string nombre, apellido;
-
-
-    for (int i = 0; i < fichajes; i++){
-        cout << "Fichaje " << i <<"de "<<fichajes << endl;
-        cout << "equipo: ";
-        cin >> equipo;
-        cout << "id: ";
-        cin >> id;
-        cout << "nombre: ";
-        cin >> nombre;
-        cout << "apellido: ";
-        cin >> apellido;
-        
-        ficharJugadora(equipo, id, nombre, apellido, liga, jugadoras);
-        
-    }
-
-    mostrarJugadoras(jugadoras);
-    mostrarEquipos(liga);
-
-    //equipo descendido
-    cout << endl << "a quien quieres descender? " << endl;
-
-    string descenso;
-    //cin >> descenso;
-
-    //descensoEquipo(...);
-
-    mostrarJugadoras(jugadoras);
-    mostrarEquipos(liga);
-
-        /*
-    cout << "Se libera memoria dinamica" << endl;
-    liberar_memoria(...);*/
+		string descenso;
+		archivo >> descenso;
+		descensoEquipo(descenso, liga, lista_jugadoras);
+		cout << "Desciende el equipo " << descenso << endl << endl;
+		mostrarJugadoras(lista_jugadoras);
+		mostrarEquipos(liga, lista_jugadoras);
+		*/
+		cout << "Se libera memoria dinámica" << endl;
+		liberar_memoria(liga);
+		liberar_memoria(lista_jugadoras);
+		archivo.close();
+		
+	}
+	else
+		cout << "Archivo no abierto" << endl;
+	return 0;
 }
 
+void fichajes(ifstream& archivo, tJugadoras& lista_jugadoras, tLiga liga)
+{
+	/*
+	int num_fichajes;
+	int id_jug, goles_jug;
+	string equipo, nombre_jug, apellido_jug;
+	tJugadoraPtr jug;
 
-
-int main() {
-    resuelve_caso();
-    /*
-#ifndef DOMJUDGE
-    std::ifstream in("datos.in");
-    auto cinbuf = std::cin.rdbuf(in.rdbuf());
-    std::ofstream out("datos.out");
-    auto coutbuf = std::cout.rdbuf(out.rdbuf());
-#endif
-
-    int numCasos;
-    std::cin >> numCasos;
-    for (int i = 0; i < numCasos; ++i) {
-        resuelve_caso();
-    }
-
-    // para dejar todo como estaba al principio
-#ifndef DOMJUDGE
-    std::cin.rdbuf(cinbuf);
-    std::cout.rdbuf(coutbuf);
-#endif
-    //	_CrtDumpMemoryLeaks();
-    return 0;
-    */
-}
-
-
-
-void fichaJugadoras(ifstream& archivo, tJugadoras& jugadoras, tLiga& liga) {
-    int numFich, id, goles; string nombre, apellido, equipo;
-    archivo >> numFich;
-    for (int i = 0; i < numFich; i++) {
-        archivo >> equipo >> id >> nombre >> apellido >> goles;
-        ficharJugadora(equipo,id,nombre, apellido, liga, jugadoras);
-    }
-
+	archivo >> num_fichajes;
+	for (int i = 0; i < num_fichajes; i++)
+	{
+		archivo >> equipo;
+		archivo >> id_jug >> nombre_jug >> apellido_jug >> goles_jug;
+		bool fichada = ficharNuevaJugadora(lista_jugadoras, liga, equipo,
+			id_jug, nombre_jug, apellido_jug, goles_jug);
+		if (!fichada)
+			cout << equipo << " no puede fichar más jugadoras" << endl;
+	}
+	cout << endl;
+	*/
 }

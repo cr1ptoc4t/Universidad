@@ -2,28 +2,28 @@
 using namespace std;
 #include <iostream>
 #include <fstream>
+#include <string>
 
 
 const int MAX_JUGADORAS = 100;
 
-typedef struct tJugadora {
+struct tJugadora {
 	int id;
 	string nombre;
 	string apellido;
-	int goles=0;
+	int goles;
 };
 
 typedef tJugadora* tJugadoraPtr;
 
-typedef tJugadoraPtr tArrayJug[MAX_JUGADORAS];
+struct tJugadoras {
+	tJugadoraPtr jugadoras[MAX_JUGADORAS];
+	int cont;
 
-typedef struct tJugadoras
-{
-	tArrayJug array_jugadoras;
-	int cont = 0;
 };
 
 void cargarJugadoras(ifstream& archivo,tJugadoras& jugadora);
 void mostrarJugadoras(const tJugadoras& lj);
 void crearJugadora(tJugadoraPtr& jug, int id, string nombre, string apellido);
 void insertarJugadora(tJugadoraPtr j, tJugadoras& lj);
+void liberar_memoria(tJugadoras& lista_jugadoras);

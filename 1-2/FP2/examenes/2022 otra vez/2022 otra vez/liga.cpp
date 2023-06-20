@@ -1,76 +1,121 @@
 #include "liga.h"
-void insertarIdJugadora(tEquipo& equipo, int id);
-void cargarEquipo(ifstream& archivo, tEquipo& equipo);
+#include "liga.h"
 
-void cargarEquipos(ifstream& archivo, tLiga& liga) {
+
+void crearJugadora(tJugadoraPtr& jug, int id_jug, string nombre_jug, string apellido_jug, int goles_jug);
+void insertarJugadora(tJugadoras& lista_jugadoras, tJugadoraPtr& jug);
+
+
+
+int buscarElemento(string id, const tLiga l)
+{
+	int i = 0;
+	while (i < l.cont && l.equipos[i].nombre != id)
+	{
+		i++;
+	}
+	if (i == l.cont) i = -1;
+	return i;
+}
+
+void mostrarEquipo(const tEquipo& c)
+{
+	cout << c.nombre << " " << c.presupuesto << " " << c.puntos << " num jugadoras: "<<c.njug;
+	
+	for (int i = 0; i < c.njug; i++)
+		cout << " " << c.jugadoras[i];
+
+	//id a string
+
+}
+
+void cargarLiga(ifstream& archivo, tLiga& liga)
+{
 	archivo >> liga.cont;
-	for (int i = 0; i < liga.cont;i++) {
-		cargarEquipo(archivo, liga.arrayEquipos[i]);
+	for (int i = 0; i < liga.cont; i++) {
+		cargarEquipos(archivo, liga);
+	}
+
+}
+
+void cargarEquipos(ifstream& archivo, tLiga& liga)
+{
+	archivo >> liga.cont;
+	for (int i = 0; i < liga.cont; i++) {
+		cargarEquipo(archivo, liga.equipos[i]);
 	}
 }
 
-void cargarLiga(ifstream& archivo, tLiga& liga) {
-	//numpartidos
-	//resultado
-	//
+void aumentarPresupuesto(string id, tLiga& l)
+{
+	//buscar
+	int i = buscarElemento(id, l);
+
+	if (i!=-1) {
+		l.equipos[i].presupuesto += 1000;
+	}
+
 }
 
-void cargarEquipo(ifstream& archivo, tEquipo& equipo) {
-	archivo >> equipo.nombre>>equipo.presupuesto>> equipo.numJugadoras;
+void cargarEquipo(ifstream& archivo, tEquipo& equipo)
+{
+	equipo.puntos = 0;
+	archivo >> equipo.nombre >> equipo.presupuesto >> equipo.njug;
 	equipo.jugadoras = new int[equipo.presupuesto * 3 / 1000];
-	for (int i = 0; i < equipo.numJugadoras; i++) {
+	for (int i = 0; i < equipo.njug; i++) {
 		archivo >> equipo.jugadoras[i];
 	}
 }
 
-void aumentarPresupuesto(string id, tLiga& l) {
-	int indice = buscarElemento(id, l);
-	if (indice != -1) {
-		l.arrayEquipos[indice].presupuesto += 1000;
-		cout << "Se aumenta el presupuesto de " << id<<endl;
-		aumentarArray(l.arrayEquipos[indice]);
-	}
+void aumentarArray(tEquipo& arrayJ)
+{
+	int* aux = new int [arrayJ.njug+5];
 
-}
-
-int buscarElemento(string id, const tLiga l) {
-	int pos = 0;
-	while (l.arrayEquipos[pos].nombre != id && pos < l.cont)
-		pos++;
-
-	if (pos == l.cont) pos = -1;
-	return pos;
-}
-
-void aumentarArray(tEquipo& arrayJ) {
-	int* aux  = new int[arrayJ.presupuesto*3/1000];
-	
-	for (int i = 0; i < arrayJ.numJugadoras; i++) {
+	for (int i = 0; i < arrayJ.njug;i++) {
 		aux[i] = arrayJ.jugadoras[i];
 	}
+
 	delete[] arrayJ.jugadoras;
 	arrayJ.jugadoras = aux;
 	aux = nullptr;
 
 }
 
+void mostrarEquipos(tLiga& liga)
+{
+	for(int i =0; i<liga.cont; i++){
+		mostrarEquipo(liga.equipos[i]);
+		cout << endl;
+	}
+}
+
+bool ficharJugadora(string nEquipo, int id, string nombre, string apellido, tLiga l, tJugadoras& lj)
+{
+	int pos = buscarElemento(nEquipo, l);
+	bool b = false;
+	if (pos!=-1 && l.equipos[pos].njug< l.equipos[pos].presupuesto * 3 / 1000) {
+		b = true;
+
+		//insertar nueva jugadora en el equipo
+		l.equipos[pos].jugadoras[l.equipos[pos].njug] = id;
+		l.equipos[pos].njug++;
+		l.equipos[pos].presupuesto -= 1000;
 
 
 
-bool ficharJugadora(string nEquipo, int id, string nombre, string apellido, tLiga l, tJugadoras& j) {
-	bool ok = false;
-	int indice = buscarElemento(nEquipo, l);
-	if(indice!=-1 && l.arrayEquipos[indice].numJugadoras <
-		l.arrayEquipos[indice].presupuesto * 3 / 1000) {
-		insertarIdJugadora(l.arrayEquipos[indice], id);
-		tJugadoraPtr jug;
-		crearJugadora(jug,id,nombre, apellido);
-		insertarJugadora(jug, j);
+		//crear e insertar nueva jugadora en la lista de jugadoras
+		tJugadoraPtr j;
 
-		ok=true;
+
+		crearJugadora(j, id, nombre, apellido, 0);
+		insertarJugadora(lj, j);
+
+		
+		lj.jugadoras[lj.cont] = j;
+
 	}
 
-	return ok;
+	return b;
 }
 
 string getNombre(const tEquipo& c)
@@ -78,64 +123,72 @@ string getNombre(const tEquipo& c)
 	return c.nombre;
 }
 
-void insertarIdJugadora (tEquipo& equipo, int id) {
-	equipo.jugadoras[equipo.numJugadoras] = id;
-	equipo.numJugadoras++;
+
+int getPuntos(const tEquipo& c)
+{
+	return c.puntos;
 }
 
-void mostrarEquipos(tLiga& liga){
-	cout << "- - - - -"<<endl<<"EQUIPOS"<<endl<<"- - - - -"<<endl;
-	for (int i = 0; i < liga.cont; i++)
-		mostrarEquipo(liga.arrayEquipos[i]);
-		
-}
-
-void mostrarEquipo(const tEquipo& equipo) {
-	cout << "Nombre: " << equipo.nombre << ". Presupuesto:" << equipo.presupuesto << ". Jugadoras: "<<equipo.numJugadoras<<endl;
-	cout << "Plantilla: ";
-	for (int i = 0; i < equipo.numJugadoras;i++) {
-		cout << equipo.jugadoras[i] << " ";
-	}
-	cout << endl;
-}
-
-tEquipo campeonLiga(ifstream& archivo, tLiga liga) {
-	int numPartidos; string aumentaPresupuesto;
-	int indice1, indice2;
-	archivo >> numPartidos;
+tEquipo campeonLiga(ifstream& archivo, tLiga liga)
+{
+	//actualizar marcador
 	string e1, e2;
-	int r1, r2;
-	for (int i = 0; i < numPartidos; i++) {
+	int r1, r2,pos;
+	int numJornadas;
+	archivo >> numJornadas;
+	for (int i = 0; i < numJornadas; i++) {
 		archivo >> e1 >> r1 >> e2 >> r2;
 		if (r1==r2) {
-			indice1 = buscarElemento(e1, liga);
-			indice2 = buscarElemento(e2, liga);
-			liga.arrayEquipos[indice1].puntos++;
-			liga.arrayEquipos[indice2].puntos++;
+			//sumar 1 en ambos equipos
+			pos = buscarElemento(e1, liga);
+			liga.equipos[pos].puntos++;
+			pos = buscarElemento(e2, liga);
+			liga.equipos[pos].puntos++;
+
 		}
 		else if (r1>r2) {
-			indice1 = buscarElemento(e1, liga);
-			liga.arrayEquipos[indice1].puntos+=3;
-
+			pos = buscarElemento(e1, liga);
+			liga.equipos[pos].puntos++;
 		}
 		else {
-			indice2 = buscarElemento(e2, liga);
-			liga.arrayEquipos[indice1].puntos+=3;
-
+			pos = buscarElemento(e2, liga);
+			liga.equipos[pos].puntos++;
 		}
 	}
 
-	return buscarMasPuntos(liga);;
+	return buscarMasPuntos(liga);
 }
 
-tEquipo buscarMasPuntos(const tLiga liga) {
-	int max = 0;
-	for(int i=0;i<liga.cont;i++)
-		if (liga.arrayEquipos[max].puntos<liga.arrayEquipos[i].puntos) {
+tEquipo buscarMasPuntos(const tLiga liga)
+{
+	int max=0;
+	for (int i = 0; i < liga.cont;i++) {
+		if (liga.equipos[i].puntos>liga.equipos[max].puntos) {
 			max = i;
 		}
+	}
 
-	return liga.arrayEquipos[max];
 
+	return liga.equipos[max];
 }
 
+void liberar_memoria(tLiga& liga)
+{
+	for (int i = 0; i < liga.cont;i++) {
+		delete[] liga.equipos[i].jugadoras;
+		liga.equipos[i].jugadoras = nullptr;
+	}
+}
+
+void crearJugadora(tJugadoraPtr& jug, int id_jug, string nombre_jug, string apellido_jug, int goles_jug)
+{
+	jug->apellido = apellido_jug;
+	jug->goles = 0;
+	jug->id = id_jug;
+	jug->nombre = nombre_jug;
+}
+
+void insertarJugadora(tJugadoras& lista_jugadoras, tJugadoraPtr& jug)
+{
+	lista_jugadoras.jugadoras[lista_jugadoras.cont] = jug;
+}

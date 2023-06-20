@@ -7,23 +7,19 @@
 #include <fstream>
 
 
-using namespace std;
 const int MAX_EQUIPOS = 10;
-typedef int* tArrayJugEquipo;
 
-typedef struct tEquipo {
+struct tEquipo {
+	int* jugadoras;
 	string nombre;
-	int puntos=0;
-	int presupuesto;
-	int numJugadoras;
-	tArrayJugEquipo jugadoras;
+	int puntos, presupuesto, njug;
 };
-
-
-typedef struct tLiga{
-	tEquipo arrayEquipos[MAX_EQUIPOS];
+struct tLiga {
+	tEquipo equipos[MAX_EQUIPOS];
 	int cont;
 };
+
+
 
 int buscarElemento(string id, const tLiga l);
 
@@ -40,4 +36,7 @@ bool ficharJugadora(string nEquipo, int id, string nombre, string apellido, tLig
 string getNombre(const tEquipo& c );
 tEquipo campeonLiga(ifstream& archivo, tLiga liga);
 tEquipo buscarMasPuntos(const tLiga liga);
+void liberar_memoria(tLiga& liga);
+int getPuntos(const tEquipo& c);
+
 #endif
