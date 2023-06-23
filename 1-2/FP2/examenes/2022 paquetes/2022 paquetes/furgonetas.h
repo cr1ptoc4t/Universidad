@@ -7,18 +7,17 @@ using namespace std;
 const int MAX_CARGADOS = 8;
 const int MAX_FURGONETAS = 10;
 
-typedef struct tCargados {
-	string* lc;
+struct tCargados {
+	string* id;
 	int cont;
 };
 
-struct tFurgoneta
-{
-	int codigo_postal;
-	tCargados cargados;
+struct tFurgoneta {
+	int cp;
+	tCargados lc;
 };
+typedef tFurgoneta tListaFurgonetas[MAX_FURGONETAS];
 
-typedef tFurgoneta tListaFurgonetas [MAX_FURGONETAS];
 
 bool cargarCodigos(tListaFurgonetas listaFurgonetas);
 void mostrarFurgonetas(const tListaFurgonetas listaFurgonetas);

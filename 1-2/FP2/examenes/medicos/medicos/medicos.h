@@ -3,17 +3,15 @@ using namespace std;
 #include <fstream>
 
 const int MAX_MEDICOS = 100;
-
 struct tMedico {
-	int colegiado;
-	int citasLibres;
+	int ncol;
+	int ncitas;
 	int importe;
 };
 
-
 typedef tMedico* tPtrMedico;
 struct tListaMedicos {
-	tPtrMedico lista [MAX_MEDICOS];
+	tPtrMedico medicos[MAX_MEDICOS];
 	int cont;
 };
 

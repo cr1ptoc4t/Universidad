@@ -3,72 +3,58 @@
 
 void inicializarListaCitas(tListaCitas& lc)
 {
+	lc.citas = new tCita[CAP_INI];
 	lc.cap = CAP_INI;
-	lc.lc = new tCita[CAP_INI];
-	lc.cont = 0;
 }
 
 bool cargaListaCitas(tListaCitas& lc)
 {
-	bool cargado = true;
-	ifstream entrada;
-	int codigo;
-	char espacio;
-
-	entrada.open("citas.txt");
-	if (entrada.is_open())
-	{
-		entrada >> codigo;
-		while (codigo != -1)
-		{
-			if (lc.cont == lc.cap)
-				ampliar(lc);
-
-			lc.lc[lc.cont].nmedico = codigo;
-			entrada.get(espacio);
-			getline(entrada, lc.lc[lc.cont].npaciente);
-			lc.cont++;
-			entrada >> codigo;
+	ifstream archivo;
+	archivo.open("citas.txt");
+	bool b = false;
+	
+	if (archivo.is_open()) {
+		int i = 0;
+		int a;
+		archivo >> a;
+		while (a!=-1) {
+			lc.citas[i].codmed = a;
+			archivo >> lc.citas[i].codpac >> a;
+			i++;
 		}
-		entrada.close();
+		
+		lc.cont = i;
+		archivo.close();
+		b = true;
 	}
-	else {
-		cout << "Error, no se pudo abrir el archivo 'Citas.txt'" << endl;
-		cargado = false;
-	}
-
-	return cargado;
+	return b;
 }
 
 void ampliar(tListaCitas& lc)
 {
-	tCita* aux = new tCita[lc.cap+ 3];
+	tCita* aux = new tCita[lc.cont + 5];
+	for (int i = 0; i < lc.cont; i++)
+		aux[i] = lc.citas[i];
 
-	for (int i = 0; i < lc.cont; i++) {
-		aux[i] = lc.lc[i];
-	}
-
-	delete[] lc.lc;
-	lc.cap += 3;
-	lc.lc = aux;
+	delete[] lc.citas;
+	lc.citas = aux;
+	lc.cap += 5;
 	aux = nullptr;
 }
 
 void liberarCitas(tListaCitas& lc)
 {
-	delete[]lc.lc;
-	lc.lc = nullptr;
-	lc.cap = 0;
+	delete[]lc.citas; 
+	lc.citas = nullptr;
 	lc.cont = 0;
+	lc.cap = 0;
 }
 
 void muestraListaCitas(tListaCitas& lc)
 {
-	for (int i = 0; i < lc.cont; i++) {
-		cout << lc.lc[i].nmedico << "  " << lc.lc[i].npaciente << endl;
-	}
+	for (int i = 0; i < lc.cont; i++)
+		cout << lc.citas[i].codmed << " - " << lc.citas[i].codpac << endl;
 }
-
 
 int getNumElems(const tListaCitas& listaCitas)
 {
@@ -77,5 +63,5 @@ int getNumElems(const tListaCitas& listaCitas)
 
 int getCodigoMedico(const tListaCitas& listaCitas, int pos)
 {
-	return listaCitas.lc[pos].nmedico;
+	return listaCitas.citas[pos].codmed;
 }

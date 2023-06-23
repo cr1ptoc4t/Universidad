@@ -30,11 +30,9 @@ int main() {
 		muestraListaMedicos(lm);
 		cout << endl;
 		
-		
-		liberarCitas(lc);
-		liberarMedicos(lm);
-		
 	}
+	liberarCitas(lc);
+	liberarMedicos(lm);
 	return 0;
 }
 

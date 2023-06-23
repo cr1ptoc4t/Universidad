@@ -6,17 +6,20 @@ using namespace std;
 
 const int MAX_PAQUETES = 50;
 
-typedef struct tPaquete {
+
+struct tPaquete {
 	string id;
 	int cp;
 	bool cargado;
 };
 
-typedef struct tListaPaquetes {
-	tPaquete* lp [MAX_PAQUETES];
-	int cont=0;
-};
+typedef tPaquete* tArrayPaquetes[MAX_PAQUETES];
 
+struct tListaPaquetes
+{
+	tArrayPaquetes array_paquetes;
+	int cont;
+};
 
 bool cargarPaquetes(tListaPaquetes& listaPaquetes);
 void mostrarPaquetes(const tListaPaquetes& listaPaquetes);

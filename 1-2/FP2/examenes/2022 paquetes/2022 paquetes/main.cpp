@@ -56,7 +56,7 @@ void cargarPaquetes(tListaFurgonetas& listaFurgonetas, tListaPaquetes& listaPaqu
 			setCargado(listaPaquetes, i);
 			id_paquete = getId(listaPaquetes, i);
 			setIdPaquete(listaFurgonetas, pos, id_paquete);
-			listaFurgonetas[pos].cargados.cont++;
+			listaFurgonetas[pos].lc.cont++;
 		}
 	}
 }

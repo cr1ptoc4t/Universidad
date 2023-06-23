@@ -6,13 +6,16 @@ using namespace std;
 const int CAP_INI = 20;
 
 struct tCita {
-	int nmedico;
-	string npaciente;
+	int codmed;
+	string codpac;
 };
+
 struct tListaCitas {
-	tCita* lc;
-	int cont; int cap;
+	tCita* citas;
+	int cont;
+	int cap;
 };
+
 
 void inicializarListaCitas (tListaCitas& lc);
 bool cargaListaCitas(tListaCitas& lc);
