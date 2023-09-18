@@ -1,0 +1,4 @@
+﻿  FileName.cpp
+C:\Users\Catalina\Documents\Universidad\2-1\FAL\acepta el reto\538-586-460\538-586-460\FileName.cpp(124,6): warning C4101: 'a': variable local sin referencia
+C:\Users\Catalina\Documents\Universidad\2-1\FAL\acepta el reto\538-586-460\538-586-460\FileName.cpp(141,6): warning C4101: 'temp': variable local sin referencia
+  538-586-460.vcxproj -> C:\Users\Catalina\Documents\Universidad\2-1\FAL\acepta el reto\538-586-460\x64\Debug\538-586-460.exe
