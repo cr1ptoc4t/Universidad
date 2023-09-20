@@ -30,8 +30,7 @@ long long factorial(int n);
 
 
 int main() {
-	
-
+	p266();
 	//p171();
 	//p114();
 
@@ -41,8 +40,31 @@ int main() {
 
 void p266()
 {
+	int base, altura;
+	cin >> base >> altura;
+	while(base>0&&altura>0){
+		char a1[500][500];
+
+		//cargar
+
+		for (int i = 0; i < base; i++) {
+			for (int j = 0; j < altura; j++) {
+				cin >> a1[i][j];
+			}
+		}
+
+		int ndaltonicos;
+		cin >> ndaltonicos;
+		
+
+		//array colores a distinguir
+		for (int i = 0; i < ndaltonicos; i++) {
+
+		}
 
 
+		cin >> base >> altura;
+	}
 }
 
 
