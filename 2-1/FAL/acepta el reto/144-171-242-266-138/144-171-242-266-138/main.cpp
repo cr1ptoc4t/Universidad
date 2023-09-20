@@ -1,4 +1,10 @@
+/*
 #include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+
+
 using namespace std;
 
 int v[100000];
@@ -14,7 +20,7 @@ void cargacuadro(string& cuadro);
 
 //242
 void p242();
-int erasmus(int vect[], int n);
+long long int erasmus(long long int vect[], long long int n);
 bool resuelveCaso();
 
 
@@ -30,9 +36,10 @@ long long factorial(int n);
 
 
 int main() {
-	p266();
+	//p266();
 	//p171();
 	//p114();
+	p242();
 
 	return 0;
 }
@@ -82,42 +89,58 @@ void cargacuadro(string& cuadro) {
 
 
 int vector[10000];
-void p242()
-{
-	int num;
-	cin >> num;
-	while (num != 0) {
-		for (int i = 0; i < num; i++)
-			cin >> vector[i];
+void p242() {
 
-		resuelveCaso();
 
-		cin >> num;
+	long long int n;
+	cin >> n;
+
+	while (n != 0) {
+		long long int vect[100000];
+
+		for (long long int i = 0; i < n; i++)
+			cin >> vect[i];
+
+		long long int ret = erasmus(vect, n);
+		cout << ret << '\n';
+		
+		cin >> n;
 	}
+	//while (resuelveCaso());
 }
 
-int erasmus(int vect[], int n) {
-	long long ret = 0;
+long long int erasmus(long long int vect[], long long int n) {
+	long long int ret = 0, suma = 0;
+	for (long long int i = 0; i < n - 1; ++i) {
+		suma += v[i];
+		ret += suma * v[i + 1];
 
-	for (int i = 0; i < n; i++)
-		for (int j = i + 1; j < n; j++)
-			ret += v[i] * v[j];
+	}
 
-	return 0;
+	return ret;
 }
 
+//int vect[100000];
 
 //242
 bool resuelveCaso() {
-	int n;
+	
+
+	long long int n;
 	cin >> n;
 	if (n == 0)
 		return false;
 
-	for (int i = 0; i < n; i++)
-		cin >> v[i];
+	long long int vect[100000];
+	 
+	for (long long int i = 0; i < n; i++)
+		cin >> vect[i];
 
-	int ret = erasmus(v, n);
+	long long int ret = erasmus(vect, n);
+	cout << ret << '\n';
+
+	return true;
+
 }
 
 void p171() {
@@ -130,10 +153,26 @@ void p171() {
 		for (int i = 0; i < num; i++)
 			cin >> vector[i];
 
-		cout << abadias(vector, num)+1 << endl;
+
+		//cout << abadias(vector, num) << endl;
+		int ret = 0;
+		int actual;
+		int max = 0;
+		for (int i = num-1; i >= 0; i--) {
+			actual = vector[i];
+			if (actual > max) {
+				max = actual;
+				ret++;
+			}
+		}
+		cout << ret << endl;
+
+
+
 		cin >> num;
 	}
 }
+
 
 void p138() {
 	/*
@@ -149,14 +188,14 @@ void p138() {
 		}
 		cout << numCeros << '\n';
 	}
-	*/
+	
 }
 
 
-int abadias(int vect[], int n) {
+int abadias(int vect[100000], int n) {
 	int ret = 0;
 
-	for (int i = 0; i < n - 1; i++) {
+	/*for (int i = 0; i < n - 1; i++) {
 		int maximo = vect[i + 1];
 		for (int j = i + 2; j < n; j++)
 			if (maximo < vect[j])
@@ -164,6 +203,17 @@ int abadias(int vect[], int n) {
 		if (maximo < vect[i])
 			ret++;
 	}
+	
+	int actual;
+	int max=0;
+	for(int i=n;i>=0;i--){
+		actual = vect[i];
+		if (actual > max) {
+			max = actual;
+			ret++;
+		}
+	}
+
 	return ret;
 }
 
@@ -191,4 +241,46 @@ long long factorial(int n) {
 		fact = fact * i;
 
 	return fact;
+}
+
+*/
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+long long int erasmus(long long int v[], int n);
+void solucionaCaso(int n);
+
+int main() {
+	long long int n;
+	cin >> n;
+	
+	while (n != 0) {
+		solucionaCaso(n);
+		cin >> n;
+	}
+	
+	return 0;
+}
+
+
+long long int erasmus(long long int v[], int n) {
+
+	long long int ret = 0, v2 = 0;
+	for (int i = 0; i < n - 1; i++) {
+		v2 += v[i];
+		ret += v2 * v[i + 1];
+	}
+
+	return ret;
+}
+
+void solucionaCaso(int n) {
+	long long int v[100000];
+
+	for (int i = 0; i < n; i++)
+		cin >> v[i];
+
+	cout << erasmus(v, n) << endl;
 }
