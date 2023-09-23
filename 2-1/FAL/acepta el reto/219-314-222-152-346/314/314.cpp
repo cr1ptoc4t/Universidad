@@ -1,9 +1,6 @@
 using namespace std;
 #include <iostream>
 
-int vacio(){
-	return NULL;
-}
 
 int main() {
 
