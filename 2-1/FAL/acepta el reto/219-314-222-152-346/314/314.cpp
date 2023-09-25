@@ -4,9 +4,6 @@ using namespace std;
 
 int main() {
 
-	//cin >> ncasos;
-	//for (int i = 0; i < ncasos;i++) {
-		//array
-	//}
+
 	return 0;
 }
