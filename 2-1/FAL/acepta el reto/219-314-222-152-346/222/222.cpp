@@ -2,18 +2,25 @@ using namespace std;
 #include <iostream>
 #include <math.h>
 
-//TIME LIMIT
+int potencia(int x, int y);
 
 int main() {
 	int n, x;
-	int act;
-	for (int j = 0; j < 200;j++) {
+	long long int act;
+	while (true) {
 		cin >> x >> n;
-		int out = 0;
+		long long int out = 0;
 		for (int i = 0; i <= n; i++) {
 			act = pow(x, i) ;
-			out += act% 1000007;
+			act = act%1000007;
+			out += act;
 		}
-		cout << out  << endl;
+
+		cout << out%1000007  << endl;
 	}
+}
+
+int potencia(int x, int y){
+
+	return x;
 }
