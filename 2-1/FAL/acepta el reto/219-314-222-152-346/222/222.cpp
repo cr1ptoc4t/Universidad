@@ -1,26 +1,28 @@
 using namespace std;
 #include <iostream>
-#include <math.h>
 
-int potencia(int x, int y);
+//int potencia(int b, int e);
 
 int main() {
 	int n, x;
-	long long int act;
 	while (true) {
 		cin >> x >> n;
-		long long int out = 0;
-		for (int i = 0; i <= n; i++) {
-			act = pow(x, i) ;
-			act = act%1000007;
-			out += act;
+		int out = 1,suma = 1;
+		for (int i = 0; i < n; i++) {
+			out = (out * x) % 1000007;
+			suma = (suma + out) % 1000007;
 		}
-
-		cout << out%1000007  << endl;
+		cout << suma  << endl;
 	}
+	return 0;
 }
+/*
+int potencia(int b, int e){
+	int ret = 1;
+	for (int i = 0; i < e; i++){
+		ret = (ret*b)% 1000007;
 
-int potencia(int x, int y){
-
-	return x;
+	}
+	return ret;
 }
+*/
