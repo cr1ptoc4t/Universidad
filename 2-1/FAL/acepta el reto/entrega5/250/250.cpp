@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
 	int num, act;
-	int v [1000000];
+	int v [100000];
 	cin >> num;
 	while (num != 0) {
 		int suma = 0;
