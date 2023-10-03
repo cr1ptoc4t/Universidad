@@ -1,3 +1,2 @@
-﻿  189.cpp
-MSVCRTD.lib(exe_main.obj) : error LNK2019: símbolo externo main sin resolver al que se hace referencia en la función "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+﻿MSVCRTD.lib(exe_main.obj) : error LNK2019: símbolo externo main sin resolver al que se hace referencia en la función "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
 C:\Users\Catalina\Documents\Universidad\2-1\FAL\acepta el reto\entrega5\x64\Debug\189.exe : fatal error LNK1120: 1 externos sin resolver
