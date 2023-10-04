@@ -1,6 +1,9 @@
+package tp1.logic.gameobjects;
 import tp1.logic.*;
 import tp1.view.Messages;
+
 public class UCMShip{
+	
 	private Position pos;
 
 	public UCMShip(){
@@ -12,7 +15,7 @@ public class UCMShip{
 	}
 
 	public boolean estaEnPos(Position position){
-		return this.pos == position; 
+		return this.pos.equals(position); 
 	}
 
 }

@@ -44,9 +44,25 @@ public class Controller {
 	 */
 	public void run() {
 		//TODO fill your code
-		printGame();
+		String[]comando;
+		do{
+			//printer.showGame();
+			printGame();
+			comando = prompt();
+			ejecutarComando(comando);
+		}while(!esComandoExit(comando));
+
+		printer.endMessage();
 	}
 
+	private boolean esComandoExit(String[] comando){
+		return comando[0].equals("exit") || comando[0].equals("e");
+	}
+
+	private void ejecutarComando(String[] comando){
+			//llenar esto
+	}
+	
 	/**
 	 * Draw / paint the game
 	 */

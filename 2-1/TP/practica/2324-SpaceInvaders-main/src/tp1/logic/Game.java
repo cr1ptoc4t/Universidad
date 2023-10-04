@@ -1,21 +1,23 @@
 package tp1.logic;
 
-import java.util.Random;
-import tp1.logic.gameobjects.UCMShip;
 
-// TODO implementarlo
+import java.util.Random;
+import tp1.logic.gameobjects.*;
+
+// TODO implementar
+
 public class Game {
 
 	public static final int DIM_X = 9;
 	public static final int DIM_Y = 8;
 	
-	private UCMship laNave;
-	//public static Level level;
+	private UCMShip laNave;
+	public static Level level;
 	
 	//TODO fill your code
 	public Game(Level level, long seed) {
 		//TODO fill your code
-		//this.level=level;
+		this.level=level;
 		this.laNave= new UCMShip();
 	}
 
@@ -33,13 +35,13 @@ public class Game {
 		//TODO fill your code
 		return 0;
 	}
-g
+	
 	public String positionToString(int col, int row) {
 		//TODO fill your code
 		String str = "";
 		if(laNave.estaEnPos(new Position(col,row))){
-		//	str = laNave.getSymbol();
-		//}
+			str = laNave.getSymbol();
+		}
 	
 		return str;
 	}
