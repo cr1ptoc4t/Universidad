@@ -1,18 +1,22 @@
 package tp1.logic;
 
 import java.util.Random;
+import tp1.logic.gameobjects.UCMShip;
 
 // TODO implementarlo
 public class Game {
 
 	public static final int DIM_X = 9;
 	public static final int DIM_Y = 8;
+	
+	private UCMship laNave;
 	//public static Level level;
 	
 	//TODO fill your code
 	public Game(Level level, long seed) {
 		//TODO fill your code
 		//this.level=level;
+		this.laNave= new UCMShip();
 	}
 
 	public String stateToString() {
@@ -29,11 +33,15 @@ public class Game {
 		//TODO fill your code
 		return 0;
 	}
-
+g
 	public String positionToString(int col, int row) {
 		//TODO fill your code
-		
-		return row+" "+col;
+		String str = "";
+		if(laNave.estaEnPos(new Position(col,row))){
+		//	str = laNave.getSymbol();
+		//}
+	
+		return str;
 	}
 
 	public boolean playerWin() {
