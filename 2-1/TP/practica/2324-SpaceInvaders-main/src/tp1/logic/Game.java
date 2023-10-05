@@ -66,9 +66,11 @@ public class Game {
 	}
 
 	public Level getLevel() {
-		//TODO fill your code
-		//return level;
-		return null;
+		return level;
+	}
+	
+	public void mueveNave() {
+		laNave.mueve(new Position(0,0));
 	}
 
 }

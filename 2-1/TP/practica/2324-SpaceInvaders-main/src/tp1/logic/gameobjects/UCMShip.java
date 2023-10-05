@@ -17,5 +17,9 @@ public class UCMShip{
 	public boolean estaEnPos(Position position){
 		return this.pos.equals(position); 
 	}
+	
+	public void mueve(Position pos) {
+		this.pos=pos;
+	}
 
 }

@@ -17,21 +17,9 @@ public class Position {
 		this.row=row;
 	}
 	//TODO fill your code
-	public int getX() {
-		return col;
-	}
 	
-	public int getY() {
-		return row;
-	}
 	
-	public void setX(int x) {
-		col=x;
-	}
 	
-	public void setY(int y) {
-		row=y;
-	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(col, row);

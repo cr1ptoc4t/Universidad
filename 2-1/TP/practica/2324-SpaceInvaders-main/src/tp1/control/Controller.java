@@ -61,6 +61,27 @@ public class Controller {
 
 	private void ejecutarComando(String[] comando){
 			//llenar esto
+	
+		if(comando[0].equals("move") || comando[0].equals("m")) {
+			if(comando[1].equals("left")) {
+				game.mueveNave();
+			} else if(comando[1].equals("right")) {
+				
+			}
+		} else if(comando[0].equals("shoot")||comando[0].equals("s")){
+			//performAttack();
+		}
+		else if(comando[0].equals("help") || comando[0].equals("h")) {
+			System.out.print("""
+					[m]ove <left|lleft|right|rright>: Moves UCM-Ship to the indicated direction.
+					[s]hoot: UCM-Ship launches a laser.
+					shock[W]ave: UCM-Ship releases a shock wave.
+					[l]ist: Prints the list of available ships.
+					[r]eset: Starts a new game.
+					[h]elp: Prints this help message.
+					[e]xit: Terminates the program.
+					[n]one: Skips one cycle.""");
+		}
 	}
 	
 	/**
