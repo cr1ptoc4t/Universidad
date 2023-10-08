@@ -21,66 +21,65 @@ architecture Behavioral of cerrojo is
 	
 begin
 
-intentos <="0011";
+--intentos <="0011";
 
-SYNC: process (clk, rst)
+SYNC: process (clk, rst, boton)
 begin
 
-	if rising_edge(clk) then
-		if rst='1' then
-			ESTADO<= S1;
-		else
+    if rst='1' then
+		ESTADO<= S1;
+	elsif rising_edge(clk) and boton='1' then
 			ESTADO<= SIG_ESTADO;
-		end if;
 	end if;
+	
 end process SYNC;
+
 
 COMB: process(ESTADO, boton)
 begin    
    case ESTADO is
         
     when S1 => 
+        intentos<="0011";
         bloqueado<='1';
         if boton = '1' then
-            senal_buena <=clave;
+            senal_buena <= clave; --lee contraseña nueva
             SIG_ESTADO <=S2;
         end if;
-    
+        
     when S2 =>
      bloqueado<='0';
      intentos<="0011";
      
-     if boton = '1' then
-         if senal_buena = clave then  -- if eq='1'then
-            SIG_ESTADO <=S1;
-         else 
-            SIG_ESTADO <=S3;
-         end if;
-     end if;
+     
+    if senal_buena = clave then  -- if eq='1'then
+        SIG_ESTADO <=S1;
+    else 
+        SIG_ESTADO <=S3;
+    end if;
      
     when S3 =>
         bloqueado<='0';
         intentos <= "0010";
         
-        if boton = '1' then
+   
             if senal_buena = clave then
                 SIG_ESTADO <=S1;
             else 
                 SIG_ESTADO <=S4;
-             end if;
-        end if;
+            end if;
      
     when S4 =>
         intentos <="0001";
         bloqueado<='0';
         
-        if boton = '1' then
+        --if boton = '1' then
             if senal_buena = clave then
                 SIG_ESTADO <=S1;
             else 
                 SIG_ESTADO <=S5;
              end if;
-        end if;
+       -- end if;
      
      when S5 =>
          bloqueado<='0';

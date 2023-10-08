@@ -14,7 +14,7 @@ ECHO est  desactivado.
     ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source sintesis_cerrojo.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 449.574 ; gain = 163.789
+create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 450.266 ; gain = 164.535
 Command: read_checkpoint -auto_incremental -incremental C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/utils_1/imports/synth_1/sintesis_cerrojo.dcp
 INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/utils_1/imports/synth_1/sintesis_cerrojo.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
@@ -27,9 +27,9 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 16744
+INFO: [Synth 8-7075] Helper process launched with PID 11740
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1266.691 ; gain = 410.984
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1266.531 ; gain = 410.773
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'sintesis_cerrojo' [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/imports/practica 2 fichero/sintesis_cerrojo.vhd:18]
 INFO: [Synth 8-3491] module 'debouncer' declared at 'C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/imports/practica 2 fichero/debouncer.vhd:5' bound to instance 'debouncerInstance' of component 'debouncer' [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/imports/practica 2 fichero/sintesis_cerrojo.vhd:53]
@@ -49,18 +49,18 @@ WARNING: [Synth 8-3917] design sintesis_cerrojo has port s_display[2] driven by 
 WARNING: [Synth 8-3917] design sintesis_cerrojo has port s_display[1] driven by constant 1
 WARNING: [Synth 8-3917] design sintesis_cerrojo has port s_display[0] driven by constant 0
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1357.371 ; gain = 501.664
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1356.445 ; gain = 500.688
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1357.371 ; gain = 501.664
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1356.445 ; gain = 500.688
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1357.371 ; gain = 501.664
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1356.445 ; gain = 500.688
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1357.371 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1356.445 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -71,28 +71,28 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/sintesis_cerrojo_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1450.477 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1453.840 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1450.477 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1453.840 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1450.477 ; gain = 594.770
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1453.840 ; gain = 598.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1450.477 ; gain = 594.770
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1453.840 ; gain = 598.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1450.477 ; gain = 594.770
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1453.840 ; gain = 598.082
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'controller.state_reg' in module 'debouncer'
 INFO: [Synth 8-802] inferred FSM for state register 'ESTADO_reg' in module 'cerrojo'
@@ -105,8 +105,8 @@ INFO: [Synth 8-802] inferred FSM for state register 'ESTADO_reg' in module 'cerr
     depressiondebouncing |                               11 |                               11
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'controller.state_reg' using encoding 'sequential' in module 'debouncer'
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_SIG_ESTADO_reg' [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:33]
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_SIG_ESTADO_reg' [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:33]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_sequential_SIG_ESTADO_reg' [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:32]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_SIG_ESTADO_reg' [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:32]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -117,11 +117,10 @@ WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_SIG_ESTADO_reg' 
                       s5 |                            10000 |                              100
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'ESTADO_reg' using encoding 'one-hot' in module 'cerrojo'
-WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_SIG_ESTADO_reg' [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:33]
-WARNING: [Synth 8-327] inferring latch for variable 'senal_buena_reg' [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:45]
-WARNING: [Synth 8-327] inferring latch for variable 'intentos_reg' [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:24]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_onehot_SIG_ESTADO_reg' [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:32]
+WARNING: [Synth 8-327] inferring latch for variable 'senal_buena_reg' [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:46]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1450.477 ; gain = 594.770
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 1453.840 ; gain = 598.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -136,9 +135,9 @@ Detailed RTL Component Info :
 	   5 Input    3 Bit        Muxes := 1     
 	   4 Input    2 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 4     
-	   2 Input    1 Bit        Muxes := 9     
+	   2 Input    1 Bit        Muxes := 3     
 	   4 Input    1 Bit        Muxes := 4     
-	   5 Input    1 Bit        Muxes := 4     
+	   5 Input    1 Bit        Muxes := 3     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -155,55 +154,32 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-3917] design sintesis_cerrojo has port display[6] driven by constant 0
-WARNING: [Synth 8-3917] design sintesis_cerrojo has port display[5] driven by constant 1
-WARNING: [Synth 8-3917] design sintesis_cerrojo has port display[4] driven by constant 1
-WARNING: [Synth 8-3917] design sintesis_cerrojo has port display[3] driven by constant 0
-WARNING: [Synth 8-3917] design sintesis_cerrojo has port display[2] driven by constant 0
-WARNING: [Synth 8-3917] design sintesis_cerrojo has port display[1] driven by constant 0
-WARNING: [Synth 8-3917] design sintesis_cerrojo has port display[0] driven by constant 0
 WARNING: [Synth 8-3917] design sintesis_cerrojo has port s_display[3] driven by constant 1
 WARNING: [Synth 8-3917] design sintesis_cerrojo has port s_display[2] driven by constant 1
 WARNING: [Synth 8-3917] design sintesis_cerrojo has port s_display[1] driven by constant 1
 WARNING: [Synth 8-3917] design sintesis_cerrojo has port s_display[0] driven by constant 0
 WARNING: [Synth 8-3332] Sequential element (cerrojoInstance/FSM_onehot_ESTADO_reg[4]) is unused and will be removed from module sintesis_cerrojo.
 WARNING: [Synth 8-3332] Sequential element (cerrojoInstance/FSM_onehot_SIG_ESTADO_reg[4]) is unused and will be removed from module sintesis_cerrojo.
-WARNING: [Synth 8-3332] Sequential element (cerrojoInstance/intentos_reg[3]) is unused and will be removed from module sintesis_cerrojo.
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cerrojoInstance/intentos_reg[3]/Q' [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:24]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:24]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:24]
-WARNING: [Synth 8-3332] Sequential element (cerrojoInstance/intentos_reg[2]) is unused and will be removed from module sintesis_cerrojo.
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cerrojoInstance/intentos_reg[2]/Q' [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:24]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:24]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:24]
-WARNING: [Synth 8-3332] Sequential element (cerrojoInstance/intentos_reg[1]) is unused and will be removed from module sintesis_cerrojo.
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cerrojoInstance/intentos_reg[1]/Q' [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:24]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:24]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:24]
-WARNING: [Synth 8-3332] Sequential element (cerrojoInstance/intentos_reg[0]) is unused and will be removed from module sintesis_cerrojo.
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'cerrojoInstance/intentos_reg[0]/Q' [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:24]
-CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'VCC' [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:24]
-CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.srcs/sources_1/new/cerrojo.vhd:24]
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1450.477 ; gain = 594.770
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1453.840 ; gain = 598.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1450.477 ; gain = 594.770
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1453.840 ; gain = 598.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1450.477 ; gain = 594.770
+Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1453.840 ; gain = 598.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1450.477 ; gain = 594.770
+Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1453.840 ; gain = 598.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -221,37 +197,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1450.477 ; gain = 594.770
+Finished IO Insertion : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1453.840 ; gain = 598.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1450.477 ; gain = 594.770
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1453.840 ; gain = 598.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1450.477 ; gain = 594.770
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1453.840 ; gain = 598.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1450.477 ; gain = 594.770
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1453.840 ; gain = 598.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1450.477 ; gain = 594.770
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1453.840 ; gain = 598.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1450.477 ; gain = 594.770
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1453.840 ; gain = 598.082
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -270,41 +246,38 @@ Report Cell Usage:
 |1     |BUFG   |     1|
 |2     |CARRY4 |     5|
 |3     |LUT2   |     1|
-|4     |LUT3   |     2|
-|5     |LUT4   |    25|
-|6     |LUT5   |     6|
+|4     |LUT3   |     4|
+|5     |LUT4   |    29|
+|6     |LUT5   |     5|
 |7     |LUT6   |     5|
-|8     |FDCE   |    14|
-|9     |FDPE   |    10|
-|10    |FDRE   |     3|
-|11    |FDSE   |     1|
-|12    |LD     |    12|
-|13    |IBUF   |    11|
-|14    |OBUF   |    27|
+|8     |FDCE   |    17|
+|9     |FDPE   |    11|
+|10    |LD     |    12|
+|11    |IBUF   |    11|
+|12    |OBUF   |    27|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1450.477 ; gain = 594.770
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1453.840 ; gain = 598.082
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 12 critical warnings and 23 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 1450.477 ; gain = 501.664
-Synthesis Optimization Complete : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1450.477 ; gain = 594.770
+Synthesis finished with 0 errors, 0 critical warnings and 11 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:20 . Memory (MB): peak = 1453.840 ; gain = 500.688
+Synthesis Optimization Complete : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1453.840 ; gain = 598.082
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1450.477 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1453.840 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 17 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1450.477 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1453.840 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 12 instances were transformed.
   LD => LDCE: 12 instances
 
-Synth Design complete | Checksum: 3d895c3
+Synth Design complete | Checksum: 4b308389
 INFO: [Common 17-83] Releasing license: Synthesis
-36 Infos, 29 Warnings, 12 Critical Warnings and 0 Errors encountered.
+36 Infos, 17 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1450.477 ; gain = 977.035
-INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+synth_design: Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 1453.840 ; gain = 979.691
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.runs/synth_1/sintesis_cerrojo.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file sintesis_cerrojo_utilization_synth.rpt -pb sintesis_cerrojo_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Oct  8 21:26:00 2023...
+INFO: [Common 17-206] Exiting Vivado at Sun Oct  8 23:17:37 2023...
