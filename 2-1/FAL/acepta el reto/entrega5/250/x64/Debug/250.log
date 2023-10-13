@@ -1,4 +1,9 @@
 ﻿  250.cpp
+<<<<<<< HEAD
+C:\Users\Catalina\Documents\GitHub\Universidad\2-1\FAL\acepta el reto\entrega5\250\250.cpp(5,11): warning C4101: 'act': variable local sin referencia
+  250.vcxproj -> C:\Users\Catalina\Documents\GitHub\Universidad\2-1\FAL\acepta el reto\entrega5\x64\Debug\250.exe
+=======
 C:\Users\Catalina\Documents\Universidad\2-1\FAL\acepta el reto\entrega5\250\250.cpp(8,11): warning C4101: 'act': variable local sin referencia
 C:\Users\Catalina\Documents\Universidad\2-1\FAL\acepta el reto\entrega5\250\250.cpp(25,34): warning C4244: 'argumento': conversión de '__int64' a 'int'; posible pérdida de datos
   250.vcxproj -> C:\Users\Catalina\Documents\Universidad\2-1\FAL\acepta el reto\entrega5\x64\Debug\250.exe
+>>>>>>> a79a55e06fa2e71fa3d136e674a793e7abe4ece9
