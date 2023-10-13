@@ -19,8 +19,12 @@ public class RegularAlien {
 	
 	private AlienManager alienManager;
 
+	
+	
 	//TODO fill your code
-
+	public RegularAlien() {
+		
+	}
 	/**
 	 *  Implements the automatic movement of the regular alien	
 	 */

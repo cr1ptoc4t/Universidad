@@ -14,7 +14,7 @@ int main() {
 }
 
 void solucionaCaso() {
-	int v[250000];
+	long long int v[250000];
 	int numero, total=0, n = 0, a = 0;
 
 	cin >> numero;

@@ -15,5 +15,7 @@ public class RegularAlienList {
 	private int num;
 	
 	//TODO fill your code
-
+	public RegularAlienList() {
+		
+	}
 }

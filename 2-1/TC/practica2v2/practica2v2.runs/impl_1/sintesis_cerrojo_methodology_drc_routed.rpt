@@ -1,0 +1,227 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1 (win64) Build 3865809 Sun May  7 15:05:29 MDT 2023
+| Date         : Sun Oct  8 23:18:34 2023
+| Host         : LAPTOP-4M9TT6CT running 64-bit major release  (build 9200)
+| Command      : report_methodology -file sintesis_cerrojo_methodology_drc_routed.rpt -pb sintesis_cerrojo_methodology_drc_routed.pb -rpx sintesis_cerrojo_methodology_drc_routed.rpx
+| Design       : sintesis_cerrojo
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Fully Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 38
++-----------+----------+--------------------------------+------------+
+| Rule      | Severity | Description                    | Violations |
++-----------+----------+--------------------------------+------------+
+| TIMING-18 | Warning  | Missing input or output delay  | 25         |
+| TIMING-20 | Warning  | Non-clocked latch              | 12         |
+| LATCH-1   | Advisory | Existing latches in the design | 1          |
++-----------+----------+--------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on boton relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An input delay is missing on rst relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An output delay is missing on bloqueado[0] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An output delay is missing on bloqueado[10] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#5 Warning
+Missing input or output delay  
+An output delay is missing on bloqueado[11] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#6 Warning
+Missing input or output delay  
+An output delay is missing on bloqueado[12] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#7 Warning
+Missing input or output delay  
+An output delay is missing on bloqueado[13] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#8 Warning
+Missing input or output delay  
+An output delay is missing on bloqueado[14] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#9 Warning
+Missing input or output delay  
+An output delay is missing on bloqueado[15] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#10 Warning
+Missing input or output delay  
+An output delay is missing on bloqueado[1] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#11 Warning
+Missing input or output delay  
+An output delay is missing on bloqueado[2] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#12 Warning
+Missing input or output delay  
+An output delay is missing on bloqueado[3] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#13 Warning
+Missing input or output delay  
+An output delay is missing on bloqueado[4] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#14 Warning
+Missing input or output delay  
+An output delay is missing on bloqueado[5] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#15 Warning
+Missing input or output delay  
+An output delay is missing on bloqueado[6] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#16 Warning
+Missing input or output delay  
+An output delay is missing on bloqueado[7] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#17 Warning
+Missing input or output delay  
+An output delay is missing on bloqueado[8] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#18 Warning
+Missing input or output delay  
+An output delay is missing on bloqueado[9] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#19 Warning
+Missing input or output delay  
+An output delay is missing on display[0] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#20 Warning
+Missing input or output delay  
+An output delay is missing on display[1] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#21 Warning
+Missing input or output delay  
+An output delay is missing on display[2] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#22 Warning
+Missing input or output delay  
+An output delay is missing on display[3] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#23 Warning
+Missing input or output delay  
+An output delay is missing on display[4] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#24 Warning
+Missing input or output delay  
+An output delay is missing on display[5] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-18#25 Warning
+Missing input or output delay  
+An output delay is missing on display[6] relative to the rising and/or falling clock edge(s) of sys_clk_pin.
+Related violations: <none>
+
+TIMING-20#1 Warning
+Non-clocked latch  
+The latch cerrojoInstance/FSM_onehot_SIG_ESTADO_reg[0] cannot be properly analyzed as its control pin cerrojoInstance/FSM_onehot_SIG_ESTADO_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#2 Warning
+Non-clocked latch  
+The latch cerrojoInstance/FSM_onehot_SIG_ESTADO_reg[1] cannot be properly analyzed as its control pin cerrojoInstance/FSM_onehot_SIG_ESTADO_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#3 Warning
+Non-clocked latch  
+The latch cerrojoInstance/FSM_onehot_SIG_ESTADO_reg[2] cannot be properly analyzed as its control pin cerrojoInstance/FSM_onehot_SIG_ESTADO_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#4 Warning
+Non-clocked latch  
+The latch cerrojoInstance/FSM_onehot_SIG_ESTADO_reg[3] cannot be properly analyzed as its control pin cerrojoInstance/FSM_onehot_SIG_ESTADO_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#5 Warning
+Non-clocked latch  
+The latch cerrojoInstance/senal_buena_reg[0] cannot be properly analyzed as its control pin cerrojoInstance/senal_buena_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#6 Warning
+Non-clocked latch  
+The latch cerrojoInstance/senal_buena_reg[1] cannot be properly analyzed as its control pin cerrojoInstance/senal_buena_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#7 Warning
+Non-clocked latch  
+The latch cerrojoInstance/senal_buena_reg[2] cannot be properly analyzed as its control pin cerrojoInstance/senal_buena_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#8 Warning
+Non-clocked latch  
+The latch cerrojoInstance/senal_buena_reg[3] cannot be properly analyzed as its control pin cerrojoInstance/senal_buena_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#9 Warning
+Non-clocked latch  
+The latch cerrojoInstance/senal_buena_reg[4] cannot be properly analyzed as its control pin cerrojoInstance/senal_buena_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#10 Warning
+Non-clocked latch  
+The latch cerrojoInstance/senal_buena_reg[5] cannot be properly analyzed as its control pin cerrojoInstance/senal_buena_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#11 Warning
+Non-clocked latch  
+The latch cerrojoInstance/senal_buena_reg[6] cannot be properly analyzed as its control pin cerrojoInstance/senal_buena_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#12 Warning
+Non-clocked latch  
+The latch cerrojoInstance/senal_buena_reg[7] cannot be properly analyzed as its control pin cerrojoInstance/senal_buena_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+LATCH-1#1 Advisory
+Existing latches in the design  
+There are 12 latches found in the design. Inferred latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
+Related violations: <none>
+
+
