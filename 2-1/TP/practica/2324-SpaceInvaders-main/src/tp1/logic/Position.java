@@ -14,11 +14,17 @@ public class Position {
 	
 	public Position(int col, int row) {
 		this.col = col;
-		this.row=row;
+		this.row = row;
 	}
 	//TODO fill your code
 	
+	public int getCol() {
+		return col;
+	}
 	
+	public int getRow() {
+		return row;
+	}
 	
 	@Override
 	public int hashCode() {

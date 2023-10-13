@@ -15,7 +15,8 @@ public class RegularAlienList {
 	private int num;
 	
 	//TODO fill your code
-	public RegularAlienList() {
-		
-	}
+	public RegularAlienList(int num) {
+		this.num = num;
+		objects = new RegularAlien[num];
+	}  
 }

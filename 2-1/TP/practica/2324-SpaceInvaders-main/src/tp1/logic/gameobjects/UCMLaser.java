@@ -14,7 +14,10 @@ public class UCMLaser {
 	//TODO fill your code
 	private Move dir;
 	private Game game;
-
+	
+	public UCMLaser(int col) {
+		//this.dir = new Move (0,1);
+	}
 
 	/**
 	 *  Method called when the laser disappears from the board
@@ -97,6 +100,7 @@ public class UCMLaser {
 
 
 	// RECEIVE ATTACK METHODS
+	
 	
 	/**
 	 * Method to implement the effect of bomb attack on a laser

@@ -8,6 +8,7 @@ import tp1.logic.Game;
 import tp1.logic.Move;
 import tp1.view.GamePrinter;
 import tp1.view.Messages;
+import tp1.logic.Position;
 
 /**
  *  Accepts user input and coordinates the game execution logic
@@ -63,11 +64,9 @@ public class Controller {
 			//llenar esto
 	
 		if(comando[0].equals("move") || comando[0].equals("m")) {
-			if(comando[1].equals("left")) {
-				game.mueveNave();
-			} else if(comando[1].equals("right")) {
+			game.mueveNave(comando[1]);
+			
 				
-			}
 		} else if(comando[0].equals("shoot")||comando[0].equals("s")){
 			//performAttack();
 		}
@@ -81,6 +80,9 @@ public class Controller {
 					[h]elp: Prints this help message.
 					[e]xit: Terminates the program.
 					[n]one: Skips one cycle.""");
+		}
+		else if (comando[0].equals("reset") || comando[0].equals("r")) {
+			game.reset();
 		}
 	}
 	

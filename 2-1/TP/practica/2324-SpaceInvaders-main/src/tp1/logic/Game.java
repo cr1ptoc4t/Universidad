@@ -12,13 +12,21 @@ public class Game {
 	public static final int DIM_Y = 8;
 	
 	private UCMShip laNave;
+	private RegularAlien alien;
 	public static Level level;
 	
+	
+	
+	private static final int ALIENS_INI =30;
+	private int remainingAliens;
+	private int ciclo;
 	//TODO fill your code
 	public Game(Level level, long seed) {
 		//TODO fill your code
 		this.level=level;
 		this.laNave= new UCMShip();
+		this.alien = new RegularAlien();
+		ciclo =0;
 	}
 
 	public String stateToString() {
@@ -28,12 +36,12 @@ public class Game {
 
 	public int getCycle() {
 		//TODO fill your code
-		return 0;
+		return ciclo;
 	}
 
 	public int getRemainingAliens() {
 		//TODO fill your code
-		return 0;
+		return remainingAliens;
 	}
 	
 	public String positionToString(int col, int row) {
@@ -57,20 +65,38 @@ public class Game {
 	}
 
 	public void enableLaser() {
-		//TODO fill your code		
+		//TODO fill your code
+		//disparar
+		// si hay un alien en la misma columna:
+			// eliminar alien
+			// remainingAliens--;
+		
 	}
 
 	public Random getRandom() {
 		//TODO fill your code
-		return null;
+		Random random = getRandom();
+		return random; 
 	}
 
 	public Level getLevel() {
 		return level;
 	}
 	
-	public void mueveNave() {
-		laNave.mueve(new Position(0,0));
+	public void mueveNave(String dir) {
+		//laNave.mueve(new Position(col, row));
+		if(dir.equals("left")) {
+			laNave.mueve(new Position(0,0));
+		} else if(dir.equals("right")) {
+			
+		} else if(dir.equals("lleft")) {
+
+		} else if(dir.equals("rright")) {
+		}
+		ciclo++;
+	}
+	public void reset() {
+		
 	}
 
 }

@@ -22,6 +22,8 @@ public class Ufo {
 	
 	private void enable() {
 		//TODO fill your code
+		enabled=true;
+		
 	}
 
 	public void onDelete() {

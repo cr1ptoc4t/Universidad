@@ -24,7 +24,6 @@ public class AlienManager {
 	public AlienManager(Game game, Level level) {
 		this.level = level;
 		this.game = game;
-		this.remainingAliens = 0;
 	}
 		
 	// INITIALIZER METHODS
@@ -35,7 +34,10 @@ public class AlienManager {
 	 */
 	protected RegularAlienList initializeRegularAliens() {
 		//TODO fill your code
-		return null;
+		remainingAliens =20;
+		RegularAlienList lista = new RegularAlienList(remainingAliens);
+		
+		return lista;
 	}
 
 	/**
@@ -58,6 +60,7 @@ public class AlienManager {
 
 	public boolean onBorder() {
 		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
