@@ -3,8 +3,8 @@
 # SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
 # IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
 # SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
-# Start of session at: Sun Oct  8 23:17:04 2023
-# Process ID: 20804
+# Start of session at: Mon Oct  9 09:26:05 2023
+# Process ID: 6220
 # Current directory: C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.runs/synth_1
 # Command line: vivado.exe -log sintesis_cerrojo.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source sintesis_cerrojo.tcl
 # Log file: C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.runs/synth_1/sintesis_cerrojo.vds

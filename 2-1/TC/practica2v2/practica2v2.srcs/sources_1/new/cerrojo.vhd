@@ -42,6 +42,7 @@ begin
     when S1 => 
         intentos<="0011";
         bloqueado<='1';
+        
         if boton = '1' then
             senal_buena <= clave; --lee contraseña nueva
             SIG_ESTADO <=S2;
@@ -84,6 +85,14 @@ begin
      when S5 =>
          bloqueado<='0';
          intentos <="0000";
+         
+         if clave = "10101010" then
+            SIG_ESTADO <= S1;
+         else 
+            SIG_ESTADO<=S5;
+         end if;
+         
+         
     
     end case;
     

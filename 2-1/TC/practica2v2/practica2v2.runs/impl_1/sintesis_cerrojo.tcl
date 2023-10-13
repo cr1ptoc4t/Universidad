@@ -124,6 +124,7 @@ set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
   set_param chipscope.maxJobs 2
+  set_param xicom.use_bs_reader 1
   set_param runs.launchOptions { -jobs 4  }
   open_checkpoint sintesis_cerrojo_routed.dcp
   set_property webtalk.parent_dir C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.cache/wt [current_project]

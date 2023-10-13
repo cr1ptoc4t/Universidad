@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Mon Oct  9 09:19:04 2023
+# Process ID: 18372
+# Current directory: C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.runs/impl_1
+# Command line: vivado.exe -log sintesis_cerrojo.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source sintesis_cerrojo.tcl -notrace
+# Log file: C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.runs/impl_1/sintesis_cerrojo.vdi
+# Journal file: C:/Users/Catalina/Documents/Universidad/2-1/TC/practica2v2/practica2v2.runs/impl_1\vivado.jou
+# Running On: LAPTOP-4M9TT6CT, OS: Windows, CPU Frequency: 2918 MHz, CPU Physical cores: 4, Host memory: 16856 MB
+#-----------------------------------------------------------
+source sintesis_cerrojo.tcl -notrace

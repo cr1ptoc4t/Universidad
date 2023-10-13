@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1696799866">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1696836407">
   <File Type="ROUTE-PWR" Name="sintesis_cerrojo_power_routed.rpt"/>
   <File Type="PA-TCL" Name="sintesis_cerrojo.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="sintesis_cerrojo_power_summary_routed.pb"/>
