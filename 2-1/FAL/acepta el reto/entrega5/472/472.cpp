@@ -2,21 +2,14 @@
 #include <cmath>
 #include <string>
 using namespace std;
-void resuelveCaso(int d, int n);
-
-int main() {
-	cin.sync_with_stdio(false);
-	cin.tie(nullptr);
-	int n, d;
-	while(true)
-		resuelveCaso(d,n);
-	return 0;
-} 
 
 
-void resuelveCaso(int d, int n) {
-	string basura;
+string resuelveCaso() {
+	int d, n;
 	int act, ant, desnivel=0;
+
+	string basura;
+
 	cin >> d >> n;
 	
 	int i = 1;
@@ -32,14 +25,35 @@ void resuelveCaso(int d, int n) {
 		i++;
 		ant = act;
 	}
-	
+	string ret;
 
 	if (desnivel>d) {
-		cout << "NO APTA" << endl;
+		ret=  "NO APTA" ;
 		if(i!=n)
 			getline(cin, basura);
 	}
 	else
-		cout << "APTA" << endl;
-
+		ret= "APTA";
+	return ret;
 }
+
+bool casoDePrueba() {
+
+
+		if (!cin)
+			return false;
+		else {
+			cout << resuelveCaso() << '\n';
+
+			return true;
+		}
+
+} // casoDePrueba
+
+int main() {
+
+	while (casoDePrueba());
+
+	return 0;
+
+} // main
