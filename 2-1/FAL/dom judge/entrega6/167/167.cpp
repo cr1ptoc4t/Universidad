@@ -1,7 +1,8 @@
 #include <iostream>
 using namespace std;
 
-bool recursivo(int longitud, int& num, int iteracion);
+
+int fractal(int n);
 
 bool casoDePrueba() {
 
@@ -13,11 +14,8 @@ bool casoDePrueba() {
         int longitud, num=0;
         cin >> longitud;
 
-        if (longitud <= 2) {
-            num = longitud * 4;
-        }else
-            recursivo(longitud*2, num, 1);
-      
+        //recursivo(longitud, num, 1);
+        num=fractal(longitud);
         cout << num << endl;
 
 
@@ -35,13 +33,12 @@ int main() {
 
 } // main
 
-bool recursivo(int longitud, int& num, int iteracion) {
+int fractal(int n) {
 
-    longitud /= 2;
-    num += longitud * 4 * iteracion;
-     if (longitud <= 1)
-        return false;
-    else{
-        recursivo(longitud, num, iteracion*4);
-    }
+    if (n == 0)
+        return 0;
+    int ret = 0;
+    ret = 4 * n + 4 * fractal(n/2);
+
+    return ret;
 }
