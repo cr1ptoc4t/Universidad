@@ -26,12 +26,26 @@ public enum Move {
 
 	//TODO fill your code
 	
-	public void setX(int x) {
+	public void setX (int x) {
 		this.x=x;
 	}
 	
 	public void setY(int y) {
 		this.y=y;
+	}
+	
+	public static Move stringAMov(String str) {
+		Move ret= NONE;
+		if(str.equals("left")) {
+			ret= LEFT;
+		} else if(str.equals("right")) {
+			ret= RIGHT;
+		} else if(str.equals("lleft")) {
+			ret = LLEFT;
+		} else if(str.equals("rright")) {
+			ret = RRIGHT;
+		} 
+		return ret;
 	}
 	
 }

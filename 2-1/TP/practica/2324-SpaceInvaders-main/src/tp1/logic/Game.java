@@ -1,6 +1,6 @@
 package tp1.logic;
 
-
+import tp1.logic.Move;
 import java.util.Random;
 import tp1.logic.gameobjects.*;
 
@@ -83,16 +83,9 @@ public class Game {
 		return level;
 	}
 	
-	public void mueveNave(String dir) {
+	public void mueveNave(Move movimiento) {
 		//laNave.mueve(new Position(col, row));
-		if(dir.equals("left")) {
-			laNave.mueve(new Position(0,0));
-		} else if(dir.equals("right")) {
-			
-		} else if(dir.equals("lleft")) {
-
-		} else if(dir.equals("rright")) {
-		}
+		laNave.mueve(movimiento);
 		ciclo++;
 	}
 	public void reset() {

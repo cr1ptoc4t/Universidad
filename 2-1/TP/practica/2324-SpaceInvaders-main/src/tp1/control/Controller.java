@@ -64,8 +64,8 @@ public class Controller {
 			//llenar esto
 	
 		if(comando[0].equals("move") || comando[0].equals("m")) {
-			game.mueveNave(comando[1]);
-			
+			Move movimiento = Move.stringAMov(comando[1]);
+			game.mueveNave(movimiento);
 				
 		} else if(comando[0].equals("shoot")||comando[0].equals("s")){
 			//performAttack();

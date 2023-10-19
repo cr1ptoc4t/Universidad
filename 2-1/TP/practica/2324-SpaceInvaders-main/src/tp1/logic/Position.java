@@ -1,7 +1,6 @@
 package tp1.logic;
 
 import java.util.Objects;
-
 /**
  * 
  * Immutable class to encapsulate and manipulate positions in the game board
@@ -18,11 +17,11 @@ public class Position {
 	}
 	//TODO fill your code
 	
-	public int getCol() {
+	private int getCol() {
 		return col;
 	}
 	
-	public int getRow() {
+	private int getRow() {
 		return row;
 	}
 	
@@ -42,5 +41,14 @@ public class Position {
 			b = col == other.col && row == other.row;
 		}
 		return b;
+	}
+	
+	public boolean esPosicionValida() {
+		return Game.DIM_X>getCol() && getCol()>0 && getRow()>0 && getRow()<Game.DIM_Y;
+	}
+	
+	public void actualiza(Move mov) {
+		col = col + mov.getX(); 
+		row = row + mov.getY();
 	}
 }
