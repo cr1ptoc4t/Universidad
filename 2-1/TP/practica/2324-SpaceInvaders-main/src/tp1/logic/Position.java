@@ -44,7 +44,8 @@ public class Position {
 	}
 	
 	public boolean esPosicionValida() {
-		return Game.DIM_X>getCol() && getCol()>0 && getRow()>0 && getRow()<Game.DIM_Y;
+		return Game.DIM_X>=getCol() && getCol()>0
+				&& getRow()>0 && getRow()<=Game.DIM_Y;
 	}
 	
 	public void actualiza(Move mov) {

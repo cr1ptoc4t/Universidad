@@ -35,16 +35,19 @@ public enum Move {
 	}
 	
 	public static Move stringAMov(String str) {
+		
 		Move ret= NONE;
-		if(str.equals("left")) {
+		
+		switch(str) {
+		case "left":
 			ret= LEFT;
-		} else if(str.equals("right")) {
+		case "right":
 			ret= RIGHT;
-		} else if(str.equals("lleft")) {
-			ret = LLEFT;
-		} else if(str.equals("rright")) {
-			ret = RRIGHT;
-		} 
+		case "lleft":
+			ret= LLEFT;
+		case "rright":
+			ret= RRIGHT;
+		}
 		return ret;
 	}
 	

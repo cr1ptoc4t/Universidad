@@ -44,7 +44,7 @@ public class RegularAlien {
 	private void descent() {
 		//TODO fill your code
 		//esto no se si está bien puesto que estas creando un objeto encima de otro
-		pos=new Position (pos.getRow()-1, pos.getCol());
+		//pos=new Position (pos.getRow()-1, pos.getCol());
 	}
 
 	private void performMovement(Move dir) {
@@ -54,7 +54,8 @@ public class RegularAlien {
 
 	private boolean isInBorder() {
 		//TODO fill your code
-		return pos.getCol()==Game.DIM_X || pos.getCol()==0;
+		//return pos.getCol()==Game.DIM_X || pos.getCol()==0;
+		return false;
 	}
 
 	public boolean receiveAttack(UCMLaser laser) {

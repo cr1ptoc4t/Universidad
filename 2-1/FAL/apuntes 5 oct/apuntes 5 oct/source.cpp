@@ -6,10 +6,12 @@ void ordenar(int v[], int a, int b);
 int fact(int n);
 int fib(int n);
 void mezcla(int v[], int a, int m, int b);
+long long int digitos(long long int n);
 
+long long cuantosUnos(long long n, long long& total);
 
 int main() {
-
+	
 }
 
 //	el vector entero sigue la secuencia de quasifib??
@@ -45,37 +47,13 @@ bool crecienteYDivertido(int v[], int n, int d) {
 	return i == n;
 }
 
-// 19/10
-int fib(int n) {
-	if (n <= 1)
-		return n;
-
-	return fib(n - 1) + fib(n - 2);
-}
-
-int fact(int n) {
-	if (n == 0)
-		return 1;
-	return n * fact(n - 1);
-}
-
-
-//ordenacion de un vector de forma recursiva
-//o(n log n)
-//Merge Sort // quicksort
-void ordenar(int v[], int a, int b) {
-	if (a >= b)
-		return;
-
-	int m = (a + b) / 2;
-	
-	ordenar(v,a, a+m);
-	ordenar(v,a+m,b);
-	mezcla(v,a,m,b);
-}
-
-
-//merge
-void mezcla(int v[], int a, int m, int b) {
-
+long long int digitos(long long int n)
+{
+	int dig = 0;
+	while (n > 0) {
+		
+		n /= 10;
+		dig++;
+	}
+	return dig;
 }

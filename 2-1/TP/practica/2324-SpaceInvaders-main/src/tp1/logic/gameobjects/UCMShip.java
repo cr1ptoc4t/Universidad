@@ -19,14 +19,12 @@ public class UCMShip{
 	}
 	
 	public void mueve(Move movimiento) {
-		//Move movimiento = new Move(0,0);
 		
-		//nueva variable ya movida
+		//nueva variable para mover
 		Position posicionActualizada= pos;
+		
 		//actualizar
-		
 		posicionActualizada.actualiza(movimiento);
-		
 		
 		
 		//si no esta fuera del mapa

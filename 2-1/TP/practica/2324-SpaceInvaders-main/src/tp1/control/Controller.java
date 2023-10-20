@@ -61,8 +61,8 @@ public class Controller {
 	}
 
 	private void ejecutarComando(String[] comando){
-			//llenar esto
 	
+		
 		if(comando[0].equals("move") || comando[0].equals("m")) {
 			Move movimiento = Move.stringAMov(comando[1]);
 			game.mueveNave(movimiento);
@@ -83,6 +83,8 @@ public class Controller {
 		}
 		else if (comando[0].equals("reset") || comando[0].equals("r")) {
 			game.reset();
+		}else if(comando[0].equals("l")) {
+			
 		}
 	}
 	
