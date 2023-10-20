@@ -6,12 +6,18 @@ public class UCMShip{
 	
 	private Position pos;
 	private boolean onBorder;
+	int life;
 	public UCMShip(){
 		this.pos = new Position(Game.DIM_X/2, Game.DIM_Y/2);
+		this.life=100;
 	}
 
 	public String getSymbol(){
-		return Messages.UCMSHIP_SYMBOL;
+		String symbol=Messages.UCMSHIP_SYMBOL;
+		if(life<0){
+			symbol=Messages.UCMSHIP_DEAD_SYMBOL;
+		}
+		return symbol;
 	}
 
 	public boolean estaEnPos(Position position){
@@ -21,7 +27,7 @@ public class UCMShip{
 	public void mueve(Move movimiento) {
 		
 		//nueva variable para mover
-		Position posicionActualizada= pos;
+		Position posicionActualizada = pos;
 		
 		//actualizar
 		posicionActualizada.actualiza(movimiento);
@@ -40,7 +46,11 @@ public class UCMShip{
 		return pos.equals(new Position(0, Game.DIM_Y/2));
 	}
 	private boolean onBorderX() {
-		return pos.equals(new Position(Game.DIM_X, Game.DIM_Y/2)) ;
+		return pos.equals(new Position(Game.DIM_X-1, Game.DIM_Y/2)) ;
 	}
 
+	void recibeAtaque(){
+		life-=10;
+
+	}
 }

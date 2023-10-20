@@ -15,6 +15,8 @@ public class Position {
 		this.col = col;
 		this.row = row;
 	}
+
+
 	//TODO fill your code
 	
 	private int getCol() {

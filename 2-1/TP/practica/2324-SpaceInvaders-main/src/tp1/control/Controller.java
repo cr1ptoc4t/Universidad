@@ -55,6 +55,8 @@ public class Controller {
 
 		printer.endMessage();
 	}
+	// @return una mandarina
+
 
 	private boolean esComandoExit(String[] comando){
 		return comando[0].equals("exit") || comando[0].equals("e");
@@ -64,11 +66,10 @@ public class Controller {
 	
 		
 		if(comando[0].equals("move") || comando[0].equals("m")) {
-			Move movimiento = Move.stringAMov(comando[1]);
-			game.mueveNave(movimiento);
+			game.mueveNave(Move.stringAMov(comando[1]));
 				
 		} else if(comando[0].equals("shoot")||comando[0].equals("s")){
-			//performAttack();
+			game.enableLaser();
 		}
 		else if(comando[0].equals("help") || comando[0].equals("h")) {
 			System.out.print("""
@@ -83,8 +84,10 @@ public class Controller {
 		}
 		else if (comando[0].equals("reset") || comando[0].equals("r")) {
 			game.reset();
-		}else if(comando[0].equals("l")) {
-			
+		}else if(comando[0].equals("l")|| comando[0].equals("list")) {
+			//
+		}else if(comando[0].equals("n")||comando[0].equals("none")){
+			game.pasaCiclo();
 		}
 	}
 	

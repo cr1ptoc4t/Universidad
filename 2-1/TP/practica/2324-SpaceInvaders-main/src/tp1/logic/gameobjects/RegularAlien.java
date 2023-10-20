@@ -18,16 +18,15 @@ public class RegularAlien {
 	private int cyclesToMove;
 	private int speed;
 	private Move dir;
-	
 	private AlienManager alienManager;
 	
 	private Position pos;
 	
 	
 	//TODO fill your code
-	public RegularAlien() {
+	public RegularAlien(int x, int y) {
 		//alienManager = new AlienManager();
-		this.pos = new Position(Game.DIM_X/2,0); //esto esta mal
+		this.pos = new Position(x,y);
 		this.dir = Move.LEFT;
 		//
 	}
@@ -64,9 +63,14 @@ public class RegularAlien {
 
 	public boolean receiveAttack(UCMLaser laser) {
 		//TODO fill your code
-		
+
 		return false;
 	}
-	
+	public boolean isInPosition(Position position){
+		return position.equals(pos);
+	}
 
+	public String getSymbol(){
+		return Messages.REGULAR_ALIEN_SYMBOL;
+	}
 }

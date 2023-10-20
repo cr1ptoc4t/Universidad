@@ -19,23 +19,25 @@ public class Game {
 	
 	private static final int ALIENS_INI =30;
 	private int remainingAliens;
-	private int ciclo;
+	private int ciclos;
 	//TODO fill your code
 	public Game(Level level, long seed) {
 		//TODO fill your code
 		this.level=level;
 		this.laNave= new UCMShip();
-		this.alien = new RegularAlien();
-		ciclo =0;
+		this.alien = new RegularAlien(DIM_X/2, DIM_Y/3);
+		ciclos =0;
 	}
 
+
+	//que hace esto??????
 	public String stateToString() {
 		//TODO fill your code
 		return null;
 	}
 
 	public int getCycle() {
-		return ciclo;
+		return ciclos;
 	}
 
 	public int getRemainingAliens() {
@@ -46,10 +48,14 @@ public class Game {
 	public String positionToString(int col, int row) {
 		//TODO fill your code
 		String str = "";
-		if(laNave.estaEnPos(new Position(col,row))){
+		Position position = new Position(col,row);
+
+		if(laNave.estaEnPos(position)){
 			str = laNave.getSymbol();
+		} else if(alien.isInPosition(position)) {
+			str = alien.getSymbol();
 		}
-	
+
 		return str;
 	}
 
@@ -66,7 +72,12 @@ public class Game {
 	public void enableLaser() {
 		//TODO fill your code
 		//disparar
+
 		// si hay un alien en la misma columna:
+		//if(alien.pos.equals(/*laNave.pos*/)){
+
+		//	remainingAliens--;
+		//}
 			// eliminar alien
 			// remainingAliens--;
 		
@@ -80,12 +91,15 @@ public class Game {
 		return level;
 	}
 	
-	public void mueveNave(Move movimiento) {
-		laNave.mueve(movimiento);
-		ciclo++;
+	public void mueveNave(Move direccion) {
+		laNave.mueve(direccion);
+		ciclos++;
 	}
 	public void reset() {
-		
+		ciclos=0;
 	}
 
+	public void pasaCiclo(){
+		ciclos++;
+	}
 }
