@@ -4,10 +4,12 @@ import tp1.logic.AlienManager;
 import tp1.logic.Game;
 import tp1.logic.Move;
 import tp1.logic.Position;
+import tp1.view.Messages;
 
 /**
  * 
  * Class representing a regular alien
+ *
  *
  */
 public class RegularAlien {
@@ -25,31 +27,33 @@ public class RegularAlien {
 	//TODO fill your code
 	public RegularAlien() {
 		//alienManager = new AlienManager();
-		this.pos = new Position(0,0); //esto esta mal
-		//this.dir = new Move();
+		this.pos = new Position(Game.DIM_X/2,0); //esto esta mal
+		this.dir = Move.LEFT;
 		//
 	}
 	/**
 	 *  Implements the automatic movement of the regular alien	
 	 */
 	public void automaticMove() {
-		//TODO fill your code
-		//Move direccion = new Move (-1,0);
 		if(isInBorder()) {
-			//cambio de movimiento
+			if(dir==Move.LEFT) {
+				dir= Move.RIGHT;
+			}
+			else if (dir==Move.RIGHT){
+				dir= Move.LEFT;
+			}
 		}
-		//performMovement(direccion);
+		performMovement(dir);
 	}
 
 	private void descent() {
 		//TODO fill your code
-		//esto no se si está bien puesto que estas creando un objeto encima de otro
-		//pos=new Position (pos.getRow()-1, pos.getCol());
+
 	}
 
 	private void performMovement(Move dir) {
-		//TODO fill your code
-		
+		pos.actualiza(dir);
+
 	}
 
 	private boolean isInBorder() {

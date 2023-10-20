@@ -35,7 +35,6 @@ public class Game {
 	}
 
 	public int getCycle() {
-		//TODO fill your code
 		return ciclo;
 	}
 
@@ -74,9 +73,7 @@ public class Game {
 	}
 
 	public Random getRandom() {
-		//TODO fill your code
-		Random random = getRandom();
-		return random; 
+		return getRandom();
 	}
 
 	public Level getLevel() {
@@ -84,7 +81,6 @@ public class Game {
 	}
 	
 	public void mueveNave(Move movimiento) {
-		//laNave.mueve(new Position(col, row));
 		laNave.mueve(movimiento);
 		ciclo++;
 	}

@@ -41,10 +41,13 @@ public enum Move {
 		switch(str) {
 		case "left":
 			ret= LEFT;
+			break;
 		case "right":
 			ret= RIGHT;
+			break;
 		case "lleft":
 			ret= LLEFT;
+			break;
 		case "rright":
 			ret= RRIGHT;
 		}

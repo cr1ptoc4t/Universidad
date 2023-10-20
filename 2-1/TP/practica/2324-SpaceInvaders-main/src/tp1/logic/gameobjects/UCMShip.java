@@ -25,8 +25,7 @@ public class UCMShip{
 		
 		//actualizar
 		posicionActualizada.actualiza(movimiento);
-		
-		
+
 		//si no esta fuera del mapa
 		if(posicionActualizada.esPosicionValida()) {
 			//copiar al original
