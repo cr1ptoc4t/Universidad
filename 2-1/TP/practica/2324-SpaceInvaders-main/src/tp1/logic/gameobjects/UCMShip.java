@@ -51,6 +51,5 @@ public class UCMShip{
 
 	void recibeAtaque(){
 		life-=10;
-
 	}
 }
