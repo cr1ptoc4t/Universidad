@@ -108,4 +108,7 @@ public class Fecha {
 
 		return numDias;
 	}
+	int getDia(){
+		return dia;
+	}
 }

@@ -50,12 +50,12 @@ public class Controller {
 			//printer.showGame();
 			printGame();
 			comando = prompt();
+			game.mueveAlien();
 			ejecutarComando(comando);
 		}while(!esComandoExit(comando));
 
 		printer.endMessage();
 	}
-	// @return una mandarina
 
 
 	private boolean esComandoExit(String[] comando){
@@ -105,5 +105,8 @@ public class Controller {
 	public void printEndMessage() {
 		System.out.println(printer.endMessage());
 	}
-	
+
+	private void mueveAlien(){
+		game.mueveAlien();
+	}
 }

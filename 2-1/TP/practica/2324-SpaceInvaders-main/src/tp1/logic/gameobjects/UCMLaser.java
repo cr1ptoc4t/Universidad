@@ -14,9 +14,10 @@ public class UCMLaser {
 	//TODO fill your code
 	private Move dir;
 	private Game game;
-	
+	private int col;
 	public UCMLaser(int col) {
-		//this.dir = new Move (0,1);
+		this.dir = Move.UP;
+		this.col=col;
 	}
 
 	/**
@@ -37,12 +38,12 @@ public class UCMLaser {
 
 	
 	// PERFORM ATTACK METHODS
-	
-	
+
 	
 	
 	private void die() {
 		//TODO fill your code
+		game.aliensWin();
 	}
 
 	private boolean isOut() {
@@ -57,16 +58,21 @@ public class UCMLaser {
 	/**
 	 * Method that implements the attack by the laser to a regular alien.
 	 * It checks whether both objects are alive and in the same position.
-	 * If so call the "actual" attack method {@link weaponAttack}.
+	 * If so call the "actual" attack method {link weaponAttack}.
 	 * @param other the regular alien possibly under attack
 	 * @return <code>true</code> if the alien has been attacked by the laser.
 	 */
+
+
 	public boolean performAttack(RegularAlien other) {
 		//TODO fill your code
-		return false;
+		if(other.isInCol(col))
+			other.receiveAttack(this);
+
+		return other.isInCol(col);
 	}
 
-	/**
+	/*
 	 * Method that implements the attack by the laser to a destroyer alien.
 	 * It checks whether both objects are alive and in the same position.
 	 * If so call the "actual" attack method {@link weaponAttack}.
@@ -80,7 +86,7 @@ public class UCMLaser {
 		return false;
 	}
 	*/
-	
+
 	//TODO fill your code
 
 

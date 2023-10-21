@@ -35,17 +35,17 @@ public class MainSeresVivos {
 		while(!ordenado) {
 			for(int i=0; i<vect.numeroElementos()-1;i++) {
 				ordenado= true;
-				if(esMenor(vect.dameElemEnPos(i), vect.dameElemEnPos(i+1))) {
+				//if(vect.dameElemEnPos(i).esMenor(dameElemEnPos(i+1))) {
 					//swap
-					SerVivo temp;
+				//	SerVivo temp;
 					
-					temp = vect.dameElemEnPos(i);
-					vect.ponElementoEnPos(vect.dameElemEnPos(i+1),i);
-					vect.ponElementoEnPos(temp, i+1);
+					//temp = vect.dameElemEnPos(i);
+					//vect.ponElementoEnPos(vect.dameElemEnPos(i+1),i);
+					//vect.ponElementoEnPos(temp, i+1);
 					
 					//booleano para hacer más eficiente el código
 					ordenado = false;
-				}
+				//}
 					
 			}
 		}

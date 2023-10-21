@@ -102,4 +102,8 @@ public class Game {
 	public void pasaCiclo(){
 		ciclos++;
 	}
+
+	public void mueveAlien(){
+		alien.automaticMove();
+	}
 }

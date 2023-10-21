@@ -27,7 +27,7 @@ public class UCMShip{
 	public void mueve(Move movimiento) {
 		
 		//nueva variable para mover
-		Position posicionActualizada = pos;
+		Position posicionActualizada = new Position(pos);
 		
 		//actualizar
 		posicionActualizada.actualiza(movimiento);

@@ -16,6 +16,11 @@ public class Position {
 		this.row = row;
 	}
 
+	public Position (Position posicion2){
+		this.col = posicion2.col;
+		this.row = posicion2.row;
+	}
+
 
 	//TODO fill your code
 	
@@ -46,7 +51,7 @@ public class Position {
 	}
 	
 	public boolean esPosicionValida() {
-		return Game.DIM_X>=getCol() && getCol()>0
+		return Game.DIM_X>=getCol() && getCol()>=0
 				&& getRow()>0 && getRow()<=Game.DIM_Y;
 	}
 	
@@ -54,4 +59,12 @@ public class Position {
 		col = col + mov.getX(); 
 		row = row + mov.getY();
 	}
+	public boolean estaEnBordeVertical(){
+		return col==0 || col== Game.DIM_Y;
+	}
+	public boolean isInCol(int col){
+		//return this.row.equals(row);
+		return col == this.col;
+	}
+
 }

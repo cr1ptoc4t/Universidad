@@ -28,37 +28,32 @@ public class RegularAlien {
 		//alienManager = new AlienManager();
 		this.pos = new Position(x,y);
 		this.dir = Move.LEFT;
-		//
 	}
 	/**
 	 *  Implements the automatic movement of the regular alien	
 	 */
 	public void automaticMove() {
-		if(isInBorder()) {
-			if(dir==Move.LEFT) {
-				dir= Move.RIGHT;
-			}
-			else if (dir==Move.RIGHT){
-				dir= Move.LEFT;
-			}
+		if(isInBorderVertical()) {
+			performMovement(Move.DOWN);
+			if(dir==Move.LEFT) {		dir = Move.RIGHT;	}
+			else if (dir==Move.RIGHT){	dir = Move.LEFT;	}
+
 		}
 		performMovement(dir);
+		// TODO ESTO HAY QUE CAMBIARLO PORQUE NOS OCUPA UN CICLO Y DEBERIAN SER DOS
 	}
 
 	private void descent() {
-		//TODO fill your code
-
+		performMovement(Move.DOWN);
 	}
 
 	private void performMovement(Move dir) {
 		pos.actualiza(dir);
-
 	}
 
-	private boolean isInBorder() {
+	private boolean isInBorderVertical() {
 		//TODO fill your code
-		//return pos.getCol()==Game.DIM_X || pos.getCol()==0;
-		return false;
+		return pos.estaEnBordeVertical();
 	}
 
 	public boolean receiveAttack(UCMLaser laser) {
@@ -66,6 +61,7 @@ public class RegularAlien {
 
 		return false;
 	}
+	// @return muere
 	public boolean isInPosition(Position position){
 		return position.equals(pos);
 	}
@@ -73,4 +69,8 @@ public class RegularAlien {
 	public String getSymbol(){
 		return Messages.REGULAR_ALIEN_SYMBOL;
 	}
+	public boolean isInCol(int col){
+		return pos.isInCol(col);
+	}
+
 }

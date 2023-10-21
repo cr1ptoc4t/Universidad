@@ -13,7 +13,8 @@ public class Persona extends SerVivo{
      * @param sueldo sueldo al mes
      */
     public Persona(String nombre, Fecha fechaNac, double sueldo) {
-        super(nombre, fechaNac, sueldo);
+        super(nombre, fechaNac, sueldo)
+        ;
     }
 
     // Constructor sin parametros con contador de desconocidos
@@ -23,7 +24,7 @@ public class Persona extends SerVivo{
      * y el sueldo por mes será 0.0.
      */
     public Persona() {
-        this("Desconido"+Persona.numID,
+        this("Desconocido"+Persona.numID,
              new Fecha(1,1,1000),
              0.0);
         
@@ -31,11 +32,9 @@ public class Persona extends SerVivo{
         Persona.numID++;
     }
 
+    public boolean esMenor(Ordenable otro){
+        return false;
+    }
 
 
-	public boolean esMenor(Persona p1, Persona p2) {
-		return p1.edad()<p2.edad();
-	}
-	
-	
 }
