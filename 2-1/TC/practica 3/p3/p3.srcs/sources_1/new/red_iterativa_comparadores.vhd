@@ -45,17 +45,31 @@ entity red_iterativa_comparadores is
 end red_iterativa_comparadores;
 
 
-architecture
+architecture Behavioral of red_iterativa_comparadores is
+    component celda
+    Port(
+         X : in std_logic;      
+         C_in : in std_logic;   
+         C_out : out std_logic;
+         Z : out std_logic
+    );
+
+    end component ;
+     
 	signal C: std_logic_vector ((num_entradas+1)*num_bits -1 downto 0);
 	constant N : natural := 10;
-component
-	-- FALTAN COSAS AQUI
+
 begin
 
     gen1: for i in 0 to N generate
-        u: celda port map(X(i), C(i), C(i+1), Z(i));
+        u: celda port map(
+            X(i),
+            C(i), 
+            C(i+1)--, 
+            --Z(i)
+        );
 	end generate gen1;
 
 
-end;
+end Behavioral;
 
