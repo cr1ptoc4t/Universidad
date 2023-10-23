@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-int calcula(long int ancho, long int alto, int num);
+int calcula( int ancho, int alto);
 
 
 bool casoDePrueba() {
@@ -10,13 +10,14 @@ bool casoDePrueba() {
     // LEER CASO DE PRUEBA
     int ancho, alto;
     cin >> ancho>> alto;
-        if (ancho==0 && alto==0)
-            return false;
-        else {
-            int num = calcula(ancho, alto,0);
-            cout << num << "\n";
-            return true;
-        }
+    if (ancho == 0 && alto == 0)
+        return false;
+    
+
+    int num = calcula(ancho, alto);
+    cout << num << "\n";        
+    
+    return true;
 
 } // casoDePrueba
 
@@ -29,16 +30,15 @@ int main() {
 
 } // main
 
-int calcula(long int ancho, long int alto, int num)
+int calcula( int ancho,  int alto)
 {
-    if (ancho < 10 || alto < 10)
-        return num;
-
-    if (ancho > alto)
-        num = calcula(ancho-alto, alto, num + 1);
-    else if (alto == ancho)
-        num++;
-    else
-        num = calcula(ancho, alto-ancho, num + 1);
-
+    int suma = 0;
+    while (!(alto < 10 || ancho < 10)) {
+        if (alto > ancho)
+            alto = alto - ancho;
+        else
+            ancho = ancho - alto;
+        suma++;
+    }
+    return suma;
 }

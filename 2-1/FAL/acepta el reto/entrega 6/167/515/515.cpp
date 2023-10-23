@@ -3,7 +3,7 @@
 using namespace std;
 
 bool casoDePrueba();
-int cuentacopas(int n, int suma, int iteracion);
+
 
 int main() {
 
@@ -23,23 +23,12 @@ bool casoDePrueba() {
             return false;
         else {
 
-            int suma = cuentacopas(n, 0,0);
-
-            cout << suma << "\n";
+            if (n == 1) cout << 1 <<endl;
+            else if (n % 2 == 1) cout << n - 1<<endl;
+            else cout << n<<endl;
 
             return true;
         }
 
 } // casoDePrueba
 
-
-int cuentacopas(int n, int suma,int iteracion) {
-    if (n <= 2)
-        return suma + 1;
-    
-    if(iteracion%2==1 && n % 2 == 0)
-        cuentacopas(n-2, suma+1, iteracion+1);
-    else
-        cuentacopas(n-1, suma+1, iteracion+1);
-   
-}
