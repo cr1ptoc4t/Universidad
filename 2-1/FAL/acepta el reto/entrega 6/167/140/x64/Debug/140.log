@@ -1,0 +1,3 @@
+﻿  140.cpp
+C:\Users\Catalina\Documents\Universidad\2-1\FAL\167\140\140.cpp(15,22): warning C4244: 'inicializando': conversión de '__int64' a 'int'; posible pérdida de datos
+  140.vcxproj -> C:\Users\Catalina\Documents\Universidad\2-1\FAL\167\x64\Debug\140.exe

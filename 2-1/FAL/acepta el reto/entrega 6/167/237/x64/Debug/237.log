@@ -1,0 +1,3 @@
+﻿  237.cpp
+C:\Users\Catalina\Documents\Universidad\2-1\FAL\167\237\237.cpp(37,48): warning C4267: 'argumento': conversión de 'size_t' a 'int'; posible pérdida de datos
+  237.vcxproj -> C:\Users\Catalina\Documents\Universidad\2-1\FAL\167\x64\Debug\237.exe
