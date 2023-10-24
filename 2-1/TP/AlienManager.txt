@@ -1,0 +1,35 @@
+private regularAlienList aliensLista;
+private destroyerAlienList listaAliensDestroyers;
+private boolean descender; //false
+private Move dir;
+
+
+//constructor:
+
+level
+game
+this.aliens= initializeRegularAliens();
+this.remainingAliens= aliens.getCont() + destroyers.getCont();
+onBorder
+descender= false;
+this.dir= Move.LEFT;
+
+
+
+//metodo1
+
+automaticMove(){
+
+boolean x= false;
+if(this.aliens.algoOnBorder()&&this.descender){
+this.aliens.algoListaAliens(this.dir);
+
+}else{
+this.aliens.algoListaAliens(move.DOWN);
+this.dir= this.dir.inverse();
+this.descender= true;
+
+}
+
+
+}

@@ -16,14 +16,23 @@ public class AlienManager {
 	private Level level;
 	private Game game;
 	private int remainingAliens;
-	
 	private boolean squadInFinalRow;
 	private int shipsOnBorder;
 	private boolean onBorder;
+	//private regularAlienList listaAliensRegulares;
+	//private destroyerAlienList listaAliensDestroyers;
+	private boolean descender;
+	private Move dir;
+
 
 	public AlienManager(Game game, Level level) {
 		this.level = level;
 		this.game = game;
+		//this.aliens= initializeRegularAliens();
+		//this.remainingAliens= aliens.getCont() + destroyers.getCont();
+		this.onBorder =onBorder();
+		this.descender= false;
+		this.dir= Move.LEFT;
 	}
 		
 	// INITIALIZER METHODS
@@ -64,4 +73,21 @@ public class AlienManager {
 		return false;
 	}
 
+
+	public void automaticMove(){
+
+		boolean x= false;
+		/*
+		if(this.listaAliensRegulares.algoOnBorder()&&this.descender){
+			this.aliens.algoListaAliens(this.dir);
+
+		}else{
+			this.aliens.algoListaAliens(move.DOWN);
+			this.dir= this.dir.inverse();
+			this.descender= true;
+
+		}
+		*/
+
+	}
 }
