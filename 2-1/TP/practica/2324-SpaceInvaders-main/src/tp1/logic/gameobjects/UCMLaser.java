@@ -14,10 +14,10 @@ public class UCMLaser {
 	//TODO fill your code
 	private Move dir;
 	private Game game;
-	private int col;
-	public UCMLaser(int col) {
+	private Position pos;
+	public UCMLaser(Position pos) {
 		this.dir = Move.UP;
-		this.col=col;
+		this.pos=pos;
 	}
 
 	/**
@@ -66,10 +66,11 @@ public class UCMLaser {
 
 	public boolean performAttack(RegularAlien other) {
 		//TODO fill your code
-		if(other.isInCol(col))
-			other.receiveAttack(this);
+		//if(other.isInCol(col))
+		//	other.receiveAttack(this);
 
-		return other.isInCol(col);
+		//return other.isInCol(col);
+		return false;
 	}
 
 	/*

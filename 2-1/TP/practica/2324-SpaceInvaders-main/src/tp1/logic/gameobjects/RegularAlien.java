@@ -73,4 +73,6 @@ public class RegularAlien {
 		return pos.isInCol(col);
 	}
 
+
+
 }

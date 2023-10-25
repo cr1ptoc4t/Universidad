@@ -20,4 +20,27 @@ public class RegularAlienList {
 		objects = new RegularAlien[num];
 	}
 
+	public int getNum(){
+		return num;
+	}
+
+	public void initializeAlienList(int row){
+		for(int i=0;i<getNum();i++){
+			objects[i]= new RegularAlien(i, row);
+		}
+	}
+
+	// @returns si un alien del array esta en posicion -> true
+	// @else -> false
+	public boolean anAlienInPosition(Position pos){
+		int i= 0;
+
+		while(i<num && !objects[i].isInPosition(pos))
+			i++;
+
+
+		return i==num;
+	}
+
+
 }

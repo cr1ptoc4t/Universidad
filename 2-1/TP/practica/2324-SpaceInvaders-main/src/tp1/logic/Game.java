@@ -13,8 +13,10 @@ public class Game {
 	
 	private UCMShip laNave;
 	private RegularAlien alien;
+
 	public static Level level;
-	
+
+	private AlienManager alienManager;
 	
 	
 	private static final int ALIENS_INI =30;
@@ -26,6 +28,7 @@ public class Game {
 		this.level=level;
 		this.laNave= new UCMShip();
 		this.alien = new RegularAlien(DIM_X/2, DIM_Y/3);
+		this.alienManager= new AlienManager(this, level);
 		ciclos =0;
 	}
 
@@ -52,7 +55,9 @@ public class Game {
 
 		if(laNave.estaEnPos(position)){
 			str = laNave.getSymbol();
-		} else if(alien.isInPosition(position)) {
+		//} else if(alien.isInPosition(position)) {
+		//	str = alien.getSymbol();
+		} else if(alienManager.isInPosition(position)){
 			str = alien.getSymbol();
 		}
 
@@ -70,17 +75,9 @@ public class Game {
 	}
 
 	public void enableLaser() {
-		//TODO fill your code
-		//disparar
+		//falta pasarle posicion +1(vertical)
+		//UCMLaser laser = new UCMLaser();
 
-		// si hay un alien en la misma columna:
-		//if(alien.pos.equals(/*laNave.pos*/)){
-
-		//	remainingAliens--;
-		//}
-			// eliminar alien
-			// remainingAliens--;
-		
 	}
 
 	public Random getRandom() {
@@ -104,6 +101,7 @@ public class Game {
 	}
 
 	public void mueveAlien(){
-		alien.automaticMove();
+		//alien.automaticMove();
 	}
+
 }
