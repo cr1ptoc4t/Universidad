@@ -24,12 +24,14 @@ public class AlienManager {
 	private boolean descender;
 	private Move dir;
 
+	public RegularAlienList aliens;
+
 
 	public AlienManager(Game game, Level level) {
 		this.level = level;
 		this.game = game;
-		//this.aliens= initializeRegularAliens();
-		//this.remainingAliens= aliens.getCont() + destroyers.getCont();
+		this.aliens= initializeRegularAliens();
+		this.remainingAliens= aliens.getNum(); //+ destroyers.getCont();
 		this.onBorder =onBorder();
 		this.descender= false;
 		this.dir= Move.LEFT;
@@ -43,9 +45,12 @@ public class AlienManager {
 	 */
 	protected RegularAlienList initializeRegularAliens() {
 		//TODO fill your code
-		remainingAliens =20;
+
+		remainingAliens =4;
+
 		RegularAlienList lista = new RegularAlienList(remainingAliens);
-		
+		lista.initializeAlienList(1);
+
 		return lista;
 	}
 
@@ -75,19 +80,12 @@ public class AlienManager {
 
 
 	public void automaticMove(){
+		aliens.automaticMove();
+		//destroyers.automaticMove();
 
-		boolean x= false;
-		/*
-		if(this.listaAliensRegulares.algoOnBorder()&&this.descender){
-			this.aliens.algoListaAliens(this.dir);
+	}
+	public boolean isInPosition(Position pos){
 
-		}else{
-			this.aliens.algoListaAliens(move.DOWN);
-			this.dir= this.dir.inverse();
-			this.descender= true;
-
-		}
-		*/
-
+		return aliens.anAlienInPosition(pos);
 	}
 }

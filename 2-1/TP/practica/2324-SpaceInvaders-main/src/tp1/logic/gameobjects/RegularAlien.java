@@ -47,7 +47,7 @@ public class RegularAlien {
 		performMovement(Move.DOWN);
 	}
 
-	private void performMovement(Move dir) {
+	public void performMovement(Move dir) {
 		pos.actualiza(dir);
 	}
 
@@ -61,7 +61,9 @@ public class RegularAlien {
 
 		return false;
 	}
-	// @return muere
+	/**
+	 * @return muere
+	 */
 	public boolean isInPosition(Position position){
 		return position.equals(pos);
 	}
@@ -72,5 +74,14 @@ public class RegularAlien {
 	public boolean isInCol(int col){
 		return pos.isInCol(col);
 	}
+
+	public boolean isInBorderLeft(){
+		return pos.isInBorderLeft() ;
+	}
+
+	public boolean isInBorderRight(){
+		return pos.isInBorderRight();
+	}
+
 
 }

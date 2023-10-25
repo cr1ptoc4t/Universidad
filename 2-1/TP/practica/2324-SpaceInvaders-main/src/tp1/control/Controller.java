@@ -51,6 +51,7 @@ public class Controller {
 			printGame();
 			comando = prompt();
 			game.mueveAlien();
+			game.mueveAliens();
 			ejecutarComando(comando);
 		}while(!esComandoExit(comando));
 
@@ -109,4 +110,8 @@ public class Controller {
 	private void mueveAlien(){
 		game.mueveAlien();
 	}
+	private void mueveAliens(){
+		game.mueveAliens();
+	}
+
 }

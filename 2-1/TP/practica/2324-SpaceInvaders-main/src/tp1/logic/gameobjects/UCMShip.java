@@ -6,10 +6,13 @@ public class UCMShip{
 	
 	private Position pos;
 	private boolean onBorder;
-	int life;
+	int life=0;
 	public UCMShip(){
-		this.pos = new Position(Game.DIM_X/2, Game.DIM_Y/2);
-		this.life=100;
+		this.pos = new Position(Game.DIM_X/2, Game.DIM_Y-1);
+	}
+
+	public UCMShip(UCMShip ship){
+		this.pos = ship.pos;
 	}
 
 	public String getSymbol(){
@@ -50,6 +53,5 @@ public class UCMShip{
 	}
 
 	void recibeAtaque(){
-		life-=10;
 	}
 }
