@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-int calcula( int ancho, int alto);
+int calcula( int ancho, int alto, int num);
 
 
 bool casoDePrueba() {
@@ -14,7 +14,7 @@ bool casoDePrueba() {
         return false;
     
 
-    int num = calcula(ancho, alto);
+    int num = calcula(ancho, alto,0);
     cout << num << "\n";        
     
     return true;
@@ -30,15 +30,34 @@ int main() {
 
 } // main
 
-int calcula( int ancho,  int alto)
+int calcula( int ancho,  int alto, int num)
 {
-    int suma = 0;
-    while (!(alto < 10 || ancho < 10)) {
-        if (alto > ancho)
-            alto = alto - ancho;
-        else
-            ancho = ancho - alto;
-        suma++;
+    while(ancho!=alto&& !(ancho < 10 || alto < 10)){
+
+        while (alto > ancho) {
+            alto -= ancho;
+            num++;
+        }
+
+        while (ancho > alto && !(ancho < 10 || alto < 10)) {
+            ancho -= alto;
+            num++;
+        }
+
     }
-    return suma;
+    if (ancho == alto)
+        num++;
+
+    return num;
 }
+
+
+/*
+* 
+*       if (2 * alto > ancho) {
+            while (alto > ancho) {
+                alto -= ancho;
+                num++;
+            }
+       }
+*/
