@@ -21,13 +21,14 @@ public class RegularAlien {
 	private AlienManager alienManager;
 	
 	private Position pos;
-	
+	private int lifes;
 	
 	//TODO fill your code
 	public RegularAlien(int x, int y) {
 		//alienManager = new AlienManager();
 		this.pos = new Position(x,y);
 		this.dir = Move.LEFT;
+		this.lifes= 3;
 	}
 	/**
 	 *  Implements the automatic movement of the regular alien	
@@ -83,5 +84,10 @@ public class RegularAlien {
 		return pos.isInBorderRight();
 	}
 
+
+	//ESTE GET?????????????
+	public int getLifes(){
+		return lifes;
+	}
 
 }

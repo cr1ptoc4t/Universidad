@@ -49,9 +49,8 @@ public class Controller {
 		do{
 			//printer.showGame();
 			printGame();
+			movimientosAutomaticos();
 			comando = prompt();
-			game.mueveAlien();
-			game.mueveAliens();
 			ejecutarComando(comando);
 		}while(!esComandoExit(comando));
 
@@ -71,6 +70,7 @@ public class Controller {
 				
 		} else if(comando[0].equals("shoot")||comando[0].equals("s")){
 			game.enableLaser();
+
 		}
 		else if(comando[0].equals("help") || comando[0].equals("h")) {
 			System.out.print("""
@@ -107,11 +107,10 @@ public class Controller {
 		System.out.println(printer.endMessage());
 	}
 
-	private void mueveAlien(){
-		game.mueveAlien();
-	}
-	private void mueveAliens(){
-		game.mueveAliens();
-	}
 
+
+
+	private void movimientosAutomaticos(){
+		game.movimientosAutomaticos();
+	}
 }

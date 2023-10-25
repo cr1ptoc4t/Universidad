@@ -44,14 +44,13 @@ public class RegularAlienList {
 		while(i<num && !objects[i].isInPosition(pos))
 			i++;
 
-
 		return i!=num;
 	}
 
 	public void automaticMove(){
 		if(objects[0].isInBorderLeft()){
 			dir= Move.RIGHT;
-		}else if(objects[num].isInBorderRight()){
+		}else if(objects[num-1].isInBorderRight()){
 			dir=Move.LEFT;
 		}
 		performGroupMovement();

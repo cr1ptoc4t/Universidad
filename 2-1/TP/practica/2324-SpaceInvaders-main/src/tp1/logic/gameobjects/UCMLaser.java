@@ -3,6 +3,7 @@ package tp1.logic.gameobjects;
 import tp1.logic.Game;
 import tp1.logic.Move;
 import tp1.logic.Position;
+import tp1.view.Messages;
 
 /**
  * 
@@ -52,7 +53,7 @@ public class UCMLaser {
 	}
 
 	private void performMovement(Move dir) {
-		//TODO fill your code
+		pos.actualiza(dir);
 	}
 
 	/**
@@ -123,6 +124,10 @@ public class UCMLaser {
 
 	public boolean isInPos(Position pos){
 		return this.pos.equals(pos);
+	}
+
+	public String getSymbol(){
+		return Messages.LASER_SYMBOL;
 	}
 
 }

@@ -3,6 +3,7 @@ package tp1.logic;
 import tp1.logic.Move;
 import java.util.Random;
 import tp1.logic.gameobjects.*;
+import tp1.view.Messages;
 
 // TODO implementar
 
@@ -30,6 +31,9 @@ public class Game {
 		this.laNave= new UCMShip();
 		this.alien = new RegularAlien(DIM_X/2, DIM_Y/3);
 		this.alienManager= new AlienManager(this, level);
+		this.laser= laser;
+		//this.laser = new UCMLaser(new Position(1,0));
+		this.remainingAliens=alienManager.getRemainingAliens();
 		ciclos =0;
 	}
 
@@ -56,13 +60,11 @@ public class Game {
 
 		if(laNave.estaEnPos(position)){
 			str = laNave.getSymbol();
-		//} else if(alien.isInPosition(position)) {
-		//	str = alien.getSymbol();
-		} else if(alienManager.isInPosition(position)){
-			str = alien.getSymbol();
-		} //else if(laser.isInPos(position)){
-
-		//}
+		} else if(alienManager.regularAlienisInPosition(position)){
+			str = " "+alien.getSymbol() +"[" + alien.getLifes()+"]";
+		} else if(laser!=null && laser.isInPos(position)){
+			str = laser.getSymbol();
+		}
 
 		return str;
 	}
@@ -79,8 +81,9 @@ public class Game {
 
 	public void enableLaser() {
 		//falta pasarle posicion +1(vertical)
-		//UCMLaser laser = new UCMLaser();
+		this.laser = new UCMLaser(new Position(4,6));
 
+		ciclos++;
 	}
 
 	public Random getRandom() {
@@ -96,7 +99,8 @@ public class Game {
 		ciclos++;
 	}
 	public void reset() {
-		//faltan cosas
+		// regenerar todos los aliens con todas las vidas
+		// cambiar a posicion inicial los aliens
 		ciclos=0;
 	}
 
@@ -104,10 +108,10 @@ public class Game {
 		ciclos++;
 	}
 
-	public void mueveAlien(){
-		//alien.automaticMove();
-	}
-	public void mueveAliens(){
+	public void movimientosAutomaticos(){
+		if(laser!=null)
+			laser.automaticMove();
 		alienManager.automaticMove();
 	}
+
 }

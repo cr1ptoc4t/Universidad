@@ -84,8 +84,12 @@ public class AlienManager {
 		//destroyers.automaticMove();
 
 	}
-	public boolean isInPosition(Position pos){
+	public boolean regularAlienisInPosition(Position pos){
 
 		return aliens.anAlienInPosition(pos);
+	}
+
+	public int getRemainingAliens(){
+		return remainingAliens;
 	}
 }
