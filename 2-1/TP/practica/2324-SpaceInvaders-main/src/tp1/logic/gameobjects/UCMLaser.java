@@ -121,4 +121,8 @@ public class UCMLaser {
 	}
 	*/
 
+	public boolean isInPos(Position pos){
+		return this.pos.equals(pos);
+	}
+
 }

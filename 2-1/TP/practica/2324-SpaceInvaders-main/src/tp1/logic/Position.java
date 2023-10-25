@@ -67,4 +67,12 @@ public class Position {
 		return col == this.col;
 	}
 
+	public boolean isInBorderLeft(){
+		return col==0;
+	}
+	public boolean isInBorderRight(){
+		return col== Game.DIM_X-1;
+	}
+
+
 }

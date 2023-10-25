@@ -12,6 +12,7 @@ public class Game {
 	public static final int DIM_Y = 8;
 	
 	private UCMShip laNave;
+	private UCMLaser laser;
 	private RegularAlien alien;
 
 	public static Level level;
@@ -59,7 +60,9 @@ public class Game {
 		//	str = alien.getSymbol();
 		} else if(alienManager.isInPosition(position)){
 			str = alien.getSymbol();
-		}
+		} //else if(laser.isInPos(position)){
+
+		//}
 
 		return str;
 	}
@@ -93,6 +96,7 @@ public class Game {
 		ciclos++;
 	}
 	public void reset() {
+		//faltan cosas
 		ciclos=0;
 	}
 
@@ -103,5 +107,7 @@ public class Game {
 	public void mueveAlien(){
 		//alien.automaticMove();
 	}
-
+	public void mueveAliens(){
+		alienManager.automaticMove();
+	}
 }

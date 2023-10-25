@@ -1,5 +1,7 @@
 package tp1.logic.lists;
 
+import tp1.logic.Game;
+import tp1.logic.Move;
 import tp1.logic.Position;
 import tp1.logic.gameobjects.RegularAlien;
 import tp1.logic.gameobjects.UCMLaser;
@@ -13,6 +15,8 @@ public class RegularAlienList {
 
 	private RegularAlien[] objects;
 	private int num;
+
+	private Move dir=Move.LEFT;
 	
 	//TODO fill your code
 	public RegularAlienList(int num) {
@@ -25,8 +29,10 @@ public class RegularAlienList {
 	}
 
 	public void initializeAlienList(int row){
-		for(int i=0;i<getNum();i++){
-			objects[i]= new RegularAlien(i, row);
+		int columna= Game.DIM_X/2 - num/2;
+		for(int i=0;i<num;i++){
+			objects[i]= new RegularAlien(columna, row);
+			columna++;
 		}
 	}
 
@@ -39,8 +45,21 @@ public class RegularAlienList {
 			i++;
 
 
-		return i==num;
+		return i!=num;
 	}
 
+	public void automaticMove(){
+		if(objects[0].isInBorderLeft()){
+			dir= Move.RIGHT;
+		}else if(objects[num].isInBorderRight()){
+			dir=Move.LEFT;
+		}
+		performGroupMovement();
+	}
 
+	private void performGroupMovement(){
+		for(int i=0; i<num;i++){
+			objects[i].performMovement(dir);
+		}
+	}
 }

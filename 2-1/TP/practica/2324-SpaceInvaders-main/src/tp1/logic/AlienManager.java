@@ -49,7 +49,7 @@ public class AlienManager {
 		remainingAliens =4;
 
 		RegularAlienList lista = new RegularAlienList(remainingAliens);
-		lista.initializeAlienList(4);
+		lista.initializeAlienList(1);
 
 		return lista;
 	}
@@ -80,19 +80,8 @@ public class AlienManager {
 
 
 	public void automaticMove(){
-
-		boolean x= false;
-		/*
-		if(this.listaAliensRegulares.algoOnBorder()&&this.descender){
-			this.aliens.algoListaAliens(this.dir);
-
-		}else{
-			this.aliens.algoListaAliens(move.DOWN);
-			this.dir= this.dir.inverse();
-			this.descender= true;
-
-		}
-		*/
+		aliens.automaticMove();
+		//destroyers.automaticMove();
 
 	}
 	public boolean isInPosition(Position pos){
