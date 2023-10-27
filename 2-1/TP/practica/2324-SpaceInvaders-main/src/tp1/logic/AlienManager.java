@@ -46,7 +46,7 @@ public class AlienManager {
 	protected RegularAlienList initializeRegularAliens() {
 		//TODO fill your code
 
-		remainingAliens =4;
+		remainingAliens = 3;
 
 		RegularAlienList lista = new RegularAlienList(remainingAliens);
 		lista.initializeAlienList(1);

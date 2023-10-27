@@ -2,7 +2,7 @@ package seresVivos;
 import propiedades.Ordenable;
 import seresVivos.*;
 
-public class Persona extends SerVivo{
+public class Persona extends SerVivo implements Ordenable{
     // Variable estática como contador de objetos realizados con el constructor sin parámentros
     private static int numID = 0;
     /**
@@ -33,8 +33,17 @@ public class Persona extends SerVivo{
     }
 
     public boolean esMenor(Ordenable otro){
-        return false;
+        Persona otra=(Persona) otro;
+        return this.fechaNac.esMenor(otra.fechaNac);
     }
 
+    public double sueldoAnual(){
+        return 0;
+    }
+
+    public boolean soyMenor(Ordenable o){
+        Persona otra= (Persona) o;
+        returrn otra.fechaNac.esMenor(o.fechaNac);
+    }
 
 }

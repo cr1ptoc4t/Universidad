@@ -39,5 +39,8 @@ public abstract class SerVivo {
         	return this.edad();
         }
 
+        public boolean esMenor(){
+            return false;
+        }
 
 }

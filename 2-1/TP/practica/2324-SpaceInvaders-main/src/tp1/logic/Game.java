@@ -109,9 +109,18 @@ public class Game {
 	}
 
 	public void movimientosAutomaticos(){
+
 		if(laser!=null)
 			laser.automaticMove();
+
 		alienManager.automaticMove();
+
 	}
+
+	public boolean laserMata(){
+		//return laser.pos.equals(algunodelosaliens.pos);
+		return false;
+	}
+
 
 }

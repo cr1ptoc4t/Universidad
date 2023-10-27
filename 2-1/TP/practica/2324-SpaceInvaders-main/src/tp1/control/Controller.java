@@ -49,7 +49,7 @@ public class Controller {
 		do{
 			//printer.showGame();
 			printGame();
-			movimientosAutomaticos();
+			game.movimientosAutomaticos();
 			comando = prompt();
 			ejecutarComando(comando);
 		}while(!esComandoExit(comando));
@@ -105,12 +105,5 @@ public class Controller {
 	 */
 	public void printEndMessage() {
 		System.out.println(printer.endMessage());
-	}
-
-
-
-
-	private void movimientosAutomaticos(){
-		game.movimientosAutomaticos();
 	}
 }

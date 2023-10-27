@@ -48,8 +48,7 @@ public class UCMLaser {
 	}
 
 	private boolean isOut() {
-		//TODO fill your code
-		return false;
+		return pos.esPosicionValida();
 	}
 
 	private void performMovement(Move dir) {

@@ -49,7 +49,10 @@ public class RegularAlienList {
 
 	public void automaticMove(){
 		if(objects[0].isInBorderLeft()){
+			dir=Move.DOWN;
+			performGroupMovement();
 			dir= Move.RIGHT;
+			//this.automaticMove(Move.DOWN);
 		}else if(objects[num-1].isInBorderRight()){
 			dir=Move.LEFT;
 		}

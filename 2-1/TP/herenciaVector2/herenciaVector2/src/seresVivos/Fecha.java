@@ -3,12 +3,14 @@ package seresVivos;
  * Documentación de la clase Fecha
  */
 
+import propiedades.Ordenable;
+
 /**
  * @author Albertoe
  * Segunda documentación
  *
  */
-public class Fecha {
+public class Fecha implements Ordenable {
 	// Atributos siempre privados, se deberían documentar
 	private int dia;
 	private int mes;
@@ -111,4 +113,16 @@ public class Fecha {
 	int getDia(){
 		return dia;
 	}
+
+	public int compareTo(Fecha o){
+		if(o.equals(this)) return 0;
+		else
+			if (this.anyo< o.anyo ||
+					this.anyo==o.anyo && this.mes< o.mes ||
+					this.anyo == o.anyo && this.mes==o.mes && this.dia<o.dia) return 0;
+			else return 1;
+
+	}
+
+
 }
