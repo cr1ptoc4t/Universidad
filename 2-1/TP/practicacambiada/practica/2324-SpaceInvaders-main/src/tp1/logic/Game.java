@@ -33,6 +33,8 @@ public class Game {
 		alienManager.initialize();
 		this.laser = laser;
 		//this.laser = new UCMLaser(new Position(1,0));
+
+		//este alien.getRemaining hay q cambiarlo por la constante
 		this.remainingAliens=alienManager.getRemainingAliens();
 		ciclos =0;
 	}
@@ -57,11 +59,12 @@ public class Game {
 		//TODO fill your code
 		String str = "";
 		Position position = new Position(col,row);
-
 		if(laNave.estaEnPos(position)){
 			str = laNave.getSymbol();
 		} else if(alienManager.regularAlienIsInPosition(position)){
-			str = " "+AlienManager.getSymbol("regular") +"[" + /*alien.getLifes()*/ 3+"]";
+			//esto hay que hacerlo en alienManager!!!
+			str=alienManager.getSymbol("regular");
+			//str = " "+AlienManager.getSymbol("regular") +"[" + /*alien.getLifes()*/ 3+"]";
 		} else if(laser!=null && laser.isInPos(position)){
 			str = laser.getSymbol();
 		}
@@ -80,10 +83,9 @@ public class Game {
 	}
 
 	public void enableLaser() {
-		//falta pasarle posicion +1(vertical)
+		//falta pasarle posicion nave
 		if(laser==null ||( laser!=null	&& !laser.dentroMapa()))
-			this.laser = new UCMLaser(new Position(4,6));	//	esto hay que cambiarlo para que la posicion sea
-																	//	la de la nave pero una fila menos)
+			this.laser = new UCMLaser(new Position(4,7));	//	la posicion tiene que ser la de la nave
 		ciclos++;
 	}
 
@@ -113,13 +115,19 @@ public class Game {
 
 		if(laser!=null) {
 			laser.automaticMove();
-
 		}
 		alienManager.automaticMove();
 
 	}
 	public void eventosAutomaticos(){
-
+		if(laser!=null)
+			alienManager.recibeAtaque(laser);
+		/*
+		int indice = regularAlienIsInPosition(laser.pos);
+		if(indice!=-1){
+			alienManager.eliminaAlien(indice);
+		}
+		*/
 	}
 
 	public boolean laserMata(){

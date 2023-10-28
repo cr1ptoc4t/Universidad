@@ -21,14 +21,14 @@ public class RegularAlien {
 	private AlienManager alienManager;
 	
 	private Position pos;
-	private int lifes;
+	private int points;
 	
 	//TODO fill your code
 	public RegularAlien(int x, int y) {
 		//alienManager = new AlienManager();
 		this.pos = new Position(x,y);
 		this.dir = Move.LEFT;
-		this.lifes= 3;
+		this.points= 2;
 	}
 	/**
 	 *  Implements the automatic movement of the regular alien	
@@ -59,8 +59,11 @@ public class RegularAlien {
 
 	public boolean receiveAttack(UCMLaser laser) {
 		//TODO fill your code
+		if(laser!=null && laser.isInPos(pos)){
+			points--;
+		}
 
-		return false;
+		return laser!=null && laser.isInPos(pos);
 	}
 	/**
 	 * @return muere
@@ -81,10 +84,11 @@ public class RegularAlien {
 		return pos.isInBorderRight();
 	}
 
+	public void die(){
 
-	//ESTE GET?????????????
-	public int getLifes(){
-		return lifes;
+	}
+	public int getPoints(){
+		return points;
 	}
 
 }

@@ -3,6 +3,7 @@ package tp1.logic;
 //import tp1.logic.gameobjects.DestroyerAlien;
 import tp1.logic.gameobjects.RegularAlien;
 //import tp1.logic.lists.DestroyerAlienList;
+import tp1.logic.gameobjects.UCMLaser;
 import tp1.logic.lists.DestroyerAlienList;
 import tp1.logic.lists.RegularAlienList;
 import tp1.view.Messages;
@@ -24,7 +25,7 @@ public class AlienManager {
 
 	private Move dir;
 
-	private RegularAlienList regularAliens;
+	private static RegularAlienList regularAliens;
 	private DestroyerAlienList destroyerAliens;
 
 	public AlienManager(Game game, Level level) {
@@ -33,7 +34,7 @@ public class AlienManager {
 		//this.regularAliens= initializeRegularAliens();
 		//this.remainingAliens= regularAliens.getNum() + destroyerAliens.getNum();
 		//this.onBorder =onBorder();
-		this.dir= Move.RIGHT;
+		this.dir= Move.LEFT;
 	}
 		
 	// INITIALIZER METHODS
@@ -119,7 +120,6 @@ public class AlienManager {
 
 		}
 
-
 		regularAliens.performGroupMovement(dir);
 		//destroyerAliens.performGroupMovement();
 
@@ -143,10 +143,24 @@ public class AlienManager {
 	public static String getSymbol(String type){
 		String str=" ";
 		if(type=="regular"){
-			str = Messages.REGULAR_ALIEN_SYMBOL;
+			str= " "+Messages.REGULAR_ALIEN_SYMBOL +"[" + 2 +"]";		//hay q hacer que saque puntos que tocan
 		} else if (type=="destroyer"){
 			str = Messages.DESTROYER_ALIEN_SYMBOL;
 		}
 		return str;
+	}
+	public void eliminaAlien(int i){
+		regularAliens.eliminar(i);
+		remainingAliens--;
+	}
+
+	public void recibeAtaque(UCMLaser laser){
+		int i= regularAliens.recibeAtaque(laser);
+
+		//if(i!=-1&&lista[i].puntos==0) {
+		//	eliminaAlien(i);
+		//}
+
+		//destroyerAliens.recibeAtaque();
 	}
 }

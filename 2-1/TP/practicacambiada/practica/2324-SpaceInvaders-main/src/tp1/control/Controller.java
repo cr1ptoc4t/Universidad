@@ -58,13 +58,14 @@ public class Controller {
 			 * si hacemos 231 -> pide comando antes de ver el mapa
 			 * si hacemos otro orden -> dibuja antes de ejecutar la instruccion
 			 */
-			printGame();	//1
+			printGame();						//BLOQUE 1
 
-			comando = prompt();			//2
+			comando = prompt();					//BLOQUE 2
 			ejecutarComando(comando);
 
-			game.movimientosAutomaticos();  	//3
+			game.movimientosAutomaticos();  	//BLOQUE 3
 			game.eventosAutomaticos();
+
 
 
 		}while(!esComandoExit(comando));

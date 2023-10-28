@@ -63,4 +63,22 @@ public class RegularAlienList {
 	public boolean onBorder() {
 		return objects[0].isInBorderLeft() || objects[num-1].isInBorderRight();
 	}
+
+	public void eliminar(int indice){
+
+		for(int i=num-1; i>indice;i--){
+			objects[i-1]=objects[i];
+		}
+		num--;
+	}
+
+	public int recibeAtaque(UCMLaser laser){
+		int i=0;
+		while (i<num && !objects[i].receiveAttack(laser)) i++;
+
+		if (i==num) i=-1;
+
+		return i;
+	}
+
 }
