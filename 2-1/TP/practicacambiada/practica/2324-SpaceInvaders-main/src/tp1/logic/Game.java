@@ -64,7 +64,7 @@ public class Game {
 		} else if(alienManager.regularAlienIsInPosition(position)){
 			//esto hay que hacerlo en alienManager!!!
 			str=alienManager.getSymbol("regular");
-			//str = " "+AlienManager.getSymbol("regular") +"[" + /*alien.getLifes()*/ 3+"]";
+
 		} else if(laser!=null && laser.isInPos(position)){
 			str = laser.getSymbol();
 		}

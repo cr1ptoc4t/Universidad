@@ -63,7 +63,7 @@ public class RegularAlien {
 			points--;
 		}
 
-		return laser!=null && laser.isInPos(pos);
+		return points==0;
 	}
 	/**
 	 * @return muere

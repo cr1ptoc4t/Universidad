@@ -16,4 +16,8 @@ public class DestroyerAlien {
         this.pos=new Position(x,y);
         this.lifes=3;
     }
+
+    public void performMovement(Move move){
+        pos.actualiza(move);
+    }
 }

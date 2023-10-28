@@ -30,4 +30,10 @@ public class DestroyerAlienList {
     public boolean onBorder(){
         return false;
     }
+
+    public void performGroupMovement(Move dir){
+        for(int i=0; i<num;i++){
+            objects[i].performMovement(dir);
+        }
+    }
 }

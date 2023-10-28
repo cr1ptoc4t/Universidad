@@ -126,6 +126,19 @@ public class AlienManager {
 	}
 	private void destroyerAutomaticMove(){
 		/*
+		if(destroyerAliens.onBorder() /*|| destroyerAliens.onBorder() * ){
+			Move dirOpuesta = dir.opuesto();
+
+			//bajar
+			dir=Move.DOWN;
+			destroyerAliens.performGroupMovement(dir);
+			//destroyerAliens.performGroupMovement(dir);
+
+			dir=dirOpuesta;
+
+		}
+		*/
+		/*
 		if(aliens[0].isInBorderLeft()){
 			dir=Move.DOWN;
 			performGroupMovement();
@@ -143,12 +156,14 @@ public class AlienManager {
 	public static String getSymbol(String type){
 		String str=" ";
 		if(type=="regular"){
-			str= " "+Messages.REGULAR_ALIEN_SYMBOL +"[" + 2 +"]";		//hay q hacer que saque puntos que tocan
+			str= " "+Messages.REGULAR_ALIEN_SYMBOL +"[" + 2 +"]";		//hay q hacer que saque los puntos que tocan
+
 		} else if (type=="destroyer"){
 			str = Messages.DESTROYER_ALIEN_SYMBOL;
 		}
 		return str;
 	}
+
 	public void eliminaAlien(int i){
 		regularAliens.eliminar(i);
 		remainingAliens--;

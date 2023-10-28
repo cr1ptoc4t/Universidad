@@ -77,7 +77,9 @@ public class RegularAlienList {
 		while (i<num && !objects[i].receiveAttack(laser)) i++;
 
 		if (i==num) i=-1;
-
+		else{
+			eliminar(i);
+		}
 		return i;
 	}
 
