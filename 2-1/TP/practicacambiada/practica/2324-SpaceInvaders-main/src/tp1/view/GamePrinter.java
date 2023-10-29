@@ -68,7 +68,7 @@ public class GamePrinter {
 	}
 
 	/**
-	 * Devuelve el mensaje de despedia en el que se indica el ganador y el resultado.
+	 * Devuelve el mensaje de despedida en el que se indica el ganador y el resultado.
 	 * @return El mensaje con el ganador 
 	 */
 	public String endMessage() {

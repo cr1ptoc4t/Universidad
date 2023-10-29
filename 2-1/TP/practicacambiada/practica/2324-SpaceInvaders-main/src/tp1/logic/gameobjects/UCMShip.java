@@ -56,4 +56,8 @@ public class UCMShip{
 	public void recibeAtaque(DestroyerAlien alien){
 		//si le da -> 1 punto menos
 	}
+	public UCMLaser creaLaser(){
+		Position copia = new Position(pos);
+		return new UCMLaser(copia);
+	}
 }

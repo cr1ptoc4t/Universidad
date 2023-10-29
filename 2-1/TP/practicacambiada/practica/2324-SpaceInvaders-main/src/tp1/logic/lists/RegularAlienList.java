@@ -2,6 +2,7 @@ package tp1.logic.lists;
 import tp1.logic.*;
 import tp1.logic.gameobjects.RegularAlien;
 import tp1.logic.gameobjects.UCMLaser;
+import tp1.view.Messages;
 
 /**
  * Container of regular aliens, implemented as an array with a counter
@@ -16,34 +17,33 @@ public class RegularAlienList {
 	//private Move dir=Move.LEFT;
 
 	private Level level;
-
+	private boolean descent;
 	//TODO fill your code
 	public RegularAlienList(Level level, int num) {
 		this.num = num;
 		objects = new RegularAlien[num];
 
 	}
-
 	public int getNum(){
 		return num;
 	}
 
 	public void initializeAlienList(){
-		int num = 0;
+		int num2 = 0;
 		//esto hay que cambiarlo para que dependa de la constante ALIENS_INI
+
 		for(int row=2;row<4;row++){ //ROWS
 			for(int col=3;col<7;col++){//cols
-				objects[num] = new RegularAlien(col, row, level);
-				num++;
+				objects[num2] = new RegularAlien(new Position(col, row), level);
+				num2++;
 			}
-
 		}
 
-		/*
-		for(int i=0; i<2;i++)
-		for(int j=0;j<num;j++){
-			objects[i]= new RegularAlien(columna, row, level);
 
+		/*
+		for(int col=0;col<num;col++){//cols
+			objects[num2] = new RegularAlien(new Position(col, 2), level);
+			num2++;
 		}
 		*/
 
@@ -53,7 +53,8 @@ public class RegularAlienList {
 	 * @returns un alien del array esta en posicion -> indice
 	 * @else -> -1
 	 */
-	public int anAlienInPosition(Position pos){
+	//esto es una cerdada
+	public int indiceEnPos(Position pos){
 		int i= 0;
 
 		while(i<num && !objects[i].isInPosition(pos))
@@ -76,31 +77,36 @@ public class RegularAlienList {
 
 	public void eliminar(int indice){
 
-		for(int i=num-1; i>indice;i--){
-			objects[i-1]=objects[i];
+		for(int i=num-2; i>indice;i--){
+			objects[i]=objects[i+1];
 		}
 
+		/*
+		for (int i = posicionAEliminar; i < array.length - 1; i++) {
+                array[i] = array[i + 1];
+            }
+		 */
 		num--;
 	}
 
 	public int recibeAtaque(UCMLaser laser){
 		int i=0;
 
-		while (i<num &&laser!=null&& !objects[i].receiveAttack(laser))
+		while (i<num && !objects[i].receiveAttack(laser))
 			i++;
 
 		if (i==num) i=-1;
 		else if(laser==null){
 			eliminar(i);
 		}
+
 		return i;
 	}
-	public int vidaEnPos(Position pos){
-		int i=0;
-		while(i<num && !objects[i].isInPosition(pos))i++;
 
-		if(i==num) return 0;
-		return objects[i].vida();
+
+	public String getSymbol(Position pos){
+		//esto es otra cerdada
+		return  " "+ Messages.REGULAR_ALIEN_SYMBOL +"[" + objects[indiceEnPos(pos)].vida() +"]";
 	}
 
 }

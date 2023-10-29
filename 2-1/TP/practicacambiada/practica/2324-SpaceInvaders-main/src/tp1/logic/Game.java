@@ -23,24 +23,27 @@ public class Game {
 
 	private AlienManager alienManager;
 
+	private long seed;
 	private int puntos;
 	private int vidas;
 	private static final int ALIENS_INI = 3; //USAR ESTO!!!!!!!!!!!!!
 	private int remainingAliens;
 	private int ciclos;
-	//TODO fill your code
+
+
 	public Game(Level level, long seed) {
 		//TODO fill your code
 		this.level=level;
 		this.laNave= new UCMShip();
+		this.seed=seed;
+		createAlienManager();
+		ciclos =0;
+	}
+
+	private void createAlienManager(){
 		this.alienManager = new AlienManager(this, level);
 		alienManager.initialize();
-		this.laser = laser;
-		//this.laser = new UCMLaser(new Position(1,0));
-
-		//este alien.getRemaining hay q cambiarlo por la constante
-		this.remainingAliens=alienManager.getRemainingAliens();
-		ciclos =0;
+		this.remainingAliens=alienManager.ALIENS_INI;
 	}
 
 	public String stateToString() {
@@ -80,37 +83,37 @@ public class Game {
 	}
 
 	public boolean playerWin() {
-		//TODO fill your code
-		return false;
+		return remainingAliens==0;
 	}
 
 	public boolean aliensWin() {
-		//TODO fill your code
+		//return vidas==0;
 		return false;
 	}
 
 	public void enableLaser() {
-		//falta pasarle posicion nave
+
 		if(laser==null ||( laser!=null	&& !laser.dentroMapa()))
-			this.laser = new UCMLaser(new Position(4,7));	//	la posicion tiene que ser la de la nave
+			this.laser = laNave.creaLaser();
+
 		ciclos++;
 	}
 
 	public Random getRandom() {
-		return getRandom();
+		return new Random(seed);
 	}
 
 	public Level getLevel() {
 		return level;
 	}
 	
-	public void mueveNave(Move direccion) {
-		laNave.mueve(direccion);
+	public void mueveNave(Move direction) {
+		laNave.mueve(direction);
 		ciclos++;
 	}
 	public void reset() {
 		// regenerar todos los aliens con todas las vidas
-		// cambiar a posicion inicial los aliens
+		// cambiar a posición inicial los aliens
 		ciclos=0;
 	}
 
@@ -126,10 +129,18 @@ public class Game {
 		alienManager.automaticMove();
 
 	}
+
 	public void eventosAutomaticos(){
-		if(laser!=null)
-			alienManager.recibeAtaque(laser);
+
+		if(laser!=null && alienManager.recibeAtaque(laser)) {
+			laser = null;
+			remainingAliens--;
+			puntos+=5;
+		}
+
+
 		/*
+
 		int indice = regularAlienIsInPosition(laser.pos);
 		if(indice!=-1){
 			alienManager.eliminaAlien(indice);

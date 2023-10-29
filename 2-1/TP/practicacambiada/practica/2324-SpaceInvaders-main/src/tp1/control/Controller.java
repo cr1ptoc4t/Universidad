@@ -56,9 +56,9 @@ public class Controller {
 			// que ir juntos si o si)
 
 			/**
-			 * @si hacemos 123 -> 3 no deberia ejecutarse si es comando exit
+			 * si hacemos 123 → 3 no deberia ejecutarse si es comando exit
 			 * si hacemos 312 -> los aliens empiezan donde no deberían
-			 * si hacemos 231 -> pide comando antes de ver el mapa
+			 * si hacemos 231 → pide comando antes de ver el mapa
 			 * si hacemos otro orden -> dibuja antes de ejecutar la instruccion
 			 */
 
@@ -74,9 +74,9 @@ public class Controller {
 			printGame();						//BLOQUE 1
 
 
-		}while(!esComandoExit(comando));
+		}while(!esComandoExit(comando)&&!game.aliensWin()&&!game.playerWin());
 
-		printer.endMessage();
+		System.out.println(printer.endMessage());
 	}
 
 

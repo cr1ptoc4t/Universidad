@@ -22,11 +22,12 @@ public class RegularAlien {
 	private Level level;
 	
 	//TODO fill your code
-	public RegularAlien(int x, int y, Level level) {
+	public RegularAlien(Position pos, Level level) {
 		//alienManager = new AlienManager();
-		this.pos = new Position(x,y);
+		this.pos = pos;
 		this.dir = direccion(level);
 		this.points= 2;
+		this.level=level;
 	}
 
 	public void performMovement(Move dir) {
@@ -42,8 +43,8 @@ public class RegularAlien {
 		//TODO fill your code
 		if(laser!=null && laser.isInPos(pos)){
 			points--;
-			laser=null;
 		}
+
 		return points==0;
 	}
 	/**

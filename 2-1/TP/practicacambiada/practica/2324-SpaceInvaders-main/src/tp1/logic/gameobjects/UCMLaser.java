@@ -16,16 +16,18 @@ public class UCMLaser {
 	private Move dir;
 	private Game game;
 	private Position pos;
+
 	public UCMLaser(Position pos) {
 		this.dir = Move.UP;
 		this.pos=pos;
 	}
 
+
 	/**
 	 *  Method called when the laser disappears from the board
 	 */
 	public void onDelete() {
-		game.enableLaser();
+
 	}
 
 	/**
@@ -45,8 +47,6 @@ public class UCMLaser {
 	public void die() {
 		//TODO fill your code
 		//dir=null;
-		pos=new Position(-1,-1);
-		//esto no tiene que ser asi, pero lo pongo fuera del mapa asi es como si estuviera destruido
 	}
 
 	private boolean isOut() {
@@ -68,10 +68,8 @@ public class UCMLaser {
 
 	public boolean performAttack(RegularAlien other) {
 		//TODO fill your code
-		//if(other.isInCol(col))
-		//	other.receiveAttack(this);
 
-		//return other.isInCol(col);
+
 		return false;
 	}
 
@@ -113,7 +111,7 @@ public class UCMLaser {
 	
 	/**
 	 * Method to implement the effect of bomb attack on a laser
-	 * @param weapon the received bomb
+	 * param weapon the received bomb
 	 * @return always returns <code>true</code>
 	 */
 	/*
