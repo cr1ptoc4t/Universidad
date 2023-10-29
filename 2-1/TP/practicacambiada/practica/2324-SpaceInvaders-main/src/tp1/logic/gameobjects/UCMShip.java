@@ -3,12 +3,13 @@ import tp1.logic.*;
 import tp1.view.Messages;
 
 public class UCMShip{
-	
+	private final int POS_INI_X=4;
+	private final int POS_INI_Y=7;
 	private Position pos;
 	private boolean onBorder;
-	int life=0;
+	private int vida=0;
 	public UCMShip(){
-		this.pos = new Position(Game.DIM_X/2, Game.DIM_Y-1);
+		this.pos = new Position(POS_INI_X, POS_INI_Y);
 	}
 
 	public UCMShip(UCMShip ship){
@@ -17,7 +18,7 @@ public class UCMShip{
 
 	public String getSymbol(){
 		String symbol=Messages.UCMSHIP_SYMBOL;
-		if(life<0){
+		if(vida<0){
 			symbol=Messages.UCMSHIP_DEAD_SYMBOL;
 		}
 		return symbol;
@@ -52,6 +53,7 @@ public class UCMShip{
 		return pos.equals(new Position(Game.DIM_X-1, Game.DIM_Y/2)) ;
 	}
 
-	void recibeAtaque(){
+	public void recibeAtaque(DestroyerAlien alien){
+		//si le da -> 1 punto menos
 	}
 }

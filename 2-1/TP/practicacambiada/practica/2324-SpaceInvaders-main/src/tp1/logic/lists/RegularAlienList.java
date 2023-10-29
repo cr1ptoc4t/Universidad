@@ -1,8 +1,5 @@
 package tp1.logic.lists;
-import tp1.logic.AlienManager;
-import tp1.logic.Game;
-import tp1.logic.Move;
-import tp1.logic.Position;
+import tp1.logic.*;
 import tp1.logic.gameobjects.RegularAlien;
 import tp1.logic.gameobjects.UCMLaser;
 
@@ -18,25 +15,38 @@ public class RegularAlienList {
 
 	//private Move dir=Move.LEFT;
 
-	private AlienManager alienManager;
-
+	private Level level;
 
 	//TODO fill your code
-	public RegularAlienList(int num) {
+	public RegularAlienList(Level level, int num) {
 		this.num = num;
 		objects = new RegularAlien[num];
+
 	}
 
 	public int getNum(){
 		return num;
 	}
 
-	public void initializeAlienList(int row){
-		int columna= Game.DIM_X/2 - num/2;
-		for(int i=0;i<num;i++){
-			objects[i]= new RegularAlien(columna, row);
-			columna++;
+	public void initializeAlienList(){
+		int num = 0;
+		//esto hay que cambiarlo para que dependa de la constante ALIENS_INI
+		for(int row=2;row<4;row++){ //ROWS
+			for(int col=3;col<7;col++){//cols
+				objects[num] = new RegularAlien(col, row, level);
+				num++;
+			}
+
 		}
+
+		/*
+		for(int i=0; i<2;i++)
+		for(int j=0;j<num;j++){
+			objects[i]= new RegularAlien(columna, row, level);
+
+		}
+		*/
+
 	}
 
 	/**
@@ -69,18 +79,28 @@ public class RegularAlienList {
 		for(int i=num-1; i>indice;i--){
 			objects[i-1]=objects[i];
 		}
+
 		num--;
 	}
 
 	public int recibeAtaque(UCMLaser laser){
 		int i=0;
-		while (i<num && !objects[i].receiveAttack(laser)) i++;
+
+		while (i<num &&laser!=null&& !objects[i].receiveAttack(laser))
+			i++;
 
 		if (i==num) i=-1;
-		else{
+		else if(laser==null){
 			eliminar(i);
 		}
 		return i;
+	}
+	public int vidaEnPos(Position pos){
+		int i=0;
+		while(i<num && !objects[i].isInPosition(pos))i++;
+
+		if(i==num) return 0;
+		return objects[i].vida();
 	}
 
 }

@@ -15,7 +15,8 @@ import tp1.view.Messages;
  *
  */
 public class AlienManager {
-	
+
+	private final int ALIENS_INI =8;
 	private Level level;
 	private Game game;
 	private int remainingAliens;
@@ -58,8 +59,8 @@ public class AlienManager {
 		//TODO fill your code
 		//remainingAliens = 3;
 
-		RegularAlienList lista = new RegularAlienList(3);
-		lista.initializeAlienList(1);
+		RegularAlienList lista = new RegularAlienList(level,ALIENS_INI);
+		lista.initializeAlienList();
 
 		return lista;
 	}
@@ -153,10 +154,12 @@ public class AlienManager {
 
 		 */
 	}
-	public static String getSymbol(String type){
+	public static String getSymbol(String type, Position pos){
 		String str=" ";
 		if(type=="regular"){
-			str= " "+Messages.REGULAR_ALIEN_SYMBOL +"[" + 2 +"]";		//hay q hacer que saque los puntos que tocan
+			//lo de la posicion es una guarrada pero esq ahora mismo ns como debugear
+			//hay q hacer que saque los puntos que tocan
+			str= " "+Messages.REGULAR_ALIEN_SYMBOL +"[" + regularAliens.vidaEnPos(pos) +"]";
 
 		} else if (type=="destroyer"){
 			str = Messages.DESTROYER_ALIEN_SYMBOL;
@@ -172,6 +175,10 @@ public class AlienManager {
 	public void recibeAtaque(UCMLaser laser){
 		int i= regularAliens.recibeAtaque(laser);
 
+		if(i!=-1) {
+			//remainingAliens--;
+			laser.die();
+		}
 		//if(i!=-1&&lista[i].puntos==0) {
 		//	eliminaAlien(i);
 		//}

@@ -5,6 +5,10 @@ import java.util.Random;
 import tp1.logic.gameobjects.*;
 import tp1.view.Messages;
 
+import static tp1.util.MyStringUtils.repeat;
+import tp1.logic.Game;
+import tp1.util.MyStringUtils;
+
 // TODO implementar
 
 public class Game {
@@ -14,13 +18,13 @@ public class Game {
 	
 	private UCMShip laNave;
 	private UCMLaser laser;
-	private RegularAlien alien;
 
 	public static Level level;
 
 	private AlienManager alienManager;
-	
-	
+
+	private int puntos;
+	private int vidas;
 	private static final int ALIENS_INI = 3; //USAR ESTO!!!!!!!!!!!!!
 	private int remainingAliens;
 	private int ciclos;
@@ -39,11 +43,15 @@ public class Game {
 		ciclos =0;
 	}
 
-
-	//que hace esto??????
 	public String stateToString() {
-		//TODO fill your code
-		return null;
+
+		StringBuilder buffer = new StringBuilder();
+
+		buffer.append("Life: ").append(vidas)
+				.append("\n").append("Points: ")
+				.append(puntos).append("\n");
+
+		return buffer.toString();
 	}
 
 	public int getCycle() {
@@ -62,8 +70,7 @@ public class Game {
 		if(laNave.estaEnPos(position)){
 			str = laNave.getSymbol();
 		} else if(alienManager.regularAlienIsInPosition(position)){
-			//esto hay que hacerlo en alienManager!!!
-			str=alienManager.getSymbol("regular");
+			str=alienManager.getSymbol("regular", new Position(col, row));
 
 		} else if(laser!=null && laser.isInPos(position)){
 			str = laser.getSymbol();

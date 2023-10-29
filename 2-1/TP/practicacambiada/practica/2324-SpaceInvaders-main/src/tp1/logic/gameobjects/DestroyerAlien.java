@@ -20,4 +20,8 @@ public class DestroyerAlien {
     public void performMovement(Move move){
         pos.actualiza(move);
     }
+
+    public void leaveBomb(){
+        Bomb bomb = new Bomb(this.pos);
+    }
 }

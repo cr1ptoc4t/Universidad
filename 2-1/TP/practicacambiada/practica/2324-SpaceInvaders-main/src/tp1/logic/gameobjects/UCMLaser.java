@@ -42,13 +42,15 @@ public class UCMLaser {
 
 	
 	
-	private void die() {
+	public void die() {
 		//TODO fill your code
-		//game.aliensWin();
+		//dir=null;
+		pos=new Position(-1,-1);
+		//esto no tiene que ser asi, pero lo pongo fuera del mapa asi es como si estuviera destruido
 	}
 
 	private boolean isOut() {
-		return pos.esPosicionValida();
+		return !pos.esPosicionValida();
 	}
 
 	private void performMovement(Move dir) {
