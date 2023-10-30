@@ -1,0 +1,128 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Sun Oct 29 16:04:30 2023
+# Process ID: 13572
+# Current directory: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10680 C:\Users\Presentacion\Desktop\Alai Uni Hub\2\TC\PR3\PR3.xpr
+# Log file: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/vivado.log
+# Journal file: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3\vivado.jou
+# Running On: A3PORT93699, OS: Windows, CPU Frequency: 2112 MHz, CPU Physical cores: 4, Host memory: 8363 MB
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.xpr}
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files {{C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/celda.vhd}}] -no_script -reset -force -quiet
+remove_files  {{C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/celda.vhd}}
+add_files -norecurse {{C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparador.vhd}}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+launch_simulation
+launch_simulation
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+launch_simulation
+source tb_comparadores.tcl
+close_sim
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+reset_run impl_1 -prev_step 
+launch_simulation
+source tb_comparadores.tcl
+close_sim
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+reset_run impl_1 -prev_step 
+launch_simulation
+source tb_comparadores.tcl
+close_sim
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_simulation
+source tb_comparadores.tcl
+add_bp {C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd} 49
+remove_bps -file {C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd} -line 49
+add_bp {C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd} 49
+remove_bps -file {C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd} -line 49
+add_bp {C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd} 49
+remove_bps -file {C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd} -line 49
+close_sim
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_simulation
+source tb_comparadores.tcl
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+close_sim
+launch_simulation
+source tb_comparadores.tcl
+close_sim
+launch_simulation
+source tb_comparadores.tcl
+close_sim
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+open_run impl_1
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+connect_hw_server -allow_non_jtag
+close_hw_manager
+close_design
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+connect_hw_server -allow_non_jtag
+connect_hw_server -allow_non_jtag

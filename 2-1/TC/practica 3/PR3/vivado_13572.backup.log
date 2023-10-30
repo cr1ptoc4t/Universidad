@@ -1,0 +1,890 @@
+#-----------------------------------------------------------
+# Vivado v2023.1 (64-bit)
+# SW Build 3865809 on Sun May  7 15:05:29 MDT 2023
+# IP Build 3864474 on Sun May  7 20:36:21 MDT 2023
+# SharedData Build 3865790 on Sun May 07 13:33:03 MDT 2023
+# Start of session at: Sun Oct 29 16:04:30 2023
+# Process ID: 13572
+# Current directory: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10680 C:\Users\Presentacion\Desktop\Alai Uni Hub\2\TC\PR3\PR3.xpr
+# Log file: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/vivado.log
+# Journal file: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3\vivado.jou
+# Running On: A3PORT93699, OS: Windows, CPU Frequency: 2112 MHz, CPU Physical cores: 4, Host memory: 8363 MB
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.xpr}
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kc705:part0:1.6 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kc705/1.6/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.6 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu105/1.6/board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.7 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu105/1.7/board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu1500:part0:1.2 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu1500/1.2/board.xml as part xcku115-flvb2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc707:part0:1.4 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc707/1.4/board.xml as part xc7vx485tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc709:part0:1.8 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc709/1.8/board.xml as part xc7vx690tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:2.2 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/2.2/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/3.0/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.1 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/3.1/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.2 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/3.2/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190_newl/production/1.0/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.1 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190_newl/production/1.1/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.6 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu108/1.6/board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.7 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu108/1.7/board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu110:part0:1.4 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu110/1.4/board.xml as part xcvu190-flgc2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.0/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.3 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.3/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.4 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.4/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu129:part0:1.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu129/production/1.0/board.xml as part xcvu29p-fsga2577-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu1525:part0:1.3 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu1525/1.3/board.xml as part xcvu9p-fsgd2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.1 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.1/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.0/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.1 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.1/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_mpsoc:part0:1.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vermeo_t1_mpsoc/1.0/board.xml as part xczu19eg-ffvd1760-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_rfsoc:part0:1.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vermeo_t1_rfsoc/1.0/board.xml as part xczu21dr-ffvd1156-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/production/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.1 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.1/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:2.2 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/2.2/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/3.0/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.1 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/3.1/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.2 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/3.2/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_newl:part0:1.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180_newl/production/1.0/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_newl:part0:1.1 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180_newl/production/1.1/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/production/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.1 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/production/1.1/board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.3 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.3/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.1 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.1/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/production/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.1 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/production/1.1/board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.1 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.1/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zc706:part0:1.4 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zc706/1.4/board.xml as part xc7z045ffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu102:part0:3.3 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu102/3.3/board.xml as part xczu9eg-ffvb1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu102:part0:3.4 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu102/3.4/board.xml as part xczu9eg-ffvb1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.2 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.2/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.3 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.3/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.4 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.4/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1275:part0:1.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1275/1.0/board.xml as part xczu29dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1285:part0:1.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1285/1.0/board.xml as part xczu39dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208:part0:2.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/production/2.0/board.xml as part xczu48dr-fsvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/production/2.0/board.xml as part xczu49dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at C:/Xilinx/Vivado/2023.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2023.1/data/ip'.
+open_project: Time (s): cpu = 00:00:33 ; elapsed = 00:00:26 . Memory (MB): peak = 1435.926 ; gain = 371.184
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files {{C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/celda.vhd}}] -no_script -reset -force -quiet
+remove_files  {{C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/celda.vhd}}
+add_files -norecurse {{C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparador.vhd}}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_comparadores'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_comparadores' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_comparadores_vhdl.prj"
+ECHO est  desactivado.
+ECHO est  desactivado.
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparador.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'comparador'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'red_iterativa_comparadores'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/tb_comparadores.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'tb_comparadores'
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_comparadores_behav xil_defaultlib.tb_comparadores -log elaborate.log"
+ECHO est  desactivado.
+ECHO est  desactivado.
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_comparadores_behav xil_defaultlib.tb_comparadores -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+ERROR: [VRFC 10-666] expression has 8 elements; expected 4 [C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd:45]
+ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit tb_comparadores in library work failed.
+INFO: [Common 17-344] 'run_program' was cancelled
+INFO: [Vivado 12-5357] 'elaborate' step aborted
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 1800.398 ; gain = 0.000
+INFO: [Common 17-344] 'launch_simulation' was cancelled
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_comparadores'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_comparadores' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_comparadores_vhdl.prj"
+ECHO est  desactivado.
+ECHO est  desactivado.
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparador.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'comparador'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'red_iterativa_comparadores'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_comparadores_behav xil_defaultlib.tb_comparadores -log elaborate.log"
+ECHO est  desactivado.
+ECHO est  desactivado.
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_comparadores_behav xil_defaultlib.tb_comparadores -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+ERROR: [VRFC 10-666] expression has 8 elements; expected 4 [C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd:45]
+ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit tb_comparadores in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_runs synth_1 -jobs 4
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Sun Oct 29 16:48:20 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Sun Oct 29 16:53:24 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Sun Oct 29 16:54:32 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Sun Oct 29 16:55:05 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Sun Oct 29 17:00:27 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Sun Oct 29 17:20:04 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Sun Oct 29 17:33:41 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Sun Oct 29 17:38:12 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Sun Oct 29 17:41:37 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Sun Oct 29 18:02:32 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Sun Oct 29 18:04:23 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Sun Oct 29 18:05:22 2023] Launched impl_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/impl_1/runme.log
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_comparadores'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_comparadores' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_comparadores_vhdl.prj"
+ECHO est  desactivado.
+ECHO est  desactivado.
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'red_iterativa_comparadores'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_comparadores_behav xil_defaultlib.tb_comparadores -log elaborate.log"
+ECHO est  desactivado.
+ECHO est  desactivado.
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_comparadores_behav xil_defaultlib.tb_comparadores -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-4940] 'red_arbol_comparadores' remains a black box since it has no binding entity [C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/tb_comparadores.vhd:64]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture rtl of entity xil_defaultlib.comparador [comparador_default]
+Compiling architecture struct of entity xil_defaultlib.red_iterativa_comparadores [\red_iterativa_comparadores(num_...]
+Compiling architecture beh of entity xil_defaultlib.tb_comparadores
+Built simulation snapshot tb_comparadores_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_comparadores_behav -key {Behavioral:sim_1:Functional:tb_comparadores} -tclbatch {tb_comparadores.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_comparadores.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_comparadores_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:02 ; elapsed = 00:00:08 . Memory (MB): peak = 1800.398 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+reset_run synth_1
+INFO: [Project 1-1160] Copying file C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/red_iterativa_comparadores.dcp to C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.srcs/utils_1/imports/synth_1 and adding it to utils fileset
+launch_runs synth_1 -jobs 4
+[Sun Oct 29 18:11:05 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+[Sun Oct 29 18:11:48 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Sun Oct 29 18:12:51 2023] Launched impl_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/impl_1/runme.log
+reset_run impl_1 -prev_step 
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_comparadores'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_comparadores' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_comparadores_vhdl.prj"
+ECHO est  desactivado.
+ECHO est  desactivado.
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparador.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'comparador'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'red_iterativa_comparadores'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_comparadores_behav xil_defaultlib.tb_comparadores -log elaborate.log"
+ECHO est  desactivado.
+ECHO est  desactivado.
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_comparadores_behav xil_defaultlib.tb_comparadores -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-4940] 'red_arbol_comparadores' remains a black box since it has no binding entity [C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/tb_comparadores.vhd:64]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture rtl of entity xil_defaultlib.comparador [comparador_default]
+Compiling architecture struct of entity xil_defaultlib.red_iterativa_comparadores [\red_iterativa_comparadores(num_...]
+Compiling architecture beh of entity xil_defaultlib.tb_comparadores
+Built simulation snapshot tb_comparadores_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_comparadores_behav -key {Behavioral:sim_1:Functional:tb_comparadores} -tclbatch {tb_comparadores.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_comparadores.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_comparadores_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 2618.914 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.srcs/utils_1/imports/synth_1/red_iterativa_comparadores.dcp with file C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/red_iterativa_comparadores.dcp
+launch_runs synth_1 -jobs 4
+[Sun Oct 29 18:26:46 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Sun Oct 29 18:27:43 2023] Launched impl_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/impl_1/runme.log
+reset_run impl_1 -prev_step 
+WARNING: [Vivado 12-1017] Problems encountered:
+1. PID not specified
+
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_comparadores'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_comparadores' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_comparadores_vhdl.prj"
+ECHO est  desactivado.
+ECHO est  desactivado.
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'red_iterativa_comparadores'
+INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_comparadores_behav xil_defaultlib.tb_comparadores -log elaborate.log"
+ECHO est  desactivado.
+ECHO est  desactivado.
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_comparadores_behav xil_defaultlib.tb_comparadores -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-4940] 'red_arbol_comparadores' remains a black box since it has no binding entity [C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/tb_comparadores.vhd:64]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture rtl of entity xil_defaultlib.comparador [comparador_default]
+Compiling architecture struct of entity xil_defaultlib.red_iterativa_comparadores [\red_iterativa_comparadores(num_...]
+Compiling architecture beh of entity xil_defaultlib.tb_comparadores
+Built simulation snapshot tb_comparadores_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_comparadores_behav -key {Behavioral:sim_1:Functional:tb_comparadores} -tclbatch {tb_comparadores.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_comparadores.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_comparadores_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:09 . Memory (MB): peak = 2618.914 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.srcs/utils_1/imports/synth_1/red_iterativa_comparadores.dcp with file C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/red_iterativa_comparadores.dcp
+launch_runs synth_1 -jobs 4
+[Sun Oct 29 18:31:44 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/runme.log
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_comparadores'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_comparadores' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_comparadores_vhdl.prj"
+ECHO est  desactivado.
+ECHO est  desactivado.
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'red_iterativa_comparadores'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_comparadores_behav xil_defaultlib.tb_comparadores -log elaborate.log"
+ECHO est  desactivado.
+ECHO est  desactivado.
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_comparadores_behav xil_defaultlib.tb_comparadores -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-4940] 'red_arbol_comparadores' remains a black box since it has no binding entity [C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/tb_comparadores.vhd:64]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture rtl of entity xil_defaultlib.comparador [comparador_default]
+Compiling architecture struct of entity xil_defaultlib.red_iterativa_comparadores [\red_iterativa_comparadores(num_...]
+Compiling architecture beh of entity xil_defaultlib.tb_comparadores
+Built simulation snapshot tb_comparadores_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_comparadores_behav -key {Behavioral:sim_1:Functional:tb_comparadores} -tclbatch {tb_comparadores.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_comparadores.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_comparadores_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 2618.914 ; gain = 0.000
+add_bp {C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd} 49
+remove_bps -file {C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd} -line 49
+add_bp {C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd} 49
+remove_bps -file {C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd} -line 49
+add_bp {C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd} 49
+remove_bps -file {C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd} -line 49
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.srcs/utils_1/imports/synth_1/red_iterativa_comparadores.dcp with file C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/red_iterativa_comparadores.dcp
+launch_runs synth_1 -jobs 4
+[Sun Oct 29 18:36:45 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/runme.log
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_comparadores'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_comparadores' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_comparadores_vhdl.prj"
+ECHO est  desactivado.
+ECHO est  desactivado.
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparadores.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'red_iterativa_comparadores'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_comparadores_behav xil_defaultlib.tb_comparadores -log elaborate.log"
+ECHO est  desactivado.
+ECHO est  desactivado.
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_comparadores_behav xil_defaultlib.tb_comparadores -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-4940] 'red_arbol_comparadores' remains a black box since it has no binding entity [C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/tb_comparadores.vhd:64]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture rtl of entity xil_defaultlib.comparador [comparador_default]
+Compiling architecture struct of entity xil_defaultlib.red_iterativa_comparadores [\red_iterativa_comparadores(num_...]
+Compiling architecture beh of entity xil_defaultlib.tb_comparadores
+Built simulation snapshot tb_comparadores_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_comparadores_behav -key {Behavioral:sim_1:Functional:tb_comparadores} -tclbatch {tb_comparadores.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_comparadores.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_comparadores_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 2618.914 ; gain = 0.000
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.srcs/utils_1/imports/synth_1/red_iterativa_comparadores.dcp with file C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/red_iterativa_comparadores.dcp
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+[Sun Oct 29 18:39:25 2023] Launched synth_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1/runme.log
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_comparadores'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_comparadores' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_comparadores_vhdl.prj"
+ECHO est  desactivado.
+ECHO est  desactivado.
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/comparador.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'comparador'
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_comparadores_behav xil_defaultlib.tb_comparadores -log elaborate.log"
+ECHO est  desactivado.
+ECHO est  desactivado.
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_comparadores_behav xil_defaultlib.tb_comparadores -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-4940] 'red_arbol_comparadores' remains a black box since it has no binding entity [C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/tb_comparadores.vhd:64]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture rtl of entity xil_defaultlib.comparador [comparador_default]
+Compiling architecture struct of entity xil_defaultlib.red_iterativa_comparadores [\red_iterativa_comparadores(num_...]
+Compiling architecture beh of entity xil_defaultlib.tb_comparadores
+Built simulation snapshot tb_comparadores_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_comparadores_behav -key {Behavioral:sim_1:Functional:tb_comparadores} -tclbatch {tb_comparadores.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_comparadores.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_comparadores_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 2618.914 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'tb_comparadores'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2023.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb_comparadores' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj tb_comparadores_vhdl.prj"
+ECHO est  desactivado.
+ECHO est  desactivado.
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_comparadores_behav xil_defaultlib.tb_comparadores -log elaborate.log"
+ECHO est  desactivado.
+ECHO est  desactivado.
+Vivado Simulator v2023.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2023.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_comparadores_behav xil_defaultlib.tb_comparadores -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-4940] 'red_arbol_comparadores' remains a black box since it has no binding entity [C:/Users/Presentacion/Desktop/Alai Uni Hub/2º/TC/Archivos practica 3/tb_comparadores.vhd:64]
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_comparadores_behav -key {Behavioral:sim_1:Functional:tb_comparadores} -tclbatch {tb_comparadores.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb_comparadores.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_comparadores_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 2618.914 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_runs impl_1 -jobs 4
+[Sun Oct 29 18:48:38 2023] Launched impl_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2618.914 ; gain = 0.000
+INFO: [Project 1-479] Netlist was created with Vivado 2023.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF Files: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 2618.914 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 2618.914 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2618.914 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 2700.234 ; gain = 81.320
+WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Sun Oct 29 18:51:02 2023] Launched impl_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/impl_1/runme.log
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+ECHO est  desactivado.
+ECHO est  desactivado.
+
+****** Xilinx hw_server v2023.1
+  **** Build date : May  7 2023 at 15:26:57
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+ECHO est  desactivado.
+ECHO est  desactivado.
+
+
+******** Xilinx cs_server v2023.1.0
+  ****** Build date   : Apr 10 2023-17:59:24
+    **** Build number : 2023.1.1681142364
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+ERROR: [Labtools 27-3733] Error during cs_server initialization: Failed to connect cs_server at TCP:localhost:58583 to hw_server at TCP:localhost:3121.
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:12 . Memory (MB): peak = 2733.117 ; gain = 2.305
+ERROR: [Common 17-39] 'connect_hw_server' failed due to earlier errors.
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+ECHO est  desactivado.
+ECHO est  desactivado.
+
+
+******** Xilinx cs_server v2023.1.0
+  ****** Build date   : Apr 10 2023-17:59:24
+    **** Build number : 2023.1.1681142364
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+ERROR: [Labtools 27-3733] Error during cs_server initialization: Failed to connect cs_server at TCP:localhost:58588 to hw_server at TCP:localhost:3121.
+ERROR: [Common 17-39] 'connect_hw_server' failed due to earlier errors.
+close_hw_manager
+close_design
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Sun Oct 29 18:53:49 2023] Launched impl_1...
+Run output will be captured here: C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/impl_1/runme.log
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+ECHO est  desactivado.
+ECHO est  desactivado.
+
+****** Xilinx hw_server v2023.1
+  **** Build date : May  7 2023 at 15:26:57
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+ECHO est  desactivado.
+ECHO est  desactivado.
+
+
+******** Xilinx cs_server v2023.1.0
+  ****** Build date   : Apr 10 2023-17:59:24
+    **** Build number : 2023.1.1681142364
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+ERROR: [Labtools 27-3733] Error during cs_server initialization: Failed to connect cs_server at TCP:localhost:58627 to hw_server at TCP:localhost:3121.
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 2740.488 ; gain = 0.000
+ERROR: [Common 17-39] 'connect_hw_server' failed due to earlier errors.
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+ECHO est  desactivado.
+ECHO est  desactivado.
+
+****** Xilinx hw_server v2023.1
+  **** Build date : May  7 2023 at 15:26:57
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+ECHO est  desactivado.
+ECHO est  desactivado.
+
+
+******** Xilinx cs_server v2023.1.0
+  ****** Build date   : Apr 10 2023-17:59:24
+    **** Build number : 2023.1.1681142364
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+ERROR: [Labtools 27-3733] Error during cs_server initialization: Failed to connect cs_server at TCP:localhost:58652 to hw_server at TCP:localhost:3121.
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 2740.488 ; gain = 0.000
+ERROR: [Common 17-39] 'connect_hw_server' failed due to earlier errors.
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+ECHO est  desactivado.
+ECHO est  desactivado.
+
+
+******** Xilinx cs_server v2023.1.0
+  ****** Build date   : Apr 10 2023-17:59:24
+    **** Build number : 2023.1.1681142364
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+ERROR: [Labtools 27-3733] Error during cs_server initialization: Failed to connect cs_server at TCP:localhost:58658 to hw_server at TCP:localhost:3121.
+ERROR: [Common 17-39] 'connect_hw_server' failed due to earlier errors.
+exit
+INFO: [Common 17-206] Exiting Vivado at Sun Oct 29 18:56:28 2023...
