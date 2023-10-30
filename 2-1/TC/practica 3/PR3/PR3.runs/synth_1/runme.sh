@@ -25,7 +25,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/Presentacion/Desktop/Alai Uni Hub/2/TC/PR3/PR3.runs/synth_1'
+HD_PWD='C:/Users/Catalina/Documents/Universidad/2-1/TC/practica 3/PR3/PR3.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

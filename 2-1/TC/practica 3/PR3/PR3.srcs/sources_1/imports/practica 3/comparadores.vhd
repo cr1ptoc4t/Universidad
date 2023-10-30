@@ -22,8 +22,8 @@ architecture struct of red_iterativa_comparadores is --ARCHITECTURA, Define inte
     component comparador
     port(
         x: in std_logic_vector(num_bits - 1 downto 0);
-        ci: in std_logic_vector(num_bits - 1 downto 0);
-        ci1: out std_logic_vector(num_bits - 1 downto 0);
+        c: in std_logic_vector(num_bits - 1 downto 0);
+        c1: out std_logic_vector(num_bits - 1 downto 0);
         z: out std_logic_vector(num_bits - 1 downto 0)
     );
     end component;
@@ -33,16 +33,16 @@ architecture struct of red_iterativa_comparadores is --ARCHITECTURA, Define inte
 
     begin
         --generate
-        gen_comparadores: for i in 0 to N generate
-            comp_i : component
-                generic map(
-                    num_bits: natural := 4
-                );
+        gen_comparadores: for i in 0 to num_entradas generate
+            comp_i : comparador
                 port map(
-                    x1: in std_logic_vector (num_bits - 1 downto 0);
-                    x2:in std_logic_vector (num_bits - 1 downto 0);
-                    z: out std_logic_vector (num_bits - 1 downto 0)
+                  X((i+1)*num_bits - 1 downto i*num_bits),
+                  C((i+1)*num_bits - 1 downto i * num_bits),
+                  C((i+2)*num_bits - 1 downto i*num_bits)
                 );
+                
+                S <= C(num_entradas*num_bits-1 downto num_entradas *num_bits-4);
+        
         end generate gen_comparadores;
     
 
