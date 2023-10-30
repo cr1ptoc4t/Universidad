@@ -7,7 +7,6 @@ import java.util.Objects;
  * 
  */
 public class Position {
-
 	private int col;
 	private int row;
 	
@@ -16,6 +15,7 @@ public class Position {
 		this.row = row;
 	}
 
+	//duplicador de posicion
 	public Position (Position posicion2){
 		this.col = posicion2.col;
 		this.row = posicion2.row;
@@ -53,10 +53,7 @@ public class Position {
 		row = row + mov.getY();
 	}
 
-	public boolean isInCol(int col){
-		//return this.row.equals(row);
-		return col == this.col;
-	}
+	public boolean isInCol(int col){ return col == this.col;}
 
 	public boolean isInBorderLeft(){
 		return col==0;

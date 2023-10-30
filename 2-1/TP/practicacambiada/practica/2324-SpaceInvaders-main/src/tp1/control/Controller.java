@@ -2,6 +2,7 @@ package tp1.control;
 
 import static tp1.view.Messages.debug;
 
+import java.nio.Buffer;
 import java.util.Scanner;
 
 import tp1.logic.Game;
@@ -47,30 +48,35 @@ public class Controller {
 		//TODO fill your code
 		String[]comando;
 
+		printGame();
+
 		do{
 			// yo esto ns en que orden ponerlo
 			// (esta separado por bloques que tienen
 			// que ir juntos si o si)
 
 			/**
-			 * @si hacemos 123 -> 3 no deberia ejecutarse si es comando exit
+			 * si hacemos 123 → 3 no deberia ejecutarse si es comando exit
 			 * si hacemos 312 -> los aliens empiezan donde no deberían
-			 * si hacemos 231 -> pide comando antes de ver el mapa
+			 * si hacemos 231 → pide comando antes de ver el mapa
 			 * si hacemos otro orden -> dibuja antes de ejecutar la instruccion
 			 */
-			printGame();						//BLOQUE 1
+
 
 			comando = prompt();					//BLOQUE 2
 			ejecutarComando(comando);
 
+
+
 			game.movimientosAutomaticos();  	//BLOQUE 3
 			game.eventosAutomaticos();
 
+			printGame();						//BLOQUE 1
 
 
-		}while(!esComandoExit(comando));
+		}while(!esComandoExit(comando)&&!game.aliensWin()&&!game.playerWin());
 
-		printer.endMessage();
+		System.out.println(printer.endMessage());
 	}
 
 
@@ -89,20 +95,19 @@ public class Controller {
 
 		}
 		else if(comando[0].equals("help") || comando[0].equals("h")) {
-			System.out.print("""
-					[m]ove <left|lleft|right|rright>: Moves UCM-Ship to the indicated direction.
-					[s]hoot: UCM-Ship launches a laser.
-					shock[W]ave: UCM-Ship releases a shock wave.
-					[l]ist: Prints the list of available ships.
-					[r]eset: Starts a new game.
-					[h]elp: Prints this help message.
-					[e]xit: Terminates the program.
-					[n]one: Skips one cycle.""");
+			System.out.println(Messages.HELP);
 		}
 		else if (comando[0].equals("reset") || comando[0].equals("r")) {
 			game.reset();
 		}else if(comando[0].equals("l")|| comando[0].equals("list")) {
-			//
+			/*
+			[U]CM Ship: damage='1', endurance='3'
+			[R]egular Alien: points='5', damage='0', endurance='2'
+			[D]estroyer Alien: points='10', damage='1', endurance='1'
+			U[f]o: points='25', damage='0', endurance='1'
+			 */
+
+			System.out.println(list());
 		}else if(comando[0].equals("n")||comando[0].equals("none")){
 			game.pasaCiclo();
 		}
@@ -119,7 +124,21 @@ public class Controller {
 	/**
 	 * Prints the final message once the game is finished
 	 */
-	public void printEndMessage() {
-		System.out.println(printer.endMessage());
+	private String list() {
+		StringBuilder buffer = new StringBuilder();
+		/* @formatter:off */
+		buffer.append(Messages.ucmShipDescription(Messages.UCMSHIP_DESCRIPTION,3, 2));
+
+		//if(hay aliens)
+		//for cada alien
+		//buffer.append("\n").append(Messages.alienDescription(Messages.REGULAR_ALIEN_DESCRIPTION, 5, 0, 2));
+		//if hay destroyer aliens
+		// for
+		//buffer.append(NEW_LINE).....
+		//if hay ufo
+		// buffer.append......
+
+
+		return buffer.toString();
 	}
 }

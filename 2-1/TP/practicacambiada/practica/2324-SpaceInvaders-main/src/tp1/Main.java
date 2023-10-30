@@ -57,10 +57,6 @@ public class Main {
 					Controller controller = new Controller(game, scanner);
 					controller.run();
 
-
-
-					//AlienManager alienManager = new AlienManager(game, level);
-					//game.setAlienManager(alienManager);
 		
 				} catch (NumberFormatException nfe) {
 					System.out.println(String.format(Messages.SEED_NOT_A_NUMBER_ERROR, seedParam));

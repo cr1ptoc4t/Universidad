@@ -5,6 +5,10 @@ import java.util.Random;
 import tp1.logic.gameobjects.*;
 import tp1.view.Messages;
 
+import static tp1.util.MyStringUtils.repeat;
+import tp1.logic.Game;
+import tp1.util.MyStringUtils;
+
 // TODO implementar
 
 public class Game {
@@ -14,36 +18,43 @@ public class Game {
 	
 	private UCMShip laNave;
 	private UCMLaser laser;
-	private RegularAlien alien;
 
 	public static Level level;
 
 	private AlienManager alienManager;
-	
-	
+
+	private long seed;
+	private int puntos;
+	private int vidas;
 	private static final int ALIENS_INI = 3; //USAR ESTO!!!!!!!!!!!!!
 	private int remainingAliens;
 	private int ciclos;
-	//TODO fill your code
+
+
 	public Game(Level level, long seed) {
 		//TODO fill your code
 		this.level=level;
 		this.laNave= new UCMShip();
-		this.alienManager = new AlienManager(this, level);
-		alienManager.initialize();
-		this.laser = laser;
-		//this.laser = new UCMLaser(new Position(1,0));
-
-		//este alien.getRemaining hay q cambiarlo por la constante
-		this.remainingAliens=alienManager.getRemainingAliens();
+		this.seed=seed;
+		createAlienManager();
 		ciclos =0;
 	}
 
+	private void createAlienManager(){
+		this.alienManager = new AlienManager(this, level);
+		alienManager.initialize();
+		this.remainingAliens=alienManager.ALIENS_INI;
+	}
 
-	//que hace esto??????
 	public String stateToString() {
-		//TODO fill your code
-		return null;
+
+		StringBuilder buffer = new StringBuilder();
+
+		buffer.append("Life: ").append(vidas)
+				.append("\n").append("Points: ")
+				.append(puntos).append("\n");
+
+		return buffer.toString();
 	}
 
 	public int getCycle() {
@@ -62,8 +73,7 @@ public class Game {
 		if(laNave.estaEnPos(position)){
 			str = laNave.getSymbol();
 		} else if(alienManager.regularAlienIsInPosition(position)){
-			//esto hay que hacerlo en alienManager!!!
-			str=alienManager.getSymbol("regular");
+			str=alienManager.getSymbol("regular", new Position(col, row));
 
 		} else if(laser!=null && laser.isInPos(position)){
 			str = laser.getSymbol();
@@ -73,37 +83,37 @@ public class Game {
 	}
 
 	public boolean playerWin() {
-		//TODO fill your code
-		return false;
+		return remainingAliens==0;
 	}
 
 	public boolean aliensWin() {
-		//TODO fill your code
+		//return vidas==0;
 		return false;
 	}
 
 	public void enableLaser() {
-		//falta pasarle posicion nave
+
 		if(laser==null ||( laser!=null	&& !laser.dentroMapa()))
-			this.laser = new UCMLaser(new Position(4,7));	//	la posicion tiene que ser la de la nave
+			this.laser = laNave.creaLaser();
+
 		ciclos++;
 	}
 
 	public Random getRandom() {
-		return getRandom();
+		return new Random(seed);
 	}
 
 	public Level getLevel() {
 		return level;
 	}
 	
-	public void mueveNave(Move direccion) {
-		laNave.mueve(direccion);
+	public void mueveNave(Move direction) {
+		laNave.mueve(direction);
 		ciclos++;
 	}
 	public void reset() {
 		// regenerar todos los aliens con todas las vidas
-		// cambiar a posicion inicial los aliens
+		// cambiar a posición inicial los aliens
 		ciclos=0;
 	}
 
@@ -119,10 +129,18 @@ public class Game {
 		alienManager.automaticMove();
 
 	}
+
 	public void eventosAutomaticos(){
-		if(laser!=null)
-			alienManager.recibeAtaque(laser);
+
+		if(laser!=null && alienManager.recibeAtaque(laser)) {
+			laser = null;
+			remainingAliens--;
+			puntos+=5;
+		}
+
+
 		/*
+
 		int indice = regularAlienIsInPosition(laser.pos);
 		if(indice!=-1){
 			alienManager.eliminaAlien(indice);
