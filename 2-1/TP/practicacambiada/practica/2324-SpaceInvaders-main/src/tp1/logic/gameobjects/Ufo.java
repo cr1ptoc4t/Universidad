@@ -11,8 +11,14 @@ public class Ufo {
 
 	private boolean enabled;
 	private Game game;
-	
+
+	private Position pos;
 	//TODO fill your code
+
+	public Ufo(Game game,Position pos){
+		this.game=game;
+		this.pos=pos;
+	}
 
 	public void computerAction() {
 		if(!enabled && canGenerateRandomUfo()) {

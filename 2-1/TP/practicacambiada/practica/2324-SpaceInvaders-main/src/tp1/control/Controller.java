@@ -110,6 +110,8 @@ public class Controller {
 			System.out.println(list());
 		}else if(comando[0].equals("n")||comando[0].equals("none")){
 			game.pasaCiclo();
+		} else if (comando[0].equals("w")||comando[0].equals("shockwave")) {
+			game.shockWave();
 		}
 	}
 	
@@ -127,8 +129,8 @@ public class Controller {
 	private String list() {
 		StringBuilder buffer = new StringBuilder();
 		/* @formatter:off */
-		buffer.append(Messages.ucmShipDescription(Messages.UCMSHIP_DESCRIPTION,3, 2));
-
+		buffer.append(Messages.ucmShipDescription(Messages.UCMSHIP_DESCRIPTION,3, 2))
+				.append(game.lista());
 		//if(hay aliens)
 		//for cada alien
 		//buffer.append("\n").append(Messages.alienDescription(Messages.REGULAR_ALIEN_DESCRIPTION, 5, 0, 2));
@@ -141,4 +143,5 @@ public class Controller {
 
 		return buffer.toString();
 	}
+
 }

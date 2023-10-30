@@ -76,16 +76,17 @@ public class RegularAlienList {
 	}
 
 	public void eliminar(int indice){
-
+/*
 		for(int i=num-2; i>indice;i--){
 			objects[i]=objects[i+1];
 		}
 
-		/*
-		for (int i = posicionAEliminar; i < array.length - 1; i++) {
-                array[i] = array[i + 1];
-            }
-		 */
+
+ */
+		if(indice!=-1)
+			for(int i=indice;i<num-1;i++)
+				objects[i]=objects[i+1];
+
 		num--;
 	}
 
@@ -107,6 +108,30 @@ public class RegularAlienList {
 	public String getSymbol(Position pos){
 		//esto es otra cerdada
 		return  " "+ Messages.REGULAR_ALIEN_SYMBOL +"[" + objects[indiceEnPos(pos)].vida() +"]";
+	}
+
+	public String lista(){
+		StringBuilder buffer = new StringBuilder();
+
+		for(int i=0;i<num;i++){
+			buffer.append("\n").
+					append(Messages.alienDescription(Messages.REGULAR_ALIEN_DESCRIPTION, objects[i].vida(), 0, 2));
+		}
+
+
+		return buffer.toString();
+	}
+
+	public void shockWave(){
+		for(int i=0;i<num;i++){
+			//eliminar 1 punto de vida al objects[i]
+
+
+			if(objects[i].vida()==0){
+				eliminar(i);
+			}
+		}
+
 	}
 
 }

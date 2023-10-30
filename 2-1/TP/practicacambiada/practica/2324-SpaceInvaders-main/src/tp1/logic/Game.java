@@ -153,6 +153,14 @@ public class Game {
 		return false;
 	}
 
+	public String lista(){
+		//faltará añadirle el ufo
+		return alienManager.lista();
+	}
 
+	public void shockWave(){
+		alienManager.shockWave();
+		ciclos++;
+	}
 
 }

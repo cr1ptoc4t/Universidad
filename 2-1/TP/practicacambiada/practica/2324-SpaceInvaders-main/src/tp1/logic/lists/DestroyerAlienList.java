@@ -45,4 +45,9 @@ public class DestroyerAlienList {
 
     }
 
+    public String lista(){
+
+        return "";
+    }
+
 }

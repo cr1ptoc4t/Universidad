@@ -186,4 +186,23 @@ public class AlienManager {
 
 		return i!=-1;
 	}
+
+
+	public String lista(){
+		StringBuilder buffer = new StringBuilder();
+
+		buffer.append(regularAliens.lista());//.append("\n").append(destroyerAliens.lista());
+
+		return buffer.toString();
+	}
+
+	public void shockWave(){
+		regularAliens.shockWave();
+
+		//check puntos
+			//si algun alien tiene 0 puntos -> eliminar del array
+
+		//listaDestroyers.shockwave();
+	}
+
 }
