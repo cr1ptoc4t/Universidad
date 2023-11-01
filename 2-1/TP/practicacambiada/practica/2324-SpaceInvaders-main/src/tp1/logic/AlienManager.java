@@ -27,7 +27,7 @@ public class AlienManager {
 
 	private boolean descent;
 	private Move dir;
-	private Move direccionOp; //esto no esta bien
+	private Move direccionOp; //esto no está bien
 
 	private static RegularAlienList regularAliens;
 	private DestroyerAlienList destroyerAliens;
@@ -106,7 +106,8 @@ public class AlienManager {
 		destroyerAutomaticMove();
 	}
 	public boolean regularAlienIsInPosition(Position pos){
-		return regularAliens.indiceEnPos(pos)!=-1; //esto ns si es un poco 1 mierda porque vamos alien por alien a preguntarle la pos
+		return regularAliens.indiceEnPos(pos)!=-1;	//	esto ns si es un poco 1 mierda porque
+													//	vamos alien por alien a preguntarle la posición
 	}
 
 	public int getRemainingAliens(){
@@ -123,7 +124,7 @@ public class AlienManager {
 			descent=false;
 		}
 
-		//regularAliens.performGroupMovement(dir);
+		regularAliens.performGroupMovement(dir);
 		//destroyerAliens.performGroupMovement();
 	}
 	private void destroyerAutomaticMove(){
@@ -158,8 +159,8 @@ public class AlienManager {
 	public static String getSymbol(String type, Position pos){
 		String str=" ";
 		if(type=="regular"){
-			//lo de la posicion es una guarrada pero esq ahora mismo ns como hacerlo y necesito ver
-			//hay q hacer que saque los puntos que tocan
+			//lo de la posición es una guarrada, pero esq ahora mismo ns como hacerlo y necesito ver
+			//hay que hacer que saque los puntos que tocan
 			str=regularAliens.getSymbol(pos);
 		} else if (type=="destroyer"){
 			str = Messages.DESTROYER_ALIEN_SYMBOL;
@@ -200,7 +201,7 @@ public class AlienManager {
 		regularAliens.shockWave();
 
 		//check puntos
-			//si algun alien tiene 0 puntos -> eliminar del array
+			//si algún alien tiene 0 puntos -> eliminar del array
 
 		//listaDestroyers.shockwave();
 	}
