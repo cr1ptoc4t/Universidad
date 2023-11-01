@@ -18,9 +18,7 @@ public class RegularAlienList {
 
 	private Level level;
 	private boolean descent;
-	//TODO fill your code
-	public RegularAlienList(Level level, int num) {
-		this.num = num;
+	public RegularAlienList(int num){
 		objects = new RegularAlien[num];
 
 	}
@@ -30,29 +28,22 @@ public class RegularAlienList {
 
 	public void initializeAlienList(){
 		int num2 = 0;
-		//esto hay que cambiarlo para que dependa de la constante ALIENS_INI
 
-		for(int row=2;row<4;row++){ //ROWS
-			for(int col=3;col<7;col++){//cols
+		// TODO esto hay que cambiarlo para que dependa del num d aliens
+
+		for(int row=1;row<2;row++){ //ROWS
+			for(int col=4;col<7;col++){//cols
 				objects[num2] = new RegularAlien(new Position(col, row), level);
 				num2++;
 			}
 		}
-
-
-		/*
-		for(int col=0;col<num;col++){//cols
-			objects[num2] = new RegularAlien(new Position(col, 2), level);
-			num2++;
-		}
-		*/
-
 	}
 
 	/**
 	 * @returns un alien del array esta en posicion -> indice
 	 * @else -> -1
 	 */
+
 	//esto es una cerdada
 	public int indiceEnPos(Position pos){
 		int i= 0;
@@ -76,18 +67,11 @@ public class RegularAlienList {
 	}
 
 	public void eliminar(int indice){
-/*
-		for(int i=num-2; i>indice;i--){
-			objects[i]=objects[i+1];
+		if(indice!=-1) {
+			for (int i = indice; i < num - 1; i++)
+				objects[i] = objects[i + 1];
+			num--;
 		}
-
-
- */
-		if(indice!=-1)
-			for(int i=indice;i<num-1;i++)
-				objects[i]=objects[i+1];
-
-		num--;
 	}
 
 	public int recibeAtaque(UCMLaser laser){
@@ -125,7 +109,6 @@ public class RegularAlienList {
 	public void shockWave(){
 		for(int i=0;i<num;i++){
 			//eliminar 1 punto de vida al objects[i]
-
 
 			if(objects[i].vida()==0){
 				eliminar(i);

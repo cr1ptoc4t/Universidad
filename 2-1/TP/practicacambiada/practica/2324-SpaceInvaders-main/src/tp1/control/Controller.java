@@ -68,8 +68,8 @@ public class Controller {
 
 
 
-			game.movimientosAutomaticos();  	//BLOQUE 3
-			game.eventosAutomaticos();
+			 	//BLOQUE 3
+			game.update();
 
 			printGame();						//BLOQUE 1
 

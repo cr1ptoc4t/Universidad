@@ -3,6 +3,8 @@ package tp1.logic;
 import tp1.logic.Move;
 import java.util.Random;
 import tp1.logic.gameobjects.*;
+import tp1.logic.lists.DestroyerAlienList;
+import tp1.logic.lists.RegularAlienList;
 import tp1.view.Messages;
 
 import static tp1.util.MyStringUtils.repeat;
@@ -23,6 +25,9 @@ public class Game {
 
 	private AlienManager alienManager;
 
+	private RegularAlienList regularAliens;
+	private DestroyerAlienList destroyerAliens;
+
 	private long seed;
 	private int puntos;
 	private int vidas;
@@ -38,6 +43,7 @@ public class Game {
 		this.seed=seed;
 		createAlienManager();
 		ciclos =0;
+		vidas=3;
 	}
 
 	private void createAlienManager(){
@@ -87,7 +93,7 @@ public class Game {
 	}
 
 	public boolean aliensWin() {
-		//return vidas==0;
+		//return vidas==0||fila de los aliens==fila de la ucm ship		;
 		return false;
 	}
 
@@ -121,36 +127,49 @@ public class Game {
 		ciclos++;
 	}
 
-	public void movimientosAutomaticos(){
+	private void automaticMoves(){
+
+		alienManager.automaticMove();
+
+		//trayectoria bombas
+			/*
+			* Si una bomba de una nave alienígena alcanza a UCMShip,
+			* UCMShip sufre un decremento de un punto de daño y la bomba es destruida.
+			* Si UCMShip llega a 0 puntos de daño,
+			* se utilizará el siguiente String para representar que la nave está destruida: #──#.
+			* Si una bomba alcanza al láser de UCMShip, ambos, bomba y láser, son destruidos.
+			*
+			* */
+		//si ovni distinto de null, actualiza posicion
 
 		if(laser!=null) {
 			laser.automaticMove();
 		}
-		alienManager.automaticMove();
+
+		/* TODO SOBRE EL LASER:
+		Si el láser lanzado por UCMShip alcanza una bomba de una nave alienígena,
+			ambos se eliminan del tablero.
+		Si el láser de UCMShip alcanza una nave alienígena,
+			la nave impactada sufre un decremento de un punto de daño
+			y el láser es destruido.
+		Si una nave alienígena llega a 0 puntos de daño, desaparece del tablero. -- hecho
+		 */
+
+
 
 	}
 
-	public void eventosAutomaticos(){
-
+	public void update(){
+		//en este orden?? --mirar 1.2 al final
+		computerAction();
+		automaticMoves();
+	}
+	private void computerAction(){	//eventos automaticos
 		if(laser!=null && alienManager.recibeAtaque(laser)) {
 			laser = null;
 			remainingAliens--;
 			puntos+=5;
 		}
-
-
-		/*
-
-		int indice = regularAlienIsInPosition(laser.pos);
-		if(indice!=-1){
-			alienManager.eliminaAlien(indice);
-		}
-		*/
-	}
-
-	public boolean laserMata(){
-		//return laser.pos.equals(algunodelosaliens.pos);
-		return false;
 	}
 
 	public String lista(){

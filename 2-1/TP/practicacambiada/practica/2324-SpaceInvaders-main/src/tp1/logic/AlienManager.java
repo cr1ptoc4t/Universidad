@@ -29,17 +29,39 @@ public class AlienManager {
 	private Move dir;
 	private Move direccionOp; //esto no está bien
 
+	int numRegular,numDestroyer;
 	private static RegularAlienList regularAliens;
 	private DestroyerAlienList destroyerAliens;
 
 	public AlienManager(Game game, Level level) {
 		this.level = level;
 		this.game = game;
-		//this.regularAliens= initializeRegularAliens();
-		//this.remainingAliens= regularAliens.getNum() + destroyerAliens.getNum();
-		//this.onBorder =onBorder();
 		descent=false;
 		this.dir= Move.LEFT;
+		decideNumAliens();
+	}
+
+	private void decideNumAliens(){
+		switch (level){
+			case EASY:
+			{
+
+				numRegular=4;
+				numDestroyer=2;
+				break;
+			}
+			case HARD:
+			{
+				numRegular=8;
+				numDestroyer=2;
+				break;
+			}
+			case INSANE:
+			{
+				numRegular = 8;
+				numDestroyer = 4;
+			}
+		}
 	}
 		
 	// INITIALIZER METHODS
@@ -63,7 +85,7 @@ public class AlienManager {
 		//TODO fill your code
 		//remainingAliens = 3;
 
-		RegularAlienList lista = new RegularAlienList(level,ALIENS_INI);
+		RegularAlienList lista = new RegularAlienList(numRegular);
 		lista.initializeAlienList();
 
 		return lista;
@@ -75,7 +97,7 @@ public class AlienManager {
 	 */
     protected  DestroyerAlienList initializeDestroyerAliens() {
 		//		TODO fill your code
-		DestroyerAlienList lista = new DestroyerAlienList(2, level);
+		DestroyerAlienList lista = new DestroyerAlienList(game, numDestroyer, level);
 		lista.inicializa();
 		return lista;
 	}
@@ -114,6 +136,8 @@ public class AlienManager {
 		return remainingAliens;
 	}
 
+
+	//esro no deberia ir aqui
 	private void regularAutomaticMove(){
 		if(regularAliens.onBorder() && descent==false){
 			direccionOp = dir.opuesto();
@@ -127,6 +151,8 @@ public class AlienManager {
 		regularAliens.performGroupMovement(dir);
 		//destroyerAliens.performGroupMovement();
 	}
+
+	//esto tampoco deberia ir aqui
 	private void destroyerAutomaticMove(){
 		/*
 		if(destroyerAliens.onBorder() /*|| destroyerAliens.onBorder() * ){
@@ -173,6 +199,7 @@ public class AlienManager {
 		remainingAliens--;
 	}
 
+	//esto tamp
 	public boolean recibeAtaque(UCMLaser laser){
 		int i= regularAliens.recibeAtaque(laser);
 
@@ -196,6 +223,7 @@ public class AlienManager {
 
 		return buffer.toString();
 	}
+
 
 	public void shockWave(){
 		regularAliens.shockWave();

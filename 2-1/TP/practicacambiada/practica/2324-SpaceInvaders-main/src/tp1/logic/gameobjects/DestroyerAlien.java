@@ -21,11 +21,11 @@ public class DestroyerAlien {
 
 
 
-    public DestroyerAlien(Position pos, Level level) {
+    public DestroyerAlien(Game game, Position pos, Level level) {
         //alienManager = new AlienManager();
         this.pos = pos;
         this.dir = direccion(level);
-        this.points= 2;
+        this.points= 1;
         this.level=level;
     }
 

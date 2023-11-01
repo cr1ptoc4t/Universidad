@@ -8,16 +8,19 @@ import tp1.logic.Position;
 public class Ufo {
 
 	//TODO fill your code
+	public final int UFO_X=8;
+	public final int UFO_Y=0;
 
 	private boolean enabled;
 	private Game game;
 
 	private Position pos;
 	//TODO fill your code
-
-	public Ufo(Game game,Position pos){
+	private int puntos;
+	public Ufo(Game game){
 		this.game=game;
-		this.pos=pos;
+		this.pos=new Position(UFO_X,UFO_Y);
+		puntos=1;
 	}
 
 	public void computerAction() {
