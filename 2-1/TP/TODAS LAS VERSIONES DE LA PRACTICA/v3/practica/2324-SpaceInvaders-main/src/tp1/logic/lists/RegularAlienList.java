@@ -11,6 +11,14 @@ import tp1.view.Messages;
  */
 public class RegularAlienList {
 
+	/*
+	* TODO:
+	*  - VELOCIDAD ALIENS DEPENDIENDO DEL NIVEL
+	*  - BOMBAS Y UFO
+	*  - ARREGLAR TEMA POSICION
+	*  - ARREGLAR MOVIMIENTO -- VA A DESTIEMPO
+	*  - ARREGLAR CERDADAS
+	* */
 	private RegularAlien[] objects;
 	private int num;
 
@@ -30,13 +38,29 @@ public class RegularAlienList {
 	public void initializeAlienList(){
 		int num2 = 0;
 
-		// TODO esto hay que cambiarlo para que dependa del num d aliens
+		// TODO esto es una cerdada
 
+		if(num==4) {
+			for (int i=0; i <num;i++){
+				objects[i] = new RegularAlien(new Position(i+3, 2), level);
+			}
+		}
+		else if(num==8)
+			for (int i=1; i<3;i++)
+				for(int j=3; j<3+num/2;j++) {
+					objects[num2] = new RegularAlien(new Position(i, j), level);
+					num2++;
+				}
+
+
+		/*
 		if(num==4)
 			for(int i=0;i<4;i++){
 				objects[num2] = new RegularAlien(new Position(i, 2), level);
 				num2++;
 			}
+		 */
+
 		/*
 		for(int row=1;row<2;row++){ //ROWS
 			for(int col=4;col<7;col++){//cols
@@ -65,10 +89,10 @@ public class RegularAlienList {
 		return i;
 	}
 
-	public void automaticMove(){
+	public void automaticMove(boolean descent, boolean onBorder){
 		//tema bordes!!
 		if(num>0) {
-			if (onBorder() && descent == false) {
+			if (onBorder && descent == false) {
 				direccionOp = dir.opuesto();
 				dir = Move.DOWN;
 				descent = true;
@@ -76,7 +100,8 @@ public class RegularAlienList {
 				dir = direccionOp;
 				descent = false;
 			}
-			//performGroupMovement();
+			// s
+			performGroupMovement();
 		}
 	}
 

@@ -35,6 +35,7 @@ public class Game {
 	private int remainingAliens;
 	private int numRegular;
 	private int numDestroyer;
+	private boolean descent;
 	private int ciclos;
 
 
@@ -136,8 +137,12 @@ public class Game {
 	private void automaticMoves(){
 
 		//esto hay que cambiarlo porque van a destiempo
-		regularAliens.automaticMove();
-		destroyerAliens.automaticMove();
+		//boolean onBorder =regularAliens.onBorder()||destroyerAliens.onBorder();
+		//if(regularAliens.onBorder()||destroyerAliens.onBorder())
+		//	descent=true;
+		regularAliens.automaticMove(descent, regularAliens.onBorder()||destroyerAliens.onBorder());
+		//descent=false;
+		//destroyerAliens.automaticMove(descent);
 		//trayectoria bombas
 			/*
 			* Si una bomba de una nave alienígena alcanza a UCMShip,

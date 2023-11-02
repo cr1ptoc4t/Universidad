@@ -44,7 +44,7 @@ public class DestroyerAlienList {
                 dir = direccionOp;
                 descent = false;
             }
-            // performGroupMovement();
+            //performGroupMovement();
         }
     }
 
@@ -61,15 +61,19 @@ public class DestroyerAlienList {
     }
 
     public void inicializa() {
-        if (level == Level.EASY || level == Level.HARD)
+        if (level == Level.EASY || level == Level.HARD){
             num = 2;
-        else if (level == Level.INSANE)
-            num = 4;
-
-
-        for (int i = 0; i < num; i++) {
-            objects[i] = new DestroyerAlien(new Position(i, 0), level);
+            for (int i =0; i < num; i++) {
+                objects[i] = new DestroyerAlien(new Position(i+4, 3), level);
+            }
         }
+        else if (level == Level.INSANE) {
+            num = 4;
+            for (int i =0; i < num; i++) {
+                objects[i] = new DestroyerAlien(new Position(i+4, 4), level);
+            }
+        }
+
     }
 
     public String lista(){

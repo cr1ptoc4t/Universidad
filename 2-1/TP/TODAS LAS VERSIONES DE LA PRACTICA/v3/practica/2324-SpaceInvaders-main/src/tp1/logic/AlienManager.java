@@ -50,7 +50,7 @@ public class AlienManager {
 	 */
 	protected RegularAlienList initializeRegularAliens() {
 		//TODO fill your code
-		remainingAliens = numDestroyer+numRegular;
+		//remainingAliens = numDestroyer+numRegular;
 		RegularAlienList lista = new RegularAlienList(numRegular);
 		lista.initializeAlienList();
 
