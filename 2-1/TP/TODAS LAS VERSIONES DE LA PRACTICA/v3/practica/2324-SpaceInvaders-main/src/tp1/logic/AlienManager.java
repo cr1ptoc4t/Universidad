@@ -17,7 +17,7 @@ import tp1.view.Messages;
  */
 public class AlienManager {
 
-	public final int ALIENS_INI =8;
+	//public final int ALIENS_INI =8;
 	private Level level;
 	private Game game;
 	private int remainingAliens;
@@ -39,7 +39,7 @@ public class AlienManager {
 		this.game = game;
 		descent = false;
 		this.dir= Move.LEFT;
-		decideNumAliens();
+		remainingAliens=decideNumAliens();
 	}
 
 
@@ -51,7 +51,7 @@ public class AlienManager {
 	protected RegularAlienList initializeRegularAliens() {
 		//TODO fill your code
 		//remainingAliens = numDestroyer+numRegular;
-		RegularAlienList lista = new RegularAlienList(numRegular);
+		RegularAlienList lista = new RegularAlienList(game,level,numRegular);
 		lista.initializeAlienList();
 
 		return lista;
@@ -61,7 +61,7 @@ public class AlienManager {
 	 * Initializes the list of destroyer aliens
 	 * @return the initial list of destroyer aliens according to the current level
 	 */
-	protected  DestroyerAlienList initializeDestroyerAliens() {
+	protected DestroyerAlienList initializeDestroyerAliens() {
 		//		TODO fill your code
 		DestroyerAlienList lista = new DestroyerAlienList(numDestroyer, level);
 		lista.inicializa();
@@ -90,7 +90,7 @@ public class AlienManager {
 				numDestroyer = 4;
 			}
 		}
-		return numRegular +numDestroyer;
+		return numRegular + numDestroyer;
 	}
 	// INITIALIZER METHODS
 
@@ -122,9 +122,10 @@ public class AlienManager {
 
 
 	//esro no deberia ir aqui
+
 	/*
-	private void regularAutomaticMove(){
-		if(regularAliens.onBorder() && descent==false){
+	private void automaticMove(){
+		if((regularAliens.onBorder()||destroyerAliens.onBorder()) && descent==false){
 			direccionOp = dir.opuesto();
 			dir = Move.DOWN;
 			descent=true;
@@ -133,11 +134,12 @@ public class AlienManager {
 			descent=false;
 		}
 
-		regularAliens.performGroupMovement(dir);
-		//destroyerAliens.performGroupMovement();
+		regularAliens.performGroupMovement();
+		destroyerAliens.performGroupMovement();
 	}
 
 	 */
+
 	//esto tampoco deberia ir aqui
 	/*
 	private void destroyerAutomaticMove(){

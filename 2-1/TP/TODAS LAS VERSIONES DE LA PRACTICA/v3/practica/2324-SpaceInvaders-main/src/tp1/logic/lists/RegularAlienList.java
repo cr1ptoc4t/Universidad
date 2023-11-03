@@ -3,6 +3,7 @@ import tp1.logic.*;
 import tp1.logic.gameobjects.RegularAlien;
 import tp1.logic.gameobjects.UCMLaser;
 import tp1.view.Messages;
+import tp1.logic.Level;
 
 /**
  * Container of regular aliens, implemented as an array with a counter
@@ -26,32 +27,41 @@ public class RegularAlienList {
 	private Move direccionOp;
 	private Level level;
 	private boolean descent;
-	public RegularAlienList(int num){
+	private Game game;
+	private int nCiclos;
+	private int wait;
+	public RegularAlienList(Game game,Level level, int num){
+		this.game =game;
+		this.level = level;
 		this.num=num;
 		objects = new RegularAlien[num];
-
-	}
-	public int getNum(){
-		return num;
+		wait=waitUntil();
 	}
 
+	public void addAlien(RegularAlien alien){
+		objects[num++]=alien;
+	}
 	public void initializeAlienList(){
-		int num2 = 0;
 
-		// TODO esto es una cerdada
+
+		// TODO: esto es una cerdada
 
 		if(num==4) {
-			for (int i=0; i <num;i++){
-				objects[i] = new RegularAlien(new Position(i+3, 2), level);
+			for (int i=0; i < num;i++){
+				objects[i] = new RegularAlien(game, new Position(i+3, 2), level);
 			}
-		}
-		else if(num==8)
-			for (int i=1; i<3;i++)
-				for(int j=3; j<3+num/2;j++) {
-					objects[num2] = new RegularAlien(new Position(i, j), level);
+		} else if(num==8) {
+			int num2 = 0;
+			for (int row = 0; row <  num/4 ; row++) {
+				for (int col = 0; col <  num/ 2; col++) {
+					objects[num2] = new RegularAlien(game, new Position(col+3, row+2), level);
 					num2++;
 				}
+			}
 
+
+
+		}
 
 		/*
 		if(num==4)
@@ -77,8 +87,7 @@ public class RegularAlienList {
 	 * @else -> -1
 	 */
 
-	//esto es una cerdada
-	public int indiceEnPos(Position pos){
+	private int indiceEnPos(Position pos){
 		int i= 0;
 
 		while(i<num && !objects[i].isInPosition(pos))
@@ -89,9 +98,17 @@ public class RegularAlienList {
 		return i;
 	}
 
-	public void automaticMove(boolean descent, boolean onBorder){
+	public RegularAlien alienInPosition(Position pos){
+		int i = indiceEnPos(pos);
+
+		if(i==-1) return null;
+
+		return objects[i];
+	}
+
+	public void automaticMove(boolean onBorder){
 		//tema bordes!!
-		if(num>0) {
+		if(num>0 && nCiclos%wait==0) {
 			if (onBorder && descent == false) {
 				direccionOp = dir.opuesto();
 				dir = Move.DOWN;
@@ -100,9 +117,25 @@ public class RegularAlienList {
 				dir = direccionOp;
 				descent = false;
 			}
-			// s
+
 			performGroupMovement();
 		}
+		nCiclos++;
+	}
+
+	private int waitUntil(){
+		int ret=1;
+
+		switch(level){
+			case EASY:
+				ret=3;
+				break;
+			case HARD:
+				ret=2;
+				break;
+		}
+
+		return ret;
 	}
 
 	private void performGroupMovement(){
@@ -112,7 +145,11 @@ public class RegularAlienList {
 	}
 
 	public boolean onBorder() {
-		return objects[0].isInBorderLeft() || objects[num-1].isInBorderRight();
+		boolean b=false;
+		if(num>0)
+			b=objects[0].isInBorderLeft() || objects[num-1].isInBorderRight();
+
+		return b;
 	}
 
 	public void eliminar(int indice){
@@ -138,20 +175,13 @@ public class RegularAlienList {
 	}
 
 
-
-
-
-	public String getSymbol(Position pos){
-		//esto es otra cerdada
-		return  " "+ Messages.REGULAR_ALIEN_SYMBOL +"[" + objects[indiceEnPos(pos)].vida() +"]";
-	}
-
 	public String lista(){
 		StringBuilder buffer = new StringBuilder();
 
 		for(int i=0;i<num;i++){
 			buffer.append("\n").
-					append(Messages.alienDescription(Messages.REGULAR_ALIEN_DESCRIPTION, objects[i].vida(), 0, 2));
+					append(Messages.alienDescription(Messages.REGULAR_ALIEN_DESCRIPTION, objects[i].vida(),
+							0, 2));									//esto es 1 cerdada
 		}
 
 
@@ -167,6 +197,12 @@ public class RegularAlienList {
 			}
 		}
 		//aqui habria que chequear que elementos tienen 0 de vida y eliminarlos
+	}
+
+	public boolean alienInLowerBorder(){
+		int i=0;
+		while(i<num &&!objects[i].isInLowerBorder()) i++;
+		return i!=num;
 	}
 
 }

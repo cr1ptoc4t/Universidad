@@ -2,6 +2,7 @@ package tp1.logic.lists;
 
 import tp1.logic.*;
 import tp1.logic.gameobjects.DestroyerAlien;
+import tp1.logic.gameobjects.RegularAlien;
 import tp1.logic.gameobjects.UCMLaser;
 import tp1.view.Messages;
 
@@ -14,19 +15,25 @@ public class DestroyerAlienList {
     private Move dir=Move.LEFT;
     private Move direccionOp;
 
+    //hay que poner el game aqui??
+    //private Game game;
+    int nCiclos;
+    int wait;
     public DestroyerAlienList(int num, Level level){
         this.num= num;
         this.level = level;
         objects = new DestroyerAlien[num];
-        descent=false;
+        descent = false;
+        nCiclos = 0;
+        wait = waitUntil();
     }
 
-    public int getNum(){
-        return num;
-    }
+    public boolean onBorder() {
+        boolean b=false;
+        if(num>0)
+            b=objects[0].isInBorderLeft() || objects[num-1].isInBorderRight();
 
-    public boolean onBorder(){
-        return objects[0].isInBorderLeft()|| objects[num-1].isInBorderRight();
+        return b;
     }
 
     private void performGroupMovement(){
@@ -34,9 +41,10 @@ public class DestroyerAlienList {
             objects[i].performMovement(dir);
         }
     }
-    public void automaticMove(){
-        if(num>0) {
-            if (onBorder() && descent == false) {
+    public void automaticMove(boolean onBorder){
+        //tema bordes!!
+        if(num>0 && nCiclos%wait==0) {
+            if (onBorder && descent == false) {
                 direccionOp = dir.opuesto();
                 dir = Move.DOWN;
                 descent = true;
@@ -44,12 +52,28 @@ public class DestroyerAlienList {
                 dir = direccionOp;
                 descent = false;
             }
-            //performGroupMovement();
+
+            performGroupMovement();
         }
+        nCiclos++;
     }
 
+    private int waitUntil(){
+        int ret=1;
 
-    public int indiceEnPos(Position pos){
+        switch(level){
+            case EASY:
+                ret=3;
+                break;
+            case HARD:
+                ret=2;
+                break;
+        }
+
+        return ret;
+    }
+
+    private int indiceEnPos(Position pos){
         int i= 0;
 
         while(i<num && !objects[i].isInPosition(pos))
@@ -60,17 +84,33 @@ public class DestroyerAlienList {
         return i;
     }
 
+    public DestroyerAlien alienInPosition(Position pos){
+        int i= indiceEnPos(pos);
+
+        if(i==-1) return null;
+
+        return objects[i];
+    }
+
+
+    // TODO cambiarlo a solo 1 bucle que dependa de num
     public void inicializa() {
-        if (level == Level.EASY || level == Level.HARD){
+        if (level == Level.EASY){
+            //empieza en 3,3
             num = 2;
             for (int i =0; i < num; i++) {
                 objects[i] = new DestroyerAlien(new Position(i+4, 3), level);
             }
-        }
-        else if (level == Level.INSANE) {
-            num = 4;
+        } else if(level==level.HARD){
+            num = 2;
             for (int i =0; i < num; i++) {
                 objects[i] = new DestroyerAlien(new Position(i+4, 4), level);
+            }
+        } else if (level == Level.INSANE) {
+            //empieza en 3,4
+            num = 4;
+            for (int i =0; i < num; i++) {
+                objects[i] = new DestroyerAlien(new Position(i+3, 4), level);
             }
         }
 
@@ -94,9 +134,7 @@ public class DestroyerAlienList {
 
         return i;
     }
-    public String getSymbol(Position pos){
-        return Messages.DESTROYER_ALIEN_SYMBOL+"[1]";
-    }
+
     public void shockWave(){
         for(int i=0;i<num;i++){
             //eliminar 1 punto de vida al objects[i]
@@ -116,4 +154,11 @@ public class DestroyerAlienList {
             num--;
         }
     }
+
+    public boolean alienInLowerBorder(){
+        int i=0;
+        while(i<num &&!objects[i].isInLowerBorder()) i++;
+        return i!=num;
+    }
+
 }

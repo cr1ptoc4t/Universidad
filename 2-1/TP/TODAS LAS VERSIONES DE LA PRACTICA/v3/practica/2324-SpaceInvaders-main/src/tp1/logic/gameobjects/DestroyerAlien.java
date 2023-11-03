@@ -4,6 +4,8 @@ import tp1.logic.AlienManager;
 import tp1.logic.Level;
 import tp1.logic.Move;
 import tp1.logic.Position;
+import tp1.view.Messages;
+import tp1.logic.Game;
 
 public class DestroyerAlien {
     private int cyclesToMove;
@@ -26,6 +28,7 @@ public class DestroyerAlien {
         this.pos = pos;
         this.dir = direccion(level);
         this.level=level;
+        this.points=1;
     }
 
     public void leaveBomb(){
@@ -83,5 +86,10 @@ public class DestroyerAlien {
         points--;
     }
 
-
+    public String getSymbol(){
+        return Messages.DESTROYER_ALIEN_SYMBOL+"["+points+"]";
+    }
+    public boolean isInLowerBorder(){
+        return pos.isInBorderDown();
+    }
 }

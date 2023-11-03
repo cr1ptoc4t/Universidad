@@ -11,8 +11,6 @@ import static tp1.util.MyStringUtils.repeat;
 import tp1.logic.Game;
 import tp1.util.MyStringUtils;
 
-// TODO implementar
-
 public class Game {
 
 	public static final int DIM_X = 9;
@@ -31,13 +29,15 @@ public class Game {
 	private long seed;
 	private int puntos;
 	private int vidas;
-	private static final int ALIENS_INI = 3; //USAR ESTO!!!!!!!!!!!!!
+
 	private int remainingAliens;
 	private int numRegular;
 	private int numDestroyer;
 	private boolean descent;
+
 	private int ciclos;
 
+	private Ufo ufo;
 
 	public Game(Level level, long seed) {
 		//TODO fill your code
@@ -52,7 +52,7 @@ public class Game {
 		destroyerAliens = alienManager.initializeDestroyerAliens();
 		remainingAliens = alienManager.decideNumAliens();
 
-		ciclos =0;
+		ciclos= 0;
 		vidas = 3;
 	}
 
@@ -82,13 +82,21 @@ public class Game {
 		Position position = new Position(col,row);
 		if(laNave.estaEnPos(position)){
 			str = laNave.getSymbol();
-		} else if(regularAliens.indiceEnPos(position)!=-1){
-			str=regularAliens.getSymbol(position);
-		} else if(destroyerAliens.indiceEnPos(position)!=-1){
-			str=destroyerAliens.getSymbol(position);
-		}
-		else if(laser!=null && laser.isInPos(position)){
-			str = laser.getSymbol();
+		} else {
+			RegularAlien alien = regularAliens.alienInPosition(position);
+			if (alien!=null) {
+				str = alien.getSymbol();
+			} else {
+				DestroyerAlien alienD = destroyerAliens.alienInPosition(position);
+				if (alienD != null) {
+					str = alienD.getSymbol();
+				} else if (laser != null && laser.isInPos(position)) {
+					str = laser.getSymbol();
+				} else if(ufo !=null && ufo.isInPos(position)){
+					str=ufo.getSymbol();
+				}
+
+			}
 		}
 
 		return str;
@@ -100,8 +108,7 @@ public class Game {
 	}
 
 	public boolean aliensWin() {
-		//return vidas==0||fila de los aliens==fila de la ucm ship		;
-		return false;
+		return vidas==0||regularAliens.alienInLowerBorder()|| destroyerAliens.alienInLowerBorder();
 	}
 
 	public void enableLaser() {
@@ -136,13 +143,14 @@ public class Game {
 
 	private void automaticMoves(){
 
-		//esto hay que cambiarlo porque van a destiempo
-		//boolean onBorder =regularAliens.onBorder()||destroyerAliens.onBorder();
-		//if(regularAliens.onBorder()||destroyerAliens.onBorder())
-		//	descent=true;
-		regularAliens.automaticMove(descent, regularAliens.onBorder()||destroyerAliens.onBorder());
-		//descent=false;
-		//destroyerAliens.automaticMove(descent);
+
+		boolean onBorder = regularAliens.onBorder()||destroyerAliens.onBorder();
+		regularAliens.automaticMove(onBorder);
+		destroyerAliens.automaticMove(onBorder);
+
+
+
+
 		//trayectoria bombas
 			/*
 			* Si una bomba de una nave alienígena alcanza a UCMShip,
@@ -182,7 +190,7 @@ public class Game {
 
 		//	esto tiene que haber una forma más elegante de programarlo
 		//	pero esq llevo 6 horas delante de una pantalla y encima estoy
-		//	de resaca. PROCRASTINAO
+		//	de resaca. PROCRASTINADO
 		regularComputerAction();
 		destroyerComputerAction();
 
@@ -190,7 +198,7 @@ public class Game {
 
 	private void regularComputerAction(){
 		if(laser!=null ) {
-			int indice= regularAliens.recibeAtaque(laser);
+			int indice = regularAliens.recibeAtaque(laser);
 			if(indice!=-1) {
 				laser = null;
 				remainingAliens--;

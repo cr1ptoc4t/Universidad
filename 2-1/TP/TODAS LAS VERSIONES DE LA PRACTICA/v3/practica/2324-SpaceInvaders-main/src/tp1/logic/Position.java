@@ -62,5 +62,8 @@ public class Position {
 		return col== Game.DIM_X-1;
 	}
 
+	public boolean isInBorderDown(){
+		return row == Game.DIM_Y-1;
+	}
 
 }

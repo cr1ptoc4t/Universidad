@@ -22,7 +22,7 @@ public class RegularAlien {
 	private Level level;
 	
 	//TODO fill your code
-	public RegularAlien(Position pos, Level level) {
+	public RegularAlien(Game game, Position pos, Level level) {
 		//alienManager = new AlienManager();
 		this.pos = pos;
 		this.dir = direccion(level);
@@ -39,11 +39,17 @@ public class RegularAlien {
 		return pos.isInBorderLeft()||isInBorderRight();
 	}
 
+
+
 	public boolean receiveAttack(UCMLaser laser) {
 		//TODO fill your code
 		if(laser!=null && laser.isInPos(pos)){
 			points--;
 			laser=null;
+		}
+		//hacer un if para incrementar puntos
+		if(points==0){
+			//game.puntos+=5;
 		}
 
 		//devuelve si deberia morir
@@ -56,10 +62,6 @@ public class RegularAlien {
 		return position.equals(pos);
 	}
 
-	public boolean isInCol(int col){
-		return pos.isInCol(col);
-	}
-
 	public boolean isInBorderLeft(){
 		return pos.isInBorderLeft() ;
 	}
@@ -68,6 +70,9 @@ public class RegularAlien {
 		return pos.isInBorderRight();
 	}
 
+	public boolean isInLowerBorder(){
+		return pos.isInBorderDown();
+	}
 
 	private Move direccion(Level level){
 		Move dir;
@@ -83,5 +88,9 @@ public class RegularAlien {
 	}
 	public void shockWave(){
 		points--;
+	}
+
+	public String getSymbol(){
+		return Messages.REGULAR_ALIEN_SYMBOL+"["+points+"]";
 	}
 }

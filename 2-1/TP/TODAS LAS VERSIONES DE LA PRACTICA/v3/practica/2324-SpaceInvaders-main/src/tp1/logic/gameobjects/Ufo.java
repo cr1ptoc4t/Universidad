@@ -3,6 +3,7 @@ package tp1.logic.gameobjects;
 import tp1.logic.Game;
 import tp1.logic.Move;
 import tp1.logic.Position;
+import tp1.view.Messages;
 
 
 public class Ufo {
@@ -16,11 +17,11 @@ public class Ufo {
 
 	private Position pos;
 	//TODO fill your code
-	private int puntos;
+	private int points;
 	public Ufo(Game game){
 		this.game=game;
 		this.pos=new Position(UFO_X,UFO_Y);
-		puntos=1;
+		points=1;
 	}
 
 	public void computerAction() {
@@ -47,5 +48,12 @@ public class Ufo {
 	private boolean canGenerateRandomUfo(){
 		return game.getRandom().nextDouble() < game.getLevel().getUfoFrequency();
 	}
-	
+
+	public boolean isInPos(Position pos){
+		return pos.equals(this.pos);
+	}
+
+	public String getSymbol(){
+		return Messages.UFO_SYMBOL+"["+points+"]";
+	}
 }
