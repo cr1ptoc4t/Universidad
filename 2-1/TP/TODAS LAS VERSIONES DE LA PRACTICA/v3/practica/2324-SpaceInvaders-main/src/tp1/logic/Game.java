@@ -13,6 +13,14 @@ import tp1.util.MyStringUtils;
 
 public class Game {
 
+	/*
+	 * TODO:
+	 *  - BOMBAS Y UFO
+	 *  - LISTA
+	 *  - ARREGLAR CERDADAS
+	 *  - SHOCKWAVE
+	 * */
+
 	public static final int DIM_X = 9;
 	public static final int DIM_Y = 8;
 	
@@ -102,6 +110,8 @@ public class Game {
 		return str;
 	}
 
+
+	// todo: CAMBIAR EL REMAINING ALIENS CUANDO SHOCKWAVE
 	public boolean playerWin() {
 		//return false;
 		return remainingAliens==0;
@@ -223,7 +233,11 @@ public class Game {
 	public String lista(){
 		StringBuilder buffer = new StringBuilder();
 
-		buffer.append(regularAliens.lista()).append("\n").append(destroyerAliens.lista());
+		buffer.append(regularAliens.lista())
+				.append("\n").append(destroyerAliens.lista());
+
+		if(ufo!=null)
+				buffer.append("\n").append(ufo.lista());
 
 		return buffer.toString();
 		//faltará añadirle el ufo
@@ -234,4 +248,6 @@ public class Game {
 		destroyerAliens.shockWave();
 		ciclos++;
 	}
+
+
 }

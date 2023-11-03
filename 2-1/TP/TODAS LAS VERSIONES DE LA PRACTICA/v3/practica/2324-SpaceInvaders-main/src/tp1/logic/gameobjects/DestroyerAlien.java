@@ -15,12 +15,15 @@ public class DestroyerAlien {
 
     private Position pos;
     private int lifes;
-
-    private int points;
     private Level level;
 
     //TODO fill your code
 
+
+    public static final int damage=1;
+    public static final int endurance = 1;
+
+    public static final int value = 10;
 
 
     public DestroyerAlien(Position pos, Level level) {
@@ -28,7 +31,8 @@ public class DestroyerAlien {
         this.pos = pos;
         this.dir = direccion(level);
         this.level=level;
-        this.points=1;
+        this.lifes=endurance;
+
     }
 
     public void leaveBomb(){
@@ -78,16 +82,13 @@ public class DestroyerAlien {
         }
         return dir;
     }
-    public int vida(){
-        return points;
-    }
-
-    public void shockWave(){
-        points--;
+    public boolean shockWave(){
+        lifes--;
+        return lifes==0;
     }
 
     public String getSymbol(){
-        return Messages.DESTROYER_ALIEN_SYMBOL+"["+points+"]";
+        return Messages.DESTROYER_ALIEN_SYMBOL+"["+lifes+"]";
     }
     public boolean isInLowerBorder(){
         return pos.isInBorderDown();

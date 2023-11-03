@@ -12,14 +12,7 @@ import tp1.logic.Level;
  */
 public class RegularAlienList {
 
-	/*
-	* TODO:
-	*  - VELOCIDAD ALIENS DEPENDIENDO DEL NIVEL
-	*  - BOMBAS Y UFO
-	*  - ARREGLAR TEMA POSICION
-	*  - ARREGLAR MOVIMIENTO -- VA A DESTIEMPO
-	*  - ARREGLAR CERDADAS
-	* */
+
 	private RegularAlien[] objects;
 	private int num;
 
@@ -178,25 +171,33 @@ public class RegularAlienList {
 	public String lista(){
 		StringBuilder buffer = new StringBuilder();
 
-		for(int i=0;i<num;i++){
-			buffer.append("\n").
-					append(Messages.alienDescription(Messages.REGULAR_ALIEN_DESCRIPTION, objects[i].vida(),
-							0, 2));									//esto es 1 cerdada
-		}
-
+		buffer.append("\n")
+				.append(Messages.REGULAR_ALIEN_DESCRIPTION)
+				.append(": points: '").append(RegularAlien.value)
+				.append("', damage: '").append(RegularAlien.damage)
+				.append("', endurance: '").append(RegularAlien.endurance).append("'");
 
 		return buffer.toString();
 	}
 
 	public void shockWave(){
-		for(int i=0;i<num;i++){
-			objects[i].shockWave();
+		int n_aux = num;
+		int i =0;
 
-			if(objects[i].vida() == 0){
-				//eliminar(i); no podemos eliminar de esta forma porque alteramos el bucle anterior
+		while(i<n_aux){
+			if(objects[i].shockWave()){
+				eliminar(i);
+				// aqui no incrementamos porque cada valor pasa una casilla para la izquierda
+				// en vez de mover el indice se mueven las casillas
+			} else {
+				i++;
 			}
+
 		}
+
+
 		//aqui habria que chequear que elementos tienen 0 de vida y eliminarlos
+
 	}
 
 	public boolean alienInLowerBorder(){

@@ -11,4 +11,7 @@ public class Bomb {
         this.pos=pos;
         this.dir=Move.DOWN;
     }
+
+
+
 }

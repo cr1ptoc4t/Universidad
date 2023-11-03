@@ -18,16 +18,22 @@ public class RegularAlien {
 	private AlienManager alienManager;
 	
 	private Position pos;
-	private int points;
+	private int life;
 	private Level level;
+
+
+	public static final int damage=0;
+	public static final int endurance = 2;
+	public static final int value = 5;
 	
 	//TODO fill your code
 	public RegularAlien(Game game, Position pos, Level level) {
 		//alienManager = new AlienManager();
 		this.pos = pos;
 		this.dir = direccion(level);
-		this.points= 2;
+		this.life= endurance;
 		this.level=level;
+
 	}
 
 	public void performMovement(Move dir) {
@@ -44,16 +50,16 @@ public class RegularAlien {
 	public boolean receiveAttack(UCMLaser laser) {
 		//TODO fill your code
 		if(laser!=null && laser.isInPos(pos)){
-			points--;
+			life--;
 			laser=null;
 		}
 		//hacer un if para incrementar puntos
-		if(points==0){
-			//game.puntos+=5;
+		if(life==0){
+			//game.puntos+=value;
 		}
 
 		//devuelve si deberia morir
-		return points==0;
+		return life==0;
 	}
 	/**
 	 * @return muere
@@ -84,13 +90,16 @@ public class RegularAlien {
 		return dir;
 	}
 	public int vida(){
-		return points;
+		return life;
 	}
-	public void shockWave(){
-		points--;
+	public boolean shockWave(){
+		life--;
+		return life==0;
 	}
+	//@returns : esta vivo?
 
 	public String getSymbol(){
-		return Messages.REGULAR_ALIEN_SYMBOL+"["+points+"]";
+		return Messages.REGULAR_ALIEN_SYMBOL+"["+life+"]";
 	}
+
 }

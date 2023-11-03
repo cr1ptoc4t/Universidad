@@ -18,6 +18,11 @@ public class Ufo {
 	private Position pos;
 	//TODO fill your code
 	private int points;
+
+	public static final int damage=0;
+	public static final int endurance = 1;
+
+	public static final int value = 25;
 	public Ufo(Game game){
 		this.game=game;
 		this.pos=new Position(UFO_X,UFO_Y);
@@ -56,4 +61,20 @@ public class Ufo {
 	public String getSymbol(){
 		return Messages.UFO_SYMBOL+"["+points+"]";
 	}
+
+	public String lista(){
+
+		StringBuilder buffer = new StringBuilder();
+
+		buffer.append("\n")
+				.append(Messages.UFO_DESCRIPTION)
+				.append(": points: '").append(value)
+				.append("', damage: '").append(damage)
+				.append("', endurance: '").append(endurance).append("'");
+
+		return buffer.toString();
+	}
+
+
+
 }

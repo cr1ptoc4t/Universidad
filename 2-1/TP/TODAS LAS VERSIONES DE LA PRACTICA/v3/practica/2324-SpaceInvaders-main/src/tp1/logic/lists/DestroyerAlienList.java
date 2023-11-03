@@ -117,8 +117,15 @@ public class DestroyerAlienList {
     }
 
     public String lista(){
+        StringBuilder buffer = new StringBuilder();
 
-        return "";
+        buffer
+                .append(Messages.DESTROYER_ALIEN_DESCRIPTION)
+                .append(": points: '").append(DestroyerAlien.value)
+                .append("', damage: '").append(DestroyerAlien.damage)
+                .append("', endurance: '").append(DestroyerAlien.endurance).append("'");
+
+        return buffer.toString();
     }
 
     public int recibeAtaque(UCMLaser laser){
@@ -136,13 +143,22 @@ public class DestroyerAlienList {
     }
 
     public void shockWave(){
-        for(int i=0;i<num;i++){
-            //eliminar 1 punto de vida al objects[i]
-            objects[i].shockWave();
-            if(objects[i].vida()==0){
-                //eliminar(i);
+        int n_aux = num;
+        int i =0;
+
+        while(i<n_aux){
+            if(objects[i].shockWave()){
+                eliminar(i);
+                // aqui no incrementamos porque cada valor pasa una casilla para la izquierda
+                // en vez de mover el indice se mueven las casillas
+            } else {
+                i++;
             }
+
         }
+
+
+        //aqui habria que chequear que elementos tienen 0 de vida y eliminarlos
 
     }
 

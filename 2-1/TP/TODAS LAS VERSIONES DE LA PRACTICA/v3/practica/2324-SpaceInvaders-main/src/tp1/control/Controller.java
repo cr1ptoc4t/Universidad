@@ -131,6 +131,7 @@ public class Controller {
 	 */
 	private String list() {
 		StringBuilder buffer = new StringBuilder();
+
 		/* @formatter:off */
 		buffer.append(Messages.ucmShipDescription(Messages.UCMSHIP_DESCRIPTION,3, 2))
 				.append(game.lista());
