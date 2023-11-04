@@ -63,7 +63,7 @@ public class AlienManager {
 	 */
 	protected DestroyerAlienList initializeDestroyerAliens() {
 		//		TODO fill your code
-		DestroyerAlienList lista = new DestroyerAlienList(numDestroyer, level);
+		DestroyerAlienList lista = new DestroyerAlienList(game, numDestroyer, level);
 		lista.inicializa();
 		return lista;
 	}

@@ -25,18 +25,21 @@ public class DestroyerAlien {
 
     public static final int value = 10;
 
-
-    public DestroyerAlien(Position pos, Level level) {
+    private Bomb bomba;
+    private Game game;
+    public DestroyerAlien(Game game, Position pos, Level level) {
         //alienManager = new AlienManager();
+        this.game =game;
         this.pos = pos;
-        this.dir = direccion(level);
+        this.dir = direccion();
         this.level=level;
         this.lifes=endurance;
 
+        // random 0-1 -> si este random<frequency -> hay bomba
     }
 
-    public void leaveBomb(){
-        Bomb bomb = new Bomb(this.pos);
+    private void leaveBomb(){
+        bomba = new Bomb(this, this.pos);
     }
 
     public void performMovement(Move dir) {
@@ -50,8 +53,9 @@ public class DestroyerAlien {
 
     public boolean receiveAttack(UCMLaser laser) {
         //TODO fill your code
-
-        return laser!=null && laser.isInPos(pos);
+        lifes--;
+        laser=null;
+        return lifes==0;
     }
     /**
      * @return muere
@@ -73,7 +77,9 @@ public class DestroyerAlien {
     }
 
 
-    private Move direccion(Level level){
+
+
+    private Move direccion(){
         Move dir;
         if(level==Level.EASY){
             dir= Move.LEFT;
@@ -87,10 +93,31 @@ public class DestroyerAlien {
         return lifes==0;
     }
 
+    public int vida(){
+        return lifes;
+    }
     public String getSymbol(){
         return Messages.DESTROYER_ALIEN_SYMBOL+"["+lifes+"]";
     }
     public boolean isInLowerBorder(){
         return pos.isInBorderDown();
     }
+
+    public void shoot(double frequency){
+        if(canGenerateRandomBomb(frequency) && bomba==null ){
+            leaveBomb();
+        }
+    }
+
+
+    // este método evalua si se puede generar la bomba
+    // SOLO por temas aleatoriedad y frecuencia
+    private boolean canGenerateRandomBomb(double frequency){
+        return game.getRandom().nextDouble() < frequency;
+    }
+
+    public boolean bombaEnPos(Position pos){
+        return this.pos.equals(pos);
+    }
+
 }

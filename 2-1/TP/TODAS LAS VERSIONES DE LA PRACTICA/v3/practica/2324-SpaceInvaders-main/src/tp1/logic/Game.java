@@ -92,18 +92,22 @@ public class Game {
 			str = laNave.getSymbol();
 		} else {
 			RegularAlien alien = regularAliens.alienInPosition(position);
-			if (alien!=null) {
+			if (alien != null) {
 				str = alien.getSymbol();
 			} else {
 				DestroyerAlien alienD = destroyerAliens.alienInPosition(position);
+
 				if (alienD != null) {
 					str = alienD.getSymbol();
-				} else if (laser != null && laser.isInPos(position)) {
-					str = laser.getSymbol();
-				} else if(ufo !=null && ufo.isInPos(position)){
-					str=ufo.getSymbol();
+				} else{
+					if (destroyerAliens.hayBomba(position)){
+						str = Bomb.getSymbol();
+					} else if (laser != null && laser.isInPos(position)) {
+						str = laser.getSymbol();
+					} else if (ufo != null && ufo.isInPos(position)) {
+						str = ufo.getSymbol();
+					}
 				}
-
 			}
 		}
 
@@ -211,8 +215,8 @@ public class Game {
 			int indice = regularAliens.recibeAtaque(laser);
 			if(indice!=-1) {
 				laser = null;
-				remainingAliens--;
-				puntos += 5;
+
+				//puntos += 5;
 			}
 		}
 	}
@@ -222,10 +226,12 @@ public class Game {
 			int indice =destroyerAliens.recibeAtaque(laser);
 			if(indice!=-1){
 				laser=null;
-				remainingAliens--;
-				puntos+=5;
+				//remainingAliens--;
+				//puntos+=5;
 			}
 		}
+
+		destroyerAliens.shoot();
 	}
 
 
@@ -248,6 +254,24 @@ public class Game {
 		destroyerAliens.shockWave();
 		ciclos++;
 	}
+
+	public void actualizaRemainingAliens(){
+		remainingAliens--;
+	}
+	public void actualizaPoints(String type){
+		switch (type){
+			case "regular":
+				puntos+=RegularAlien.value;
+				break;
+			case "destroyer":
+				puntos+=DestroyerAlien.value;
+				break;
+			case "ufo":
+				puntos+=Ufo.value;
+		}
+
+	}
+
 
 
 }

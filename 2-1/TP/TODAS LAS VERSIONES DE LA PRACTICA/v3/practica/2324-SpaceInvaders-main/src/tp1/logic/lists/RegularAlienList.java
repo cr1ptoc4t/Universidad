@@ -28,7 +28,7 @@ public class RegularAlienList {
 		this.level = level;
 		this.num=num;
 		objects = new RegularAlien[num];
-		wait=waitUntil();
+		wait = waitUntil();
 	}
 
 	public void addAlien(RegularAlien alien){
@@ -102,7 +102,7 @@ public class RegularAlienList {
 	public void automaticMove(boolean onBorder){
 		//tema bordes!!
 		if(num>0 && nCiclos%wait==0) {
-			if (onBorder && descent == false) {
+			if (onBorder && !descent) {
 				direccionOp = dir.opuesto();
 				dir = Move.DOWN;
 				descent = true;
@@ -115,6 +115,7 @@ public class RegularAlienList {
 		}
 		nCiclos++;
 	}
+
 
 	private int waitUntil(){
 		int ret=1;
@@ -146,17 +147,21 @@ public class RegularAlienList {
 	}
 
 	public void eliminar(int indice){
-		if(indice!=-1) {
+		if(indice!=-1 && objects[indice].vida()==0) {
 			for (int i = indice; i < num - 1; i++)
 				objects[i] = objects[i + 1];
 			num--;
+
+			game.actualizaPoints("regular");
+			game.actualizaRemainingAliens();
 		}
 	}
 
 	public int recibeAtaque(UCMLaser laser){
 		int i=0;
 
-		while (i<num && !objects[i].receiveAttack(laser))
+		//while (i<num && !objects[i].receiveAttack(laser))
+		while (i<num && !laser.performAttack(objects[i]))
 			i++;
 
 		if (i==num) i=-1;

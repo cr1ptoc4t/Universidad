@@ -11,21 +11,21 @@ public class DestroyerAlienList {
     private int num;
     private boolean descent;
     private Level level;
-    private AlienManager alienManager;
+    //private AlienManager alienManager;
     private Move dir=Move.LEFT;
     private Move direccionOp;
-
-    //hay que poner el game aqui??
-    //private Game game;
-    int nCiclos;
-    int wait;
-    public DestroyerAlienList(int num, Level level){
+    private int nCiclos, wait;
+    private double frequency;
+    private Game game;
+    public DestroyerAlienList(Game game,int num, Level level){
+        this.game = game;
         this.num= num;
         this.level = level;
         objects = new DestroyerAlien[num];
         descent = false;
         nCiclos = 0;
         wait = waitUntil();
+        this.frequency = decideFrecuencia();
     }
 
     public boolean onBorder() {
@@ -92,6 +92,14 @@ public class DestroyerAlienList {
         return objects[i];
     }
 
+    public DestroyerAlien bombInPosition(Position pos){
+        int i= indiceEnPos(pos);
+
+        if(i==-1) return null;
+
+        return objects[i];
+    }
+
 
     // TODO cambiarlo a solo 1 bucle que dependa de num
     public void inicializa() {
@@ -99,18 +107,18 @@ public class DestroyerAlienList {
             //empieza en 3,3
             num = 2;
             for (int i =0; i < num; i++) {
-                objects[i] = new DestroyerAlien(new Position(i+4, 3), level);
+                objects[i] = new DestroyerAlien(game,new Position(i+4, 3), level);
             }
         } else if(level==level.HARD){
             num = 2;
             for (int i =0; i < num; i++) {
-                objects[i] = new DestroyerAlien(new Position(i+4, 4), level);
+                objects[i] = new DestroyerAlien(game,new Position(i+4, 4), level);
             }
         } else if (level == Level.INSANE) {
             //empieza en 3,4
             num = 4;
             for (int i =0; i < num; i++) {
-                objects[i] = new DestroyerAlien(new Position(i+3, 4), level);
+                objects[i] = new DestroyerAlien(game, new Position(i+3, 4), level);
             }
         }
 
@@ -131,10 +139,11 @@ public class DestroyerAlienList {
     public int recibeAtaque(UCMLaser laser){
         int i=0;
 
-        while (i<num && !objects[i].receiveAttack(laser))
+        //while (i<num && !objects[i].receiveAttack(laser))
+        while (i<num && !laser.performAttack(objects[i]))
             i++;
 
-        if (i==num) i=-1;   //si ningun elemento para eliminar
+        if (i==num) i=-1;
         else {
             eliminar(i);
         }
@@ -164,16 +173,50 @@ public class DestroyerAlienList {
 
 
     public void eliminar(int indice){
-        if(indice!=-1) {
+        if(indice!=-1 && objects[indice].vida()==0) {
             for (int i = indice; i < num - 1; i++)
                 objects[i] = objects[i + 1];
             num--;
+
+            game.actualizaPoints("destroyer");
+            game.actualizaRemainingAliens();
+
         }
     }
+
+
 
     public boolean alienInLowerBorder(){
         int i=0;
         while(i<num &&!objects[i].isInLowerBorder()) i++;
+        return i!=num;
+    }
+
+    public void shoot(){
+        for(int i=0; i<num;i++){
+            objects[i].shoot(frequency);
+        }
+    }
+
+    private double decideFrecuencia(){
+        double ret = 0.1;
+
+        switch (level) {
+            case HARD:
+                ret=0.3;
+                break;
+            case INSANE:
+                ret=0.5;
+        }
+        return ret;
+    }
+
+    public boolean hayBomba(Position pos){
+        int i=0;
+
+        while (i<num &&!objects[i].bombaEnPos(pos))
+            i++;
+
         return i!=num;
     }
 

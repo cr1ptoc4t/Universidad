@@ -47,18 +47,13 @@ public class RegularAlien {
 
 
 
-	public boolean receiveAttack(UCMLaser laser) {
-		//TODO fill your code
-		if(laser!=null && laser.isInPos(pos)){
-			life--;
-			laser=null;
-		}
-		//hacer un if para incrementar puntos
-		if(life==0){
-			//game.puntos+=value;
-		}
+	//si performattack
+	//actualizas var
 
-		//devuelve si deberia morir
+	public boolean receiveAttack(UCMLaser laser) {
+
+		life--;
+		laser=null;
 		return life==0;
 	}
 	/**

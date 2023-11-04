@@ -14,12 +14,14 @@ public class UCMLaser {
 	
 	//TODO fill your code
 	private Move dir;
-	private Game game;
+	private Game game; //para luego eliminar laser o sumar puntos al matar
 	private Position pos;
+	private int vida;
 
 	public UCMLaser(Position pos) {
 		this.dir = Move.UP;
 		this.pos=pos;
+		vida=1;
 	}
 
 
@@ -67,11 +69,16 @@ public class UCMLaser {
 
 
 	public boolean performAttack(RegularAlien other) {
-		//TODO fill your code
+		boolean b = false;
+		if(vida>0 && other.isInPosition(pos)){
+			weaponAttack(other);
+			b=true;
+			vida--;
+		}
 
-
-		return false;
+		return b;
 	}
+
 
 	/*
 	 * Method that implements the attack by the laser to a destroyer alien.
@@ -81,12 +88,17 @@ public class UCMLaser {
 	 * @return <code>true</code> if the alien has been attacked by the laser.
 	 */
 
-	/*
+
 	public boolean performAttack(DestroyerAlien other) {
-		//TODO fill your code
-		return false;
+		boolean b = false;
+		if(vida>0 && other.isInPosition(pos)){
+			weaponAttack(other);
+			b=true;
+			vida--;
+		}
+
+		return b;
 	}
-	*/
 
 	//TODO fill your code
 
@@ -100,7 +112,11 @@ public class UCMLaser {
 	 * @return always returns <code>true</code>
 	 */
 	private boolean weaponAttack(RegularAlien other) {
-		return other.receiveAttack(this);	
+		return other.receiveAttack(this);
+	}
+
+	private boolean weaponAttack(DestroyerAlien other) {
+		return other.receiveAttack(this);
 	}
 
 	//TODO fill your code
@@ -121,7 +137,7 @@ public class UCMLaser {
 	}
 	*/
 
-	public boolean isInPos(Position pos){
+	public boolean isInPos (Position pos){
 		return this.pos.equals(pos);
 	}
 
