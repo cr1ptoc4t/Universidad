@@ -40,4 +40,8 @@ public class Bomb {
     public boolean posicionValida(){
         return pos.esPosicionValida();
     }
+
+    public int getDamage(){
+        return 1;
+    }
 }

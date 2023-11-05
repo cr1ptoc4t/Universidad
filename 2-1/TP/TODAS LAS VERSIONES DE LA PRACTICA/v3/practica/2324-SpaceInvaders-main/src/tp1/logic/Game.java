@@ -39,11 +39,9 @@ public class Game {
 	private int vidas;
 
 	private int remainingAliens;
-	private int numRegular;
-	private int numDestroyer;
-	private boolean descent;
 
 	private int ciclos;
+	private boolean shockWave =false;
 
 	private Ufo ufo;
 
@@ -52,6 +50,7 @@ public class Game {
 		this.level=level;
 		this.laNave= new UCMShip();
 		this.seed=seed;
+		this.ufo=new Ufo(this);
 
 
 		this.alienManager = new AlienManager(this, level);
@@ -144,6 +143,7 @@ public class Game {
 	}
 	
 	public void mueveNave(Move direction) {
+		//ufo=new Ufo(this);
 		laNave.mueve(direction);
 		ciclos++;
 	}
@@ -176,6 +176,8 @@ public class Game {
 			*
 			* */
 		//si ovni distinto de null, actualiza posicion
+		if(ufo!=null)
+			ufo.movimientoAutomatico();
 
 		if(laser!=null) {
 			laser.automaticMove();
@@ -195,45 +197,52 @@ public class Game {
 	}
 
 	public void update(){
-		//en este orden?? --mirar 1.2 al final
+
 		automaticMoves();
 		computerAction();
 
 	}
 	private void computerAction(){	//eventos automaticos
-
-
-		//	esto tiene que haber una forma más elegante de programarlo
-		//	pero esq llevo 6 horas delante de una pantalla y encima estoy
-		//	de resaca. PROCRASTINADO
 		regularComputerAction();
 		destroyerComputerAction();
+		ufoComputerAction();
+		destroyerAliens.shoot();
+		if(destroyerAliens.bombaAtaca(laNave)) vidas--;
 
+		ufoComputerAction();
+	}
+
+	private void ufoComputerAction(){
+		if(ufo.isEnabled()){
+			if(laser!=null&&ufo.receiveAttack(laser)) {
+				actualizaPoints("ufo");
+				ufo.onDelete();
+			}
+
+		}else {
+			ufo.computerAction();
+		}
 	}
 
 	private void regularComputerAction(){
-		if(laser!=null ) {
+		if(laser!=null) {
 			int indice = regularAliens.recibeAtaque(laser);
-			if(indice!=-1) {
+			if (indice != -1) {
 				laser = null;
-
-				//puntos += 5;
 			}
 		}
 	}
 
 	private void destroyerComputerAction(){
-		if(laser!=null){
-			int indice =destroyerAliens.recibeAtaque(laser);
-			if(indice!=-1){
-				laser=null;
+
+		if(laser!=null) {
+			int indice = destroyerAliens.recibeAtaque(laser);
+			if (indice != -1) {
+				laser = null;
 				//remainingAliens--;
 				//puntos+=5;
 			}
 		}
-
-		destroyerAliens.shoot();
-		if(destroyerAliens.bombaAtaca(laNave)) vidas--;
 
 	}
 
@@ -252,9 +261,13 @@ public class Game {
 		//faltará añadirle el ufo
 	}
 
-	public void shockWave(){
-		regularAliens.shockWave();
-		destroyerAliens.shockWave();
+	public void shockWave() {
+		if (shockWave){
+			regularAliens.shockWave();
+			destroyerAliens.shockWave();
+
+			shockWave=false;
+		}
 		ciclos++;
 	}
 
@@ -271,6 +284,7 @@ public class Game {
 				break;
 			case "ufo":
 				puntos+=Ufo.value;
+				shockWave= true;
 		}
 
 	}

@@ -19,7 +19,7 @@ public class UCMShip{
 	public String getSymbol(){
 		String symbol=Messages.UCMSHIP_SYMBOL;
 		if(vida<0){
-			symbol=Messages.UCMSHIP_DEAD_SYMBOL;
+			symbol="#──#";
 		}
 		return symbol;
 	}

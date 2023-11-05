@@ -130,12 +130,11 @@ public class UCMLaser {
 	 * param weapon the received bomb
 	 * @return always returns <code>true</code>
 	 */
-	/*
+
 	public boolean receiveAttack(Bomb weapon) {
 		receiveDamage(weapon.getDamage());
 		return true;
 	}
-	*/
 
 	public boolean isInPos (Position pos){
 		return this.pos.equals(pos);
@@ -147,5 +146,9 @@ public class UCMLaser {
 
 	public boolean dentroMapa(){
 		return pos.esPosicionValida();
+	}
+
+	public void receiveDamage(int damage){
+		vida-=damage;
 	}
 }

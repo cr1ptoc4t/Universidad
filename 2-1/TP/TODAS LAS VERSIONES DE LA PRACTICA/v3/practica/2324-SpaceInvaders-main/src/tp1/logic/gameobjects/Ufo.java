@@ -24,11 +24,13 @@ public class Ufo {
 
 	public static final int value = 25;
 	private Move mov;
+
 	public Ufo(Game game){
 		this.game=game;
 		this.pos=new Position(UFO_X,UFO_Y);
 		points=1;
 		this.mov=Move.LEFT;
+		enabled=false;
 	}
 
 	public void computerAction() {
@@ -37,19 +39,31 @@ public class Ufo {
 		}
 	}
 
+	public boolean isEnabled(){
+		return enabled;
+	}
+
 	public void movimientoAutomatico(){
 		//aqui hay que considerar los bordes
+		if(pos.isInBorderRight())
+			mov=Move.LEFT;
+		else if (pos.isInBorderLeft())
+			mov=Move.RIGHT;
+
 		pos.actualiza(mov);
 	}
 	
 	private void enable() {
-		//TODO fill your code
 		enabled=true;
+
 		
 	}
 
 	public void onDelete() {
 		//TODO fill your code
+		enabled=false;
+		pos=new Position(UFO_X, UFO_Y);
+		mov= Move.LEFT;
 	}
 
 	/**
@@ -80,6 +94,12 @@ public class Ufo {
 				.append("', endurance: '").append(endurance).append("'");
 
 		return buffer.toString();
+	}
+
+
+	public boolean receiveAttack(UCMLaser laser){
+
+		return laser.isInPos(this.pos);
 	}
 
 
