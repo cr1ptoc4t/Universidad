@@ -18,6 +18,7 @@ public class Bomb {
         this.alien = alien;
         this.pos=pos;
         this.dir=Move.DOWN;
+        this.vida =1;
     }
 
 
@@ -31,6 +32,12 @@ public class Bomb {
         return this.pos.equals(pos);
     }
 
+    public void movimientoAutomatico(){
+        pos.actualiza(dir);
+    }
 
 
+    public boolean posicionValida(){
+        return pos.esPosicionValida();
+    }
 }

@@ -134,7 +134,9 @@ public class Game {
 	}
 
 	public Random getRandom() {
-		return new Random(seed);
+		Random rnd = new Random();
+		rnd.setSeed(seed);
+		return rnd;
 	}
 
 	public Level getLevel() {
@@ -161,7 +163,6 @@ public class Game {
 		boolean onBorder = regularAliens.onBorder()||destroyerAliens.onBorder();
 		regularAliens.automaticMove(onBorder);
 		destroyerAliens.automaticMove(onBorder);
-
 
 
 
@@ -232,6 +233,8 @@ public class Game {
 		}
 
 		destroyerAliens.shoot();
+		if(destroyerAliens.bombaAtaca(laNave)) vidas--;
+
 	}
 
 

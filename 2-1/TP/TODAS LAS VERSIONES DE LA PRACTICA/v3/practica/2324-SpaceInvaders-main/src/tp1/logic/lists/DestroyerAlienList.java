@@ -4,6 +4,7 @@ import tp1.logic.*;
 import tp1.logic.gameobjects.DestroyerAlien;
 import tp1.logic.gameobjects.RegularAlien;
 import tp1.logic.gameobjects.UCMLaser;
+import tp1.logic.gameobjects.UCMShip;
 import tp1.view.Messages;
 
 public class DestroyerAlienList {
@@ -55,7 +56,14 @@ public class DestroyerAlienList {
 
             performGroupMovement();
         }
+        performBombMov();
+
         nCiclos++;
+    }
+
+    private void performBombMov(){
+        for(int i=0; i<num;i++)
+            objects[i].performBombMov();
     }
 
     private int waitUntil(){
@@ -214,7 +222,16 @@ public class DestroyerAlienList {
     public boolean hayBomba(Position pos){
         int i=0;
 
+
         while (i<num &&!objects[i].bombaEnPos(pos))
+            i++;
+
+        return i!=num;
+    }
+
+    public boolean bombaAtaca(UCMShip laNave){
+        int i=0;
+        while (i<num && !laNave.recibeAtaque(this.objects[i]))
             i++;
 
         return i!=num;

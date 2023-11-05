@@ -23,16 +23,23 @@ public class Ufo {
 	public static final int endurance = 1;
 
 	public static final int value = 25;
+	private Move mov;
 	public Ufo(Game game){
 		this.game=game;
 		this.pos=new Position(UFO_X,UFO_Y);
 		points=1;
+		this.mov=Move.LEFT;
 	}
 
 	public void computerAction() {
 		if(!enabled && canGenerateRandomUfo()) {
 			enable();
 		}
+	}
+
+	public void movimientoAutomatico(){
+		//aqui hay que considerar los bordes
+		pos.actualiza(mov);
 	}
 	
 	private void enable() {

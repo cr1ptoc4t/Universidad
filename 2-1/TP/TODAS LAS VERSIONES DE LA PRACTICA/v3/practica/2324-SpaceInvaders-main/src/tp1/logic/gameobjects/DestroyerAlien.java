@@ -39,11 +39,22 @@ public class DestroyerAlien {
     }
 
     private void leaveBomb(){
-        bomba = new Bomb(this, this.pos);
+        Position copia =new Position(this.pos);
+        bomba = new Bomb(this, copia);
+
+        bomba.movimientoAutomatico();
+
     }
 
     public void performMovement(Move dir) {
+
         pos.actualiza(dir);
+
+    }
+
+    public void performBombMov(){
+        if(bomba!=null)
+            bomba.movimientoAutomatico();
     }
 
     private boolean isInBorderVertical() {
@@ -104,7 +115,7 @@ public class DestroyerAlien {
     }
 
     public void shoot(double frequency){
-        if(canGenerateRandomBomb(frequency) && bomba==null ){
+        if(canGenerateRandomBomb(frequency) && (bomba==null|| !bomba.posicionValida() )){
             leaveBomb();
         }
     }
@@ -113,11 +124,16 @@ public class DestroyerAlien {
     // este método evalua si se puede generar la bomba
     // SOLO por temas aleatoriedad y frecuencia
     private boolean canGenerateRandomBomb(double frequency){
-        return game.getRandom().nextDouble() < frequency;
+
+        //el random siempre saca el mismo numero, que es 0,72...
+
+        return game.getRandom().nextDouble() < 0.8;
     }
 
     public boolean bombaEnPos(Position pos){
-        return this.pos.equals(pos);
+        if (bomba ==null)
+            return false;
+        return bomba.isInPos(pos);
     }
 
 }

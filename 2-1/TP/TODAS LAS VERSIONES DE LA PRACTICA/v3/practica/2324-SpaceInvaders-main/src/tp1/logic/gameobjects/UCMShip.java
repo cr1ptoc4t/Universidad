@@ -7,7 +7,7 @@ public class UCMShip{
 	private final int POS_INI_Y=7;
 	private Position pos;
 	private boolean onBorder;
-	private int vida=0;
+	private int vida=3;
 	public UCMShip(){
 		this.pos = new Position(POS_INI_X, POS_INI_Y);
 	}
@@ -53,8 +53,11 @@ public class UCMShip{
 		return pos.equals(new Position(Game.DIM_X-1, Game.DIM_Y/2)) ;
 	}
 
-	public void recibeAtaque(DestroyerAlien alien){
-		//si le da -> 1 punto menos
+	public boolean recibeAtaque(DestroyerAlien alien){
+		if(alien.bombaEnPos(this.pos)){
+			vida--;
+		}
+		return alien.bombaEnPos(this.pos);
 	}
 	public UCMLaser creaLaser(){
 		Position copia = new Position(pos);
