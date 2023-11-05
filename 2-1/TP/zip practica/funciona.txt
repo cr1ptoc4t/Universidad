@@ -1,0 +1,10 @@
+Funciona:
+- alien regular
+- alien destructor
+- ufo
+- ucm ship
+- bomba
+- laser
+- lista
+
+No funciona:
