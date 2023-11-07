@@ -66,6 +66,29 @@ public class Controller {
 	}
 
 
+	//ESTE VA A SER EL NUEVO RUN:
+	/*
+	while (!game.isFinished()) {
+
+    String[] userWords = prompt();
+    Command command = CommandGenerator.parse(userWords);
+
+    if (command != null) {
+
+        ExecutionResult result = command.execute(game);
+
+        if (result.success()) {
+            if (result.draw())
+                printGame();
+        }
+        else
+            System.out.println(result.errorMessage());
+    }
+    else
+        System.out.format(Messages.UNKNOWN_COMMAND);
+}
+	 */
+
 	private boolean esComandoExit(String[] comando){
 		return comando[0].equals("exit") || comando[0].equals("e");
 	}
