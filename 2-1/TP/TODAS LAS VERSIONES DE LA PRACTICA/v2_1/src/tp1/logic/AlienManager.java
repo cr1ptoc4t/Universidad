@@ -37,6 +37,12 @@ public class AlienManager {
 
 
 
+	public GameObjectContainer initialize(){
+		initializeRegularAliens();
+		initializeDestroyerAliens();
+		return null;
+	}
+
 	/**
 	 * Initializes the list of regular aliens
 	 * @return the initial list of regular aliens according to the current level

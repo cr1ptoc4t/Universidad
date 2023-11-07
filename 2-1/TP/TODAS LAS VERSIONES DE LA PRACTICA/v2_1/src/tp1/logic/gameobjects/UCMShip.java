@@ -3,12 +3,12 @@ import tp1.logic.*;
 import tp1.view.Messages;
 
 public class UCMShip{
-	private final int POS_INI_X=4;
-	private final int POS_INI_Y=7;
 	private Position pos;
 	private int vida=3;
-	public UCMShip(){
-		this.pos = new Position(POS_INI_X, POS_INI_Y);
+	private Game game;
+	public UCMShip(Game game, Position position){
+		this.game=game;
+		this.pos = position;
 	}
 
 	public String getSymbol(){
