@@ -1,0 +1,28 @@
+move lleft
+s
+
+
+
+s
+
+
+move rright
+s
+
+move rright
+s
+
+
+
+s
+
+
+move left
+move lleft
+s
+
+
+s
+
+
+
