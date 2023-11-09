@@ -22,7 +22,7 @@ public enum Move {
 	public int getY() {
 		return y;
 	}
-	
+
 	public static Move stringAMov(String str) {
 		
 		Move ret= NONE;

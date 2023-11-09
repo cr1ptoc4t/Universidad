@@ -10,9 +10,9 @@ public class CommandGenerator {
 	
 
 	private Move move;
-	public MoveCommand () {}
+	public void MoveCommand () {}
 	
-	protected MoveCommand (Move move) {
+	protected void MoveCommand (Move move) {
 		this.move = move;
 	}
 	
@@ -30,13 +30,13 @@ public class CommandGenerator {
 		//}
 		//return command;
 		
-		for(Command c : commands){  //comands es la lista de comandos que tenemos
-			if(c.commandName(commandWords[0])){					
-				return c.parse(commandWords);
-			}
-			return null;
+		for(Command c : availableCommands){  //comands es la lista de comandos que tenemos
+			//if(c.commandName(commandWords[0])){
+			//	return c.parse(commandWords);
+			//}
+
 		}
-		
+		return null;
 	}
 		
 	public static String commandHelp() {
