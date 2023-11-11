@@ -1,0 +1,34 @@
+Fichero Readme, gracias!!!.
+Para la proxima haced las pruebas con los txt. 
+Booleanos mal trabajados, no se hace un if..else para devolver o inicilizar una variable con true o false.
+
+- Controller, OK podrías evitar y pasar GamePrinter los System.out, pero correcto.
+
+- Game: Sin lista de bombas, ni shockWave(solo booleano, pero hace ataques)
++ reset, sería un trozo del constructor, por lo que sería bueno tener parte del constructor en un metodo inicializar.
++ automaticMoves: ufo nunca será null.
++ el perform/receive se deben mejorar en la siguiente para que realizen sus tareas completas. Además deben devolver un booleano, no un int. Se ve ya que implementas métodos como actualizaPoints(String type) que no deberían existir.
+
+- Position: * NO es inmutable, para la próxima.
+
+- Level: No haces depender el juego de los valores almacenados ahí, deberías.
+
+- AlienManager no hace ninguna tarea, solo almacena algún dato, pero no los utiliza. Mal diseñado, se carga POO.
+
+- Bomb: Solo se mueve, pero no avisa al juego de que se ha muerto.
+
+- UCMShip:
++ Constantes de colocación no dependen del tamaño del tablero
++ alien.bombaEnPos(this.pos), nombre de método horrible, no es cierto que lo use para lo que dice su nombre.
+
+- UCMLaser:
++ boolenaos mal trabajados, deja de inicializar los booleanos a true/false y cambiarlos a false/true y pon nombres adecuados:
+Ej public boolean performAttack(RegularAlien other) { boolean hayColision = vida>0 && other.isInPosition(pos); if(hayColision){ weaponAttack(other); vida--; } return hayColision;
+
+- RegularAlien, DestroyerAlien, ....
++ No vale de nada que en receiveAttack(UCMLaser laser) pongas el laser a null, pues es un parámetro que se ha pasado por valor. 
++ No debería tener métodos para cada borde isInBorderLeft(... - DestroyerAlien: No debería tener una referencia a la Bomba, sino al reves, leer los enunciados. + Otra vez los booleanos: public boolean bombaEnPos(Position pos){ if (bomba ==null) return false; return bomba.isInPos(pos); 
+
+- List: 
++ Has pasado mucha lógica del juego a las listas que no deberían llevar la lógica del juego. No deberían llevar una referencia al game. Además para que funcionen dependes de que el primero o el último se encuentren en el borde. Eso no va a poder utilizarse n la práctica 2. en la práctica 2 debes pasar el comportamiento a cada objeto. 
++ chapuza: game.actualizaPoints("destroyer"); si se cambian los puntos del objeto no funciona. En la lógica del juego no debe haber ningún System.out. (en Game, UCMShip tienes alguno)

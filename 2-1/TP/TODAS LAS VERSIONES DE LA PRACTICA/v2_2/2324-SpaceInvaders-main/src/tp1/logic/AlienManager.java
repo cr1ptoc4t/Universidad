@@ -8,6 +8,10 @@ public class AlienManager  {
 	private int remainingAliens;
 	
 	//TODO fill with your code
+	public AlienManager(Game game){
+		this.game=game;
+	}
+
 
 	public  GameObjectContainer initialize() {
 		this.remainingAliens = 0;

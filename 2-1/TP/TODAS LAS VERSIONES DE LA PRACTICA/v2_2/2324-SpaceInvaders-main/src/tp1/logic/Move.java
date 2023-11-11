@@ -1,8 +1,6 @@
 package tp1.logic;
 
 public enum Move {
-	//TODO use your code from P1
-
     LEFT(-1,0), LLEFT(-2,0), RIGHT(1,0), RRIGHT(2,0), DOWN(0,1), UP(0,-1), NONE(0,0);
     private int x;
     private int y;
