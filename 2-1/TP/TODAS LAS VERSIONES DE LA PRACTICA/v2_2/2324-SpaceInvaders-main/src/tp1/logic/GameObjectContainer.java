@@ -25,12 +25,20 @@ public class GameObjectContainer {
 		for (int i=0;i<objects.size();i++) {
 				GameObject object = objects.get(i);
 			//TODO fill with your code
+
 		}
 		//TODO fill with your code
 	}
 
 	public void computerActions() {
-		// TODO fill with your code
+		/*
+		regularComputerAction();
+		destroyerComputerAction();
+		ufoComputerAction();
+
+		destroyerAliens.shoot();
+		if(destroyerAliens.bombaAtaca(laNave)) vidas--;
+		 */
 	}
 
 	//TODO fill with your code

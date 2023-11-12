@@ -18,6 +18,8 @@ public class Game implements GameStatus {
 	
 	//TODO fill with your code
 
+	private int remainingAliens;
+
 	public Game (Level level, long seed){
 		//TODO fill with your code
 		initGame();
@@ -74,32 +76,40 @@ public class Game implements GameStatus {
 
 	@Override
 	public String stateToString() {
-		// TODO fill with your code
-		return null;
+		/*
+		String buffer = "Life: " + vidas +
+				"\n" + "Points: " +
+				puntos + "\n";
+
+		return buffer;
+
+		 */
+		return  " ";
 	}
 
 	@Override
 	public boolean playerWin() {
 		// TODO fill with your code
-		return false;
+		return remainingAliens==0;
 	}
 
 	@Override
 	public boolean aliensWin() {
 		// TODO fill with your code
+		//return vidas==0||regularAliens.alienInLowerBorder()|| destroyerAliens.alienInLowerBorder();
 		return false;
 	}
 
 	@Override
 	public int getCycle() {
 		// TODO fill with your code
-		return 0;
+		return currentCycle;
 	}
 
 	@Override
 	public int getRemainingAliens() {
 		// TODO fill with your code
-		return 0;
+		return remainingAliens;
 	}
 
 }

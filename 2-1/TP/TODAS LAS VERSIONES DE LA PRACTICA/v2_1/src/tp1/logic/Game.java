@@ -324,10 +324,11 @@ public class Game implements GameStatus {
 		String str = "";
 		Position position = new Position(col,row);
 
-		if(laNave.estaEnPos(position)){
-			str = laNave.getSymbol();
+		if(player.estaEnPos(position)){
+			str = player.getSymbol();
 
 		} else {
+			/*
 			RegularAlien alien = regularAliens.alienInPosition(position);
 			if (alien != null) {
 				str = alien.getSymbol();
@@ -352,43 +353,52 @@ public class Game implements GameStatus {
 			}
 		}
 
+			 */
+
 		return str;
 
 	}
 
 
 
-	@Override
-	public String infoToString() {
+	//@Override
+	public String infoToString () {
 		// TODO fill with your code
 		return null;
 	}
 
-	@Override
-	public String stateToString() {
-		// TODO fill with your code
-		return null;
+	//@Override
+	public String stateToString () {
+
+			/*
+			String buffer = "Life: " + vidas +
+					"\n" + "Points: " +
+					puntos + "\n";
+
+			return buffer;
+*/
+			return " ";
 	}
 
-	@Override
-	public boolean playerWin() {
+	//@Override
+	public boolean playerWin () {
 		// TODO fill with your code
-		return false;
+		return getRemainingAliens() == 0;
 	}
 
-	@Override
+	//@Override
 	public boolean aliensWin() {
 		// TODO fill with your code
-		return false;
+			return vidas==0||regularAliens.alienInLowerBorder()|| destroyerAliens.alienInLowerBorder();
 	}
 
-	@Override
+	//@Override
 	public int getCycle() {
 		// TODO fill with your code
 		return currentCycle;
 	}
 
-	@Override
+	//@Override
 	public int getRemainingAliens() {
 		// TODO fill with your code
 		return 0;
