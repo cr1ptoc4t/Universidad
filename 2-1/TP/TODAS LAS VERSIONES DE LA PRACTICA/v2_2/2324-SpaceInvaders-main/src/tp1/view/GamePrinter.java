@@ -11,5 +11,11 @@ public abstract class GamePrinter {
 	}
 
 	public abstract String endMessage();
-	
+
+
+	//esto lo recomendó en clase
+	public void show(String str){
+		System.out.println(str);
+	}
+
 }
