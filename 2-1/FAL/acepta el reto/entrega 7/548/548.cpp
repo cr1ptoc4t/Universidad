@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
 
-
-
+void resuelveAbuelo();
+bool posible(int vect[], int n, int aguanteMax, int maxParadas);
 
 bool casoDePrueba() {
 
@@ -11,9 +11,7 @@ bool casoDePrueba() {
     if (!cin)
         return false;
     
-
-
-
+    resuelveAbuelo();
 
 
     return true;
@@ -38,40 +36,37 @@ void resuelveAbuelo() {
     cin >> n >> maxParadas;
     for (int i = 0; i < n; i++) {
         cin >> v[i];
-        suma+=v[i];
+        suma+=v[i]; //????
     }
 
     int a = 0;
     int b = suma;
     while (a<b) {
         int m = (a + b) / 2;
-        if (posible(m, maxParadas))
+        if (posible(v, suma, n ,maxParadas)) //??????
             b = m;
         else
             a = m + 1;
 
     }
 
+    cout <<n<<endl; //????????????
+
 }
 
-bool posible(int v[],int n, int aguanteMax, int maxParadas) {
+bool posible(int vect[], int n, int aguanteMax, int maxParadas) {
 
     int i = 0;
     int aguante = aguanteMax;
     int paradas = maxParadas;
-    while (i<n && paradas >=0 && v[i]<=aguanteMax) {
-        if (v[i] > aguante) {
+    while (i<n && paradas >=0 && vect[i]<=aguanteMax) {
+        if (vect[i] > aguante) {
             --paradas;
             aguante = aguanteMax;
         }
-        aguante -= v[i];
+        aguante -= vect[i];
         i++;
     }
 
-
     return i == n && paradas >= 0;
-
-
-
-    return false;
 }
