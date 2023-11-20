@@ -43,7 +43,7 @@ void resuelveAbuelo() {
     int b = suma;
     while (a<b) {
         int m = (a + b) / 2;
-        if (posible(v, suma, n ,maxParadas)) //??????
+        if (posible(v, n, suma ,maxParadas)) //???????
             b = m;
         else
             a = m + 1;
