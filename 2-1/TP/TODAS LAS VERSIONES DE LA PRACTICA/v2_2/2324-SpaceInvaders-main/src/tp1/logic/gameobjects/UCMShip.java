@@ -5,7 +5,7 @@ import tp1.logic.Move;
 import tp1.logic.Position;
 import tp1.view.Messages;
 
-public class UCMShip {
+public class UCMShip extends Ship {
 
 	//TODO fill with your code
 	private Game game;
@@ -14,10 +14,8 @@ public class UCMShip {
 	private int vida=3;
 	Move dir;
 
-	public UCMShip(Game game, Position position) {
-		//TODO fill with your code
-		this.game=game;
-		this.pos =position;
+	public UCMShip() {
+		super();
 		this.dir=Move.NONE;
 	}
 	

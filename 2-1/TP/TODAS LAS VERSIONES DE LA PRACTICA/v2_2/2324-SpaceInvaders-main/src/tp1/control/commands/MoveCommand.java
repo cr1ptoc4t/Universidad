@@ -5,11 +5,15 @@ import tp1.logic.Game;
 import tp1.logic.Move;
 import tp1.view.Messages;
 
+import static tp1.logic.Move.stringAMov;
+
 public class MoveCommand extends Command {
 
 	private Move move;
 
-	public MoveCommand() {}
+	public MoveCommand() {
+
+	}
 
 	protected MoveCommand(Move move) {
 		this.move = move;
@@ -44,8 +48,7 @@ public class MoveCommand extends Command {
 
 	@Override
 	public Command parse(String[] commandWords) {
-        //TODO fill with your code
-	    return null;
+	    return new MoveCommand(stringAMov(commandWords[1]));
 	}
 
 }

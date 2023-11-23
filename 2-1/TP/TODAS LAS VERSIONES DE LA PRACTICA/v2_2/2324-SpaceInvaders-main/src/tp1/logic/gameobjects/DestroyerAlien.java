@@ -1,18 +1,18 @@
 package tp1.logic.gameobjects;
 
-import tp1.logic.AlienManager;
-import tp1.logic.Game;
-import tp1.logic.Move;
-import tp1.logic.Position;
+import tp1.logic.*;
 import tp1.view.Messages;
 
-public class DestroyerAlien extends GameObject {
+public class DestroyerAlien extends AlienShip {
 
-    Move dir = Move.LEFT;
+    Move dir;
 
-    public DestroyerAlien(Game game, Position pos, AlienManager alienManager) {
+    Position pos;
+    Game game;
+    public DestroyerAlien(GameWorld gameWorld, Position pos, AlienManager alienManager, int life, Move dir) {
         // TODO fill with your code
-        super(game, pos, 0);
+        //super(game, pos, 0);
+        super(gameWorld,pos, life, dir);
     }
 
     @Override

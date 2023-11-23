@@ -1,11 +1,12 @@
 package tp1.logic;
 
 import tp1.logic.gameobjects.RegularAlien;
-
+import tp1.logic.gameobjects.Ufo;
 public class AlienManager  {
 	
 	private Game game;
 	private int remainingAliens;
+	private Ufo ufo;
 	
 	//TODO fill with your code
 	public AlienManager(Game game){
@@ -28,7 +29,7 @@ public class AlienManager  {
 	}
 	
 	private void initializeOvni(GameObjectContainer container) {
-		//container.add(new Ufo(game));
+		container.add(new Ufo(game));
 	}
 	
 	private void initializeRegularAliens (GameObjectContainer container) {

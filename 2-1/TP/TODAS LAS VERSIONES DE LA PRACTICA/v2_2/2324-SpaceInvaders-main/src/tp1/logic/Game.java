@@ -2,7 +2,12 @@ package tp1.logic;
 
 import tp1.logic.gameobjects.GameObject;
 import tp1.logic.gameobjects.UCMShip;
+// Declarar que Game implementa las interfaces
+//public class Game implements GameModel, GameStatus, GameWorld {
 
+//}
+	// Y sustituir Game donde proceda por la interfaz adecuada
+//	public abstract ExecutionResult execute(GameModel game);
 
 public class Game implements GameStatus {
 
