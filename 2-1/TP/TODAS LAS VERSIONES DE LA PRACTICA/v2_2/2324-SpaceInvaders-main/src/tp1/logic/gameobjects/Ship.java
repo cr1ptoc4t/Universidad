@@ -9,8 +9,8 @@ import tp1.logic.Move;
 public class Ship extends GameObject {
     Move dir;
 
-    public Ship(GameWorld gameWorld, Position pos, int life){
-        super(gameWorld, pos, life);
+    public Ship(Game game, Position pos, int life){
+        super(game, pos, life);
         dir= Move.NONE;
     }
 

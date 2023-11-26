@@ -8,11 +8,11 @@ public class DestroyerAlien extends AlienShip {
     Move dir;
 
     Position pos;
-    Game game;
-    public DestroyerAlien(GameWorld gameWorld, Position pos, AlienManager alienManager, int life, Move dir) {
+
+    public DestroyerAlien(Game game, Position pos, AlienManager alienManager, int life, Move dir) {
         // TODO fill with your code
         //super(game, pos, 0);
-        super(gameWorld,pos, life, dir);
+        super(game, pos, life, dir);
     }
 
     @Override

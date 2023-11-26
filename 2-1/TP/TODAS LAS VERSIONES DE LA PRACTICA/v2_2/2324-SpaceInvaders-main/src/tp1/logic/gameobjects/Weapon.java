@@ -2,14 +2,16 @@ package tp1.logic.gameobjects;
 
 import tp1.logic.Game;
 import tp1.logic.Position;
+import tp1.logic.Move;
 
 public class Weapon extends GameObject{
 
     private Game game;
     private Position pos;
     private int life;
-    public Weapon(){
-        super(game, pos, life);
+
+    public Weapon(Game game, Position pos, Move dir, int dano){
+        super(game, pos, 1); //no se porque un 1
     }
 
     @Override

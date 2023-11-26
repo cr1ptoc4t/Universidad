@@ -2,6 +2,7 @@ package tp1.logic;
 
 import tp1.logic.gameobjects.GameObject;
 import tp1.logic.gameobjects.UCMShip;
+import java.util.Random;
 // Declarar que Game implementa las interfaces
 //public class Game implements GameModel, GameStatus, GameWorld {
 
@@ -20,14 +21,26 @@ public class Game implements GameStatus {
 	private UCMShip player;
 	private AlienManager alienManager;
 	private int currentCycle;
+	private GameWorld gameWorld;
+	private Level level;
 	
 	//TODO fill with your code
+	public Random rnd;
+
+	private long seed;
 
 	private int remainingAliens;
 
 	public Game (Level level, long seed){
 		//TODO fill with your code
+		this.level= level;
+		this.seed=seed;
+		this.rnd= getRandom();
+
+		alienManager = new AlienManager(this);
+
 		initGame();
+
 	}
 		
 	private void initGame () {	
@@ -67,8 +80,42 @@ public class Game implements GameStatus {
 	//VIEW METHODS
 	
 	public String positionToString(int col, int row) {
-		return null;
+		//return null;
 		//return container.toString(new Position(col, row));
+		String str = " ";
+		Position position = new Position(col,row);
+/*
+		if(laNave.estaEnPos(position)){
+			str = laNave.getSymbol();
+
+		} else {
+			RegularAlien alien = regularAliens.alienInPosition(position);
+			if (alien != null) {
+				str = alien.getSymbol();
+
+			} else {
+				DestroyerAlien alienD = destroyerAliens.alienInPosition(position);
+
+				if (alienD != null) {
+					str = alienD.getSymbol();
+
+				} else{
+					if (destroyerAliens.hayBomba(position)){
+						str = Bomb.getSymbol();
+
+					} else if (laser != null && laser.isInPos(position)){
+						str = laser.getSymbol();
+
+					} else if (ufo != null && ufo.isInPos(position) && ufo.isEnabled()){
+						str = ufo.getSymbol();
+					}
+				}
+			}
+		}
+
+ */
+
+		return str;
 	}
 	
 	
@@ -115,6 +162,10 @@ public class Game implements GameStatus {
 	public int getRemainingAliens() {
 		// TODO fill with your code
 		return remainingAliens;
+	}
+
+	public Random getRandom() {
+		return new Random(seed);
 	}
 
 }

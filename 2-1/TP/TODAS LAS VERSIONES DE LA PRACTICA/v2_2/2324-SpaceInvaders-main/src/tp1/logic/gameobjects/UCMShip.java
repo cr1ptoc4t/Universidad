@@ -1,6 +1,7 @@
 package tp1.logic.gameobjects;
 
 import tp1.logic.Game;
+import tp1.logic.GameWorld;
 import tp1.logic.Move;
 import tp1.logic.Position;
 import tp1.view.Messages;
@@ -12,16 +13,16 @@ public class UCMShip extends Ship {
 	private Position pos;
 
 	private int vida=3;
-	Move dir;
+	private Move dir;
+	//private Game game;
 
-	public UCMShip() {
-		super();
+	public UCMShip(Game game, Position pos) {
+		super(game, pos, 3);
 		this.dir=Move.NONE;
 	}
+
 	
 	//TODO fill with your code
-
-
 	public String getSymbol(){
 		String symbol=Messages.UCMSHIP_SYMBOL;
 		if(vida<0){

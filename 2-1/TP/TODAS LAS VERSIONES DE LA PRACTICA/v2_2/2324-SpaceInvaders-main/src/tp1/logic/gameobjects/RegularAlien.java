@@ -6,13 +6,13 @@ import tp1.logic.Move;
 import tp1.logic.Position;
 import tp1.view.Messages;
 
-public class RegularAlien extends GameObject {
+public class RegularAlien extends AlienShip {
 
 	Move dir = Move.LEFT;
 
-	public RegularAlien(Game game, Position pos, AlienManager alienManager) {
+	public RegularAlien(Game game, Position pos) {
 		// TODO fill with your code
-		super(game, pos, 0);
+		super(game, pos, 0, Move.LEFT);
 	}
 
 	@Override

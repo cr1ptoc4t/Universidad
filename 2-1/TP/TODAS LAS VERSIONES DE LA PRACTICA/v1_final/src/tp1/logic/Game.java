@@ -141,6 +141,7 @@ public class Game {
 	public void reset() {
 		// regenerar todos los aliens con todas las vidas
 		// cambiar a posición inicial los aliens
+		// solo hay que llamar a constructor no ???
 		ciclos=0;
 	}
 
