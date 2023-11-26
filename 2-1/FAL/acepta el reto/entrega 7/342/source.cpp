@@ -34,20 +34,14 @@ int main() {
 bool adivinar(int ini, int fin, int n) {
     int k, num;
     cin >> k;
-
-    while (k > 0 && ini<fin) {
-        cin >> num;
-        if(ini<=n &&fin>=n){
-            if (num<=n) {
-                ini = num;
-            }   
-            else {
-                fin = num - 1;
-            }
-        }
-        k--;
+    for (int i = 0; i < k; i++)
+    {
+        int val;
+        cin >> val;
+        if (val < ini || val > fin) continue;
+        if (val <= n) ini = val;
+        else if (n < val) fin = val - 1;
     }
     
-
     return ini==fin;
 }
