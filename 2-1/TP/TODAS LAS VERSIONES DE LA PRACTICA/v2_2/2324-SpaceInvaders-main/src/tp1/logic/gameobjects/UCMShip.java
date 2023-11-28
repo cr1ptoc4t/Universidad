@@ -15,15 +15,17 @@ public class UCMShip extends Ship {
 	private int vida=3;
 	private Move dir;
 	//private Game game;
+	private Weapon laser;
 
 	public UCMShip(Game game, Position pos) {
 		super(game, pos, 3);
 		this.dir=Move.NONE;
+		this.laser =null;
 	}
 
 	
 	//TODO fill with your code
-	public String getSymbol(){
+	public String toString(){
 		String symbol=Messages.UCMSHIP_SYMBOL;
 		if(vida<0){
 			symbol="#──#";

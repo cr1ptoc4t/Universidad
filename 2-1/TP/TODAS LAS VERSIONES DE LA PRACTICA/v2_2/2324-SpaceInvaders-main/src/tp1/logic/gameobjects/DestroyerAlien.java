@@ -15,12 +15,13 @@ public class DestroyerAlien extends AlienShip {
         super(game, pos, life, dir);
     }
 
+    /*
     @Override
     public boolean isOnPosition(Position pos) {
         // TODO fill with your code
         return this.pos.equals(pos);
     }
-
+*/
     @Override
     protected String getSymbol() {
         // TODO fill with your code

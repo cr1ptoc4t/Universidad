@@ -34,5 +34,13 @@ public class GameObjectContainer {
 	}
 
 	//TODO fill with your code
-	
+	public String toString(int col, int row){
+		int i=0;
+		while(i<objects.size()&&!objects.get(i).isOnPosition(new Position(col, row))){
+			i++;
+		}
+		if (i!=objects.size())
+			return objects.get(i).toString();
+		else return "";
+	}
 }

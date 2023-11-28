@@ -12,10 +12,12 @@ public class MoveCommand extends Command {
 	private Move move;
 
 	public MoveCommand() {
-
+		//super("move");
+		super("move");
 	}
 
 	protected MoveCommand(Move move) {
+		super("move");
 		this.move = move;
 	}
 

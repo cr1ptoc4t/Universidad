@@ -8,6 +8,11 @@ import tp1.logic.Game;
  *
  */
 public abstract class Command {
+	protected String commandName;
+	public Command(String commandName){
+		this.commandName=commandName;
+		String[] commandInfoWords = commandName.split(" ");
+	}
 
 	  protected abstract String getName();
 	  protected abstract String getShortcut();
@@ -33,4 +38,7 @@ public abstract class Command {
 	  public String helpText(){
 	    return getDetails() + " : " + getHelp() + "\n";
 	  }
+
+
+	  //esto no se que tiene que hacer
 }

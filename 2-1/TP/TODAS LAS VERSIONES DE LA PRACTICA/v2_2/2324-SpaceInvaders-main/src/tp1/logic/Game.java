@@ -47,7 +47,7 @@ public class Game implements GameStatus {
 		//TODO fill with your code
 		this.container = alienManager.initialize();
 		this.player = new UCMShip(this, new Position(DIM_X / 2, DIM_Y - 1));
-		//container.add(player);
+		container.add(player);
 	}
 
 	//CONTROL METHODS
@@ -114,8 +114,7 @@ public class Game implements GameStatus {
 		}
 
  */
-
-		return str;
+		return container.toString(col,row);
 	}
 	
 	

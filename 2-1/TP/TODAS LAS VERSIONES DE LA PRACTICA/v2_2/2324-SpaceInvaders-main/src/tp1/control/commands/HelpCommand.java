@@ -6,6 +6,10 @@ import tp1.view.Messages;
 
 public class HelpCommand extends NoParamsCommand {
 
+
+	public HelpCommand(){
+		super("help");
+	}
 	@Override
 	protected String getName() {
 		return Messages.COMMAND_HELP_NAME;

@@ -14,14 +14,11 @@ public class Ship extends GameObject {
         dir= Move.NONE;
     }
 
-    @Override
-    public boolean isOnPosition(Position pos) {
-        return false;
-    }
+
 
     @Override
-    protected String getSymbol() {
-        return null;
+    public boolean isOnPosition(Position pos) {
+        return this.pos.equals(pos);
     }
 
     @Override
@@ -39,8 +36,13 @@ public class Ship extends GameObject {
 
     }
 
+
+    protected String getSymbol(){
+        return "";
+    }
     @Override
     public void automaticMove() {
 
     }
+
 }

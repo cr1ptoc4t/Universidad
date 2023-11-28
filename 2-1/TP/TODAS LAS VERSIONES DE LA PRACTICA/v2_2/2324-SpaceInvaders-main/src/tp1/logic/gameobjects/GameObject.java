@@ -33,11 +33,12 @@ public abstract class GameObject implements GameItem {
 	protected abstract String getSymbol();
 	protected abstract int getDamage();
 	protected abstract int getArmour();
-	
-			
+
+
 	public abstract void onDelete();
 	public abstract void automaticMove();
 	public void computerAction() {
+
 	};
 	
 	//TODO fill with your code
@@ -51,4 +52,8 @@ public abstract class GameObject implements GameItem {
 	@Override
 	public boolean receiveAttack(UCMWeapon weapon) {return false;}
 
+	@Override
+	public boolean isOnPosition(Position pos) {
+		return this.pos.equals(pos);
+	}
 }
