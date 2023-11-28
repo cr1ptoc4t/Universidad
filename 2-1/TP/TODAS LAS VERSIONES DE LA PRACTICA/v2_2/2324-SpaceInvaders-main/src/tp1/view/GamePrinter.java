@@ -14,7 +14,7 @@ public abstract class GamePrinter {
 
 
 	//esto lo recomendó en clase
-	public void show(String str){
+	public static void show(String str){
 		System.out.println(str);
 	}
 
