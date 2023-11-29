@@ -23,20 +23,25 @@ public class GameObjectContainer {
 	}
 
 	public void automaticMoves() {
+
 		for (int i=0;i<objects.size();i++) {
 				GameObject object = objects.get(i);
+				object.automaticMove();
 			//TODO fill with your code
 		}
-		//TODO fill with your code
+
+		//si ufo!=null -> moverlo para la izq
+
+		//
 
 
 	}
 
 	public void computerActions() {
 
+		//COLISIONES VAN AQUI
 	}
 
-	//TODO fill with your code
 	public String toString(int col, int row){
 		int i=0;
 		while(i<objects.size()&&!objects.get(i).isOnPosition(new Position(col, row))){

@@ -53,4 +53,8 @@ public class DestroyerAlien extends AlienShip {
         //ojo con los bordes!!!
     }
 
+    public String toString(){
+        return Messages.DESTROYER_ALIEN_SYMBOL+"["+ life+"]";
+    }
+
 }

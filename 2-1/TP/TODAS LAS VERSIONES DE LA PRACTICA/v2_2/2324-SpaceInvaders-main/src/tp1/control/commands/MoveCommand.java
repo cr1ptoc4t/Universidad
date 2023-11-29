@@ -54,4 +54,5 @@ public class MoveCommand extends Command {
 	    return new MoveCommand(stringAMov(commandWords[1]));
 	}
 
+
 }

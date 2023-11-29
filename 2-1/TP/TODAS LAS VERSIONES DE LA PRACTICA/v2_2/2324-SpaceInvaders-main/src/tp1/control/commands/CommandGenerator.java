@@ -20,8 +20,8 @@ public class CommandGenerator {
 	}
 	
 	private static final List<Command> availableCommands = Arrays.asList(
-		new HelpCommand(),
 		new MoveCommand(),
+		new HelpCommand(),
 		new ExitCommand(),
 		new ShootCommand(),
 		new ShockwaveCommand()
@@ -34,11 +34,12 @@ public class CommandGenerator {
 			
 		//}
 		//return command;
-		
-		for(Command c : availableCommands){  //commands es la lista de comandos que tenemos
-			//if(c.commandName(commandWords)){
-			if(c.parse(commandWords)!=null){
-				return c.parse(commandWords);
+		if(commandWords.length>0) {
+			for (Command c : availableCommands) {  //commands es la lista de comandos que tenemos
+				//if(c.commandName(commandWords)){
+				if (c.parse(commandWords) != null) {
+					return c.parse(commandWords);
+				}
 			}
 		}
 		return null;
