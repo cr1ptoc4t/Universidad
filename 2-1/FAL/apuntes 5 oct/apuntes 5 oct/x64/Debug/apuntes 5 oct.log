@@ -1,4 +1,2 @@
 ﻿  source.cpp
-C:\Users\Catalina\Documents\Universidad\2-1\FAL\apuntes 5 oct\apuntes 5 oct\source.cpp(109,15): warning C4244: 'inicializando': conversión de '__int64' a 'int'; posible pérdida de datos
-C:\Users\Catalina\Documents\Universidad\2-1\FAL\apuntes 5 oct\apuntes 5 oct\source.cpp(111,10): warning C4244: 'inicializando': conversión de '__int64' a 'int'; posible pérdida de datos
   apuntes 5 oct.vcxproj -> C:\Users\Catalina\Documents\Universidad\2-1\FAL\apuntes 5 oct\x64\Debug\apuntes 5 oct.exe
