@@ -11,7 +11,7 @@ public abstract class NoParamsCommand extends Command {
 	public Command parse(String[] commandWords) {
 		//TODO fill with your code
 
-		//Command command = null;
+		Command command;
 		//for (Command c: availableCommands) {
 
 		//}
@@ -24,7 +24,16 @@ public abstract class NoParamsCommand extends Command {
 
 		//}
 		//return new noParamsCommand("none");
-		return null;
+
+		if(commandWords[0].equals(getName())||commandWords[0].equals(getShortcut())){
+			command = new ShootCommand();
+		} else{
+			command=null;
+		}
+
+
+
+		return command;
 	}
 
 

@@ -7,7 +7,7 @@ import tp1.logic.Game;
 import tp1.logic.Move;
 
 public class Ship extends GameObject {
-    Move dir;
+    private Move dir;
 
     public Ship(Game game, Position pos, int life){
         super(game, pos, life);

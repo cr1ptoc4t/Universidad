@@ -12,7 +12,6 @@ public class MoveCommand extends Command {
 	private Move move;
 
 	public MoveCommand() {
-		//super("move");
 		super("move");
 	}
 
@@ -44,7 +43,9 @@ public class MoveCommand extends Command {
 	@Override
 	public ExecutionResult execute(Game game) {
 		//TODO fill with your code
-		return null;
+		game.updatePlayer(move);
+		//aqui siempre lo saca como si fuera bien pero no sé como hay q hacerlo
+		return new ExecutionResult(true, true, "q");
 	}
 
 
@@ -52,5 +53,6 @@ public class MoveCommand extends Command {
 	public Command parse(String[] commandWords) {
 	    return new MoveCommand(stringAMov(commandWords[1]));
 	}
+
 
 }

@@ -4,11 +4,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import tp1.logic.Move;
+import tp1.view.GamePrinter;
 
 public class CommandGenerator {
 
 	
-
+	private static GamePrinter printer;
 	private Move move;
 
 	public void MoveCommand () {
@@ -19,9 +20,11 @@ public class CommandGenerator {
 	}
 	
 	private static final List<Command> availableCommands = Arrays.asList(
-		new HelpCommand(),
 		new MoveCommand(),
-		new ExitCommand()
+		new HelpCommand(),
+		new ExitCommand(),
+		new ShootCommand(),
+		new ShockwaveCommand()
 		//TODO fill with your code
 	);
 
@@ -31,11 +34,12 @@ public class CommandGenerator {
 			
 		//}
 		//return command;
-		
-		for(Command c : availableCommands){  //commands es la lista de comandos que tenemos
-			//if(c.commandName(commandWords)){
-			if(c.parse(commandWords)!=null){
-				return c.parse(commandWords);
+		if(commandWords.length>0) {
+			for (Command c : availableCommands) {  //commands es la lista de comandos que tenemos
+				//if(c.commandName(commandWords)){
+				if (c.parse(commandWords) != null) {
+					return c.parse(commandWords);
+				}
 			}
 		}
 		return null;
@@ -44,7 +48,8 @@ public class CommandGenerator {
 	public static String commandHelp() {
 		StringBuilder commands = new StringBuilder();	
 		for (Command c: availableCommands) {
-			//TODO fill with your code
+			printer.show(c.getName()+" ("+ c.getDetails() + "): "+ c.getHelp());
+
 		}
 		return commands.toString();
 	}

@@ -10,7 +10,7 @@ public class UCMShip extends Ship {
 
 	//TODO fill with your code
 	private Game game;
-	private Position pos;
+//	private Position pos;
 
 	private int vida=3;
 	private Move dir;
@@ -19,6 +19,7 @@ public class UCMShip extends Ship {
 
 	public UCMShip(Game game, Position pos) {
 		super(game, pos, 3);
+
 		this.dir=Move.NONE;
 		this.laser =null;
 	}

@@ -146,7 +146,8 @@ public class Messages {
 
 	public static final String COMMAND_SHOCKWAVE_NAME = "shockwave";
 	public static final String COMMAND_SHOCKWAVE_SHORTCUT = "w";
-	public static final String COMMAND_SHOCKWAVE_DETAILS = "sock[w]ave";
+	public static final String COMMAND_SHOCKWAVE_DETAILS = "shock[w]ave";			// avisar profesor de que aqui ponia
+																					// sockwave para los tests!!!!!
 	public static final String COMMAND_SHOCKWAVE_HELP = "player shoots a shockwave";
 
 	public static final String COMMAND_SHOOT_NAME = "shoot";

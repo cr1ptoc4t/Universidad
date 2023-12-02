@@ -65,6 +65,7 @@ public class Game implements GameStatus {
 	    this.currentCycle++;
 	    this.container.computerActions();
 	    this.container.automaticMoves();
+		this.player.mueve(Move.LEFT);
 	}
 
 	// TODO fill with your code
@@ -167,4 +168,8 @@ public class Game implements GameStatus {
 		return new Random(seed);
 	}
 
+
+	public void updatePlayer(Move move){
+		player.mueve(move);
+	}
 }
