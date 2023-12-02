@@ -5,6 +5,7 @@ import java.util.List;
 
 import tp1.logic.gameobjects.GameObject;
 import tp1.logic.gameobjects.UCMShip;
+import tp1.logic.gameobjects.UCMWeapon;
 
 public class GameObjectContainer {
 

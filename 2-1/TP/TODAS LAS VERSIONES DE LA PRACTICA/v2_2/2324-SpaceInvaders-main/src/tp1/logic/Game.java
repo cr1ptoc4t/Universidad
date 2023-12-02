@@ -2,6 +2,8 @@ package tp1.logic;
 
 import tp1.logic.gameobjects.GameObject;
 import tp1.logic.gameobjects.UCMShip;
+import tp1.logic.gameobjects.UCMWeapon;
+
 import java.util.Random;
 // Declarar que Game implementa las interfaces
 //public class Game implements GameModel, GameStatus, GameWorld {
@@ -23,6 +25,7 @@ public class Game implements GameStatus {
 	private int currentCycle;
 	private GameWorld gameWorld;
 	private Level level;
+	private boolean shooted;
 	
 	//TODO fill with your code
 	public Random rnd;
@@ -30,6 +33,9 @@ public class Game implements GameStatus {
 	private long seed;
 
 	private int remainingAliens;
+
+	//esto esta mal tiene que ir en el contenedor pero me la pela
+	private UCMWeapon laser;
 
 	public Game (Level level, long seed){
 		//TODO fill with your code
@@ -48,6 +54,7 @@ public class Game implements GameStatus {
 		this.container = alienManager.initialize();
  		this.player = new UCMShip(this, new Position(DIM_X / 2, DIM_Y - 1));
 		container.add(player);
+		this.shooted = false;
 	}
 
 	//CONTROL METHODS
@@ -65,7 +72,7 @@ public class Game implements GameStatus {
 	    this.currentCycle++;
 	    this.container.computerActions();
 	    this.container.automaticMoves();
-		this.player.mueve(Move.LEFT);
+
 	}
 
 	// TODO fill with your code
@@ -81,40 +88,6 @@ public class Game implements GameStatus {
 	//VIEW METHODS
 	
 	public String positionToString(int col, int row) {
-		//return null;
-		//return container.toString(new Position(col, row));
-		String str = " ";
-		Position position = new Position(col,row);
-/*
-		if(laNave.estaEnPos(position)){
-			str = laNave.getSymbol();
-
-		} else {
-			RegularAlien alien = regularAliens.alienInPosition(position);
-			if (alien != null) {
-				str = alien.getSymbol();
-
-			} else {
-				DestroyerAlien alienD = destroyerAliens.alienInPosition(position);
-
-				if (alienD != null) {
-					str = alienD.getSymbol();
-
-				} else{
-					if (destroyerAliens.hayBomba(position)){
-						str = Bomb.getSymbol();
-
-					} else if (laser != null && laser.isInPos(position)){
-						str = laser.getSymbol();
-
-					} else if (ufo != null && ufo.isInPos(position) && ufo.isEnabled()){
-						str = ufo.getSymbol();
-					}
-				}
-			}
-		}
-
- */
 		return container.toString(col,row);
 	}
 	
@@ -171,5 +144,14 @@ public class Game implements GameStatus {
 
 	public void updatePlayer(Move move){
 		player.mueve(move);
+
+		//aqui habria que mirar si aun tiene vidas o algo??
+	}
+
+	public void shoot(){
+		if(!shooted){
+			addObject(player.creaLaser());
+			shooted= true;
+		}
 	}
 }

@@ -10,21 +10,13 @@ public class CommandGenerator {
 
 	
 	private static GamePrinter printer;
-	private Move move;
-
-	public void MoveCommand () {
-	}
-	
-	protected void MoveCommand (Move move) {
-		this.move = move;
-	}
-	
 	private static final List<Command> availableCommands = Arrays.asList(
 		new MoveCommand(),
 		new HelpCommand(),
 		new ExitCommand(),
 		new ShootCommand(),
-		new ShockwaveCommand()
+		new ShockwaveCommand(),
+		new NoneCommand()
 		//TODO fill with your code
 	);
 
@@ -37,7 +29,8 @@ public class CommandGenerator {
 		if(commandWords.length>0) {
 			for (Command c : availableCommands) {  //commands es la lista de comandos que tenemos
 				//if(c.commandName(commandWords)){
-				if (c.parse(commandWords) != null) {
+				//if (c.parse(commandWords) != null) {
+				if(c.matchCommandName(commandWords[0])){
 					return c.parse(commandWords);
 				}
 			}

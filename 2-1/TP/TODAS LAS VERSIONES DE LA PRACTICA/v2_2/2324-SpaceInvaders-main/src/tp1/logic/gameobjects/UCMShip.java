@@ -64,7 +64,9 @@ public class UCMShip extends Ship {
 	}
 
 	public UCMWeapon creaLaser(){
+
 		Position copia = new Position(pos);
+		copia.actualiza(Move.UP);
 		return new UCMWeapon(game, copia);
 	}
 }

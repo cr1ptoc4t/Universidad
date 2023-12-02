@@ -26,11 +26,11 @@ public abstract class NoParamsCommand extends Command {
 		//return new noParamsCommand("none");
 
 		if(commandWords[0].equals(getName())||commandWords[0].equals(getShortcut())){
-			command = new ShootCommand();
-		} else{
+			//esto??????????
+			command = null;
+		} else {
 			command=null;
 		}
-
 
 
 		return command;

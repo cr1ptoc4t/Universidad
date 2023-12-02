@@ -61,6 +61,8 @@ public class Controller {
 			} else {
 				System.out.println(Messages.UNKNOWN_COMMAND);
 			}
+
+			game.update();
 		}
 
 		printEndMessage();

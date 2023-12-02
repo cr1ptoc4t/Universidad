@@ -7,7 +7,6 @@ import tp1.logic.Move;
 public class Weapon extends GameObject{
 
     private Game game;
-    private Position pos;
     private int life;
 
     public Weapon(Game game, Position pos, Move dir, int dano){
@@ -16,7 +15,7 @@ public class Weapon extends GameObject{
 
     @Override
     public boolean isOnPosition(Position pos) {
-        return false;
+        return this.pos.equals(pos);
     }
 
     @Override

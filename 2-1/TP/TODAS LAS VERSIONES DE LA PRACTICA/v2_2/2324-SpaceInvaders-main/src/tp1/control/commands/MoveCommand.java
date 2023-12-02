@@ -45,7 +45,7 @@ public class MoveCommand extends Command {
 		//TODO fill with your code
 		game.updatePlayer(move);
 		//aqui siempre lo saca como si fuera bien pero no sé como hay q hacerlo
-		return new ExecutionResult(true, true, "q");
+		return new ExecutionResult(true);
 	}
 
 

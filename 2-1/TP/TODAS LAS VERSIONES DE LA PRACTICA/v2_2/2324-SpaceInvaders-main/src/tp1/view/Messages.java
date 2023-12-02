@@ -156,7 +156,7 @@ public class Messages {
 	public static final String COMMAND_SHOOT_HELP = "player shoots a laser";
 
 	public static final String COMMAND_NONE_NAME = "none";
-	public static final String COMMAND_NONE_SHORTCUT = "[n]";
+	public static final String COMMAND_NONE_SHORTCUT = "n"; 			//aqui ponia [n]
 	public static final String COMMAND_NONE_DETAILS = "[n]one";
 	public static final String COMMAND_NONE_HELP = "user does not perform any action";
 
