@@ -19,11 +19,6 @@ public class DestroyerAlien extends AlienShip {
     }
 
 
-    @Override
-    public boolean isOnPosition(Position pos) {
-        // TODO fill with your code
-        return this.pos.equals(pos);
-    }
 
     @Override
     protected String getSymbol() {
@@ -49,11 +44,12 @@ public class DestroyerAlien extends AlienShip {
 
     }
 
-    @Override
     public void automaticMove() {
         // TODO Auto-generated method stub
         //pos.actualiza(dir);
         //ojo con los bordes!!!
+
+        super.automaticMove(dir);
     }
 
     public String toString(){

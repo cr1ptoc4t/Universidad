@@ -14,8 +14,8 @@ public class NoneCommand extends NoParamsCommand{
 
     @Override
     public ExecutionResult execute(Game game) {
-        game.exit();
-        return new ExecutionResult(false);
+        //game.exit();
+        return new ExecutionResult(true);
     }
 
     @Override

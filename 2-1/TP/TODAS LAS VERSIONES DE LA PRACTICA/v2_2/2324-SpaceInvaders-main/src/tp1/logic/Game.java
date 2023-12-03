@@ -98,7 +98,6 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	    this.currentCycle++;
 	    this.container.computerActions();
 	    this.container.automaticMoves();
-
 	}
 
 	// TODO fill with your code
@@ -147,8 +146,8 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	@Override
 	public boolean aliensWin() {
 		// TODO fill with your code
-		//return vidas==0||regularAliens.alienInLowerBorder()|| destroyerAliens.alienInLowerBorder();
-		return false;
+		return player.getLifes()==0||alienManager.someoneOnLowerBorder();
+		//return false;
 	}
 
 	@Override

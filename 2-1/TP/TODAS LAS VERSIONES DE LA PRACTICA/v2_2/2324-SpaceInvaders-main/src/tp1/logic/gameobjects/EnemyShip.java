@@ -12,4 +12,17 @@ public class EnemyShip extends Ship{
         dir= Move.NONE;
     }
 
+
+
+    @Override
+    public boolean isOnPosition(Position pos) {
+        // TODO fill with your code
+        return this.pos.equals(pos);
+    }
+
+    public void automaticMove(Move dir) {
+        pos.actualiza(dir);
+    }
+
+
 }

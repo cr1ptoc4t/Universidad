@@ -17,12 +17,6 @@ public class RegularAlien extends AlienShip {
 
 	}
 
-
-	@Override
-	public boolean isOnPosition(Position pos) {
-		// TODO fill with your code
-		return this.pos.equals(pos);
-	}
 	@Override
 	protected String getSymbol() {
 		// TODO fill with your code
@@ -47,12 +41,6 @@ public class RegularAlien extends AlienShip {
 
 	}
 
-	@Override
-	public void automaticMove() {
-		// TODO Auto-generated method stub
-		//pos.actualiza(dir);
-		//ojo con los bordes!!!
-	}
 
 	public String toString(){
 		return Messages.REGULAR_ALIEN_SYMBOL+"["+ life+"]";

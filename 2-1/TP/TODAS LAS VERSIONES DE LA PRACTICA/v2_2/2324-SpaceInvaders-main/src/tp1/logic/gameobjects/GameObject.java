@@ -56,4 +56,7 @@ public abstract class GameObject implements GameItem {
 	public boolean isOnPosition(Position pos) {
 		return this.pos.equals(pos);
 	}
+	public boolean equalPosition(GameObject object){
+		return this.isOnPosition(object.pos);
+	}
 }

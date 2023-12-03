@@ -69,5 +69,8 @@ public class UCMShip extends Ship {
 		copia.actualiza(Move.UP);
 		return new UCMWeapon(game, copia);
 	}
+	public int getLifes(){
+		return life;
+	}
 }
 

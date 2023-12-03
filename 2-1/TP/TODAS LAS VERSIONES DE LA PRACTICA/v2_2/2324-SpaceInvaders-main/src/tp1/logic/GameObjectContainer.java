@@ -43,8 +43,18 @@ public class GameObjectContainer {
 	}
 
 	public void computerActions() {
-
 		//COLISIONES VAN AQUI
+		for(int i=0; i<this.objects.size();i++){
+			for(int j =i+1;j<this.objects.size();j++){
+				if(collision(i,j)){
+					//actualizar ambos, borrar si alguno muere
+				}
+			}
+		}
+	}
+
+	private boolean collision(int i, int j){
+		return objects.get(i).equalPosition(objects.get(j));
 	}
 
 	public String toString(int col, int row){
@@ -61,5 +71,7 @@ public class GameObjectContainer {
 	public boolean laserEnabled(){
 		return false;
 	}
+
+
 
 }
