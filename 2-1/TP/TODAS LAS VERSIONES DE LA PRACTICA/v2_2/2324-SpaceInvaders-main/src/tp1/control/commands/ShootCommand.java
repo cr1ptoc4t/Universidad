@@ -33,7 +33,7 @@ public class ShootCommand extends NoParamsCommand{
 
     @Override
     public ExecutionResult execute(Game game) {
-        game.shoot();
+        game.shootLaser();
 
         return new ExecutionResult(true);
     }

@@ -12,7 +12,7 @@ import java.util.Random;
 	// Y sustituir Game donde proceda por la interfaz adecuada
 //	public abstract ExecutionResult execute(GameModel game);
 
-public class Game implements GameStatus {
+public class Game implements GameStatus, GameModel, GameWorld {
 
 	//TODO fill with your code
 
@@ -64,8 +64,34 @@ public class Game implements GameStatus {
 		return false;
 	}
 
+	@Override
+	public boolean move(Move move) {
+		return false;
+	}
+
+	@Override
+	public boolean shootLaser() {
+		// aqui tiene que haber una forma de solo crear uno, cuando no se usa
+		// ponerlo a null y sobreescribir ese objeto cuando se use
+		// porque aqui solo podemos crear 1 y cuando esta fuera del mapa
+		// ya no puedes crear mas
+
+		if(!shooted){
+			addObject(player.creaLaser());
+			shooted= true;
+		}
+
+		return shooted;
+	}
+
+	@Override
+	public void reset() {
+		this.initGame();
+	}
+
 	public void exit() {
 		// TODO fill with your code
+		//comprobar quien ha ganado y tal
 	}
 
 	public void update() {
@@ -148,10 +174,8 @@ public class Game implements GameStatus {
 		//aqui habria que mirar si aun tiene vidas o algo??
 	}
 
-	public void shoot(){
-		if(!shooted){
-			addObject(player.creaLaser());
-			shooted= true;
-		}
+	public Level getLevel(){
+		return level;
 	}
+
 }

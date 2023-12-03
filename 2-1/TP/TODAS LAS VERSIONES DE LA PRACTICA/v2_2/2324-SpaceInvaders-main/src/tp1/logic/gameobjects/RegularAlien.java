@@ -10,9 +10,11 @@ public class RegularAlien extends AlienShip {
 
 	Move dir = Move.LEFT;
 
+
 	public RegularAlien(Game game, Position pos) {
 		// TODO fill with your code
-		super(game, pos, 0, Move.LEFT);
+		super(game, pos, 2, Move.LEFT);
+
 	}
 
 
@@ -30,13 +32,13 @@ public class RegularAlien extends AlienShip {
 	@Override
 	protected int getDamage() {
 		// TODO fill with your code
-		return 0;
+		return 1;
 	}
 
 	@Override
 	protected int getArmour() {
 		// TODO Auto-generated method stub
-		return 0;
+		return life;
 	}
 
 	@Override
@@ -48,7 +50,7 @@ public class RegularAlien extends AlienShip {
 	@Override
 	public void automaticMove() {
 		// TODO Auto-generated method stub
-		pos.actualiza(dir);
+		//pos.actualiza(dir);
 		//ojo con los bordes!!!
 	}
 

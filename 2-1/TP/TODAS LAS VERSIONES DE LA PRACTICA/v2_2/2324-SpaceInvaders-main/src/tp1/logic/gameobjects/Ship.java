@@ -15,12 +15,6 @@ public class Ship extends GameObject {
     }
 
 
-
-    @Override
-    public boolean isOnPosition(Position pos) {
-        return this.pos.equals(pos);
-    }
-
     @Override
     protected int getDamage() {
         return 0;

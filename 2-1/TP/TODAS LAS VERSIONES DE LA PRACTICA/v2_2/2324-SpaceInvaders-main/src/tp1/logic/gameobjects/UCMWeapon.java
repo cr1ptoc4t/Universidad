@@ -23,12 +23,12 @@ public class UCMWeapon extends Weapon {
 
     @Override
     protected int getDamage() {
-        return 0;
+        return 1;
     }
 
     @Override
     protected int getArmour() {
-        return 0;
+        return 1;
     }
 
     @Override

@@ -6,8 +6,8 @@ import tp1.logic.Game;
 public class EnemyWeapon {
 
 	//TODO fill with your code
-	private Position pos;
-    private Game game;
+	protected Position pos;
+    protected Game game;
     public EnemyWeapon(Game game, Position pos){
         this.game=game;
         this.pos=pos;

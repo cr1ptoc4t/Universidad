@@ -37,6 +37,16 @@ public enum Level {
 	public double getUfoFrequency() {
 		return ufoFrequency;
 	}
+	public double getShootFrequency() {
+		return shootFrequency;
+	}
+
+	public int getNumRegularAliens(){
+		return numRegularAliens;
+	}
+	public int getNumDestroyerAliens(){
+		return numDestroyerAliens;
+	}
 	
 
 	/**
