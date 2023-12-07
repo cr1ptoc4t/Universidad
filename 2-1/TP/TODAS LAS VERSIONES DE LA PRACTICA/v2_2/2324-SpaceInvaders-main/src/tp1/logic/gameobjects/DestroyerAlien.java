@@ -48,8 +48,7 @@ public class DestroyerAlien extends AlienShip {
         // TODO Auto-generated method stub
         //pos.actualiza(dir);
         //ojo con los bordes!!!
-
-        super.automaticMove(dir);
+        //super.automaticMove(dir);
     }
 
     public String toString(){
@@ -59,6 +58,7 @@ public class DestroyerAlien extends AlienShip {
     public void shoot(){
         if(canShoot()){
             //shoot
+            game.leaveBomb();
         }
     }
 

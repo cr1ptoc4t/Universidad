@@ -60,7 +60,7 @@ public class UCMShip extends Ship {
 		if(weapon.isInPos(this.pos)){
 			vida--;
 		}
-		return weapon.isInPos(this.pos);
+		return vida==0;
 	}
 
 	public UCMWeapon creaLaser(){
@@ -69,6 +69,7 @@ public class UCMShip extends Ship {
 		copia.actualiza(Move.UP);
 		return new UCMWeapon(game, copia);
 	}
+
 	public int getLifes(){
 		return life;
 	}

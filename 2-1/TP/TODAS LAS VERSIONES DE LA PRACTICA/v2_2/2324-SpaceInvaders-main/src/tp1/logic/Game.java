@@ -1,8 +1,6 @@
 package tp1.logic;
 
-import tp1.logic.gameobjects.GameObject;
-import tp1.logic.gameobjects.UCMShip;
-import tp1.logic.gameobjects.UCMWeapon;
+import tp1.logic.gameobjects.*;
 
 import java.util.Random;
 // Declarar que Game implementa las interfaces
@@ -25,26 +23,27 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	private int currentCycle;
 	private GameWorld gameWorld;
 	private Level level;
-	private boolean shooted;
-	
+
 	//TODO fill with your code
 	public Random rnd;
 
-	private long seed;
+	private final long seed;
 
 	private int remainingAliens;
 
-	//esto esta mal tiene que ir en el contenedor pero me la pela
-	private UCMWeapon laser;
+	private boolean ovni;
+
+	private int points;
 
 	public Game (Level level, long seed){
 		//TODO fill with your code
 		this.level= level;
 		this.seed=seed;
 		this.rnd= getRandom();
+		points =0;
 
 		alienManager = new AlienManager(this);
-
+		ovni=false;
 		initGame();
 
 	}
@@ -52,9 +51,9 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	private void initGame () {	
 		//TODO fill with your code
 		this.container = alienManager.initialize();
+		this.remainingAliens= level.getNumDestroyerAliens()+level.getNumRegularAliens();
  		this.player = new UCMShip(this, new Position(DIM_X / 2, DIM_Y - 1));
 		container.add(player);
-		this.shooted = false;
 	}
 
 	//CONTROL METHODS
@@ -71,17 +70,11 @@ public class Game implements GameStatus, GameModel, GameWorld {
 
 	@Override
 	public boolean shootLaser() {
-		// aqui tiene que haber una forma de solo crear uno, cuando no se usa
-		// ponerlo a null y sobreescribir ese objeto cuando se use
-		// porque aqui solo podemos crear 1 y cuando esta fuera del mapa
-		// ya no puedes crear mas
 
-		if(!shooted){
+		if(container.getLaser()==null)
 			addObject(player.creaLaser());
-			shooted= true;
-		}
 
-		return shooted;
+		return container.getLaser()==null;
 	}
 
 	@Override
@@ -96,11 +89,10 @@ public class Game implements GameStatus, GameModel, GameWorld {
 
 	public void update() {
 	    this.currentCycle++;
-	    this.container.computerActions();
+	    this.container.computerActions(this);
 	    this.container.automaticMoves();
+		this.alienManager.initializeOvni(container);
 	}
-
-	// TODO fill with your code
 
 	//CALLBACK METHODS
 	
@@ -113,7 +105,7 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	//VIEW METHODS
 	
 	public String positionToString(int col, int row) {
-		return container.toString(col,row);
+ 		return container.toString(col,row);
 	}
 	
 	
@@ -126,15 +118,12 @@ public class Game implements GameStatus, GameModel, GameWorld {
 
 	@Override
 	public String stateToString() {
-		/*
-		String buffer = "Life: " + vidas +
+
+		String buffer = "Life: " + player.getLifes() +
 				"\n" + "Points: " +
-				puntos + "\n";
+				points + "\n";
 
 		return buffer;
-
-		 */
-		return  " ";
 	}
 
 	@Override
@@ -152,29 +141,42 @@ public class Game implements GameStatus, GameModel, GameWorld {
 
 	@Override
 	public int getCycle() {
-		// TODO fill with your code
 		return currentCycle;
 	}
 
 	@Override
 	public int getRemainingAliens() {
-		// TODO fill with your code
 		return remainingAliens;
 	}
 
-	public Random getRandom() {
+	private Random getRandom() {
 		return new Random(seed);
 	}
 
 
 	public void updatePlayer(Move move){
 		player.mueve(move);
-
-		//aqui habria que mirar si aun tiene vidas o algo??
 	}
 
 	public Level getLevel(){
 		return level;
+	}
+
+	public void objectDies(GameObject object){
+		if (object instanceof Ufo)
+			points += 25;
+		else if(object instanceof AlienShip){
+			if (object instanceof DestroyerAlien)
+				points += 10;
+			else if (object instanceof RegularAlien)
+				points += 5;
+
+			remainingAliens--;
+		}
+	}
+
+	public void leaveBomb(){
+
 	}
 
 }

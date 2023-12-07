@@ -40,4 +40,5 @@ public class UCMWeapon extends Weapon {
     public void automaticMove() {
         pos.actualiza(Move.UP);
     }
+
 }

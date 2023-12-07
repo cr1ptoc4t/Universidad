@@ -9,11 +9,9 @@ public class Ufo extends EnemyShip {
     public final int UFO_X=8;
     public final int UFO_Y=0;
     private int life  =1;
-    private Position posIni;
-    private Position pos;
     public Ufo(Game game){
         super(game, new Position(8, 0), 1);
-        pos=new Position(8, 0);
+
     }
 
     public String toString(){

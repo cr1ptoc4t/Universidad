@@ -9,7 +9,7 @@ public class AlienManager  {
 	private int remainingAliens;
 	private Ufo ufo;
 
-	private int nAliensReg = 3;
+
 	//TODO fill with your code
 	public AlienManager(Game game){
 		this.game=game;
@@ -17,25 +17,26 @@ public class AlienManager  {
 
 
 	public  GameObjectContainer initialize() {
-		this.remainingAliens = 0;
+
 		GameObjectContainer container = new GameObjectContainer();
 		initializeOvni(container);
 		initializeRegularAliens(container);
 		initializeDestroyerAliens(container);
-		remainingAliens+=game.getLevel().getNumRegularAliens() +game.getLevel().getNumDestroyerAliens();
+		remainingAliens = game.getLevel().getNumRegularAliens() +
+				game.getLevel().getNumDestroyerAliens();
 
-		
-		//TODO fill with your code
-		
-		
 		return container;
 	}
 	
 	public void initializeOvni(GameObjectContainer container) {
-		if(canGenerateRandomUfo() /*o el ufo esta en !posicionvalida*/)
+		if(canGenerateRandomUfo() && !hayUfo(container)/*o el ufo esta en !posicionValida*/)
 			container.add(new Ufo(game));
 	}
 
+
+	private boolean hayUfo(GameObjectContainer container){
+		return container.getUfo()!=null;
+	}
 	private void initializeRegularAliens (GameObjectContainer container) {
 		int nReg = game.getLevel().getNumRegularAliens();
 
@@ -91,10 +92,7 @@ public class AlienManager  {
 		return game.rnd.nextDouble() < game.getLevel().getUfoFrequency();
 	}
 	public boolean someoneOnLowerBorder(){
-		int i=0;
-		//while(i<)
-		//mirar si hay algun alien en la ultima fila
-		//busqueda
+		//TODO hacer esta búsqueda
 		return false;
 	}
 }
