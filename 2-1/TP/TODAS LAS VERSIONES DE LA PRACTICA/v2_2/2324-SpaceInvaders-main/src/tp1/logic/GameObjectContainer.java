@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import tp1.logic.gameobjects.GameObject;
-import tp1.logic.gameobjects.UCMShip;
-import tp1.logic.gameobjects.UCMWeapon;
-import tp1.logic.gameobjects.Ufo;
+import tp1.logic.gameobjects.*;
+
+import javax.print.attribute.standard.JobKOctets;
 
 public class GameObjectContainer {
 
@@ -56,12 +55,18 @@ public class GameObjectContainer {
 		//if(canShoot()){}
 
 	}
-	private boolean canShoot(){
-		return false;
+
+	private boolean bomb(GameObject object){
+		Bomb bomba=null;
+		if(object instanceof DestroyerAlien){
+			bomba = ((DestroyerAlien) object).leaveBomb();
+			if(bomba!=null)
+				this.objects.add(bomba);
+		}
+		return bomba!=null;
 	}
 
 	public void computerActions(Game game) {
-		//COLISIONES VAN AQUI
 		int i=0;
 
 		GameObject obj1, obj2;
@@ -80,7 +85,7 @@ public class GameObjectContainer {
 			}
 			else if(object.diesNaturally())
 				remove(object);
-			else
+			else if(!bomb(object))
 				i++;
 
 		}

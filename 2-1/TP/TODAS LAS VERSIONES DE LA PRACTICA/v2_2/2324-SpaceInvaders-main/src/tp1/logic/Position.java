@@ -48,17 +48,4 @@ public class Position {
 		col = col + mov.getX();
 		row = row + mov.getY();
 	}
-
-	public boolean isInBorderLeft(){
-		return col==0;
-	}
-
-	public boolean isInBorderRight(){
-		return col== Game.DIM_X-1;
-	}
-
-	public boolean isInBorderDown(){
-		return row == Game.DIM_Y-1;
-	}
-
 }

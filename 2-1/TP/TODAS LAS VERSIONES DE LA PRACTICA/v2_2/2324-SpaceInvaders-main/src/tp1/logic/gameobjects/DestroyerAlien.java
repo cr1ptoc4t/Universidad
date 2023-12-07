@@ -62,6 +62,16 @@ public class DestroyerAlien extends AlienShip {
         }
     }
 
+    public Bomb leaveBomb(){
+        if(canShoot()) {
+            Position copia = new Position(this.pos);
+            copia.actualiza(Move.DOWN);
+            Bomb bomba =new Bomb(game, copia, this);
+            return bomba;
+        } else
+            return null;
+    }
+
     private boolean canShoot(){
         return game.rnd.nextDouble() < game.getLevel().getShootFrequency();
     }

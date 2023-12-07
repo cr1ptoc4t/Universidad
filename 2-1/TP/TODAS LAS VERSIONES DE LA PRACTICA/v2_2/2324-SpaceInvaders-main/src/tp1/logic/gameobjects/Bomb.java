@@ -7,13 +7,13 @@ import tp1.view.Messages;
 
 public class Bomb extends EnemyWeapon {
 
-    public Bomb(Game game, Position pos) {
-        super(game, pos);
+    private DestroyerAlien alien;
+
+    public Bomb(Game game, Position pos, DestroyerAlien alien) {
+        super(game, pos, Move.DOWN);
+        this.alien =alien;
     }
 
-    public void automaticMove(){
-        pos.actualiza(Move.DOWN);
-    }
 
     public String toString(){
         return Messages.BOMB_SYMBOL;
@@ -21,5 +21,10 @@ public class Bomb extends EnemyWeapon {
 
     public boolean isOnPosition(Position pos) {
         return this.pos.equals(pos);
+    }
+
+    public void onDelete(){
+        //game.enableBomb(alien);
+        //game.died(this);
     }
 }

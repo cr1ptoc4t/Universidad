@@ -10,7 +10,7 @@ public class Weapon extends GameObject{
     private int life;
 
     public Weapon(Game game, Position pos, Move dir, int dano){
-        super(game, pos, 1); //no se porque un 1
+        super(game, pos, 1);
     }
 
     @Override
