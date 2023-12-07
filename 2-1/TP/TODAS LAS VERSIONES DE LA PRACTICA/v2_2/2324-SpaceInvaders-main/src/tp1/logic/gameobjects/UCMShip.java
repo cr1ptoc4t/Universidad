@@ -9,13 +9,14 @@ import tp1.view.Messages;
 public class UCMShip extends Ship {
 
 	//TODO fill with your code
-	private Game game;
+	//private Game game;
 //	private Position pos;
 
 	private int vida=3;
 	private Move dir;
 	//private Game game;
 	private Weapon laser;
+	private boolean shooted=false;
 
 	public UCMShip(Game game, Position pos) {
 		super(game, pos, 3);
@@ -57,16 +58,23 @@ public class UCMShip extends Ship {
 	}
 
 	public boolean recibeAtaque(EnemyWeapon weapon){
-		vida--;
-
+		if(weapon.equalPosition(this))
+			vida--;
 		return vida<=0;
 	}
 
-	public UCMWeapon creaLaser(){
+	public void puedeCrearLaser(){
+		shooted=false;
+	}
 
-		Position copia = new Position(pos);
-		copia.actualiza(Move.UP);
-		return new UCMWeapon(game, copia);
+	public Laser creaLaser(){
+		if(!shooted) {
+			shooted=true;
+			Position copia = new Position(pos);
+			copia.actualiza(Move.UP);
+			return new Laser(game, copia);
+		}
+		return null;
 	}
 
 	public int getLifes(){

@@ -13,7 +13,7 @@ public class EnemyWeapon extends Weapon{
 
     public EnemyWeapon(Game game, Position pos, Move dir){
         // game, pos,life, damage, armor, move.down
-        super(game, pos, dir,1);
+        super(game, pos, dir);
         this.dir=dir;
     }
 
@@ -26,4 +26,8 @@ public class EnemyWeapon extends Weapon{
     }
 
 
+    public boolean performAttack(GameItem other) {
+        other.receiveAttack(this);
+        return other.isOnPosition(this.pos);
+    }
 }

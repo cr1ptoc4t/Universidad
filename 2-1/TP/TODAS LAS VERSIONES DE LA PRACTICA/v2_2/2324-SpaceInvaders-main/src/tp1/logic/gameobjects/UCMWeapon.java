@@ -11,7 +11,8 @@ public class UCMWeapon extends Weapon {
 
     public UCMWeapon(Game game, Position pos){
         // Game game, Position pos, Move dir, int dano
-        super(game, pos, Move.NONE, 1);
+        super(game, pos, Move.NONE);
+
     }
     @Override
     protected String getSymbol() {
@@ -36,9 +37,15 @@ public class UCMWeapon extends Weapon {
 
     }
 
+
     @Override
     public void automaticMove() {
-        pos.actualiza(Move.UP);
+
     }
 
+
+    public boolean performAttack(GameItem other) {
+
+        return other.isOnPosition(this.pos)&&other.receiveAttack(this);
+    }
 }

@@ -6,10 +6,10 @@ import tp1.logic.Move;
 
 public class Weapon extends GameObject{
 
-    private Game game;
-    private int life;
+    //private Game game;
+    //private int life;
 
-    public Weapon(Game game, Position pos, Move dir, int dano){
+    public Weapon(Game game, Position pos, Move dir){
         super(game, pos, 1);
     }
 
@@ -42,6 +42,11 @@ public class Weapon extends GameObject{
     public void automaticMove() {
 
     }
+    public boolean performAttack(GameItem other) {
+        //other.receiveAttack(this);
+        return other.isOnPosition(this.pos);
+    }
+
 
 
 }

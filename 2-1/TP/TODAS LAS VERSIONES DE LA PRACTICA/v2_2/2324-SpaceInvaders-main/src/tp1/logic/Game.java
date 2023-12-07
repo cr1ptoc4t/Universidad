@@ -67,10 +67,12 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	@Override
 	public boolean shootLaser() {
 
-		if(container.getLaser()==null)
-			addObject(player.creaLaser());
-
-		return container.getLaser()==null;
+		Laser laser = player.creaLaser();
+		if(laser!=null) {
+			addObject(laser);
+			return true;
+		}
+		return false;
 	}
 
 	@Override
@@ -99,7 +101,10 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	public String positionToString(int col, int row) {
  		return container.toString(col,row);
 	}
-	
+
+	public void puedeCrearLaser(){
+		player.puedeCrearLaser();
+	}
 	
 
 	@Override
@@ -162,7 +167,8 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		int puntos = object.getPoints();
 		if (puntos > 0) {
 			points += object.getPoints();
-			remainingAliens--;
+			if(puntos!=25)
+				remainingAliens--;
 		}
 	}
 	public void leaveBomb(){

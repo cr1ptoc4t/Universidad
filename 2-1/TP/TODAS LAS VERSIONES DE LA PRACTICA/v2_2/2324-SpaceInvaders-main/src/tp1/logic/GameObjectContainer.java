@@ -28,10 +28,10 @@ public class GameObjectContainer {
 
 	//TODO: EL INSTANCEOF NO SE PUEDE!!!!!!
 
-	public UCMWeapon getLaser() {
+	public Laser getLaser() {
 		for (GameObject object : objects) {
-			if (object instanceof UCMWeapon) {
-				return (UCMWeapon) object;
+			if (object instanceof Laser) {
+				return (Laser) object;
 			}
 		}
 		return null;
@@ -81,9 +81,14 @@ public class GameObjectContainer {
 
 		while(i<this.objects.size()){
 
-			for(int j =i+1;j<this.objects.size();j++)
-				if(collision(i,j))
+			int j=i+1;
+			while(j<this.objects.size())
+				if(collision(i,j)) {
 					collide(objects.get(i), objects.get(j));
+					//j--;
+				}
+				else
+					j++;
 
 
 			GameObject object= objects.get(i);
@@ -106,8 +111,16 @@ public class GameObjectContainer {
 
 
 	private void collide(GameObject obj1, GameObject obj2){
-		obj1.computerAction();
-		obj2.computerAction();
+		//obj1.computerAction();
+		//obj2.computerAction();
+
+		//ojo que esto es un boolean lo podemos usar para borrar tbn
+
+		if(obj2.performAttack(obj1)){
+			objects.remove(obj2);
+		}
+			//objects.remove(obj1);
+
 	}
 
 	private boolean collision(int i, int j){
