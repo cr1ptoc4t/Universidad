@@ -26,21 +26,33 @@ public class GameObjectContainer {
 	}
 
 
+	//TODO: EL INSTANCEOF NO SE PUEDE!!!!!!
+
 	public UCMWeapon getLaser() {
 		for (GameObject object : objects) {
 			if (object instanceof UCMWeapon) {
 				return (UCMWeapon) object;
 			}
 		}
-		return null;  // Si no se encuentra ningún Laser
+		return null;
 	}
+
+	public void shockWave(){
+		int i=0;
+		while(i<objects.size()){
+			objects.get(i).computerAction();
+			if(objects.get(i).isAlive())
+				i++;
+		}
+	}
+
 	public Ufo getUfo() {
 		for (GameObject object : objects) {
 			if (object instanceof Ufo) {
 				return (Ufo) object;
 			}
 		}
-		return null;  // Si no se encuentra ningún Laser
+		return null;
 	}
 
 	public void automaticMoves() {
@@ -51,8 +63,6 @@ public class GameObjectContainer {
 			//TODO fill with your code
 		}
 
-		// hacer los shoots
-		//if(canShoot()){}
 
 	}
 
@@ -69,27 +79,32 @@ public class GameObjectContainer {
 	public void computerActions(Game game) {
 		int i=0;
 
-		GameObject obj1, obj2;
 		while(i<this.objects.size()){
 
-			for(int j =i+1;j<this.objects.size();j++){
+			for(int j =i+1;j<this.objects.size();j++)
 				if(collision(i,j))
 					collide(objects.get(i), objects.get(j));
-			}
+
 
 			GameObject object= objects.get(i);
 
-			if(object.diesByUser()) {
+			if(object.dies()) {
 				game.objectDies(object);
 				remove(object);
 			}
-			else if(object.diesNaturally())
+			else if(!object.posicionValida() || game.playerBombCollision((object)))
 				remove(object);
 			else if(!bomb(object))
 				i++;
 
 		}
 	}
+
+
+
+
+
+
 	private void collide(GameObject obj1, GameObject obj2){
 		obj1.computerAction();
 		obj2.computerAction();

@@ -23,12 +23,12 @@ public abstract class GameObject implements GameItem {
 	}
 
 
-	public boolean diesByUser(){
+	public boolean dies(){
 		return !isAlive();
 	}
 
-	public boolean diesNaturally(){
-		return !posicionValida();
+	public boolean posicionValida(){
+		return this.pos.esPosicionValida();
 	}
 
 	protected int getLife() {
@@ -41,6 +41,7 @@ public abstract class GameObject implements GameItem {
 	protected abstract String getSymbol();
 	protected abstract int getDamage();
 	protected abstract int getArmour();
+
 
 
 	public abstract void onDelete();
@@ -82,7 +83,7 @@ public abstract class GameObject implements GameItem {
 		return this.isOnPosition(object.pos);
 	}
 
-	public boolean posicionValida(){
-		return this.pos.esPosicionValida();
+	public int getPoints(){
+		return 0;
 	}
 }

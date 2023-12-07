@@ -28,7 +28,7 @@ public class UCMShip extends Ship {
 	//TODO fill with your code
 	public String toString(){
 		String symbol=Messages.UCMSHIP_SYMBOL;
-		if(vida<0){
+		if(vida<=0){
 			symbol="#──#";
 		}
 		return symbol;
@@ -57,10 +57,9 @@ public class UCMShip extends Ship {
 	}
 
 	public boolean recibeAtaque(EnemyWeapon weapon){
-		if(weapon.isInPos(this.pos)){
-			vida--;
-		}
-		return vida==0;
+		vida--;
+
+		return vida<=0;
 	}
 
 	public UCMWeapon creaLaser(){

@@ -16,29 +16,6 @@ public abstract class NoParamsCommand extends Command {
 		//TODO fill with your code
 
 		Command command;
-		//for (Command c: availableCommands) {
-
-		//}
-		//return command;
-
-		//for(Command c : availableCommands){  //comands es la lista de comandos que tenemos
-			//if(c.commandName(commandWords[0])){
-			//	return c.parse(commandWords);
-			//}
-
-		//}
-		//return new noParamsCommand("none");
-
-		/*
-		if(commandWords[0].equals(getName())||commandWords[0].equals(getShortcut())){
-			//esto??????????
-			command = new Command() {
-			};
-		} else {
-			command=null;
-		}
-*/
-		//esto tiene que haber una forma mas facil d hacerlo
 
 		if(commandWords[0].equals("s")||commandWords[0].equals("shoot"))
 			command = new ShootCommand();

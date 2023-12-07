@@ -38,5 +38,7 @@ public class Ship extends GameObject {
     public void automaticMove() {
 
     }
-
+    public int getPoints(){
+        return 0;
+    }
 }

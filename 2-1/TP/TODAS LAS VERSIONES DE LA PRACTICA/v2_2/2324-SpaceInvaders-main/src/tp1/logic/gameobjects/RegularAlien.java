@@ -10,6 +10,7 @@ public class RegularAlien extends AlienShip {
 
 	Move dir = Move.LEFT;
 
+	private final int points=10;
 
 	public RegularAlien(Game game, Position pos) {
 		// TODO fill with your code
@@ -39,6 +40,11 @@ public class RegularAlien extends AlienShip {
 	public void onDelete() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public int getPoints(){
+		return points;
 	}
 
 

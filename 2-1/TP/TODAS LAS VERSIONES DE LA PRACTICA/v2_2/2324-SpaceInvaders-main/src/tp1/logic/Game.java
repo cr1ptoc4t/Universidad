@@ -11,9 +11,6 @@ import java.util.Random;
 //	public abstract ExecutionResult execute(GameModel game);
 
 public class Game implements GameStatus, GameModel, GameWorld {
-
-	//TODO fill with your code
-
 	public static final int DIM_X = 9;
 	public static final int DIM_Y = 8;
 	
@@ -24,14 +21,12 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	private GameWorld gameWorld;
 	private Level level;
 
-	//TODO fill with your code
 	public Random rnd;
 
 	private final long seed;
 
 	private int remainingAliens;
 
-	private boolean ovni;
 
 	private int points;
 
@@ -41,9 +36,8 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		this.seed=seed;
 		this.rnd= getRandom();
 		points =0;
-
 		alienManager = new AlienManager(this);
-		ovni=false;
+
 		initGame();
 
 	}
@@ -60,13 +54,15 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	
 	public boolean isFinished() {
 		// TODO fill with your code
-		return false;
+		return playerWin()||aliensWin();
 	}
 
 	@Override
 	public boolean move(Move move) {
 		return false;
 	}
+
+
 
 	@Override
 	public boolean shootLaser() {
@@ -89,8 +85,8 @@ public class Game implements GameStatus, GameModel, GameWorld {
 
 	public void update() {
 	    this.currentCycle++;
-	    this.container.computerActions(this);
-	    this.container.automaticMoves();
+		this.container.automaticMoves();
+		this.container.computerActions(this);
 		this.alienManager.initializeOvni(container);
 	}
 
@@ -100,10 +96,6 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	    this.container.add(object);
 	}
 
-	// TODO fill with your code
-	
-	//VIEW METHODS
-	
 	public String positionToString(int col, int row) {
  		return container.toString(col,row);
 	}
@@ -135,9 +127,11 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	@Override
 	public boolean aliensWin() {
 		// TODO fill with your code
-		return player.getLifes()==0||alienManager.someoneOnLowerBorder();
+		return player.getLifes()<=0||alienManager.someoneOnLowerBorder();
 		//return false;
 	}
+
+
 
 	@Override
 	public int getCycle() {
@@ -162,21 +156,26 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		return level;
 	}
 
-	public void objectDies(GameObject object){
-		if (object instanceof Ufo)
-			points += 25;
-		else if(object instanceof AlienShip){
-			if (object instanceof DestroyerAlien)
-				points += 10;
-			else if (object instanceof RegularAlien)
-				points += 5;
 
+
+	public void objectDies(GameObject object) {
+		int puntos = object.getPoints();
+		if (puntos > 0) {
+			points += object.getPoints();
 			remainingAliens--;
 		}
 	}
-
 	public void leaveBomb(){
 
 	}
 
+
+	public boolean playerBombCollision(GameObject object){
+				//arreglar esto
+		return object instanceof Bomb && player.recibeAtaque((Bomb) object);
+	}
+
+	public void shockWave(){
+		this.container.shockWave();
+	}
 }

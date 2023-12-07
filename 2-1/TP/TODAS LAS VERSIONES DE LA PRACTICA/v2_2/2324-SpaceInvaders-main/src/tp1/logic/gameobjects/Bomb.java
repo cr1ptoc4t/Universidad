@@ -27,4 +27,5 @@ public class Bomb extends EnemyWeapon {
         //game.enableBomb(alien);
         //game.died(this);
     }
+
 }

@@ -10,6 +10,7 @@ public class DestroyerAlien extends AlienShip {
    // private Position pos;
     private int dano;
 
+    private final int points= 15;
 
     public DestroyerAlien(Game game, Position pos, AlienManager alienManager) {
         // TODO fill with your code
@@ -55,23 +56,19 @@ public class DestroyerAlien extends AlienShip {
         return Messages.DESTROYER_ALIEN_SYMBOL+"["+ life+"]";
     }
 
-    public void shoot(){
-        if(canShoot()){
-            //shoot
-            game.leaveBomb();
-        }
-    }
-
     public Bomb leaveBomb(){
         if(canShoot()) {
-            Position copia = new Position(this.pos);
+            Position copia =new Position(this.pos);
             copia.actualiza(Move.DOWN);
-            Bomb bomba =new Bomb(game, copia, this);
-            return bomba;
+            return new Bomb(game, copia, this);
         } else
             return null;
     }
 
+    @Override
+    public int getPoints(){
+        return points;
+    }
     private boolean canShoot(){
         return game.rnd.nextDouble() < game.getLevel().getShootFrequency();
     }

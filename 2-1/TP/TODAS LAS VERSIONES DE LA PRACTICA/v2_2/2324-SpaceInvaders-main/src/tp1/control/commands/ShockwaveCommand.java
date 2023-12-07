@@ -32,6 +32,7 @@ public class ShockwaveCommand extends NoParamsCommand{
 
     @Override
     public ExecutionResult execute(Game game) {
-        return null;
+        game.shockWave();
+        return new ExecutionResult(true);
     }
 }

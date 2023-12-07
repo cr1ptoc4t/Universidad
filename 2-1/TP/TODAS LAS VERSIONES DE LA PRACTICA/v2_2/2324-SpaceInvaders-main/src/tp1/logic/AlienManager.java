@@ -29,14 +29,12 @@ public class AlienManager  {
 	}
 	
 	public void initializeOvni(GameObjectContainer container) {
-		if(canGenerateRandomUfo() && !hayUfo(container)/*o el ufo esta en !posicionValida*/)
+
+		if(canGenerateRandomUfo() && container.getUfo()==null)
 			container.add(new Ufo(game));
 	}
 
 
-	private boolean hayUfo(GameObjectContainer container){
-		return container.getUfo()!=null;
-	}
 	private void initializeRegularAliens (GameObjectContainer container) {
 		int nReg = game.getLevel().getNumRegularAliens();
 
@@ -91,8 +89,10 @@ public class AlienManager  {
 	private boolean canGenerateRandomUfo(){
 		return game.rnd.nextDouble() < game.getLevel().getUfoFrequency();
 	}
-	public boolean someoneOnLowerBorder(){
-		//TODO hacer esta búsqueda
+
+
+	public boolean someoneOnLowerBorder() {
+
 		return false;
 	}
 }
