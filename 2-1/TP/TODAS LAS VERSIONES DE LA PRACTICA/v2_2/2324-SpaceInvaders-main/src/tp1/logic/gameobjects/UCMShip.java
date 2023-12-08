@@ -30,7 +30,7 @@ public class UCMShip extends Ship {
 	public String toString(){
 		String symbol=Messages.UCMSHIP_SYMBOL;
 		if(vida<=0){
-			symbol="#──#";
+			symbol=Messages.UCMSHIP_DEAD_SYMBOL;
 		}
 		return symbol;
 	}

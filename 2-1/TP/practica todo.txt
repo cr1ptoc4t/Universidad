@@ -1,0 +1,33 @@
+8/12
+HECHO HOY------------------------------------------
+bombas
+shockwave
+velocidades
+todos los receiveAttack/performAttack
+eliminar los instanceof
+arreglar ufo
+colision bomba-player
+
+
+A MEDIAS-------------------------------------------
+automaticmoves de las enemyships
+
+
+TODO----------------------------------------------
+Crear archivos:
+ShipFactory - hecho
+superlaser
+nave explosiva
+
+
+FALTA----------------------------------------------
+VERSION 2:
+ShipFactory
+superlaser
+nave explosiva
+
+
+
+REVISIONES-----------------------------------------
+revisar codigo
+revisar funcionamiento

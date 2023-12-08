@@ -1,9 +1,6 @@
 package tp1.logic.gameobjects;
 
-import tp1.logic.GameWorld;
-import tp1.logic.Position;
-import tp1.logic.Move;
-import tp1.logic.Game;
+import tp1.logic.*;
 
 public class EnemyShip extends Ship{
     private Move dir ;
@@ -23,6 +20,7 @@ public class EnemyShip extends Ship{
     public void automaticMove(Move dir) {
         pos.actualiza(dir);
     }
+
 
 
 }

@@ -48,4 +48,7 @@ public class Position {
 		col = col + mov.getX();
 		row = row + mov.getY();
 	}
+	public boolean onBorderLateral(){
+		return Game.DIM_X-1==col || col==0;
+	}
 }

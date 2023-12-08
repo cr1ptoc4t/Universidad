@@ -1,6 +1,8 @@
 package tp1.logic;
 
 import tp1.logic.gameobjects.*;
+import tp1.view.GamePrinter;
+import tp1.view.Messages;
 
 import java.util.Random;
 // Declarar que Game implementa las interfaces
@@ -26,18 +28,20 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	private final long seed;
 
 	private int remainingAliens;
+	private int waitUntil;
 
+	private boolean shockWave;
 
 	private int points;
+	private GamePrinter printer;
 
 	public Game (Level level, long seed){
 		//TODO fill with your code
 		this.level= level;
 		this.seed=seed;
 		this.rnd= getRandom();
-		points =0;
+		points = 0;
 		alienManager = new AlienManager(this);
-
 		initGame();
 
 	}
@@ -45,9 +49,11 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	private void initGame () {	
 		//TODO fill with your code
 		this.container = alienManager.initialize();
-		this.remainingAliens= level.getNumDestroyerAliens()+level.getNumRegularAliens();
+		this.remainingAliens = level.getNumDestroyerAliens()+level.getNumRegularAliens();
  		this.player = new UCMShip(this, new Position(DIM_X / 2, DIM_Y - 1));
 		container.add(player);
+
+		shockWave=false;
 	}
 
 	//CONTROL METHODS
@@ -87,8 +93,10 @@ public class Game implements GameStatus, GameModel, GameWorld {
 
 	public void update() {
 	    this.currentCycle++;
-		this.container.automaticMoves();
+
+
 		this.container.computerActions(this);
+		this.container.automaticMoves();
 		this.alienManager.initializeOvni(container);
 	}
 
@@ -166,12 +174,13 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	}
 
 
-
 	public void objectDies(GameObject object) {
 		int puntos = object.getPoints();
-		if(puntos==25 && object.posicionValida())
-			points+=puntos;
-		else if(puntos>0 && !(puntos==25 && !object.posicionValida())) {
+		if(puntos==25 && object.posicionValida()) {
+			points += puntos;
+			shockWave = true;
+			printer.show("YOU CAN USE SHOCKWAVE NOW");
+		} else if(puntos>0 && !(puntos==25 && !object.posicionValida())) {
 			points += puntos;
 			remainingAliens--;
 		}
@@ -180,14 +189,13 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		container.add(bomb);
 	}
 
-
-	public boolean playerBombCollision(GameObject object){
-				//arreglar esto
-		return object instanceof Bomb && player.recibeAtaque((Bomb) object);
-	}
-
 	public void shockWave(){
-		this.container.shockWave();
+		if(shockWave) {
+			this.container.shockWave(this);
+			shockWave=false;
+		} else{
+			printer.show(Messages.SHOCKWAVE_ERROR);
+		}
 	}
 
 	public void disenableUfo(){

@@ -1,9 +1,6 @@
 package tp1.logic.gameobjects;
 
-import tp1.logic.AlienManager;
-import tp1.logic.Game;
-import tp1.logic.Move;
-import tp1.logic.Position;
+import tp1.logic.*;
 import tp1.view.Messages;
 
 public class RegularAlien extends AlienShip {
@@ -12,9 +9,9 @@ public class RegularAlien extends AlienShip {
 
 	private final int points=10;
 
-	public RegularAlien(Game game, Position pos) {
+	public RegularAlien(Game game, Level level, Position pos, AlienManager alienManager) {
 		// TODO fill with your code
-		super(game, pos, 2, Move.LEFT);
+		super(game, level, pos, 2, Move.LEFT, alienManager);
 
 	}
 
@@ -33,7 +30,7 @@ public class RegularAlien extends AlienShip {
 	@Override
 	protected int getArmour() {
 		// TODO Auto-generated method stub
-		return life;
+		return 1;
 	}
 
 	@Override
@@ -41,6 +38,7 @@ public class RegularAlien extends AlienShip {
 		// TODO Auto-generated method stub
 
 	}
+
 
 	@Override
 	public int getPoints(){

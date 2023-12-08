@@ -27,7 +27,6 @@ public class EnemyWeapon extends Weapon{
 
 
     public boolean performAttack(GameItem other) {
-
         return other.receiveAttack(this);
     }
 }

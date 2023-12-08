@@ -11,7 +11,7 @@ public class Bomb extends EnemyWeapon {
 
     public Bomb(Game game, Position pos, DestroyerAlien alien) {
         super(game, pos, Move.DOWN);
-        this.alien =alien;
+        this.alien = alien;
     }
 
 
@@ -29,10 +29,10 @@ public class Bomb extends EnemyWeapon {
     }
 
     public void automaticMove(){
-
-    }
-    public void computerAction(){
         pos.actualiza(Move.DOWN);
+    }
+
+    public void computerAction(){
         if(!posicionValida()){
             onDelete();
         }

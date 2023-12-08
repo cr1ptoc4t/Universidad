@@ -12,6 +12,7 @@ public class GameObjectContainer {
 
 	private List<GameObject> objects;
 
+
 	public GameObjectContainer() {
 		objects = new ArrayList<>();
 	}
@@ -23,17 +24,20 @@ public class GameObjectContainer {
 	public void remove(GameObject object) {
 		objects.remove(object);
 
+
 	}
 
 
 
-	public void shockWave(){
+	public void shockWave(Game game){
 		int i=0;
 		while(i<objects.size()){
-			objects.get(i).computerAction();
-			if(objects.get(i).isAlive())
-				i++;
+			objects.get(i).receiveAttack(new ShockWave(game));
+			i++;
 		}
+
+		eliminarMuertos(game);
+
 	}
 
 
@@ -45,13 +49,10 @@ public class GameObjectContainer {
 			//TODO fill with your code
 		}
 
-
 	}
 
 
 	public void computerActions(Game game) {
-
-
 
 		//colisiones y restamos vidas
 		for(int i=0;i<this.objects.size();i++){
@@ -65,10 +66,16 @@ public class GameObjectContainer {
 			}
 		}
 
+		actualizarLista(game);
+
+	}
 
 
-		//eliminamos elementos que están fuera y que no tienen vida
+
+	//eliminamos elementos que están fuera y que no tienen vida
+	private void actualizarLista(Game game){
 		int i=0;
+
 		while(i<this.objects.size()) {
 
 			GameObject object = objects.get(i);
@@ -77,14 +84,28 @@ public class GameObjectContainer {
 			if (object.dies()) {
 				game.objectDies(object);
 				remove(object);
-			} else if (!object.posicionValida() /*|| game.playerBombCollision((object))*/)
+			} else if (!object.posicionValida())
 				remove(object);
 			else
 				i++;
 		}
 	}
 
+	private void eliminarMuertos(Game game){
+		int i=0;
 
+		while(i<this.objects.size()) {
+
+			GameObject object = objects.get(i);
+			if (object.dies()) {
+				game.objectDies(object);
+				remove(object);
+			} else if (!object.posicionValida())
+				remove(object);
+			else
+				i++;
+		}
+	}
 
 
 
@@ -99,13 +120,16 @@ public class GameObjectContainer {
 	}
 
 	public String toString(int col, int row){
+		Position aux= new Position(col, row);
 		int i=0;
-		while(i<objects.size()&&
-				!objects.get(i).isOnPosition((new Position(col, row)))){
+
+		while(i<objects.size() && !objects.get(i).isOnPosition(aux))
 			i++;
-		}
+
+
 		if (i!=objects.size())
 			return objects.get(i).toString();
+
 		else return "";
 	}
 

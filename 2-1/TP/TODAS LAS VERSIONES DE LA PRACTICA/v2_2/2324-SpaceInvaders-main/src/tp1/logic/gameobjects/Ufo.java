@@ -10,7 +10,7 @@ public class Ufo extends EnemyShip {
     public final int UFO_Y=0;
 
     private final int points = 25;
-    private int life  =1;
+    //private int life  =1;
 
     public Ufo(Game game){
         super(game, new Position(8, 0), 1);
@@ -28,7 +28,7 @@ public class Ufo extends EnemyShip {
     }
 
     public boolean dies(){
-        if(!posicionValida()){
+        if(!posicionValida()||!isAlive()){
             game.disenableUfo();
             return true;
         }

@@ -6,12 +6,12 @@ import tp1.logic.gameobjects.Ufo;
 public class AlienManager  {
 	
 	private Game game;
-	private int remainingAliens;
+	//private int remainingAliens;
 	private boolean ufoEnabled=false;
 
 	private boolean onBorder =false;
 
-	//TODO fill with your code
+
 	public AlienManager(Game game){
 		this.game=game;
 	}
@@ -21,8 +21,9 @@ public class AlienManager  {
 
 		GameObjectContainer container = new GameObjectContainer();
 		initializeOvni(container);
-		initializeRegularAliens(container);
-		initializeDestroyerAliens(container);
+		Level level =game.getLevel();
+		initializeRegularAliens(container, level);
+		initializeDestroyerAliens(container, level);
 		//remainingAliens = game.getLevel().getNumRegularAliens() +
 		//		game.getLevel().getNumDestroyerAliens();
 
@@ -38,30 +39,34 @@ public class AlienManager  {
 	}
 
 
-	private void initializeRegularAliens (GameObjectContainer container) {
+	private void initializeRegularAliens (GameObjectContainer container, Level level) {
 		int nReg = game.getLevel().getNumRegularAliens();
 
 		if(game.getLevel().equals(Level.EASY))
 			for(int i=0; i<nReg;i++)
-				container.add(new RegularAlien(game, new Position(i+3, 2)));
+				container.add(new RegularAlien(game, level, new Position(i+3, 2),this));
 
 		else
 			for(int row=0; row<nReg/4;row++)
 				for(int col=0; col<nReg/2; col++)
-					container.add(new RegularAlien(game, new Position(col+3, row+2)));
+					container.add(new RegularAlien(game, level, new Position(col+3, row+2), this));
 
 	}
 
-	private void initializeDestroyerAliens(GameObjectContainer container) {
-		if(game.getLevel().equals(Level.EASY))
-			for(int i=0; i<game.getLevel().getNumDestroyerAliens();i++)
-				container.add(new DestroyerAlien(game, new Position(i+4, 3), this ));
-		else if (game.getLevel().equals(Level.HARD))
-			for(int i=0; i<game.getLevel().getNumDestroyerAliens();i++)
-				container.add(new DestroyerAlien(game, new Position(i+4, 4), this ));
-		else
-			for(int i=0; i<game.getLevel().getNumDestroyerAliens();i++)
-				container.add(new DestroyerAlien(game, new Position(i+3, 4), this ));
+	private void initializeDestroyerAliens(GameObjectContainer container, Level level) {
+
+		int num = level.getNumDestroyerAliens();
+		if(level.equals(Level.EASY))
+			for(int i=0; i<num;i++)
+				container.add(new DestroyerAlien(game, level,new Position(i+4, 3), this ));
+
+		else if (level.equals(Level.HARD))
+			for(int i=0; i<num;i++)
+				container.add(new DestroyerAlien(game, level, new Position(i+4, 4), this ));
+
+			else
+			for(int i=0; i<num;i++)
+				container.add(new DestroyerAlien(game, level, new Position(i+3, 4), this ));
 
 	}
 
@@ -72,7 +77,6 @@ public class AlienManager  {
 
 
 	public boolean someoneOnLowerBorder() {
-
 		return false;
 	}
 
@@ -82,5 +86,17 @@ public class AlienManager  {
 
 	public boolean onBorder(){
 		return onBorder;
+	}
+
+	public boolean bajar(){
+		if(onBorder()){
+			onBorder=false;
+			return true;
+		}
+		return false;
+	}
+
+	public void setOnBorder(){
+		this.onBorder=true;
 	}
 }

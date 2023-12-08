@@ -49,6 +49,9 @@ public abstract class GameObject implements GameItem {
 	public void computerAction() {
 		//life--;
 	}
+	public void shockWave(){
+		life--;
+	}
 	
 	//TODO fill with your code
 
@@ -62,7 +65,7 @@ public abstract class GameObject implements GameItem {
 	public boolean receiveAttack(EnemyWeapon weapon) {
 		this.life--;
 
-		return life==0;
+		return life<=0;
 	}
 
 	@Override

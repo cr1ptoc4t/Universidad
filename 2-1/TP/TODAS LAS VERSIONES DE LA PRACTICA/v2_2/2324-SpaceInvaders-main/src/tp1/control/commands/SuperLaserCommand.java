@@ -4,42 +4,41 @@ import tp1.control.ExecutionResult;
 import tp1.logic.Game;
 import tp1.view.Messages;
 
-import static tp1.logic.Move.stringAMov;
+public class SuperLaserCommand extends NoParamsCommand{
+    public SuperLaserCommand(){
+        super("super laser");
 
-public class ShockwaveCommand extends NoParamsCommand{
-
-
-    public ShockwaveCommand(){
-        super("shockwave");
     }
+
     @Override
     protected String getName() {
-        return Messages.COMMAND_SHOCKWAVE_NAME;
+        return Messages.COMMAND_SUPERLASER_NAME;
     }
 
     @Override
     protected String getShortcut() {
-        return Messages.COMMAND_SHOCKWAVE_SHORTCUT;
+        return Messages.COMMAND_SUPERLASER_SHORTCUT;
     }
 
     @Override
     protected String getDetails() {
-        return Messages.COMMAND_SHOCKWAVE_DETAILS;
+        return Messages.COMMAND_SUPERLASER_DETAILS;
     }
 
     @Override
     protected String getHelp() {
-        return Messages.COMMAND_SHOCKWAVE_HELP;
+        return Messages.COMMAND_SUPERLASER_HELP;
     }
 
     @Override
     public ExecutionResult execute(Game game) {
-        game.shockWave();
+       //game.superlaser
         return new ExecutionResult(true);
     }
 
     @Override
     public Command parse(String[] commandWords) {
-        return new ShockwaveCommand();
+        return new SuperLaserCommand();
     }
+
 }

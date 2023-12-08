@@ -5,17 +5,15 @@ import tp1.view.Messages;
 
 public class DestroyerAlien extends AlienShip {
 
-
-   // private Position pos;
     private int dano;
 
     private boolean shooted=false;
     private final int points= 15;
 
-    public DestroyerAlien(Game game, Position pos, AlienManager alienManager) {
+    public DestroyerAlien(Game game, Level level, Position pos, AlienManager alienManager) {
         // TODO fill with your code
         //super(game, pos, 0);
-        super(game, pos, 1, Move.LEFT);
+        super(game, level, pos, 1, Move.LEFT, alienManager);
         dano=1;
     }
 
@@ -45,12 +43,6 @@ public class DestroyerAlien extends AlienShip {
 
     }
 
-    public void automaticMove() {
-        // TODO Auto-generated method stub
-        //pos.actualiza(dir);
-        //ojo con los bordes!!!
-        //super.automaticMove(dir);
-    }
 
     public String toString(){
         return Messages.DESTROYER_ALIEN_SYMBOL+"["+ life+"]";
@@ -58,10 +50,10 @@ public class DestroyerAlien extends AlienShip {
 
     public void computerAction() {
         if(canRandomShoot()&&!shooted) {
-
-            game.leaveBomb(new Bomb(game, new Position(this.pos), this));
+            Position copia =new Position(this.pos);
+            //copia.actualiza(Move.DOWN);
+            game.leaveBomb(new Bomb(game, copia, this));
             shooted=true;
-
         }
 
     }

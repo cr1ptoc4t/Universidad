@@ -47,6 +47,9 @@ public enum Level {
 	public int getNumDestroyerAliens(){
 		return numDestroyerAliens;
 	}
+	public int getNumCyclesToMoveOneCell(){
+		return numCyclesToMoveOneCell;
+	}
 	
 
 	/**
