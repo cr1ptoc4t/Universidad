@@ -50,32 +50,37 @@ public class GameObjectContainer {
 
 
 	public void computerActions(Game game) {
-		int i=0;
 
-		while(i<this.objects.size()){
 
+
+		//colisiones y restamos vidas
+		for(int i=0;i<this.objects.size();i++){
 			int j=i+1;
-			while(j<this.objects.size())
+
+			while(j<this.objects.size()){
 				if(collision(i,j)) {
 					collide(objects.get(i), objects.get(j));
-					//j--;
 				}
-				else
-					j++;
+				j++;
+			}
+		}
 
 
-			GameObject object= objects.get(i);
 
+		//eliminamos elementos que están fuera y que no tienen vida
+		int i=0;
+		while(i<this.objects.size()) {
+
+			GameObject object = objects.get(i);
 			object.computerAction();
-			if(object.dies()) {
+
+			if (object.dies()) {
 				game.objectDies(object);
 				remove(object);
-			}
-			else if(!object.posicionValida() || game.playerBombCollision((object)))
+			} else if (!object.posicionValida() /*|| game.playerBombCollision((object))*/)
 				remove(object);
 			else
 				i++;
-
 		}
 	}
 
@@ -84,17 +89,9 @@ public class GameObjectContainer {
 
 
 
-	private void collide(GameObject obj1, GameObject obj2){
-		//obj1.computerAction();
-		//obj2.computerAction();
-
-		//ojo que esto es un boolean lo podemos usar para borrar tbn
-
-		if(obj2.performAttack(obj1)){
-			objects.remove(obj2);
-		}
-			//objects.remove(obj1);
-
+	private void collide(GameItem obj1, GameItem obj2){
+		obj1.performAttack(obj2);
+		obj2.performAttack(obj1);
 	}
 
 	private boolean collision(int i, int j){

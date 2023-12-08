@@ -102,8 +102,12 @@ public class Game implements GameStatus, GameModel, GameWorld {
  		return container.toString(col,row);
 	}
 
-	public void puedeCrearLaser(){
-		player.puedeCrearLaser();
+	public void laserAFalse(){
+		player.setLaserAFalse();
+	}
+
+	public boolean puedeCrearLaser(){
+		return !player.getShooted();
 	}
 	
 

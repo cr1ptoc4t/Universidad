@@ -7,9 +7,9 @@ public class AlienManager  {
 	
 	private Game game;
 	private int remainingAliens;
-	private Ufo ufo;
 	private boolean ufoEnabled=false;
 
+	private boolean onBorder =false;
 
 	//TODO fill with your code
 	public AlienManager(Game game){
@@ -23,8 +23,8 @@ public class AlienManager  {
 		initializeOvni(container);
 		initializeRegularAliens(container);
 		initializeDestroyerAliens(container);
-		remainingAliens = game.getLevel().getNumRegularAliens() +
-				game.getLevel().getNumDestroyerAliens();
+		//remainingAliens = game.getLevel().getNumRegularAliens() +
+		//		game.getLevel().getNumDestroyerAliens();
 
 		return container;
 	}
@@ -78,5 +78,9 @@ public class AlienManager  {
 
 	public void disenableUfo(){
 		ufoEnabled=false;
+	}
+
+	public boolean onBorder(){
+		return onBorder;
 	}
 }

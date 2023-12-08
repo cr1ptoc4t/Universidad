@@ -60,19 +60,18 @@ public abstract class GameObject implements GameItem {
 	
 	@Override
 	public boolean receiveAttack(EnemyWeapon weapon) {
-		if(this.pos.equals(weapon.pos))
-			this.life--;
+		this.life--;
 
 		return life==0;
 	}
 
 	@Override
 	public boolean receiveAttack(UCMWeapon weapon) {
-		if(this.equalPosition(weapon))
-			this.life--;
-
-		return life==0;
+		this.life--;
+		return life<=0;
 	}
+
+
 	//@returns gameobject dies
 
 	@Override

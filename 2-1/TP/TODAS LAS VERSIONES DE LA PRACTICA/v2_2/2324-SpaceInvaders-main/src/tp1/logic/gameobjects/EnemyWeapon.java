@@ -27,7 +27,7 @@ public class EnemyWeapon extends Weapon{
 
 
     public boolean performAttack(GameItem other) {
-        other.receiveAttack(this);
-        return other.isOnPosition(this.pos);
+
+        return other.receiveAttack(this);
     }
 }

@@ -13,24 +13,20 @@ public class Laser extends UCMWeapon{
 
     public void onDelete() {
         //le dice a la nave que puede crear otro laseer
-        game.puedeCrearLaser();
+        game.laserAFalse();
+        life=0;
     }
 
     public void automaticMove() {
         pos.actualiza(Move.UP);
-        if(!pos.esPosicionValida()){
+        if(!pos.esPosicionValida()||game.puedeCrearLaser()){
             onDelete();
         }
     }
 
     @Override
     public boolean performAttack(GameItem other) {
-        if(other.isOnPosition(this.pos)){
-            onDelete();
-            other.receiveAttack(this);
-            return true;
-        }
-
-        return false;
+        onDelete();
+        return other.receiveAttack(this);
     }
 }

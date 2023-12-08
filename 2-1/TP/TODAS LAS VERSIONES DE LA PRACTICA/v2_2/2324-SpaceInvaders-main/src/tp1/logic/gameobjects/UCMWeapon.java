@@ -45,7 +45,8 @@ public class UCMWeapon extends Weapon {
 
 
     public boolean performAttack(GameItem other) {
-
-        return other.isOnPosition(this.pos)&&other.receiveAttack(this);
+        other.receiveAttack(this);
+        life--;
+        return life<=0;
     }
 }

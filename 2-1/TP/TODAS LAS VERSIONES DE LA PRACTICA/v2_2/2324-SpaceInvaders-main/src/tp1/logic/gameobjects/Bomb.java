@@ -29,6 +29,9 @@ public class Bomb extends EnemyWeapon {
     }
 
     public void automaticMove(){
+
+    }
+    public void computerAction(){
         pos.actualiza(Move.DOWN);
         if(!posicionValida()){
             onDelete();

@@ -57,12 +57,9 @@ public class DestroyerAlien extends AlienShip {
     }
 
     public void computerAction() {
-        //life--;
         if(canRandomShoot()&&!shooted) {
-            Position copia =new Position(this.pos);
-            copia.actualiza(Move.DOWN);
 
-            game.leaveBomb(new Bomb(game, copia, this));
+            game.leaveBomb(new Bomb(game, new Position(this.pos), this));
             shooted=true;
 
         }

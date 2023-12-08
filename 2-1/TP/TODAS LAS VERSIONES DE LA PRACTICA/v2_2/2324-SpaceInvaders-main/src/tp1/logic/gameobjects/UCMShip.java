@@ -63,8 +63,11 @@ public class UCMShip extends Ship {
 		return vida<=0;
 	}
 
-	public void puedeCrearLaser(){
+	public void setLaserAFalse(){
 		shooted=false;
+	}
+	public boolean getShooted(){
+		return shooted;
 	}
 
 	public Laser creaLaser(){
@@ -80,5 +83,6 @@ public class UCMShip extends Ship {
 	public int getLifes(){
 		return life;
 	}
+
 }
 
