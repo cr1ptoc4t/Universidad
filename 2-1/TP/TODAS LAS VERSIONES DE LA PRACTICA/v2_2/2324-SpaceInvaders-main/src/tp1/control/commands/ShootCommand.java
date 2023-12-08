@@ -3,6 +3,7 @@ package tp1.control.commands;
 import tp1.control.ExecutionResult;
 import tp1.control.commands.NoParamsCommand;
 import tp1.logic.Game;
+import tp1.logic.GameModel;
 import tp1.view.Messages;
 
 public class ShootCommand extends NoParamsCommand{
@@ -31,8 +32,9 @@ public class ShootCommand extends NoParamsCommand{
         return Messages.COMMAND_SHOOT_HELP;
     }
 
+
     @Override
-    public ExecutionResult execute(Game game) {
+    public ExecutionResult execute(GameModel game) {
         game.shootLaser();
 
         return new ExecutionResult(true);

@@ -20,6 +20,7 @@ public class BoardPrinter extends GamePrinter {
 	private static final String CELL_BORDER = repeat(CELL_BORDER_CHAR, CELL_SIZE+1);
 
 	private static final String ROW_BORDER = SPACE + repeat(CELL_BORDER, Game.DIM_X) + NEW_LINE;
+
 	public BoardPrinter(GameStatus game) {
 		super(game);
 	}

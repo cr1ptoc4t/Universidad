@@ -1,5 +1,6 @@
 package tp1.logic.gameobjects;
 
+import tp1.logic.GameWorld;
 import tp1.logic.Move;
 import tp1.logic.Position;
 import tp1.logic.Game;
@@ -9,7 +10,7 @@ public class UCMWeapon extends Weapon {
 
 	//TODO fill with your code
 
-    public UCMWeapon(Game game, Position pos){
+    public UCMWeapon(GameWorld game, Position pos){
         // Game game, Position pos, Move dir, int dano
         super(game, pos, Move.NONE);
 

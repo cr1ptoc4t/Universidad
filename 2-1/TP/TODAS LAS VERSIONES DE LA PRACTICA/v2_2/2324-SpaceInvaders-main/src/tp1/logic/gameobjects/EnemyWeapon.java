@@ -1,5 +1,6 @@
 package tp1.logic.gameobjects;
 
+import tp1.logic.GameWorld;
 import tp1.logic.Move;
 import tp1.logic.Position;
 import tp1.logic.Game;
@@ -11,7 +12,7 @@ public class EnemyWeapon extends Weapon{
     //protected Game game;
     protected Move dir;
 
-    public EnemyWeapon(Game game, Position pos, Move dir){
+    public EnemyWeapon(GameWorld game, Position pos, Move dir){
         // game, pos,life, damage, armor, move.down
         super(game, pos, dir);
         this.dir=dir;

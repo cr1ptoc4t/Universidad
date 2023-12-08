@@ -13,7 +13,7 @@ import tp1.view.Messages;
  */
 public record ExecutionResult(boolean success, boolean draw, String errorMessage) {
 	/**
-	 * Generates a {@link CommanExecution result} for a successful command
+	 * Generates a {@link CommandExecution result} for a successful command
 	 * execution.
 	 * 
 	 * @param draw stores if the game must be draw.
@@ -23,7 +23,7 @@ public record ExecutionResult(boolean success, boolean draw, String errorMessage
 	}
 
 	/**
-	 * Generates a {@link CommanExecution result} for an unsuccessful command
+	 * Generates a {@link CommandExecution result} for an unsuccessful command
 	 * execution.
 	 * 
 	 * @param errorMessage generated error message.

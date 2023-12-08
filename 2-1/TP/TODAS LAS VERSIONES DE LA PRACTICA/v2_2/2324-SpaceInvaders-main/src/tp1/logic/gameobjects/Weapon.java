@@ -1,15 +1,13 @@
 package tp1.logic.gameobjects;
 
 import tp1.logic.Game;
+import tp1.logic.GameWorld;
 import tp1.logic.Position;
 import tp1.logic.Move;
 
 public class Weapon extends GameObject{
 
-    //private Game game;
-    //private int life;
-
-    public Weapon(Game game, Position pos, Move dir){
+    public Weapon(GameWorld game, Position pos, Move dir){
         super(game, pos, 1);
     }
 

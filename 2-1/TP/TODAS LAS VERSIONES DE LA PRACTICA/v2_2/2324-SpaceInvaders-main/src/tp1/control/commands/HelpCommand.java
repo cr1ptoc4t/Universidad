@@ -2,6 +2,7 @@ package tp1.control.commands;
 
 import tp1.control.ExecutionResult;
 import tp1.logic.Game;
+import tp1.logic.GameModel;
 import tp1.view.Messages;
 
 import static tp1.logic.Move.stringAMov;
@@ -30,6 +31,11 @@ public class HelpCommand extends NoParamsCommand {
 	@Override
 	protected String getHelp() {
 		return Messages.COMMAND_HELP_HELP;
+	}
+
+	@Override
+	public ExecutionResult execute(GameModel game) {
+		return new ExecutionResult(false);
 	}
 
 	@Override

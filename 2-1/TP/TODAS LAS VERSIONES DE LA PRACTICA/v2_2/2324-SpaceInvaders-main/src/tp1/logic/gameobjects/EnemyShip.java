@@ -4,7 +4,7 @@ import tp1.logic.*;
 
 public class EnemyShip extends Ship{
     private Move dir ;
-    public EnemyShip(Game game, Position pos, int life){
+    public EnemyShip(GameWorld game, Position pos, int life){
         super(game, pos, life);
         dir= Move.NONE;
     }

@@ -7,7 +7,7 @@ public class AlienShip extends EnemyShip{
     private boolean bajado=false;
     private AlienManager alienManager;
     private int waitUntil;
-    public AlienShip(Game game, Level level, Position pos, int life, Move dir, AlienManager alienManager){
+    public AlienShip(GameWorld game, Level level, Position pos, int life, Move dir, AlienManager alienManager){
         super(game, pos, life);
         this.alienManager= alienManager;
         this.dir=dir;

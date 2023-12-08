@@ -5,12 +5,7 @@ import tp1.view.GamePrinter;
 import tp1.view.Messages;
 
 import java.util.Random;
-// Declarar que Game implementa las interfaces
-//public class Game implements GameModel, GameStatus, GameWorld {
 
-//}
-	// Y sustituir Game donde proceda por la interfaz adecuada
-//	public abstract ExecutionResult execute(GameModel game);
 
 public class Game implements GameStatus, GameModel, GameWorld {
 	public static final int DIM_X = 9;
@@ -23,7 +18,7 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	private GameWorld gameWorld;
 	private Level level;
 
-	public Random rnd;
+
 
 	private final long seed;
 
@@ -39,7 +34,7 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		//TODO fill with your code
 		this.level= level;
 		this.seed=seed;
-		this.rnd= getRandom();
+		//this.rnd= getRandom();
 		points = 0;
 		alienManager = new AlienManager(this);
 		initGame();
@@ -58,41 +53,15 @@ public class Game implements GameStatus, GameModel, GameWorld {
 
 	//CONTROL METHODS
 	
-	public boolean isFinished() {
-		// TODO fill with your code
-		return playerWin()||aliensWin();
-	}
-
-	@Override
-	public boolean move(Move move) {
-		return false;
-	}
 
 
 
-	@Override
-	public boolean shootLaser() {
 
-		Laser laser = player.creaLaser();
-		if(laser!=null) {
-			addObject(laser);
-			return true;
-		}
-		return false;
-	}
-
-	@Override
-	public void reset() {
-		this.initGame();
-	}
-
-	public void exit() {
-		// TODO fill with your code
-		//comprobar quien ha ganado y tal
-	}
+	//CALLBACK METHODS
+	//GAMEWORLD
 
 	public void update() {
-	    this.currentCycle++;
+		this.currentCycle++;
 
 
 		this.container.computerActions(this);
@@ -100,24 +69,44 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		this.alienManager.initializeOvni(container);
 	}
 
-	//CALLBACK METHODS
-	
 	public void addObject(GameObject object) {
-	    this.container.add(object);
+		this.container.add(object);
 	}
 
-	public String positionToString(int col, int row) {
- 		return container.toString(col,row);
+	public void updatePlayer(Move move){
+		player.mueve(move);
+	}
+
+	public void leaveBomb( Bomb bomb){
+		container.add(bomb);
+	}
+
+	public void disenableUfo(){
+		alienManager.disenableUfo();
+	}
+
+	public void enableBomb(DestroyerAlien alien){
+		alien.enableBomb();
+	}
+
+
+	public void died(GameObject object) {
+		container.remove(object);
+	}
+
+
+	public boolean puedeCrearLaser(){
+		return !player.getShooted();
 	}
 
 	public void laserAFalse(){
 		player.setLaserAFalse();
 	}
 
-	public boolean puedeCrearLaser(){
-		return !player.getShooted();
+	//GAMESTATUS
+	public String positionToString(int col, int row) {
+		return container.toString(col,row);
 	}
-	
 
 	@Override
 	public String infoToString() {
@@ -160,14 +149,46 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		return remainingAliens;
 	}
 
+
+	//GAMEMODEL
+
+
+	public boolean isFinished() {
+		// TODO fill with your code
+		return playerWin()||aliensWin();
+	}
+
+	@Override
+	public boolean move(Move move) {
+		return false;
+	}
+
+
+
+	@Override
+	public boolean shootLaser() {
+
+		Laser laser = player.creaLaser();
+		if(laser!=null) {
+			addObject(laser);
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public void reset() {
+		this.initGame();
+	}
+
+	public void exit() {
+		// TODO fill with your code
+		//comprobar quien ha ganado y tal
+	}
 	private Random getRandom() {
 		return new Random(seed);
 	}
 
-
-	public void updatePlayer(Move move){
-		player.mueve(move);
-	}
 
 	public Level getLevel(){
 		return level;
@@ -185,9 +206,7 @@ public class Game implements GameStatus, GameModel, GameWorld {
 			remainingAliens--;
 		}
 	}
-	public void leaveBomb( Bomb bomb){
-		container.add(bomb);
-	}
+
 
 	public void shockWave(){
 		if(shockWave) {
@@ -198,15 +217,6 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		}
 	}
 
-	public void disenableUfo(){
-		alienManager.disenableUfo();
-	}
 
 
-	public void enableBomb(DestroyerAlien alien){
-		alien.enableBomb();
-	}
-	public void died(GameObject object) {
-		container.remove(object);
-	}
 }

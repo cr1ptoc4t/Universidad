@@ -10,7 +10,7 @@ public class DestroyerAlien extends AlienShip {
     private boolean shooted=false;
     private final int points= 15;
 
-    public DestroyerAlien(Game game, Level level, Position pos, AlienManager alienManager) {
+    public DestroyerAlien(GameWorld game, Level level, Position pos, AlienManager alienManager) {
         // TODO fill with your code
         //super(game, pos, 0);
         super(game, level, pos, 1, Move.LEFT, alienManager);

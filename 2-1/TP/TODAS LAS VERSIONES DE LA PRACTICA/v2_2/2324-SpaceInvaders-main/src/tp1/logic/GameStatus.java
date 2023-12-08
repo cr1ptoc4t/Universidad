@@ -1,11 +1,12 @@
 package tp1.logic;
 
 public interface GameStatus {
+	//PARA GAMEPRINTER
 
-	public String positionToString(int x, int y);
+	public String positionToString(int col, int row);
 	public String infoToString();
 	public String stateToString();
-	
+
 	public boolean playerWin();
 	public boolean aliensWin();
 
