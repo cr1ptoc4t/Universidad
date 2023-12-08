@@ -165,14 +165,15 @@ public class Game implements GameStatus, GameModel, GameWorld {
 
 	public void objectDies(GameObject object) {
 		int puntos = object.getPoints();
-		if (puntos > 0) {
-			points += object.getPoints();
-			if(puntos!=25)
-				remainingAliens--;
+		if(puntos==25 && object.posicionValida())
+			points+=puntos;
+		else if(puntos>0 && !(puntos==25 && !object.posicionValida())) {
+			points += puntos;
+			remainingAliens--;
 		}
 	}
-	public void leaveBomb(){
-
+	public void leaveBomb( Bomb bomb){
+		container.add(bomb);
 	}
 
 
@@ -183,5 +184,17 @@ public class Game implements GameStatus, GameModel, GameWorld {
 
 	public void shockWave(){
 		this.container.shockWave();
+	}
+
+	public void disenableUfo(){
+		alienManager.disenableUfo();
+	}
+
+
+	public void enableBomb(DestroyerAlien alien){
+		alien.enableBomb();
+	}
+	public void died(GameObject object) {
+		container.remove(object);
 	}
 }

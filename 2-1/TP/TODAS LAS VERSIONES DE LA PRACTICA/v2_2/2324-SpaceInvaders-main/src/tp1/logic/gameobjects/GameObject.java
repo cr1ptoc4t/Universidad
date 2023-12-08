@@ -47,7 +47,7 @@ public abstract class GameObject implements GameItem {
 	public abstract void onDelete();
 	public abstract void automaticMove();
 	public void computerAction() {
-		life--;
+		//life--;
 	}
 	
 	//TODO fill with your code

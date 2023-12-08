@@ -26,16 +26,6 @@ public class GameObjectContainer {
 	}
 
 
-	//TODO: EL INSTANCEOF NO SE PUEDE!!!!!!
-
-	public Laser getLaser() {
-		for (GameObject object : objects) {
-			if (object instanceof Laser) {
-				return (Laser) object;
-			}
-		}
-		return null;
-	}
 
 	public void shockWave(){
 		int i=0;
@@ -46,14 +36,6 @@ public class GameObjectContainer {
 		}
 	}
 
-	public Ufo getUfo() {
-		for (GameObject object : objects) {
-			if (object instanceof Ufo) {
-				return (Ufo) object;
-			}
-		}
-		return null;
-	}
 
 	public void automaticMoves() {
 
@@ -66,15 +48,6 @@ public class GameObjectContainer {
 
 	}
 
-	private boolean bomb(GameObject object){
-		Bomb bomba=null;
-		if(object instanceof DestroyerAlien){
-			bomba = ((DestroyerAlien) object).leaveBomb();
-			if(bomba!=null)
-				this.objects.add(bomba);
-		}
-		return bomba!=null;
-	}
 
 	public void computerActions(Game game) {
 		int i=0;
@@ -93,13 +66,14 @@ public class GameObjectContainer {
 
 			GameObject object= objects.get(i);
 
+			object.computerAction();
 			if(object.dies()) {
 				game.objectDies(object);
 				remove(object);
 			}
 			else if(!object.posicionValida() || game.playerBombCollision((object)))
 				remove(object);
-			else if(!bomb(object))
+			else
 				i++;
 
 		}

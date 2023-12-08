@@ -24,8 +24,15 @@ public class Bomb extends EnemyWeapon {
     }
 
     public void onDelete(){
-        //game.enableBomb(alien);
-        //game.died(this);
+        game.enableBomb(alien);
+        game.died(this);
+    }
+
+    public void automaticMove(){
+        pos.actualiza(Move.DOWN);
+        if(!posicionValida()){
+            onDelete();
+        }
     }
 
 }

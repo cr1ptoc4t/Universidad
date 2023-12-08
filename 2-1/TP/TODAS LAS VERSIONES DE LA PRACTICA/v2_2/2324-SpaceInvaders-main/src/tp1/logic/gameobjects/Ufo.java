@@ -24,8 +24,16 @@ public class Ufo extends EnemyShip {
     @Override
     public void automaticMove() {
         pos.actualiza(Move.LEFT);
+        //dies();
     }
 
+    public boolean dies(){
+        if(!posicionValida()){
+            game.disenableUfo();
+            return true;
+        }
+        return false;
+    }
     public int getPoints(){
         return points;
     }

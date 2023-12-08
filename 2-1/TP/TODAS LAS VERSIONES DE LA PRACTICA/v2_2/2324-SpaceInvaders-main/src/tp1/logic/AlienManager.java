@@ -8,6 +8,7 @@ public class AlienManager  {
 	private Game game;
 	private int remainingAliens;
 	private Ufo ufo;
+	private boolean ufoEnabled=false;
 
 
 	//TODO fill with your code
@@ -30,8 +31,10 @@ public class AlienManager  {
 	
 	public void initializeOvni(GameObjectContainer container) {
 
-		if(canGenerateRandomUfo() && container.getUfo()==null)
+		if(canGenerateRandomUfo() && !ufoEnabled) {
 			container.add(new Ufo(game));
+			ufoEnabled=true;
+		}
 	}
 
 
@@ -49,29 +52,6 @@ public class AlienManager  {
 
 	}
 
-	/*
-	public void inicializa() {
-        if (level == Level.EASY){
-            //empieza en 3,3
-            num = 2;
-            for (int i =0; i < num; i++) {
-                objects[i] = new DestroyerAlien(game,new Position(i+4, 3), level);
-            }
-        } else if(level== Level.HARD){
-            num = 2;
-            for (int i =0; i < num; i++) {
-                objects[i] = new DestroyerAlien(game,new Position(i+4, 4), level);
-            }
-        } else if (level == Level.INSANE) {
-            num = 4;
-            for (int i =0; i < num; i++) {
-                objects[i] = new DestroyerAlien(game, new Position(i+3, 4), level);
-            }
-        }
-    }
-
-	 */
-	
 	private void initializeDestroyerAliens(GameObjectContainer container) {
 		if(game.getLevel().equals(Level.EASY))
 			for(int i=0; i<game.getLevel().getNumDestroyerAliens();i++)
@@ -94,5 +74,9 @@ public class AlienManager  {
 	public boolean someoneOnLowerBorder() {
 
 		return false;
+	}
+
+	public void disenableUfo(){
+		ufoEnabled=false;
 	}
 }

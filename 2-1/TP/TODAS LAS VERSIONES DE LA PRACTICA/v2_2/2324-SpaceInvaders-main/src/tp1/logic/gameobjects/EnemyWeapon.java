@@ -8,7 +8,7 @@ public class EnemyWeapon extends Weapon{
 
 	//TODO fill with your code
 	//protected Position pos;
-    protected Game game;
+    //protected Game game;
     protected Move dir;
 
     public EnemyWeapon(Game game, Position pos, Move dir){

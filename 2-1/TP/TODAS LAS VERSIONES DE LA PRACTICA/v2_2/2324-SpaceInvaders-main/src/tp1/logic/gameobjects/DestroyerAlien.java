@@ -5,11 +5,11 @@ import tp1.view.Messages;
 
 public class DestroyerAlien extends AlienShip {
 
-    private Move dir = Move.LEFT;
 
    // private Position pos;
     private int dano;
 
+    private boolean shooted=false;
     private final int points= 15;
 
     public DestroyerAlien(Game game, Position pos, AlienManager alienManager) {
@@ -56,20 +56,27 @@ public class DestroyerAlien extends AlienShip {
         return Messages.DESTROYER_ALIEN_SYMBOL+"["+ life+"]";
     }
 
-    public Bomb leaveBomb(){
-        if(canShoot()) {
+    public void computerAction() {
+        //life--;
+        if(canRandomShoot()&&!shooted) {
             Position copia =new Position(this.pos);
             copia.actualiza(Move.DOWN);
-            return new Bomb(game, copia, this);
-        } else
-            return null;
+
+            game.leaveBomb(new Bomb(game, copia, this));
+            shooted=true;
+
+        }
+
     }
 
+    public void enableBomb(){
+        shooted =false;
+    }
     @Override
     public int getPoints(){
         return points;
     }
-    private boolean canShoot(){
+    private boolean canRandomShoot(){
         return game.rnd.nextDouble() < game.getLevel().getShootFrequency();
     }
 }
