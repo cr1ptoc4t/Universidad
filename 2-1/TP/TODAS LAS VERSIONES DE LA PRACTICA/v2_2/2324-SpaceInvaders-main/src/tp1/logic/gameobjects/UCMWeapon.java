@@ -15,23 +15,7 @@ public class UCMWeapon extends Weapon {
         super(game, pos, Move.NONE);
 
     }
-    @Override
-    protected String getSymbol() {
-        return Messages.LASER_SYMBOL;
-    }
-    public String toString() {
-        return Messages.LASER_SYMBOL;
-    }
 
-    @Override
-    protected int getDamage() {
-        return 1;
-    }
-
-    @Override
-    protected int getArmour() {
-        return 1;
-    }
 
     @Override
     public void onDelete() {

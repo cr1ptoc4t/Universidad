@@ -16,4 +16,7 @@ public interface GameModel {
 
     public void shockWave();
 
+    public void superLaser();
+
+    public boolean shootSuperLaser();
 }

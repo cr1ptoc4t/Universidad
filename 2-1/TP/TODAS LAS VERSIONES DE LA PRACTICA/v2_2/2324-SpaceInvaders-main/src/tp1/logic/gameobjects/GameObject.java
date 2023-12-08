@@ -63,14 +63,13 @@ public abstract class GameObject implements GameItem {
 	
 	@Override
 	public boolean receiveAttack(EnemyWeapon weapon) {
-		this.life--;
-
+		this.life-=weapon.getDamage();
 		return life<=0;
 	}
 
 	@Override
 	public boolean receiveAttack(UCMWeapon weapon) {
-		this.life--;
+		this.life-=weapon.getDamage();
 		return life<=0;
 	}
 
@@ -88,4 +87,5 @@ public abstract class GameObject implements GameItem {
 	public int getPoints(){
 		return 0;
 	}
+
 }

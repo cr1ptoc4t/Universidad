@@ -3,11 +3,13 @@ package tp1.control.commands;
 import tp1.control.ExecutionResult;
 import tp1.logic.Game;
 import tp1.logic.GameModel;
+import tp1.view.GamePrinter;
 import tp1.view.Messages;
 
 public class SuperLaserCommand extends NoParamsCommand{
+    GamePrinter printer;
     public SuperLaserCommand(){
-        super("super laser");
+        super("superlaser");
 
     }
 
@@ -33,12 +35,8 @@ public class SuperLaserCommand extends NoParamsCommand{
 
     @Override
     public ExecutionResult execute(GameModel game) {
-        return null;
-    }
-
-    @Override
-    public ExecutionResult execute(Game game) {
-       //game.superlaser
+        if(!game.shootSuperLaser())
+            printer.show(Messages.SUPERLASER_ERROR);
         return new ExecutionResult(true);
     }
 

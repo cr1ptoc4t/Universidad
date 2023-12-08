@@ -44,12 +44,12 @@ public class AlienManager  {
 
 		if(game.getLevel().equals(Level.EASY))
 			for(int i=0; i<nReg;i++)
-				container.add(new RegularAlien(game, level, new Position(i+3, 2),this));
+				container.add(new RegularAlien(game,  new Position(i+3, 2),this));
 
 		else
 			for(int row=0; row<nReg/4;row++)
 				for(int col=0; col<nReg/2; col++)
-					container.add(new RegularAlien(game, level, new Position(col+3, row+2), this));
+					container.add(new RegularAlien(game,new Position(col+3, row+2), this));
 
 	}
 
@@ -58,15 +58,15 @@ public class AlienManager  {
 		int num = level.getNumDestroyerAliens();
 		if(level.equals(Level.EASY))
 			for(int i=0; i<num;i++)
-				container.add(new DestroyerAlien(game, level,new Position(i+4, 3), this ));
+				container.add(new DestroyerAlien(game, new Position(i+4, 3), this ));
 
 		else if (level.equals(Level.HARD))
 			for(int i=0; i<num;i++)
-				container.add(new DestroyerAlien(game, level, new Position(i+4, 4), this ));
+				container.add(new DestroyerAlien(game, new Position(i+4, 4), this ));
 
 			else
 			for(int i=0; i<num;i++)
-				container.add(new DestroyerAlien(game, level, new Position(i+3, 4), this ));
+				container.add(new DestroyerAlien(game, new Position(i+3, 4), this ));
 
 	}
 

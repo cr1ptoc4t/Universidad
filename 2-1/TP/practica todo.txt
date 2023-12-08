@@ -1,24 +1,36 @@
-8/12
-HECHO HOY------------------------------------------
-bombas
-shockwave
-velocidades
-todos los receiveAttack/performAttack
-eliminar los instanceof
-arreglar ufo
-colision bomba-player
+8/12 ----------------------------------------------
+bombas			-- 	hecho
+puntos			-- 	hecho
+shockwave		-- 	hecho
+velocidades		-- 	hecho
+receiveAttack (x14)	-- 	hecho
+performAttack (x14)	-- 	hecho
+eliminar los instanceof	-- 	hecho
+arreglar ufo		-- 	hecho
+colision bomba-player	-- 	hecho
 
 
-A MEDIAS-------------------------------------------
-automaticmoves de las enemyships
+A MEDIAS ------------------------------------------
+automaticmoves de las alienships
 
 
-TODO----------------------------------------------
+TODO PARA ESTA NOCHE ------------------------------
 Crear archivos:
-ShipFactory - hecho
-superlaser
+ShipFactory 		-- 	hecho
+superlasercommand 	--	hecho
 nave explosiva
 
+Llenar archivos:
+ShipFactory 		-- 	hecho
+superlasercommand 	--	hecho
+nave explosiva
+
+Método superlaser
+
+interfaces: 		--	hecho
+GameModel		--	hecho
+GameWorld		--	hecho
+GameStatus		--	hecho
 
 FALTA----------------------------------------------
 VERSION 2:
@@ -31,3 +43,6 @@ nave explosiva
 REVISIONES-----------------------------------------
 revisar codigo
 revisar funcionamiento
+
+PREGUNTAS -----------------------------------------
+infoToString que hace?

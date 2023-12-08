@@ -23,7 +23,7 @@ public class Weapon extends GameObject{
 
     @Override
     protected int getDamage() {
-        return 0;
+        return 1;
     }
 
     @Override

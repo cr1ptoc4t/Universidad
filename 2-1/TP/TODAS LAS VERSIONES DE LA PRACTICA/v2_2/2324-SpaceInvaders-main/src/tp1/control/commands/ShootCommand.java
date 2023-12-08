@@ -39,4 +39,7 @@ public class ShootCommand extends NoParamsCommand{
 
         return new ExecutionResult(true);
     }
+    public Command parse(String[] commandWords) {
+        return new ShootCommand();
+    }
 }

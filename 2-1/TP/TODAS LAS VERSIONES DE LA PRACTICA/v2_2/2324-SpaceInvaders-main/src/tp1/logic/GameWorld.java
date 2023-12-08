@@ -26,4 +26,10 @@ public interface GameWorld {
     public void laserAFalse();
 
     public boolean puedeCrearLaser();
+
+    public void superLaserAFalse();
+
+    boolean puedeCrearSuperLaser();
+
+    Level getlevel();
 }

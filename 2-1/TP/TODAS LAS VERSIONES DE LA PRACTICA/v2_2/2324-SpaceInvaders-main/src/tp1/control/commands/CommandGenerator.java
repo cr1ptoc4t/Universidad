@@ -16,16 +16,13 @@ public class CommandGenerator {
 		new ExitCommand(),
 		new ShootCommand(),
 		new ShockwaveCommand(),
-		new NoneCommand()
+		new NoneCommand(),
+		new SuperLaserCommand()
 		//TODO fill with your code
 	);
 
 	public static Command parse(String[] commandWords) {		
-		//Command command = null;
-		//for (Command c: availableCommands) {
-			
-		//}
-		//return command;
+
 		if(commandWords.length>0) {
 			for (Command c : availableCommands) {  //commands es la lista de comandos que tenemos
 				//if(c.commandName(commandWords)){

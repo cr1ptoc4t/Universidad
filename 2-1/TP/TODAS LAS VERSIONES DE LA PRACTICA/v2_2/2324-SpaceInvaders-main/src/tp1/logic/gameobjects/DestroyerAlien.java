@@ -10,13 +10,16 @@ public class DestroyerAlien extends AlienShip {
     private boolean shooted=false;
     private final int points= 15;
 
-    public DestroyerAlien(GameWorld game, Level level, Position pos, AlienManager alienManager) {
-        // TODO fill with your code
-        //super(game, pos, 0);
-        super(game, level, pos, 1, Move.LEFT, alienManager);
+    public DestroyerAlien(GameWorld game, Position pos, AlienManager alienManager) {
+
+        super(game, pos, 1, Move.LEFT, alienManager);
         dano=1;
     }
 
+    public DestroyerAlien() {
+        super();
+
+    }
 
 
     @Override
@@ -56,6 +59,11 @@ public class DestroyerAlien extends AlienShip {
             shooted=true;
         }
 
+    }
+
+    @Override
+    protected AlienShip copy(GameWorld game, Position pos, AlienManager am) {
+        return new DestroyerAlien(game, pos, am);
     }
 
     public void enableBomb(){

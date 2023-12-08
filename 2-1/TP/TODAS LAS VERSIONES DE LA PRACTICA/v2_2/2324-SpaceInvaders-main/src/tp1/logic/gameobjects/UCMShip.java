@@ -80,9 +80,18 @@ public class UCMShip extends Ship {
 		return null;
 	}
 
+	public SuperLaser creaSuperLaser(){
+		if(!shooted) {
+			shooted=true;
+			Position copia = new Position(pos);
+			copia.actualiza(Move.UP);
+			return new SuperLaser(game, copia);
+		}
+		return null;
+	}
+
 	public int getLifes(){
 		return life;
 	}
-
 }
 

@@ -2,17 +2,19 @@ package tp1.logic.gameobjects;
 
 import tp1.logic.*;
 
-public class AlienShip extends EnemyShip{
+public abstract class AlienShip extends EnemyShip{
     private Move dir;
     private boolean bajado=false;
     private AlienManager alienManager;
     private int waitUntil;
-    public AlienShip(GameWorld game, Level level, Position pos, int life, Move dir, AlienManager alienManager){
+    public AlienShip(GameWorld game, Position pos, int life, Move dir, AlienManager alienManager){
         super(game, pos, life);
         this.alienManager= alienManager;
         this.dir=dir;
-        waitUntil=level.getNumCyclesToMoveOneCell();
+        waitUntil=game.getlevel().getNumCyclesToMoveOneCell();
     }
+
+
 
     public void automaticMove(){
 
@@ -40,4 +42,6 @@ public class AlienShip extends EnemyShip{
             alienManager.setOnBorder();
         }
     }
+
+    protected abstract AlienShip copy(GameWorld game, Position pos, AlienManager am);
 }

@@ -6,10 +6,8 @@ import tp1.logic.Move;
 import tp1.logic.Position;
 import tp1.view.Messages;
 
-public class Laser extends UCMWeapon{
-
-
-    public Laser(GameWorld game, Position pos) {
+public class SuperLaser extends Laser{
+    public SuperLaser(GameWorld game, Position pos) {
         super(game, pos);
     }
 
@@ -21,29 +19,19 @@ public class Laser extends UCMWeapon{
 
     public void automaticMove() {
         pos.actualiza(Move.UP);
-        if(!pos.esPosicionValida()||game.puedeCrearLaser()){
+        if(!pos.esPosicionValida()||game.puedeCrearSuperLaser()){
             onDelete();
         }
     }
 
     @Override
-    public boolean performAttack(GameItem other) {
-        onDelete();
-        return other.receiveAttack(this);
-    }
-
-
     public String toString() {
-        return Messages.LASER_SYMBOL;
+        return Messages.SUPERLASER_SYMBOL;
     }
 
     @Override
     protected int getDamage() {
-        return 1;
+        return 2;
     }
 
-    @Override
-    protected int getArmour() {
-        return 1;
-    }
 }

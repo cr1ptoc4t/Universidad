@@ -5,11 +5,10 @@ import tp1.logic.Game;
 import tp1.logic.GameModel;
 import tp1.view.Messages;
 
-public class ExitCommand extends NoParamsCommand{
+public class ExitCommand extends NoParamsCommand {
 
 
-
-	public ExitCommand(){
+	public ExitCommand() {
 		super("exit");
 	}
 
@@ -39,4 +38,7 @@ public class ExitCommand extends NoParamsCommand{
 		return Messages.COMMAND_EXIT_HELP;
 	}
 
+	public Command parse(String[] commandWords) {
+		return new ExitCommand();
 	}
+}

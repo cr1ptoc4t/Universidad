@@ -21,6 +21,7 @@ public class Position {
 		this.row = posicion2.row;
 	}
 
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(col, row);

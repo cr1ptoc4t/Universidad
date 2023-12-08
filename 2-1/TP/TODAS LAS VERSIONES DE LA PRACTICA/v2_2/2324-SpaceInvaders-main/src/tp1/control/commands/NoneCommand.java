@@ -14,12 +14,6 @@ public class NoneCommand extends NoParamsCommand{
     }
 
     @Override
-    public ExecutionResult execute(Game game) {
-        //game.exit();
-        return new ExecutionResult(true);
-    }
-
-    @Override
     protected String getName() {
         return Messages.COMMAND_NONE_NAME;
     }
@@ -42,6 +36,9 @@ public class NoneCommand extends NoParamsCommand{
     @Override
     public ExecutionResult execute(GameModel game) {
         return new ExecutionResult(true);
+    }
+    public Command parse(String[] commandWords) {
+        return new NoneCommand();
     }
 
 }

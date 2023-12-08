@@ -19,6 +19,8 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	private Level level;
 
 
+	private boolean exit=false;
+
 
 	private final long seed;
 
@@ -99,6 +101,11 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		return !player.getShooted();
 	}
 
+	@Override
+	public void superLaserAFalse() {
+
+	}
+
 	public void laserAFalse(){
 		player.setLaserAFalse();
 	}
@@ -155,7 +162,7 @@ public class Game implements GameStatus, GameModel, GameWorld {
 
 	public boolean isFinished() {
 		// TODO fill with your code
-		return playerWin()||aliensWin();
+		return playerWin()||aliensWin()||exit;
 	}
 
 	@Override
@@ -176,6 +183,18 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		return false;
 	}
 
+	public boolean shootSuperLaser(){
+		if(points>5) {
+			SuperLaser sl = player.creaSuperLaser();
+			if (sl != null) {
+				addObject(sl);
+				points-=5;
+				return true;
+			}
+		}
+		return false;
+	}
+
 	@Override
 	public void reset() {
 		this.initGame();
@@ -184,6 +203,7 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	public void exit() {
 		// TODO fill with your code
 		//comprobar quien ha ganado y tal
+		exit=true;
 	}
 	private Random getRandom() {
 		return new Random(seed);
@@ -216,7 +236,14 @@ public class Game implements GameStatus, GameModel, GameWorld {
 			printer.show(Messages.SHOCKWAVE_ERROR);
 		}
 	}
+	public void  superLaser(){
 
+	}
+
+
+	public boolean puedeCrearSuperLaser(){
+		return points >5 && !player.getShooted();
+	}
 
 
 }

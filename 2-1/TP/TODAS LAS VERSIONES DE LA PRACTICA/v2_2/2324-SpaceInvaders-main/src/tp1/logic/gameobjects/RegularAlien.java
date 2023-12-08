@@ -9,9 +9,15 @@ public class RegularAlien extends AlienShip {
 
 	private final int points=10;
 
-	public RegularAlien(Game game, Level level, Position pos, AlienManager alienManager) {
+	public RegularAlien(GameWorld game, Position pos, AlienManager alienManager) {
 		// TODO fill with your code
-		super(game, level, pos, 2, Move.LEFT, alienManager);
+		super(game, pos, 2, Move.LEFT, alienManager);
+
+	}
+	public RegularAlien() {
+		super();
+		// TODO fill with your code
+		//super(new Game(Level), new Position(0,0), 2, Move.LEFT, new AlienManager);
 
 	}
 
@@ -48,6 +54,10 @@ public class RegularAlien extends AlienShip {
 
 	public String toString(){
 		return Messages.REGULAR_ALIEN_SYMBOL+"["+ life+"]";
+	}
+
+	protected AlienShip copy(GameWorld game, Position pos, AlienManager am){
+		return new RegularAlien(game, pos, am);
 	}
 
 }
