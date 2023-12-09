@@ -2,6 +2,7 @@ package tp1.logic;
 
 import tp1.logic.gameobjects.Bomb;
 import tp1.logic.gameobjects.DestroyerAlien;
+import tp1.logic.gameobjects.ExplosiveAlien;
 import tp1.logic.gameobjects.GameObject;
 
 import java.util.Random;
@@ -32,4 +33,6 @@ public interface GameWorld {
     boolean puedeCrearSuperLaser();
 
     Level getlevel();
+
+    void explodeAlien(ExplosiveAlien explosiveAlien);
 }

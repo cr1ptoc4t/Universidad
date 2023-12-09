@@ -1,6 +1,7 @@
 package tp1.control.commands;
 
 import tp1.control.ExecutionResult;
+import tp1.control.InitialConfiguration;
 import tp1.logic.Game;
 import tp1.logic.GameModel;
 import tp1.logic.Move;
@@ -10,15 +11,17 @@ import tp1.view.Messages;
 import static tp1.logic.Move.stringAMov;
 
 public class ResetCommand extends Command {
-    BoardPrinter printer;
 
+    private InitialConfiguration conf;
     public ResetCommand(){
         super("reset");
     }
 
-    protected ResetCommand(String type) {
+    protected ResetCommand(InitialConfiguration conf){
         super("reset");
+        this.conf=conf;
     }
+
     @Override
     protected String getName() {
         return Messages.COMMAND_RESET_NAME;
@@ -41,14 +44,17 @@ public class ResetCommand extends Command {
 
     @Override
     public ExecutionResult execute(GameModel game) {
-        game.reset();
+        game.reset(conf);
         return new ExecutionResult(true);
     }
 
 
     public Command parse(String[] commandWords) {
+        String str="none";
+        if(commandWords.length!=1)
+            str= commandWords[1];
 
-        return new ResetCommand();
+        return new ResetCommand(InitialConfiguration.valueOfIgnoreCase(str));
     }
 
 }

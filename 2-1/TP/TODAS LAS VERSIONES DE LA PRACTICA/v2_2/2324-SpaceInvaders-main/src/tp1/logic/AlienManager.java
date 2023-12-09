@@ -1,13 +1,15 @@
 package tp1.logic;
 
+import tp1.control.InitialConfiguration;
 import tp1.logic.gameobjects.*;
 import tp1.view.Messages;
+
+import java.util.List;
 
 public class AlienManager  {
 	
 	private Game game;
 	private boolean ufoEnabled=false;
-
 	private boolean onBorder =false;
 	public AlienManager(Game game){
 		this.game=game;
@@ -15,19 +17,25 @@ public class AlienManager  {
 
 
 
-	public  GameObjectContainer initialize() {
+	public  GameObjectContainer initialize(InitialConfiguration conf) {
 
 		GameObjectContainer container = new GameObjectContainer();
 		initializeOvni(container);
-		Level level =game.getLevel();
-		initializeRegularAliens(container, level);
-		initializeDestroyerAliens(container, level);
-		//remainingAliens = game.getLevel().getNumRegularAliens() +
-		//		game.getLevel().getNumDestroyerAliens();
+		Level level = game.getLevel();
+		if(conf.equals(InitialConfiguration.NONE)) {
+			initializeRegularAliens(container, level, conf);
+			initializeDestroyerAliens(container, level, conf);
+		} else
+			conf.initContainer(container, game, this);
 
 		return container;
 	}
-	
+
+	public AlienShip spawn(String type, int x, int y){
+		return ShipFactory.spawnAlienShip(type,game,new Position(x, y),this);
+	}
+
+
 	public void initializeOvni(GameObjectContainer container) {
 
 		if(canGenerateRandomUfo() && !ufoEnabled) {
@@ -37,7 +45,8 @@ public class AlienManager  {
 	}
 
 
-	private void initializeRegularAliens (GameObjectContainer container, Level level) {
+	private void initializeRegularAliens (GameObjectContainer container, Level level, InitialConfiguration conf) {
+
 		int nReg = game.getLevel().getNumRegularAliens();
 
 		if(game.getLevel().equals(Level.EASY))
@@ -51,22 +60,22 @@ public class AlienManager  {
 
 	}
 
-	private void initializeDestroyerAliens(GameObjectContainer container, Level level) {
-
-
+	private void initializeDestroyerAliens(GameObjectContainer container, Level level, InitialConfiguration conf) {
 
 		int num = level.getNumDestroyerAliens();
-		if(level.equals(Level.EASY))
-			for(int i=0; i<num;i++) {
-				container.add(ShipFactory.spawnAlienShip("D", game, new Position(i+4,3), this));
+		if (level.equals(Level.EASY))
+			for (int i = 0; i < num; i++) {
+				container.add(ShipFactory.spawnAlienShip("D", game, new Position(i + 4, 3), this));
 			}
 		else if (level.equals(Level.HARD))
-			for(int i=0; i<num;i++)
-				container.add(ShipFactory.spawnAlienShip("D", game, new Position(i+4,4), this));
+			for (int i = 0; i < num; i++)
+				container.add(ShipFactory.spawnAlienShip("D", game, new Position(i + 4, 4), this));
 
 		else
-			for(int i=0; i<num;i++)
-				container.add(ShipFactory.spawnAlienShip("D", game, new Position(i+3,4), this));
+			for (int i = 0; i < num; i++)
+				container.add(ShipFactory.spawnAlienShip("D", game, new Position(i + 3, 4), this));
+
+
 
 	}
 
@@ -101,8 +110,10 @@ public class AlienManager  {
 	}
 
 	public String lista(){
-		String buffer = UCMShip.lista() + "\n"+DestroyerAlien.lista() +
-				"\n"+RegularAlien.lista() + "\n"+Ufo.lista() + "\n"+
+		String buffer = UCMShip.lista() + "\n" +
+				RegularAlien.lista() + "\n"+
+				DestroyerAlien.lista() + "\n" +
+				Ufo.lista() + "\n"+
 				ExplosiveAlien.lista();
 
 		return buffer;

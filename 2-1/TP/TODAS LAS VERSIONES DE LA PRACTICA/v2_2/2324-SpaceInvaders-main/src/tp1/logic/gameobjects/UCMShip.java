@@ -25,7 +25,7 @@ public class UCMShip extends Ship {
 		this.laser =null;
 	}
 
-	
+
 	//TODO fill with your code
 	public String toString(){
 		String symbol=Messages.UCMSHIP_SYMBOL;
@@ -96,9 +96,9 @@ public class UCMShip extends Ship {
 
 	public static String lista(){
 
-		String buffer = Messages.DESTROYER_ALIEN_DESCRIPTION +
+		String buffer = Messages.UCMSHIP_DESCRIPTION +
 				": damage= '" + 1+
-				"', endurance= '" + 1 + "'";
+				"', endurance= '" + 1 + "'.";
 
 		return buffer;
 

@@ -1,43 +1,46 @@
 8/12 ----------------------------------------------
-bombas			-- 	hecho
-puntos			-- 	hecho
-shockwave		-- 	hecho
-velocidades		-- 	hecho
-receiveAttack (x14)	-- 	hecho
-performAttack (x14)	-- 	hecho
-eliminar los instanceof	-- 	hecho
-arreglar ufo		-- 	hecho
-colision bomba-player	-- 	hecho
-
-
-A MEDIAS ------------------------------------------
-automaticmoves de las alienships
+TO-DO MEDIO DIA --------------------------TERMINADO
+bombas			- 	100%	- TERMINADO
+puntos			- 	100%	- TERMINADO
+shockwave		- 	100%	- TERMINADO
+velocidades		- 	100%	- TERMINADO
+receiveAttack (x14)	- 	100%	- TERMINADO
+performAttack (x14)	- 	100%	- TERMINADO
+eliminar los instanceof	- 	100%	- TERMINADO
+arreglar ufo		- 	100%	- TERMINADO
+colision bomba-player	- 	100%	- TERMINADO
 
 
 TODO PARA ESTA NOCHE ------------------------------
-Crear archivos:
-ShipFactory 		-- 	hecho
-superlasercommand 	--	hecho
-nave explosiva
+Crear archivos:				       100%
+ShipFactory 		- 	100%	- TERMINADO
+superlasercommand 	-	100%	- TERMINADO
 
-Llenar archivos:
-ShipFactory 		-- 	hecho
-superlasercommand 	--	hecho
-nave explosiva
+Llenar archivos:			      33.3%
+ShipFactory 		-	10%
+superlasercommand 	-	100%	- TERMINADO
+nave explosiva		-	0%
 
-Método superlaser
+Método superlaser	-	100%	- TERMINADO
 
-interfaces: 		--	hecho
-GameModel		--	hecho
-GameWorld		--	hecho
-GameStatus		--	hecho
+interfaces:				       100%		
+GameModel		-	100%	- TERMINADO
+GameWorld		-	100%	- TERMINADO
+GameStatus		-	100%	- TERMINADO
 
-FALTA----------------------------------------------
-VERSION 2:
-ShipFactory
-superlaser
-nave explosiva
+FALTA-------------------------------------------24%
+VERSION 2:					
+ShipFactory		-	100%
+InitialConfiguration	-	20%
+nave explosiva		-	20%
+Modificar reset		-	0%
 
+
+9/12------------------------------------------57.5%
+automaticmove alienships-	30%
+alien in lowerborder	-	0%
+lista			-	100% 	- TERMINADO
+ShipFactory		-	100%	- TERMINADO
 
 
 REVISIONES-----------------------------------------
@@ -46,3 +49,6 @@ revisar funcionamiento
 
 PREGUNTAS -----------------------------------------
 infoToString que hace?
+
+noParamsCommand
+protected boolean matchCommand(String cw)

@@ -1,17 +1,17 @@
 package tp1.view;
 
+import tp1.control.InitialConfiguration;
 import tp1.logic.Level;
-//import tp1.control.InitialConfiguration;
+import tp1.logic.gameobjects.UCMShip;
 
 /**
  * String literals used in the game.
- * 
+ *
  */
 public class Messages {
 
 	public static final String VERSION = "2.0";
 
-	public static final String INITIAL_CONFIGURATION_ERROR = "Invalid initial configuration";
 	public static final String GAME_NAME = "Space Invaders";
 
 	public static final String USAGE = "Usage: %s <level> [<seed>]".formatted(GAME_NAME);
@@ -19,6 +19,8 @@ public class Messages {
 	public static final String USAGE_LEVEL_PARAM = "\t<level>: %s".formatted(Level.all(", "));
 
 	public static final String USAGE_SEED_PARAM = "\t<seed>: %s".formatted(Messages.SEED_NOT_A_NUMBER);
+
+	public static final String INITIAL_CONFIGURATION_ERROR = "Invalid initial configuration";
 
 	public static final String WELCOME = String.format("%s %s%n", GAME_NAME, VERSION);
 
@@ -29,6 +31,8 @@ public class Messages {
 	public static final String SEED_NOT_A_NUMBER_ERROR = String.format("%s: %%s", SEED_NOT_A_NUMBER);
 
 	public static final String CONFIGURED_LEVEL = "Level: %s";
+
+	public static final String ALLOWED_UCMSHIP_MOVES = "<left|lleft|right|rright>";
 
 	public static final String CONFIGURED_SEED = "Random generator initialized with seed: %d";
 
@@ -41,6 +45,7 @@ public class Messages {
 	public static final String LINE_SEPARATOR = System.lineSeparator();
 
 	public static final String HELP_AVAILABLE_COMMANDS = "Available commands: ";
+
 	public static final String HELP_DETAILS_COMMAND_HELP_SEPARATOR = ": ";
 
 	public static final String UNKNOWN_COMMAND = "Unknown command";
@@ -67,21 +72,25 @@ public class Messages {
 
 	public static final String PLAYER_WINS = "Player wins!";
 
-	public static final String AVAILABLE_SHIPS = "Available ships:";
+	public static final String AVAILABLE_SHIPS = "Available ships: ";
 
-	public static final String UNEXPECTED_RUNTIME_ERROR = "Oops!";
-
+	public static final String UNEXPECTED_RUNTIME_ERROR = "Oops! This should not have happened...";
 
 	public static final String SCORE = "Points:";
+
 	public static final String LASER_ERROR = "Laser cannot be shot";
+
+	public static final String LASER_ALREADY_SHOT = "There is already a laser in the board";
 
 	public static final String SUPERLASER_ERROR = "Super laser cannot be shot";
 
 	public static final String SHOCKWAVE_ERROR = "ShockWave cannot be shot";
-	
+
 	public static final String MOVEMENT_ERROR = "Movement cannot be performed";
-	
+
 	public static final String DIRECTION_ERROR = "Wrong direction: ";
+
+	public static final String NOT_ENOUGH_POINTS_ERROR = "Not enough points: only %s points, %s points required";
 
 	//
 	// Game Objects
@@ -97,6 +106,7 @@ public class Messages {
 	public static final String BOMB_SYMBOL = "*";
 
 	public static final String LASER_SYMBOL = "oo";
+
 	public static final String SUPERLASER_SYMBOL = "ǁǁ";
 
 	public static final String UCMSHIP_SYMBOL = "^__^";
@@ -122,7 +132,7 @@ public class Messages {
 	public static final String UFO_DESCRIPTION = "U[f]o";
 
 	//Commands
-	
+
 	public static final String COMMAND_EXIT_NAME = "exit";
 	public static final String COMMAND_EXIT_SHORTCUT = "e";
 	public static final String COMMAND_EXIT_DETAILS = "[e]xit";
@@ -132,24 +142,21 @@ public class Messages {
 	public static final String COMMAND_HELP_SHORTCUT = "h";
 	public static final String COMMAND_HELP_DETAILS = "[h]elp";
 	public static final String COMMAND_HELP_HELP = "shows this help";
-	
+
 	public static final String COMMAND_LIST_NAME = "list";
 	public static final String COMMAND_LIST_SHORTCUT = "l";
 	public static final String COMMAND_LIST_DETAILS = "[l]ist";
 	public static final String COMMAND_LIST_HELP = "prints the list of current ships";
-	
+
 	public static final String COMMAND_MOVE_NAME = "move";
 	public static final String COMMAND_MOVE_SHORTCUT = "m";
-	public static final String COMMAND_MOVE_DETAILS = "[m]ove <left|lleft|right|rright>";
+	public static final String COMMAND_MOVE_DETAILS = "[m]ove " + ALLOWED_UCMSHIP_MOVES;
 	public static final String COMMAND_MOVE_HELP = "moves the UCMShip in the indicated direction";
-	
+
 	public static final String COMMAND_RESET_NAME = "reset";
 	public static final String COMMAND_RESET_SHORTCUT = "r";
-
-
-	public static final String COMMAND_RESET_HELP = "resets the game";
-
-	public static final String COMMAND_RESET_DETAILS = "[r]eset";
+	public static final String COMMAND_RESET_DETAILS = "[r]eset [filename]";
+	public static final String COMMAND_RESET_HELP = "resets the game using the initial configuration in file filename. If no file is given the standard configuration is used";
 
 	public static final String COMMAND_SHOCKWAVE_NAME = "shockwave";
 	public static final String COMMAND_SHOCKWAVE_SHORTCUT = "w";
@@ -171,12 +178,23 @@ public class Messages {
 	public static final String COMMAND_SUPERLASER_DETAILS = "[s]uper[L]aser";
 	public static final String COMMAND_SUPERLASER_HELP = "shoots a super laser when player has enough points";
 
+	public static final String UNKNOWN_SHIP = "Unknown ship: \"%s\"";
+	public static final String FILE_NOT_FOUND = "File not found: \"%s\"";
+	public static final String READ_ERROR = "Undetermined error reading file \"%s\"";
+	public static final String INCORRECT_ENTRY = "Incorrect entry \"%s\". Insufficient parameters.";
 
-    /**
+	public static final String OFF_WORLD_MESSAGE = "Cannot move in direction %s from position %s";
+	public static final String OFF_WORLD_POSITION = "Position %s is off board";
+
+	public static final String ALLOWED_MOVES_MESSAGE = "Allowed UCMShip moves: " + ALLOWED_UCMSHIP_MOVES;
+
+	public static final String POSITION = "(%s, %s)";
+
+	/**
 	 * Formats an error message.
-	 * 
+	 *
 	 * @param message Error message
-	 * 
+	 *
 	 * @return the formated error message;
 	 */
 	public static final String error(String message) {
@@ -186,12 +204,12 @@ public class Messages {
 	public static final String status(String icon, int lives) {
 		return Messages.GAME_OBJECT_STATUS.formatted(icon, lives);
 	}
-	
+
 	/**
 	 * Formats an debug message.
-	 * 
+	 *
 	 * @param message debug message
-	 * 
+	 *
 	 * @return the formated debug message;
 	 */
 	public static final String debug(String message) {

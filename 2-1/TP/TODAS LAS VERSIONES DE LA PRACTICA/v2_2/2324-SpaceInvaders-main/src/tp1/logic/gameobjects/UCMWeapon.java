@@ -23,12 +23,6 @@ public class UCMWeapon extends Weapon {
     }
 
 
-    @Override
-    public void automaticMove() {
-
-    }
-
-
     public boolean performAttack(GameItem other) {
         other.receiveAttack(this);
         life--;

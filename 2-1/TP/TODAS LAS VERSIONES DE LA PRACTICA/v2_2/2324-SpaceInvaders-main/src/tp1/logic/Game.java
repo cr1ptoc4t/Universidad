@@ -1,9 +1,11 @@
 package tp1.logic;
 
+import tp1.control.InitialConfiguration;
 import tp1.logic.gameobjects.*;
 import tp1.view.GamePrinter;
 import tp1.view.Messages;
 
+import java.util.Objects;
 import java.util.Random;
 
 
@@ -31,6 +33,9 @@ public class Game implements GameStatus, GameModel, GameWorld {
 
 	private int points;
 	private GamePrinter printer;
+	private InitialConfiguration conf;
+
+
 
 	public Game (Level level, long seed){
 		//TODO fill with your code
@@ -38,35 +43,42 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		this.seed=seed;
 		//this.rnd= getRandom();
 
+
+		conf=InitialConfiguration.NONE;
 		alienManager = new AlienManager(this);
-		initGame();
+		initGame(conf);
+
 
 	}
 		
-	private void initGame () {	
+	private void initGame (InitialConfiguration conf) {
 		//TODO fill with your code
 		points = 0;
-		this.container = alienManager.initialize();
-		this.remainingAliens = level.getNumDestroyerAliens()+level.getNumRegularAliens();
+		this.container = alienManager.initialize(conf);
+		this.remainingAliens = getNumAliens(conf);
  		this.player = new UCMShip(this, new Position(DIM_X / 2, DIM_Y - 1));
 		container.add(player);
 
 		shockWave=false;
 	}
 
-	//CONTROL METHODS
-	
+
+	private int getNumAliens(InitialConfiguration conf){
+		int num=0;
+
+        if (InitialConfiguration.NONE.equals(conf))
+			num = level.getNumDestroyerAliens() + level.getNumRegularAliens();
+        else
+            num = InitialConfiguration.values().length;
+
+		return num;
+	}
 
 
-
-
-	//CALLBACK METHODS
 	//GAMEWORLD
 
 	public void update() {
 		this.currentCycle++;
-
-
 		this.container.computerActions(this);
 		this.container.automaticMoves();
 		this.alienManager.initializeOvni(container);
@@ -207,9 +219,10 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		return false;
 	}
 
-	@Override
-	public void reset() {
-		this.initGame();
+
+	public void reset(InitialConfiguration conf) {
+		this.container.clear();
+		this.initGame(conf);
 	}
 
 	public void exit() {
@@ -270,6 +283,10 @@ public class Game implements GameStatus, GameModel, GameWorld {
 			str= "ON";
 
 		return str;
+	}
+
+	public void explodeAlien(ExplosiveAlien alien){
+		container.explodeAlien(this, alien);
 	}
 
 }

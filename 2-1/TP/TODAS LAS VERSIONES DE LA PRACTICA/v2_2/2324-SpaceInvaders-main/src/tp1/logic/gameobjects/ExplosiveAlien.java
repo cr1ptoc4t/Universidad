@@ -31,12 +31,6 @@ public class ExplosiveAlien extends RegularAlien{
         return 1;
     }
 
-    @Override
-    public void onDelete() {
-        // TODO Auto-generated method stub
-
-    }
-
 
     @Override
     public int getPoints(){
@@ -62,6 +56,14 @@ public class ExplosiveAlien extends RegularAlien{
 
         return buffer;
 
+    }
+
+    public boolean receiveAttack(EnemyWeapon weapon) {
+        this.life-=weapon.getDamage();
+        if(life<=0){
+            game.explodeAlien(this);
+        }
+        return life<=0;
     }
 
 }
