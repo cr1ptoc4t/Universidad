@@ -149,7 +149,7 @@ public class Messages {
 
 	public static final String COMMAND_RESET_HELP = "resets the game";
 
-	//public static final String COMMAND_RESET_DETAILS = "[r]eset [<%s>]".formatted(InitialConfiguration.all("|"));
+	public static final String COMMAND_RESET_DETAILS = "[r]eset";
 
 	public static final String COMMAND_SHOCKWAVE_NAME = "shockwave";
 	public static final String COMMAND_SHOCKWAVE_SHORTCUT = "w";
@@ -172,9 +172,7 @@ public class Messages {
 	public static final String COMMAND_SUPERLASER_HELP = "shoots a super laser when player has enough points";
 
 
-
-
-	/**
+    /**
 	 * Formats an error message.
 	 * 
 	 * @param message Error message

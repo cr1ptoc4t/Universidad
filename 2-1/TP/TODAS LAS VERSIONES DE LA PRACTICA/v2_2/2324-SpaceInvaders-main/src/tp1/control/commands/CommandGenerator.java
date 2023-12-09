@@ -11,13 +11,15 @@ public class CommandGenerator {
 	
 	private static GamePrinter printer;
 	private static final List<Command> availableCommands = Arrays.asList(
-		new MoveCommand(),
-		new HelpCommand(),
-		new ExitCommand(),
-		new ShootCommand(),
-		new ShockwaveCommand(),
-		new NoneCommand(),
-		new SuperLaserCommand()
+			new MoveCommand(),
+			new ShootCommand(),
+			new ShockwaveCommand(),
+			new ListCommand(),
+			new ResetCommand(),
+			new HelpCommand(),
+			new ExitCommand(),
+			new NoneCommand(),
+			new SuperLaserCommand()
 		//TODO fill with your code
 	);
 
@@ -38,7 +40,7 @@ public class CommandGenerator {
 	public static String commandHelp() {
 		StringBuilder commands = new StringBuilder();	
 		for (Command c: availableCommands) {
-			printer.show(c.getName()+" ("+ c.getDetails() + "): "+ c.getHelp());
+			printer.show( c.getDetails() +": "+ c.getHelp()+".");
 
 		}
 		return commands.toString();

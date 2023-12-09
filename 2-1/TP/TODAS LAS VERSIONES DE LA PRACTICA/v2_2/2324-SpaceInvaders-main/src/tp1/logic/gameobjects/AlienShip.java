@@ -1,6 +1,7 @@
 package tp1.logic.gameobjects;
 
 import tp1.logic.*;
+import tp1.view.Messages;
 
 public abstract class AlienShip extends EnemyShip{
     private Move dir;
@@ -11,13 +12,19 @@ public abstract class AlienShip extends EnemyShip{
         super(game, pos, life);
         this.alienManager= alienManager;
         this.dir=dir;
+
         waitUntil=game.getlevel().getNumCyclesToMoveOneCell();
+    }
+
+    public AlienShip(){
+        super();
     }
 
 
 
     public void automaticMove(){
 
+        //TODO: ESTO HAY QUE DESCOMENTARLO ESQ SIN QUE SE MUEVAN VA MEJOR PARA ENCONTRAR FALLOS
         //if(game.getCycle()%waitUntil==0) {
         if(false){
             if (this.alienManager.bajar() && !bajado) {
@@ -44,4 +51,9 @@ public abstract class AlienShip extends EnemyShip{
     }
 
     protected abstract AlienShip copy(GameWorld game, Position pos, AlienManager am);
+
+
+    public boolean matchSymbol(String input){
+        return  input.equals(getSymbol());
+    }
 }

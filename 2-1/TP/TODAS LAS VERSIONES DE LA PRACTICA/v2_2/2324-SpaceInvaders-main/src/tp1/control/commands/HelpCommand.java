@@ -3,12 +3,13 @@ package tp1.control.commands;
 import tp1.control.ExecutionResult;
 import tp1.logic.Game;
 import tp1.logic.GameModel;
+import tp1.view.BoardPrinter;
 import tp1.view.Messages;
 
 import static tp1.logic.Move.stringAMov;
 
 public class HelpCommand extends NoParamsCommand {
-
+	BoardPrinter printer;
 
 	public HelpCommand(){
 		super("help");
@@ -35,8 +36,8 @@ public class HelpCommand extends NoParamsCommand {
 
 	@Override
 	public ExecutionResult execute(GameModel game) {
-		System.out.println(Messages.HELP_AVAILABLE_COMMANDS);
-		System.out.println(CommandGenerator.commandHelp());
+		printer.show(Messages.HELP_AVAILABLE_COMMANDS);
+		printer.show(CommandGenerator.commandHelp());
 		return new ExecutionResult(false);
 	}
 

@@ -93,5 +93,15 @@ public class UCMShip extends Ship {
 	public int getLifes(){
 		return life;
 	}
+
+	public static String lista(){
+
+		String buffer = Messages.DESTROYER_ALIEN_DESCRIPTION +
+				": damage= '" + 1+
+				"', endurance= '" + 1 + "'";
+
+		return buffer;
+
+	}
 }
 

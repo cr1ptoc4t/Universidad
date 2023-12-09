@@ -14,6 +14,10 @@ public class Ship extends GameObject {
         dir= Move.NONE;
     }
 
+    public Ship(){
+        super();
+    }
+
 
     @Override
     protected int getDamage() {

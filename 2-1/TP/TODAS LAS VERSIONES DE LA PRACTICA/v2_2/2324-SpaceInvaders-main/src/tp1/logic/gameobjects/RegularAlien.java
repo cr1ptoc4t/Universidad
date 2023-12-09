@@ -4,27 +4,22 @@ import tp1.logic.*;
 import tp1.view.Messages;
 
 public class RegularAlien extends AlienShip {
-
-	Move dir = Move.LEFT;
-
-	private final int points=10;
+	private final static int points=10;
 
 	public RegularAlien(GameWorld game, Position pos, AlienManager alienManager) {
-		// TODO fill with your code
 		super(game, pos, 2, Move.LEFT, alienManager);
 
 	}
+
 	public RegularAlien() {
 		super();
-		// TODO fill with your code
-		//super(new Game(Level), new Position(0,0), 2, Move.LEFT, new AlienManager);
-
 	}
+
 
 	@Override
 	protected String getSymbol() {
 		// TODO fill with your code
-		return Messages.REGULAR_ALIEN_SYMBOL +"["+life+"]";
+		return Messages.REGULAR_ALIEN_SYMBOL;
 	}
 
 	@Override
@@ -60,4 +55,15 @@ public class RegularAlien extends AlienShip {
 		return new RegularAlien(game, pos, am);
 	}
 
+
+	public static String lista(){
+
+		String buffer = Messages.REGULAR_ALIEN_DESCRIPTION +
+				": points= '" + points +
+				"', damage= '" + 1+
+				"', endurance= '" + 1 + "'";
+
+		return buffer;
+
+	}
 }

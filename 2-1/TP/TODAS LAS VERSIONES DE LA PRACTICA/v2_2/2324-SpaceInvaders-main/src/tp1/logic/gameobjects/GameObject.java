@@ -16,6 +16,9 @@ public abstract class GameObject implements GameItem {
 		this.game = game;
 		this.life = life;
 	}
+	public GameObject(){
+
+	}
 	
 	@Override
 	public boolean isAlive() {

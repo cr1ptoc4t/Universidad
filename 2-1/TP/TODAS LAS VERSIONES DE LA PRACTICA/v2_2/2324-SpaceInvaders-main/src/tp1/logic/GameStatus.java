@@ -4,7 +4,7 @@ public interface GameStatus {
 	//PARA GAMEPRINTER
 
 	public String positionToString(int col, int row);
-	public String infoToString();
+
 	public String stateToString();
 
 	public boolean playerWin();

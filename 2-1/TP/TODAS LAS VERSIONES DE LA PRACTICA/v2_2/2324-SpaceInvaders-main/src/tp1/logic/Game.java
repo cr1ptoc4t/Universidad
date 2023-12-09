@@ -37,7 +37,7 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		this.level= level;
 		this.seed=seed;
 		//this.rnd= getRandom();
-		points = 0;
+
 		alienManager = new AlienManager(this);
 		initGame();
 
@@ -45,6 +45,7 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		
 	private void initGame () {	
 		//TODO fill with your code
+		points = 0;
 		this.container = alienManager.initialize();
 		this.remainingAliens = level.getNumDestroyerAliens()+level.getNumRegularAliens();
  		this.player = new UCMShip(this, new Position(DIM_X / 2, DIM_Y - 1));
@@ -87,9 +88,12 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		alienManager.disenableUfo();
 	}
 
-	public void enableBomb(DestroyerAlien alien){
+
+	public void enableBomb(DestroyerAlien alien) {
 		alien.enableBomb();
 	}
+
+
 
 
 	public void died(GameObject object) {
@@ -121,12 +125,20 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		return null;
 	}
 
+	public String lista(){
+		StringBuilder buffer = new StringBuilder();
+
+		buffer.append(alienManager.lista());
+
+		return buffer.toString();
+	}
+
+
 	@Override
 	public String stateToString() {
 
 		String buffer = "Life: " + player.getLifes() +
-				"\n" + "Points: " +
-				points + "\n";
+				"\nPoints: " + points + "\nShockWave: "+ toString(shockWave) +"\n";
 
 		return buffer;
 	}
@@ -220,7 +232,7 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		if(puntos==25 && object.posicionValida()) {
 			points += puntos;
 			shockWave = true;
-			printer.show("YOU CAN USE SHOCKWAVE NOW");
+			//printer.show("YOU CAN USE SHOCKWAVE NOW");
 		} else if(puntos>0 && !(puntos==25 && !object.posicionValida())) {
 			points += puntos;
 			remainingAliens--;
@@ -236,7 +248,9 @@ public class Game implements GameStatus, GameModel, GameWorld {
 			printer.show(Messages.SHOCKWAVE_ERROR);
 		}
 	}
-	public void  superLaser(){
+
+	@Override
+	public void superLaser() {
 
 	}
 
@@ -245,5 +259,17 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		return points >5 && !player.getShooted();
 	}
 
+	@Override
+	public Level getlevel() {
+		return this.level;
+	}
+
+	public String toString(boolean shockWave){
+		String str="OFF";
+		if(shockWave)
+			str= "ON";
+
+		return str;
+	}
 
 }

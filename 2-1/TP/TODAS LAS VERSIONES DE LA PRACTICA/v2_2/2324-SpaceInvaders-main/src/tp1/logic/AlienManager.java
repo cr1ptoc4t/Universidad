@@ -1,20 +1,18 @@
 package tp1.logic;
 
-import tp1.logic.gameobjects.DestroyerAlien;
-import tp1.logic.gameobjects.RegularAlien;
-import tp1.logic.gameobjects.Ufo;
+import tp1.logic.gameobjects.*;
+import tp1.view.Messages;
+
 public class AlienManager  {
 	
 	private Game game;
-	//private int remainingAliens;
 	private boolean ufoEnabled=false;
 
 	private boolean onBorder =false;
-
-
 	public AlienManager(Game game){
 		this.game=game;
 	}
+
 
 
 	public  GameObjectContainer initialize() {
@@ -44,29 +42,31 @@ public class AlienManager  {
 
 		if(game.getLevel().equals(Level.EASY))
 			for(int i=0; i<nReg;i++)
-				container.add(new RegularAlien(game,  new Position(i+3, 2),this));
+				container.add(ShipFactory.spawnAlienShip("R", game, new Position(i+3,2), this));
 
 		else
 			for(int row=0; row<nReg/4;row++)
 				for(int col=0; col<nReg/2; col++)
-					container.add(new RegularAlien(game,new Position(col+3, row+2), this));
+					container.add(ShipFactory.spawnAlienShip("R", game, new Position(col+3,row+2), this));
 
 	}
 
 	private void initializeDestroyerAliens(GameObjectContainer container, Level level) {
 
+
+
 		int num = level.getNumDestroyerAliens();
 		if(level.equals(Level.EASY))
-			for(int i=0; i<num;i++)
-				container.add(new DestroyerAlien(game, new Position(i+4, 3), this ));
-
+			for(int i=0; i<num;i++) {
+				container.add(ShipFactory.spawnAlienShip("D", game, new Position(i+4,3), this));
+			}
 		else if (level.equals(Level.HARD))
 			for(int i=0; i<num;i++)
-				container.add(new DestroyerAlien(game, new Position(i+4, 4), this ));
+				container.add(ShipFactory.spawnAlienShip("D", game, new Position(i+4,4), this));
 
-			else
+		else
 			for(int i=0; i<num;i++)
-				container.add(new DestroyerAlien(game, new Position(i+3, 4), this ));
+				container.add(ShipFactory.spawnAlienShip("D", game, new Position(i+3,4), this));
 
 	}
 
@@ -98,5 +98,15 @@ public class AlienManager  {
 
 	public void setOnBorder(){
 		this.onBorder=true;
+	}
+
+	public String lista(){
+		String buffer = UCMShip.lista() + "\n"+DestroyerAlien.lista() +
+				"\n"+RegularAlien.lista() + "\n"+Ufo.lista() + "\n"+
+				ExplosiveAlien.lista();
+
+		return buffer;
+
+
 	}
 }

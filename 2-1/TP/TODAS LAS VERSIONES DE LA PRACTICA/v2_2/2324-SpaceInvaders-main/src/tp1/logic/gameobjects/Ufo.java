@@ -9,7 +9,7 @@ public class Ufo extends EnemyShip {
     public final int UFO_X=8;
     public final int UFO_Y=0;
 
-    private final int points = 25;
+    private static final int UFO_POINTS = 25;
     //private int life  =1;
 
     public Ufo(Game game){
@@ -35,7 +35,18 @@ public class Ufo extends EnemyShip {
         return false;
     }
     public int getPoints(){
-        return points;
+        return UFO_POINTS;
+    }
+
+    public static String lista(){
+
+        String buffer = Messages.UFO_DESCRIPTION +
+                ": points= '" + UFO_POINTS +
+                "', damage= '" + 1+
+                "', endurance= '" + 1 + "'";
+
+        return buffer;
+
     }
 }
 

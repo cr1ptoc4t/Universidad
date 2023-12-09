@@ -9,6 +9,10 @@ public class EnemyShip extends Ship{
         dir= Move.NONE;
     }
 
+    public EnemyShip(){
+        super();
+    }
+
 
 
     @Override
