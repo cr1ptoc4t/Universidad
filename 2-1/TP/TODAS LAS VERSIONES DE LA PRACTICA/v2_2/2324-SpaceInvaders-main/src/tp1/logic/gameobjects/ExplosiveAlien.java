@@ -14,9 +14,13 @@ public class ExplosiveAlien extends RegularAlien{
         super(game, pos, alienManager);
     }
 
+    public ExplosiveAlien(){
+        super();
+    }
+
     protected String getSymbol() {
         // TODO fill with your code
-        return Messages.REGULAR_ALIEN_SYMBOL;
+        return "E";
     }
 
     @Override
@@ -58,7 +62,9 @@ public class ExplosiveAlien extends RegularAlien{
 
     }
 
-    public boolean receiveAttack(EnemyWeapon weapon) {
+
+    @Override
+    public boolean receiveAttack(UCMWeapon weapon) {
         this.life-=weapon.getDamage();
         if(life<=0){
             game.explodeAlien(this);

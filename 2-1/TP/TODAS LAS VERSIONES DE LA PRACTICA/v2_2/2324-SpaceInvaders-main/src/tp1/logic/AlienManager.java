@@ -25,6 +25,7 @@ public class AlienManager  {
 		if(conf.equals(InitialConfiguration.NONE)) {
 			initializeRegularAliens(container, level, conf);
 			initializeDestroyerAliens(container, level, conf);
+			//container.add(new ExplosiveAlien(game,new Position(3,4),this));
 		} else
 			conf.initContainer(container, game, this);
 

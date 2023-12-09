@@ -12,7 +12,7 @@ public enum InitialConfiguration {
 
     NONE,
     CONF_1(Arrays.asList(
-            "R 2 3", "R 3 3", "R 4 3", "R 5 3"
+            "R 2 3", "R 3 3", "E 4 3", "R 5 3"
     )),
     CONF_2(Arrays.asList(
             "R 2 3", "R 3 3", "D 4 3", "R 5 3"
@@ -21,7 +21,6 @@ public enum InitialConfiguration {
             "R 2 2", "R 3 2", "R 4 2", "R 5 2",
             "R 2 3", "E 3 3", "R 4 3", "R 5 3",
             "R 2 4", "R 3 4", "D 4 4", "R 5 4"
-
     ));
 
     private List<String> descriptions;
@@ -51,41 +50,23 @@ public enum InitialConfiguration {
     }
 
 
-
-    public static int getNumAliens(InitialConfiguration conf){
-        return 0;
-        //return this.values().length;
-        /*
-
-        int num=0;
-
-        switch (conf) {
-            case CONF_1:
-                num=CONF_1.values().length;
-                break;
-            case CONF_2:
-                num=4;
-                break;
-            case CONF_3:
-                num=12;
-        }
-        return num;
-
-         */
-    }
-
-
-    public AlienShip spawn(Game game, String type, int x, int y, AlienManager am){
+    private AlienShip spawn(Game game, String type, int x, int y, AlienManager am){
         return ShipFactory.spawnAlienShip(type,game,new Position(x, y),am);
     }
 
     public void initContainer(GameObjectContainer container, Game game, AlienManager am){
         for(int i=0; i<getShipDescription().size();i++){
-            String descripcion=getShipDescription().get(i);
-            String type= String.valueOf(getShipDescription().get(i).charAt(0));
-            int x=  descripcion.charAt(2) -'0';
-            int y=   descripcion.charAt(4) -'0';
-            container.add(spawn(game, type, x, y, am));
+
+            String descripcion = getShipDescription().get(i);
+            String type = String.valueOf(descripcion.charAt(0));
+
+            int x =  descripcion.charAt(2) -'0';
+            int y =   descripcion.charAt(4) -'0';
+
+            AlienShip generatedAlien = spawn(game, type, x, y, am);
+
+            if(generatedAlien!=null)
+                container.add(generatedAlien);
         }
     }
 

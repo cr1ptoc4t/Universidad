@@ -52,4 +52,11 @@ public class Position {
 	public boolean onBorderLateral(){
 		return Game.DIM_X-1==col || col==0;
 	}
+
+	public boolean annexoA(Position pos){
+		return (pos.col-1==col&&pos.row-1==row ) || (pos.col==col&&pos.row-1==row) || (pos.col+1==col&&pos.row-1==row)
+				||(pos.col-1==col&&pos.row==row )				|| 					 (pos.col+1==col&&pos.row==row)||
+				(pos.col-1==col&&pos.row+1==row )||(pos.col==col&&pos.row+1==row)||(pos.col+1==col&&pos.row+1==row );
+
+	}
 }

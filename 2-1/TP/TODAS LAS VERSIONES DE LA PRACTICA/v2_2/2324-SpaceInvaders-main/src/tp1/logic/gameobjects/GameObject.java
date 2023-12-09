@@ -70,7 +70,7 @@ public abstract class GameObject implements GameItem {
 		return life<=0;
 	}
 
-	@Override
+
 	public boolean receiveAttack(UCMWeapon weapon) {
 		this.life-=weapon.getDamage();
 		return life<=0;
@@ -85,6 +85,9 @@ public abstract class GameObject implements GameItem {
 	}
 	public boolean equalPosition(GameObject object){
 		return this.isOnPosition(object.pos);
+	}
+	public boolean anexoA(GameObject object){
+		return this.pos.annexoA(object.pos);
 	}
 
 	public int getPoints(){

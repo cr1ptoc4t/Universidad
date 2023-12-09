@@ -134,9 +134,9 @@ public class GameObjectContainer {
         int i = 0;
         int acum = 0;
 
-        while (1 < objects.size() && acum < 8) {
+        while (i < objects.size() && acum < 8) {
             GameObject obj = objects.get(i);
-            if (e.equalPosition(obj)) {
+            if (e.anexoA(obj)) {
                 obj.receiveAttack(new EnemyWeapon(game, null, null));
                 acum++;
             }

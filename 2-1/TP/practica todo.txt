@@ -1,5 +1,5 @@
 8/12 ----------------------------------------------
-TO-DO MEDIO DIA --------------------------TERMINADO
+TO-DO MEDIO DIA 8/12 ---------------------TERMINADO
 bombas			- 	100%	- TERMINADO
 puntos			- 	100%	- TERMINADO
 shockwave		- 	100%	- TERMINADO
@@ -11,41 +11,41 @@ arreglar ufo		- 	100%	- TERMINADO
 colision bomba-player	- 	100%	- TERMINADO
 
 
-TODO PARA ESTA NOCHE ------------------------------
-Crear archivos:				       100%
+TODO PARA ESTA NOCHE 8/12-----------------TERMINADO
+Crear archivos:				      
 ShipFactory 		- 	100%	- TERMINADO
 superlasercommand 	-	100%	- TERMINADO
 
-Llenar archivos:			      33.3%
-ShipFactory 		-	10%
+Llenar archivos:
+ShipFactory 		-	100%	- TERMINADO
 superlasercommand 	-	100%	- TERMINADO
-nave explosiva		-	0%
-
+nave explosiva		-	100%	- TERMINADO
 Método superlaser	-	100%	- TERMINADO
 
-interfaces:				       100%		
+interfaces:				     
 GameModel		-	100%	- TERMINADO
 GameWorld		-	100%	- TERMINADO
 GameStatus		-	100%	- TERMINADO
 
-FALTA-------------------------------------------24%
-VERSION 2:					
-ShipFactory		-	100%
-InitialConfiguration	-	20%
-nave explosiva		-	20%
-Modificar reset		-	0%
 
+TODO ACUMULADO 8/12 -------------------------------
 
-9/12------------------------------------------57.5%
-automaticmove alienships-	30%
-alien in lowerborder	-	0%
+ShipFactory		-	100%	- TERMINADO
+InitialConfiguration	-	100%	- TERMINADO
+nave explosiva		-	100%	- TERMINADO
+Modificar reset		-	100%	- TERMINADO
+
+9/12-----------------------------------------------
+TODO PARA ESTA NOCHE 9/12---------------------57.5%
+automaticmove alienships-	30%	- A MEDIAS
+alien in lowerborder	-	0%	- POR HACER
 lista			-	100% 	- TERMINADO
 ShipFactory		-	100%	- TERMINADO
 
-
-REVISIONES-----------------------------------------
-revisar codigo
-revisar funcionamiento
+10/12----------------------------------------------
+REVISIONES---------------------------------------0%
+revisar codigo		-	0%	- POR HACER
+revisar funcionamiento	-	0%	- POR HACER
 
 PREGUNTAS -----------------------------------------
 infoToString que hace?
