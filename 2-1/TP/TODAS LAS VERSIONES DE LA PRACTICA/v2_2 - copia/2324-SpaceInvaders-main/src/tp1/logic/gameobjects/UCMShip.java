@@ -12,8 +12,7 @@ public class UCMShip extends Ship {
 	//private Game game;
 //	private Position pos;
 
-	public static final int DIM_X_UCM_SHIP = 4;
-	public static final int DIM_Y_UCM_SHIP = 7;
+	
 	private int vida=3;
 	private Move dir;
 	//private Game game;

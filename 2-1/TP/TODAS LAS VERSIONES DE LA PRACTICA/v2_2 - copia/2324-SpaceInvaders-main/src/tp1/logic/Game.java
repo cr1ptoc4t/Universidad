@@ -8,9 +8,6 @@ import tp1.view.Messages;
 import java.util.Objects;
 import java.util.Random;
 
-import static tp1.logic.gameobjects.UCMShip.DIM_X_UCM_SHIP;
-import static tp1.logic.gameobjects.UCMShip.DIM_Y_UCM_SHIP;
-
 
 public class Game implements GameStatus, GameModel, GameWorld {
 	public static final int DIM_X = 9;
@@ -39,6 +36,8 @@ public class Game implements GameStatus, GameModel, GameWorld {
 
 	private GamePrinter printer;
 	private InitialConfiguration conf;
+	public static final int DIM_X_UCM_SHIP = 4;
+	public static final int DIM_Y_UCM_SHIP = 7;
 
 
 
@@ -86,6 +85,7 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		this.currentCycle++;
 		this.container.computerActions(this);
 		this.container.automaticMoves();
+		//if(!alienManager.bajado() &&alienManager.onBorder()) alienManager.todoBajado();
 		this.alienManager.initializeOvni(container);
 	}
 
@@ -258,7 +258,7 @@ public class Game implements GameStatus, GameModel, GameWorld {
 			this.container.shockWave(this);
 			shockWave=false;
 		} else{
-			printer.show(Messages.SHOCKWAVE_ERROR);
+			GamePrinter.show(Messages.SHOCKWAVE_ERROR);
 		}
 	}
 

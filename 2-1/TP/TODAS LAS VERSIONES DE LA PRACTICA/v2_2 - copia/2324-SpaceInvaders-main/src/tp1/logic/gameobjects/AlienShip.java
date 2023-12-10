@@ -10,13 +10,13 @@ public abstract class AlienShip extends EnemyShip{
     private AlienManager alienManager;
     private int ciclos;
     private int waitUntil;
+
     public AlienShip(GameWorld game, Position pos, int life, Move dir, AlienManager alienManager){
         super(game, pos, life);
         this.alienManager= alienManager;
         this.dir=dir;
-
-        waitUntil=game.getlevel().getNumCyclesToMoveOneCell();
-        ciclos=0;
+		waitUntil=game.getLevel().getNumCyclesToMoveOneCell();
+		ciclos=1;
     }
 
     public AlienShip(){
@@ -25,38 +25,53 @@ public abstract class AlienShip extends EnemyShip{
 
     public void automaticMove(){
 
-        //if(game.getCycle()%waitUntil==0) {
-        //if(false){
 
-        if(alienManager.onBorder()&&!bajado){
-            direccionOp=dir.opuesto();
-            dir=Move.DOWN;
+    	//if(ciclos%waitUntil==0) {
+        /*if(onBorder()&&!alienManager.bajado()) {
+            pos.actualiza(Move.DOWN);
+            dir=dir.opuesto();
+        } else
+            pos.actualiza(dir);
+    		
+    	//}
+        ciclos++;
+    	
+    	if(pos.enBordeInferior()) {
+    		game.gananAliens();
+    	}
+
+         */
+/*
+        if(ciclos%waitUntil==0){
+            pos.actualiza(dir);
+            if(pos.onBorderLateral())
+                alienManager.shipOnBorder();
+        }else if(alienManager.onBorder()){
+            pos.actualiza(Move.DOWN);
+            dir=dir.opuesto();
+            alienManager.decreaseAliensOnBorder();
+        }
+        ciclos++;
+*/
+        if(ciclos==0){
+            pos.actualiza(dir);
+            ciclos=waitUntil;
+            if(pos.onBorderLateral());
+              //  alienManager.shipOnBorder();
+        }else if(alienManager.onBorder()){
+            pos.actualiza(Move.DOWN);
             bajado=true;
-        } else if(bajado&&alienManager.onBorder()){
-            dir=direccionOp;
-            alienManager.setOnBorder();
-            bajado=false;
-            alienManager.setOnBorderFalse();
-        } else if (bajado &&!alienManager.onBorder()){
-            //onborder esta en false
+            dir=dir.opuesto();
+            alienManager.decreaseAliensOnBorder();
+        }else
+            ciclos--;
 
-            bajado=false;
+        if(pos.enBordeInferior()) {
+            game.gananAliens();
         }
 
-        //cicloAnterior = game.getCycle();
-        this.pos.actualiza(dir);
-
-
-
-        //if(waitUntil==0){
-        //    this.pos.actualiza(dir);
-        //}else if(alienManager.onBorder()){
-        //    dir=dir.opuesto();
-        //    this.pos.actualiza(Move.DOWN);
-        //} else waitUntil--;
-
-
     }
+    public void bajado(){ bajado=false;}
 
     private boolean onBorder(){
         return this.pos.onBorderLateral();
@@ -66,8 +81,9 @@ public abstract class AlienShip extends EnemyShip{
         if(pos.enBordeInferior()){
             game.gananAliens();
         }
-        if(onBorder()){
+        if(onBorder()&&!bajado) {
             alienManager.setOnBorder();
+
         }
     }
 
