@@ -1,0 +1,48 @@
+move lleft
+s
+
+
+
+s
+
+
+s
+
+
+
+
+
+move lleft
+
+shoot
+
+
+
+
+
+
+w
+w
+s
+
+
+move rright
+s
+
+move lleft
+
+
+
+
+
+
+
+
+s
+
+
+
+
+
+
+w

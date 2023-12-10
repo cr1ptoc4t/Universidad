@@ -38,11 +38,6 @@ public class DestroyerAlien extends AlienShip {
         return 1;
     }
 
-    @Override
-    public void onDelete() {
-        // TODO Auto-generated method stub
-
-    }
 
 
     public String toString(){
@@ -50,12 +45,15 @@ public class DestroyerAlien extends AlienShip {
     }
 
     public void computerAction() {
+
         if(canRandomShoot()&&!shooted) {
-            Position copia =new Position(this.pos);
-            //copia.actualiza(Move.DOWN);
-            game.leaveBomb(new Bomb(game, copia, this));
+            game.leaveBomb(new Bomb(game, new Position(this.pos), this));
             shooted=true;
         }
+        super.computerAction();
+        //if(this.pos.onBorderLateral()){
+          //  alienManager.setOnBorder();
+        //}
 
     }
 

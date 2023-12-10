@@ -37,12 +37,14 @@ Modificar reset		-	100%	- TERMINADO
 
 9/12-----------------------------------------------
 TODO PARA ESTA NOCHE 9/12---------------------57.5%
-automaticmove alienships-	30%	- A MEDIAS
-alien in lowerborder	-	0%	- POR HACER
+automaticmove alienships-	10%	- A MEDIAS
+alien in lowerborder	-	100%	- POR HACER
 lista			-	100% 	- TERMINADO
 ShipFactory		-	100%	- TERMINADO
 
 10/12----------------------------------------------
+automaticmove alienships-	10%	- A MEDIAS
+bomba mata alien bajar	-	0%	- NADA
 REVISIONES---------------------------------------0%
 revisar codigo		-	0%	- POR HACER
 revisar funcionamiento	-	0%	- POR HACER

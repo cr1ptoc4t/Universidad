@@ -16,22 +16,23 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	private GameObjectContainer container;
 	private UCMShip player;
 	private AlienManager alienManager;
-	private int currentCycle;
 	private GameWorld gameWorld;
 	private Level level;
 
-
+	private boolean alienOnBorder=false;
 	private boolean exit=false;
+	private boolean shockWave;
 
 
 	private final long seed;
 
 	private int remainingAliens;
 	private int waitUntil;
-
-	private boolean shockWave;
-
+	private int currentCycle;
 	private int points;
+
+
+
 	private GamePrinter printer;
 	private InitialConfiguration conf;
 
@@ -107,7 +108,6 @@ public class Game implements GameStatus, GameModel, GameWorld {
 
 
 
-
 	public void died(GameObject object) {
 		container.remove(object);
 	}
@@ -117,10 +117,6 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		return !player.getShooted();
 	}
 
-	@Override
-	public void superLaserAFalse() {
-
-	}
 
 	public void laserAFalse(){
 		player.setLaserAFalse();
@@ -149,8 +145,7 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	@Override
 	public String stateToString() {
 
-		String buffer = "Life: " + player.getLifes() +
-				"\nPoints: " + points + "\nShockWave: "+ toString(shockWave) +"\n";
+		String buffer = "Life: " + player.getLifes() + "\nPoints: " + points + "\nShockWave: "+ toString(shockWave) +"\n";
 
 		return buffer;
 	}
@@ -164,9 +159,11 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	@Override
 	public boolean aliensWin() {
 		// TODO fill with your code
-		return player.getLifes()<=0||alienManager.someoneOnLowerBorder();
+		return player.getLifes()<=0||alienOnBorder;
 		//return false;
 	}
+
+
 
 
 
@@ -227,13 +224,12 @@ public class Game implements GameStatus, GameModel, GameWorld {
 
 	public void exit() {
 		// TODO fill with your code
-		//comprobar quien ha ganado y tal
 		exit=true;
 	}
-	private Random getRandom() {
-		return new Random(seed);
-	}
 
+	public void gananAliens(){
+		alienOnBorder=true;
+	}
 
 	public Level getLevel(){
 		return level;
@@ -262,10 +258,6 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		}
 	}
 
-	@Override
-	public void superLaser() {
-
-	}
 
 
 	public boolean puedeCrearSuperLaser(){

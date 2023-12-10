@@ -15,13 +15,17 @@ public class AlienManager  {
 		this.game=game;
 	}
 
-
+	private Move dir;
+	private Move direccionOp;
+	private boolean bajado;
 
 	public  GameObjectContainer initialize(InitialConfiguration conf) {
 
 		GameObjectContainer container = new GameObjectContainer();
 		initializeOvni(container);
 		Level level = game.getLevel();
+		bajado=false;
+		dir=Move.LEFT;
 		if(conf.equals(InitialConfiguration.NONE)) {
 			initializeRegularAliens(container, level, conf);
 			initializeDestroyerAliens(container, level, conf);
@@ -86,9 +90,8 @@ public class AlienManager  {
 	}
 
 
-	public boolean someoneOnLowerBorder() {
-		return false;
-	}
+
+
 
 	public void disenableUfo(){
 		ufoEnabled=false;
@@ -98,13 +101,6 @@ public class AlienManager  {
 		return onBorder;
 	}
 
-	public boolean bajar(){
-		if(onBorder()){
-			onBorder=false;
-			return true;
-		}
-		return false;
-	}
 
 	public void setOnBorder(){
 		this.onBorder=true;
@@ -120,5 +116,16 @@ public class AlienManager  {
 		return buffer;
 
 
+	}
+
+	public Move calculaDir(){
+		if(onBorder()&&!bajado){
+			direccionOp=dir.opuesto();
+			dir=Move.DOWN;
+			bajado=true;
+		}else if(bajado){
+			dir=direccionOp;
+		}
+		return dir;
 	}
 }

@@ -27,7 +27,10 @@ Ej public boolean performAttack(RegularAlien other) { boolean hayColision = vida
 
 - RegularAlien, DestroyerAlien, ....
 + No vale de nada que en receiveAttack(UCMLaser laser) pongas el laser a null, pues es un parámetro que se ha pasado por valor. 
-+ No debería tener métodos para cada borde isInBorderLeft(... - DestroyerAlien: No debería tener una referencia a la Bomba, sino al reves, leer los enunciados. + Otra vez los booleanos: public boolean bombaEnPos(Position pos){ if (bomba ==null) return false; return bomba.isInPos(pos); 
++ No debería tener métodos para cada borde isInBorderLeft(...
+
+- DestroyerAlien: No debería tener una referencia a la Bomba, sino al reves, leer los enunciados.
++ Otra vez los booleanos: public boolean bombaEnPos(Position pos){ if (bomba ==null) return false; return bomba.isInPos(pos); 
 
 - List: 
 + Has pasado mucha lógica del juego a las listas que no deberían llevar la lógica del juego. No deberían llevar una referencia al game. Además para que funcionen dependes de que el primero o el último se encuentren en el borde. Eso no va a poder utilizarse n la práctica 2. en la práctica 2 debes pasar el comportamiento a cada objeto. 

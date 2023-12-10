@@ -5,8 +5,10 @@ import tp1.view.Messages;
 
 public abstract class AlienShip extends EnemyShip{
     private Move dir;
+    private Move direccionOp;
     private boolean bajado=false;
     private AlienManager alienManager;
+    private int ciclos;
     private int waitUntil;
     public AlienShip(GameWorld game, Position pos, int life, Move dir, AlienManager alienManager){
         super(game, pos, life);
@@ -14,30 +16,31 @@ public abstract class AlienShip extends EnemyShip{
         this.dir=dir;
 
         waitUntil=game.getlevel().getNumCyclesToMoveOneCell();
+        ciclos=0;
     }
 
     public AlienShip(){
         super();
     }
 
-
-
     public void automaticMove(){
 
-        //TODO: ESTO HAY QUE DESCOMENTARLO ESQ SIN QUE SE MUEVAN VA MEJOR PARA ENCONTRAR FALLOS
         //if(game.getCycle()%waitUntil==0) {
-        if(false){
-            if (this.alienManager.bajar() && !bajado) {
-                this.pos.actualiza(Move.DOWN);
-                dir = dir.opuesto();
-                bajado = true;
-            } else {
-                this.pos.actualiza(dir);
-                bajado = false;
-            }
+        //if(false){
+               //esto solo se tiene que hacer una vez por ciclo
+        //dir=alienManager.calculaDir();
+        //cicloAnterior = game.getCycle();
+        this.pos.actualiza(Move.DOWN);
 
 
-        }
+        //if(waitUntil==0){
+        //    this.pos.actualiza(dir);
+        //}else if(alienManager.onBorder()){
+        //    dir=dir.opuesto();
+        //    this.pos.actualiza(Move.DOWN);
+        //} else waitUntil--;
+
+
     }
 
     private boolean onBorder(){
@@ -45,6 +48,9 @@ public abstract class AlienShip extends EnemyShip{
     }
 
     public void computerAction() {
+        if(pos.enBordeInferior()){
+            game.gananAliens();
+        }
         if(onBorder()){
             alienManager.setOnBorder();
         }
