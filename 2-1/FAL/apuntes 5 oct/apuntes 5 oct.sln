@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "30 nov", "30 nov\30 nov.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Examen2019", "Examen2019\Examen2019.vcxproj", "{DD2F2924-DD74-4561-8BC8-DD4FC2858614}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vector minimalista", "vector minimalista\vector minimalista.vcxproj", "{523F77FC-69D7-42B5-99A7-3507CAD44B25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -81,6 +83,14 @@ Global
 		{DD2F2924-DD74-4561-8BC8-DD4FC2858614}.Release|x64.Build.0 = Release|x64
 		{DD2F2924-DD74-4561-8BC8-DD4FC2858614}.Release|x86.ActiveCfg = Release|Win32
 		{DD2F2924-DD74-4561-8BC8-DD4FC2858614}.Release|x86.Build.0 = Release|Win32
+		{523F77FC-69D7-42B5-99A7-3507CAD44B25}.Debug|x64.ActiveCfg = Debug|x64
+		{523F77FC-69D7-42B5-99A7-3507CAD44B25}.Debug|x64.Build.0 = Debug|x64
+		{523F77FC-69D7-42B5-99A7-3507CAD44B25}.Debug|x86.ActiveCfg = Debug|Win32
+		{523F77FC-69D7-42B5-99A7-3507CAD44B25}.Debug|x86.Build.0 = Debug|Win32
+		{523F77FC-69D7-42B5-99A7-3507CAD44B25}.Release|x64.ActiveCfg = Release|x64
+		{523F77FC-69D7-42B5-99A7-3507CAD44B25}.Release|x64.Build.0 = Release|x64
+		{523F77FC-69D7-42B5-99A7-3507CAD44B25}.Release|x86.ActiveCfg = Release|Win32
+		{523F77FC-69D7-42B5-99A7-3507CAD44B25}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
