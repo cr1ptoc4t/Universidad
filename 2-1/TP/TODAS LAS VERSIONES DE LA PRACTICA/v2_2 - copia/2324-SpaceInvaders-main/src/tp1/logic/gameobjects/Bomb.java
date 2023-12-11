@@ -21,9 +21,6 @@ public class Bomb extends EnemyWeapon {
         return Messages.BOMB_SYMBOL;
     }
 
-    public boolean isOnPosition(Position pos) {
-        return this.pos.equals(pos);
-    }
 
     public void onDelete(){
         game.enableBomb(alien);

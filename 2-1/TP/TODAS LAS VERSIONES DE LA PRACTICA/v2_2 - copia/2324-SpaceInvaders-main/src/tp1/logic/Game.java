@@ -17,7 +17,6 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	private GameObjectContainer container;
 	private UCMShip player;
 	private AlienManager alienManager;
-	private GameWorld gameWorld;
 	private Level level;
 
 	private boolean alienOnBorder=false;
@@ -28,35 +27,27 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	private final long seed;
 
 	private int remainingAliens;
-	private int waitUntil;
 	private int currentCycle;
 	private int points;
 
 
 
-	private GamePrinter printer;
 	private InitialConfiguration conf;
 	public static final int DIM_X_UCM_SHIP = 4;
 	public static final int DIM_Y_UCM_SHIP = 7;
-
 
 
 	public Game (Level level, long seed){
 		//TODO fill with your code
 		this.level= level;
 		this.seed=seed;
-		//this.rnd= getRandom();
-
 
 		conf=InitialConfiguration.NONE;
 		alienManager = new AlienManager(this);
 		initGame(conf);
-
-
 	}
 		
 	private void initGame (InitialConfiguration conf) {
-		//TODO fill with your code
 		points = 0;
 		this.container = alienManager.initialize(conf);
 		this.remainingAliens = getNumAliens(conf);
@@ -85,7 +76,6 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		this.currentCycle++;
 		this.container.computerActions(this);
 		this.container.automaticMoves();
-		//if(!alienManager.bajado() &&alienManager.onBorder()) alienManager.todoBajado();
 		this.alienManager.initializeOvni(container);
 	}
 
@@ -156,19 +146,13 @@ public class Game implements GameStatus, GameModel, GameWorld {
 
 	@Override
 	public boolean playerWin() {
-		// TODO fill with your code
 		return remainingAliens==0;
 	}
 
 	@Override
 	public boolean aliensWin() {
-		// TODO fill with your code
 		return player.getLifes()<=0||alienOnBorder;
-		//return false;
 	}
-
-
-
 
 
 	@Override
@@ -190,12 +174,6 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		return playerWin()||aliensWin()||exit;
 	}
 
-	@Override
-	public boolean move(Move move) {
-		return false;
-	}
-
-
 
 	@Override
 	public boolean shootLaser() {
@@ -203,21 +181,18 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		Laser laser = player.creaLaser();
 		if(laser!=null) {
 			addObject(laser);
-			return true;
 		}
-		return false;
+		return laser!=null;
 	}
 
 	public boolean shootSuperLaser(){
-		if(points>5) {
-			SuperLaser sl = player.creaSuperLaser();
-			if (sl != null) {
-				addObject(sl);
-				points-=5;
-				return true;
-			}
+		SuperLaser sl = player.creaSuperLaser();
+
+		if(points>=5&&sl != null) {
+			addObject(sl);
+			points-=5;
 		}
-		return false;
+		return sl!=null;
 	}
 
 
@@ -227,7 +202,6 @@ public class Game implements GameStatus, GameModel, GameWorld {
 	}
 
 	public void exit() {
-		// TODO fill with your code
 		exit=true;
 	}
 
@@ -245,7 +219,6 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		if(puntos==25 && object.posicionValida()) {
 			points += puntos;
 			shockWave = true;
-			//printer.show("YOU CAN USE SHOCKWAVE NOW");
 		} else if(puntos>0 && !(puntos==25 && !object.posicionValida())) {
 			points += puntos;
 			remainingAliens--;
@@ -268,10 +241,6 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		return points >5 && !player.getShooted();
 	}
 
-	@Override
-	public Level getlevel() {
-		return this.level;
-	}
 
 	public String toString(boolean shockWave){
 		String str="OFF";

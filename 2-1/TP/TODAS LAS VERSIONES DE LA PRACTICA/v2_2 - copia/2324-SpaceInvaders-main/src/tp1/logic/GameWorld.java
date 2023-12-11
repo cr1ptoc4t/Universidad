@@ -10,32 +10,23 @@ import java.util.Random;
 public interface GameWorld {
 
     public Random rnd = new Random();
-    //PARA GAMEOBJECT
-    public void update();
-    public void addObject(GameObject object);
-    public void updatePlayer(Move move);
-
-    public void leaveBomb( Bomb bomb);
-    public void disenableUfo();
-    //public Random rnd;
-
-    public void enableBomb(DestroyerAlien alien);
-    public void died(GameObject object);
 
     public Level getLevel();
 
-    public void laserAFalse();
-
-    public boolean puedeCrearLaser();
-
-
-    boolean puedeCrearSuperLaser();
-
-    Level getlevel();
-
-    void explodeAlien(ExplosiveAlien explosiveAlien);
-
     public int getCycle();
 
+    public boolean puedeCrearLaser();
+    public boolean puedeCrearSuperLaser();
+
+    public void update();
+    public void addObject(GameObject object);
+    public void updatePlayer(Move move);
+    public void leaveBomb( Bomb bomb);
+    public void disenableUfo();
+    public void enableBomb(DestroyerAlien alien);
+    public void died(GameObject object);
+    public void laserAFalse();
+    public void explodeAlien(ExplosiveAlien explosiveAlien);
     public void gananAliens();
+
 }

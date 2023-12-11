@@ -11,5 +11,5 @@ public interface GameItem {
 	public boolean isAlive();
 	public boolean isOnPosition(Position pos);
 
-	boolean receiveAttack(EnemyShip enemyShip);
+	public boolean receiveAttack(EnemyShip enemyShip);
 }

@@ -24,40 +24,10 @@ public abstract class AlienShip extends EnemyShip{
     }
 
     public void automaticMove(){
-
-
-    	//if(ciclos%waitUntil==0) {
-        /*if(onBorder()&&!alienManager.bajado()) {
-            pos.actualiza(Move.DOWN);
-            dir=dir.opuesto();
-        } else
-            pos.actualiza(dir);
-    		
-    	//}
-        ciclos++;
-    	
-    	if(pos.enBordeInferior()) {
-    		game.gananAliens();
-    	}
-
-         */
-/*
-        if(ciclos%waitUntil==0){
-            pos.actualiza(dir);
-            if(pos.onBorderLateral())
-                alienManager.shipOnBorder();
-        }else if(alienManager.onBorder()){
-            pos.actualiza(Move.DOWN);
-            dir=dir.opuesto();
-            alienManager.decreaseAliensOnBorder();
-        }
-        ciclos++;
-*/
         if(ciclos==0){
             pos.actualiza(dir);
             ciclos=waitUntil;
-            if(pos.onBorderLateral());
-              //  alienManager.shipOnBorder();
+
         }else if(alienManager.onBorder()){
             pos.actualiza(Move.DOWN);
             bajado=true;
@@ -71,7 +41,6 @@ public abstract class AlienShip extends EnemyShip{
         }
 
     }
-    public void bajado(){ bajado=false;}
 
     private boolean onBorder(){
         return this.pos.onBorderLateral();
@@ -88,7 +57,6 @@ public abstract class AlienShip extends EnemyShip{
     }
 
     protected abstract AlienShip copy(GameWorld game, Position pos, AlienManager am);
-
 
     public boolean matchSymbol(String input){
         return  input.equals(getSymbol());

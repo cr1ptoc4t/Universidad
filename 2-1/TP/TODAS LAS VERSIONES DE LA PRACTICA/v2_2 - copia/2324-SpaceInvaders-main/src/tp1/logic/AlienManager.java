@@ -15,9 +15,7 @@ public class AlienManager  {
 		this.game=game;
 	}
 
-	private Move dir;
-	private Move direccionOp;
-	private boolean bajado;
+
 	private int aliensOnBorder;
 
 	public  GameObjectContainer initialize(InitialConfiguration conf) {
@@ -25,24 +23,19 @@ public class AlienManager  {
 		GameObjectContainer container = new GameObjectContainer();
 		initializeOvni(container);
 		Level level = game.getLevel();
-		bajado=false;
-		dir=Move.LEFT;
 		aliensOnBorder=0;
 		
 		
 		if(conf.equals(InitialConfiguration.NONE)) {
 			initializeRegularAliens(container, level, conf);
 			initializeDestroyerAliens(container, level, conf);
-			//container.add(new ExplosiveAlien(game,new Position(3,4),this));
 		} else
 			conf.initContainer(container, game, this);
 
 		return container;
 	}
 
-	public AlienShip spawn(String type, int x, int y){
-		return ShipFactory.spawnAlienShip(type,game,new Position(x, y),this);
-	}
+
 
 
 	public void initializeOvni(GameObjectContainer container) {
@@ -85,7 +78,6 @@ public class AlienManager  {
 				container.add(ShipFactory.spawnAlienShip("D", game, new Position(i + 3, 4), this));
 
 
-
 	}
 
 	//TODO fill with your code
@@ -95,25 +87,20 @@ public class AlienManager  {
 
 
 
-
-
-
 	public void disenableUfo(){
 		ufoEnabled=false;
 	}
+
+
 
 	public boolean onBorder(){
 		return onBorder;
 	}
 
-
 	public void setOnBorder(){
 		this.onBorder=true;
 		aliensOnBorder=game.getRemainingAliens();
 
-	}
-	public void setOnBorderFalse(){
-		this.onBorder=false;
 	}
 
 	public String lista(){
@@ -136,20 +123,7 @@ public class AlienManager  {
 		//onBorder=false;
 	}
 	
-	public void todoBajado() {
-		bajado=true;
-	}
-	public void noBordes() {
-		bajado=false;
-	}
 
-	public void shipOnBorder(){
-		if(!onBorder){
-			onBorder=true;
-			aliensOnBorder=game.getRemainingAliens();
-
-		}
-	}
 
 
 }
