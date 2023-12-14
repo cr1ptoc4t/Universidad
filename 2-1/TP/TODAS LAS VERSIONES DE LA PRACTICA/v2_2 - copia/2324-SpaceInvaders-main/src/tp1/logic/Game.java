@@ -185,14 +185,14 @@ public class Game implements GameStatus, GameModel, GameWorld {
 		return laser!=null;
 	}
 
-	public boolean shootSuperLaser(){
+	public void shootSuperLaser(){
 		SuperLaser sl = player.creaSuperLaser();
 
 		if(points>=5&&sl != null) {
 			addObject(sl);
 			points-=5;
 		}
-		return sl!=null;
+		//return sl!=null;
 	}
 
 

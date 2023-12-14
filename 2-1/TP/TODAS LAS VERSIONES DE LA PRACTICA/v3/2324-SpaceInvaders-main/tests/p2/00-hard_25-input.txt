@@ -1,0 +1,21 @@
+move left
+m r
+s
+m l
+m left
+s
+
+move lleft
+s
+s
+
+move rright
+
+s
+
+
+reset
+
+shoot
+
+exit

@@ -36,9 +36,7 @@ public class UCMShip extends Ship {
 		return symbol;
 	}
 
-	public boolean estaEnPos(Position position){
-		return this.pos.equals(position);
-	}
+
 
 	public void mueve(Move movimiento) {
 

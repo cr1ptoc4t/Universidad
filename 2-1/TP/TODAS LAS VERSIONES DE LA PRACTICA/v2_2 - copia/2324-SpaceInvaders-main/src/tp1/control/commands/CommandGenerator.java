@@ -3,7 +3,7 @@ package tp1.control.commands;
 import java.util.Arrays;
 import java.util.List;
 
-import tp1.logic.Move;
+import tp1.exceptions.CommandParseException;
 import tp1.view.GamePrinter;
 
 public class CommandGenerator {
@@ -23,7 +23,7 @@ public class CommandGenerator {
 		//TODO fill with your code
 	);
 
-	public static Command parse(String[] commandWords) {		
+	public static Command parse(String[] commandWords) throws CommandParseException {
 
 		if(commandWords.length>0) {
 			for (Command c : availableCommands) {  //commands es la lista de comandos que tenemos

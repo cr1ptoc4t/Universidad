@@ -35,8 +35,8 @@ public class SuperLaserCommand extends NoParamsCommand{
 
     @Override
     public ExecutionResult execute(GameModel game) {
-        if(!game.shootSuperLaser())
-            printer.show(Messages.SUPERLASER_ERROR);
+        //if(!game.shootSuperLaser())
+          //  printer.show(Messages.SUPERLASER_ERROR);
         return new ExecutionResult(true);
     }
 

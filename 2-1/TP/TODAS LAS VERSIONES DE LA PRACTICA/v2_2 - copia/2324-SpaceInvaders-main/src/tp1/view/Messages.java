@@ -190,6 +190,24 @@ public class Messages {
 
 	public static final String POSITION = "(%s, %s)";
 
+
+
+
+
+	public static final String COMMAND_EXECUTE_EXCEPTION = "Command Execute Exception";
+	public static final String COMMAND_PARSE_EXCEPTION = COMMAND_INCORRECT_PARAMETER_NUMBER;
+	public static final String ILLEGAL_ARGUMENT_EXCEPTION = UNKNOWN_COMMAND;
+	public static final String INITIALIZATION_EXCEPTION = "Initialization Exception";
+	public static final String LASER_IN_FLIGHT_EXCEPTION = "Laser is flying";
+	public static final String NO_SHOCKWAVE_EXCEPTION = "No Shockwave Exception";
+	public static final String NOT_ALLOWED_MOVE_EXCEPTION = "Not allowed move";
+	public static final String NOT_ENOUGHT_POINTS_EXCEPTION = "Not enough points: only %s points, %d points required";
+	public static final String NUMBER_FORMAT_EXCEPTION = "Number format exception";
+	public static final String OFF_WORLD_EXCEPTION = "Off World Exception";
+
+
+
+
 	/**
 	 * Formats an error message.
 	 *

@@ -2,6 +2,8 @@ package tp1.logic;
 
 
 import tp1.control.InitialConfiguration;
+import tp1.exceptions.LaserInFlightException;
+import tp1.exceptions.NotEnoughtPointsException;
 
 public interface GameModel {
     public boolean isFinished();
@@ -18,7 +20,7 @@ public interface GameModel {
     public void shockWave();
 
 
-    public boolean shootSuperLaser();
+    public void shootSuperLaser() throws LaserInFlightException, NotEnoughtPointsException;
 
     public String lista();
 }
