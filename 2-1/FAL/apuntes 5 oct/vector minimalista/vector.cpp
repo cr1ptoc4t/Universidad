@@ -108,15 +108,32 @@ bool esHiperMinimalista(int v[], int n, int &minimo){
 }
 
 
+//en el main:
+/*
+* int vals[100];
+* int numValores;
+* int umbral;
+* 
+* lectura
+* 
+* 
+* llamamos
+* int ret = cuantos(vals, nvals, umbral, 0, 0, _____ );
+*/
+
 //cuantos minimalistas  se pueden hacer cuya suma no superen el umbral u
 int cuantos(int elems[], int n, int umbral,
-	int sumaParcial
-	 
+	int k,int sumaParcial, int minimoParcial
 ) {
-	int ret = 1;
+	int ret = (k>0);
 
-	for () {
-
+	for (int i = 0; i < n; i++) {
+		if(sumaParcial+elems[i]<= umbral &&
+			(k==0||elems[i]!=minimoParcial))
+			ret += cuantos(elems, n, umbral,
+				k+1, sumaParcial+ elems[i],
+				(k==0)? elems[i]
+					: min(minimoParcial,elems[i]));
 	}
 
 	return ret;
