@@ -1,26 +1,25 @@
 package tp1.logic.gameobjects;
 
-import tp1.logic.AlienManager;
-import tp1.logic.Game;
-import tp1.logic.Move;
-import tp1.logic.Position;
+import tp1.logic.*;
 import tp1.view.Messages;
 
 public class RegularAlien extends AlienShip {
+	private final static int points=10;
 
-	Move dir = Move.LEFT;
-
-
-	public RegularAlien(Game game, Position pos) {
-		// TODO fill with your code
-		super(game, pos, 2, Move.LEFT);
+	public RegularAlien(GameWorld game, Position pos, AlienManager alienManager) {
+		super(game, pos, 2, Move.LEFT, alienManager);
 
 	}
+
+	public RegularAlien() {
+		super();
+	}
+
 
 	@Override
 	protected String getSymbol() {
 		// TODO fill with your code
-		return Messages.REGULAR_ALIEN_SYMBOL +"["+life+"]";
+		return Messages.REGULAR_ALIEN_SYMBOL;
 	}
 
 	@Override
@@ -32,7 +31,7 @@ public class RegularAlien extends AlienShip {
 	@Override
 	protected int getArmour() {
 		// TODO Auto-generated method stub
-		return life;
+		return 1;
 	}
 
 	@Override
@@ -42,8 +41,29 @@ public class RegularAlien extends AlienShip {
 	}
 
 
+	@Override
+	public int getPoints(){
+		return points;
+	}
+
+
 	public String toString(){
 		return Messages.REGULAR_ALIEN_SYMBOL+"["+ life+"]";
 	}
 
+	protected AlienShip copy(GameWorld game, Position pos, AlienManager am){
+		return new RegularAlien(game, pos, am);
+	}
+
+
+	public static String lista(){
+
+		String buffer = Messages.REGULAR_ALIEN_DESCRIPTION +
+				": points= '" + points +
+				"', damage= '" + 1+
+				"', endurance= '" + 1 + "'";
+
+		return buffer;
+
+	}
 }

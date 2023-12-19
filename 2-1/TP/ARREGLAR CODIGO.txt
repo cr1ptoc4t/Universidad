@@ -1,0 +1,107 @@
+ALIENSHIP------------------------------------------------------
+ - borrar linea 60 (comentario) y 59 (if pos.onBorderLateral)
+- borrar linea 73  (public void bajado(){ bajado=false;})
+- todos los comentarios del automaticmove
+GAME-----------------------------------------------------------
+- hay dos getLevel -> borrar el getlevel (EL DE LA L MINUSCULA) - TAMBIEN ELIMINARLO DE GAMEWORLD
+- cambiar shootSuperLaser():
+	public boolean shootSuperLaser(){
+		SuperLaser sl = player.creaSuperLaser();
+
+		if(points>=5&&sl != null) {
+			addObject(sl);
+			points-=5;
+		}
+		return sl!=null;
+	}
+- cambiar shootLaser():
+	public boolean shootLaser() {
+
+		Laser laser = player.creaLaser();
+		if(laser!=null) {
+			addObject(laser);
+		}
+		return laser!=null;
+	}
+- eliminar public boolean move(Move mov); - TAMBIEN ELIMINARLO DE GAMEMODEL
+- el infotostring que coño es?????????
+- BORRAR ESTAS VARIABLES DE ANTES DEL CONSTRUCTOR:
+	private GameWorld gameWorld;
+	private int waitUntil;
+	private GamePrinter printer;
+
+
+
+GAMEWORLD---------------------------------------------------------------
+- poner todos los public/private
+- ordenado queda asi
+
+package tp1.logic;
+
+import tp1.logic.gameobjects.Bomb;
+import tp1.logic.gameobjects.DestroyerAlien;
+import tp1.logic.gameobjects.ExplosiveAlien;
+import tp1.logic.gameobjects.GameObject;
+
+import java.util.Random;
+
+public interface GameWorld {
+
+    public Random rnd = new Random();
+
+    public Level getLevel();
+
+    public int getCycle();
+
+    public boolean puedeCrearLaser();
+    public boolean puedeCrearSuperLaser();
+
+    public void update();
+    public void addObject(GameObject object);
+    public void updatePlayer(Move move);
+    public void leaveBomb( Bomb bomb);
+    public void disenableUfo();
+    public void enableBomb(DestroyerAlien alien);
+    public void died(GameObject object);
+    public void laserAFalse();
+    public void explodeAlien(ExplosiveAlien explosiveAlien);
+    public void gananAliens();
+
+}
+
+
+GAMEMODEL------------------------------------------
+simplemente ordenar
+
+public interface GameModel {
+    public boolean isFinished();
+    public boolean shootLaser();
+    public boolean shootSuperLaser();
+
+    public String infoToString();
+    public String lista();
+    
+    public void reset(InitialConfiguration conf);
+    public void exit();
+    public void updatePlayer(Move move);
+    public void update();
+    public void shockWave();
+
+    
+}
+
+ALIEN MANAGER--------------------------------------
+- BORRAR ESTOS METODOS
+	public void todoBajado()
+	public void noBordes()
+	public void shipOnBorder()
+	public void setOnBorderFalse()
+	public AlienShip spawn(String type, int x, int y)
+- BORRAR ESTAS VARIABLES
+	private Move direccionOp;
+	private Move dir;
+	private boolean bajado;
+BOMB-----------------------------------------------
+- isonposition
+
+TODOS LOS METODOS QUE SEAN IGUALES AL DEL SUPER (COMO BOMBA) HAY QUE BORRARLOS

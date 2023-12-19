@@ -9,13 +9,14 @@ import tp1.view.Messages;
 public class UCMShip extends Ship {
 
 	//TODO fill with your code
-	private Game game;
+	//private Game game;
 //	private Position pos;
 
 	private int vida=3;
 	private Move dir;
 	//private Game game;
 	private Weapon laser;
+	private boolean shooted=false;
 
 	public UCMShip(Game game, Position pos) {
 		super(game, pos, 3);
@@ -24,12 +25,12 @@ public class UCMShip extends Ship {
 		this.laser =null;
 	}
 
-	
+
 	//TODO fill with your code
 	public String toString(){
 		String symbol=Messages.UCMSHIP_SYMBOL;
-		if(vida<0){
-			symbol="#──#";
+		if(vida<=0){
+			symbol=Messages.UCMSHIP_DEAD_SYMBOL;
 		}
 		return symbol;
 	}
@@ -57,20 +58,50 @@ public class UCMShip extends Ship {
 	}
 
 	public boolean recibeAtaque(EnemyWeapon weapon){
-		if(weapon.isInPos(this.pos)){
+		if(weapon.equalPosition(this))
 			vida--;
+		return vida<=0;
+	}
+
+	public void setLaserAFalse(){
+		shooted=false;
+	}
+	public boolean getShooted(){
+		return shooted;
+	}
+
+	public Laser creaLaser(){
+		if(!shooted) {
+			shooted=true;
+			Position copia = new Position(pos);
+			copia.actualiza(Move.UP);
+			return new Laser(game, copia);
 		}
-		return weapon.isInPos(this.pos);
+		return null;
 	}
 
-	public UCMWeapon creaLaser(){
-
-		Position copia = new Position(pos);
-		copia.actualiza(Move.UP);
-		return new UCMWeapon(game, copia);
+	public SuperLaser creaSuperLaser(){
+		if(!shooted) {
+			shooted=true;
+			Position copia = new Position(pos);
+			copia.actualiza(Move.UP);
+			return new SuperLaser(game, copia);
+		}
+		return null;
 	}
+
 	public int getLifes(){
 		return life;
+	}
+
+	public static String lista(){
+
+		String buffer = Messages.UCMSHIP_DESCRIPTION +
+				": damage= '" + 1+
+				"', endurance= '" + 1 + "'.";
+
+		return buffer;
+
 	}
 }
 

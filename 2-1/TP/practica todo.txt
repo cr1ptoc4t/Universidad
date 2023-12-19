@@ -1,0 +1,56 @@
+8/12 ----------------------------------------------
+TO-DO MEDIO DIA 8/12 ---------------------TERMINADO
+bombas			- 	100%	- TERMINADO
+puntos			- 	100%	- TERMINADO
+shockwave		- 	100%	- TERMINADO
+velocidades		- 	100%	- TERMINADO
+receiveAttack (x14)	- 	100%	- TERMINADO
+performAttack (x14)	- 	100%	- TERMINADO
+eliminar los instanceof	- 	100%	- TERMINADO
+arreglar ufo		- 	100%	- TERMINADO
+colision bomba-player	- 	100%	- TERMINADO
+
+
+TODO PARA ESTA NOCHE 8/12-----------------TERMINADO
+Crear archivos:				      
+ShipFactory 		- 	100%	- TERMINADO
+superlasercommand 	-	100%	- TERMINADO
+
+Llenar archivos:
+ShipFactory 		-	100%	- TERMINADO
+superlasercommand 	-	100%	- TERMINADO
+nave explosiva		-	100%	- TERMINADO
+Método superlaser	-	100%	- TERMINADO
+
+interfaces:				     
+GameModel		-	100%	- TERMINADO
+GameWorld		-	100%	- TERMINADO
+GameStatus		-	100%	- TERMINADO
+
+
+TODO ACUMULADO 8/12 -------------------------------
+
+ShipFactory		-	100%	- TERMINADO
+InitialConfiguration	-	100%	- TERMINADO
+nave explosiva		-	100%	- TERMINADO
+Modificar reset		-	100%	- TERMINADO
+
+9/12-----------------------------------------------
+TODO PARA ESTA NOCHE 9/12---------------------57.5%
+automaticmove alienships-	10%	- A MEDIAS
+alien in lowerborder	-	100%	- POR HACER
+lista			-	100% 	- TERMINADO
+ShipFactory		-	100%	- TERMINADO
+
+10/12----------------------------------------------
+automaticmove alienships-	10%	- A MEDIAS
+bomba mata alien bajar	-	0%	- NADA
+REVISIONES---------------------------------------0%
+revisar codigo		-	0%	- POR HACER
+revisar funcionamiento	-	0%	- POR HACER
+
+PREGUNTAS -----------------------------------------
+infoToString que hace?
+
+noParamsCommand
+protected boolean matchCommand(String cw)
