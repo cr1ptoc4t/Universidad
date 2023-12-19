@@ -1,6 +1,8 @@
 package tp1.control.commands;
 
 import tp1.control.ExecutionResult;
+import tp1.exceptions.CommandParseException;
+import tp1.exceptions.IllegalArgumentException;
 import tp1.logic.Game;
 import tp1.logic.GameModel;
 import tp1.logic.Move;
@@ -51,8 +53,17 @@ public class MoveCommand extends Command {
 
 
 	@Override
-	public Command parse(String[] commandWords) {
-	    return new MoveCommand(stringAMov(commandWords[1]));
+	public Command parse(String[] commandWords) throws CommandParseException {
+		String direction=commandWords[1];
+		try{
+			//todo: esto esta separado para debuggear. hay que juntarlo en 1 linea return
+			Move mov = stringAMov(commandWords[1]);
+			MoveCommand moveCom = new MoveCommand(mov);
+
+			return moveCom;
+		} catch (IllegalArgumentException e) {
+			throw new CommandParseException(Messages.DIRECTION_ERROR + direction);
+		}
 	}
 
 

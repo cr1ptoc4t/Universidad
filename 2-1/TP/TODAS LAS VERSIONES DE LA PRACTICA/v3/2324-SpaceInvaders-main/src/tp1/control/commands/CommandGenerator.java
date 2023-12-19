@@ -3,8 +3,10 @@ package tp1.control.commands;
 import java.util.Arrays;
 import java.util.List;
 
+import tp1.exceptions.CommandParseException;
 import tp1.logic.Move;
 import tp1.view.GamePrinter;
+import tp1.view.Messages;
 
 public class CommandGenerator {
 
@@ -23,18 +25,19 @@ public class CommandGenerator {
 		//TODO fill with your code
 	);
 
-	public static Command parse(String[] commandWords) {		
-
-		if(commandWords.length>0) {
-			for (Command c : availableCommands) {  //commands es la lista de comandos que tenemos
-				//if(c.commandName(commandWords)){
-				//if (c.parse(commandWords) != null) {
-				if(c.matchCommandName(commandWords[0])){
-					return c.parse(commandWords);
+	public static Command parse(String[] commandWords) throws CommandParseException {
+		try {
+			if (commandWords.length > 0) {
+				for (Command c : availableCommands) {
+					if (c.matchCommandName(commandWords[0])) {
+						return c.parse(commandWords);
+					}
 				}
 			}
+		} catch (CommandParseException e) {//throw new CommandParseException(Messages.UNKNOWN_COMMAND);
+
 		}
-		return null;
+			return null;
 	}
 		
 	public static String commandHelp() {

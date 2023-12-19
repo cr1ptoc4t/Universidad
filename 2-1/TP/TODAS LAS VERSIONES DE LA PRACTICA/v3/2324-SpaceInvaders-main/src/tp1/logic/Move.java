@@ -1,5 +1,8 @@
 package tp1.logic;
 
+import tp1.exceptions.IllegalArgumentException;
+import tp1.view.Messages;
+
 public enum Move {
     LEFT(-1,0), LLEFT(-2,0), RIGHT(1,0), RRIGHT(2,0), DOWN(0,1), UP(0,-1), NONE(0,0);
     private int x;
@@ -18,7 +21,7 @@ public enum Move {
         return y;
     }
 
-    public static Move stringAMov(String str){
+    public static Move stringAMov(String str) throws IllegalArgumentException {
         Move ret = NONE;
 
         switch(str){
@@ -39,6 +42,8 @@ public enum Move {
                 break;
             case "down":
                 ret= DOWN;
+            default:
+                throw new IllegalArgumentException("ERRRORRRRRRRRRR");
         }
 
         return ret;

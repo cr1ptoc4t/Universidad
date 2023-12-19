@@ -1,6 +1,7 @@
 package tp1.control.commands;
 
 import tp1.control.ExecutionResult;
+import tp1.exceptions.CommandParseException;
 import tp1.logic.Game;
 import tp1.logic.GameModel;
 
@@ -29,8 +30,7 @@ public abstract class Command {
 		 */
 
 	  public abstract ExecutionResult execute(GameModel game);
-	  public abstract Command parse(String[] commandWords);
-	  
+	  public abstract Command parse(String[] parameter) throws CommandParseException;
 	  protected boolean matchCommandName(String name) {
 		    return getShortcut().equalsIgnoreCase(name) || 
 		        getName().equalsIgnoreCase(name);

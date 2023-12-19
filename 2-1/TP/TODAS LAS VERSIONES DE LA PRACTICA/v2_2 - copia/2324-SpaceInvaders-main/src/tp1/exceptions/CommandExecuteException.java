@@ -5,7 +5,6 @@ import tp1.view.Messages;
 
 public class CommandExecuteException extends GameModelException{
 
-
     protected String getMessage(){
         return Messages.COMMAND_EXECUTE_EXCEPTION;
     }

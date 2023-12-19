@@ -206,7 +206,7 @@ public class Messages {
 	public static final String OFF_WORLD_EXCEPTION = "Off World Exception";
 
 
-
+	public static final String GAME_MODEL_EXCEPTION = "Game Model Exception";
 
 	/**
 	 * Formats an error message.
