@@ -1,0 +1,34 @@
+create or replace procedure listado(p_año Libros.Año%TYPE) AS
+num_libros INTEGER;
+
+BEGIN
+	SELECT COUNT(*)
+	INTO num_libros
+	FROM Libros
+	WHERE año = p_año
+	GROUP BY ISBN;
+
+	IF num_libros = 0 THEN
+		DBMS_OUTPUT.PUT_LINE('No hay en año'||p_año);
+	ELSE
+		DBMS_OUTPUT.PUT_LINE('');
+		DBMS_OUTPUT.PUT_LINE('Libros y autores del año ' || p_año);
+		DBMS_OUTPUT.PUT_LINE('*****************************************');
+		FOR libro IN (SELECT L.ISBN, L.Titulo, COUNT(*) AS num_autores 
+				FROM Libros L JOIN Escribe E ON L.ISBN=E.ISBN
+				WHERE año=p_año
+				GROUP BY ISBN
+				ORDER BY L.Título ASC)
+		LOOP
+			DBMS_OUTPUT.PUT_LINE(libro.nombre || ': ' || num_autores||' autores.');
+			
+			FOR autor IN (SELECT A.Nombre, A.Apellido
+					FROM Autores A JOIN Escribe E on A.DNI=E.DNI
+					WHERE E.ISBN=libro.ISBN
+					ORDER BY A.Apellido DESC)
+			LOOP
+				DBMS_OUTPUT.PUT_LINE(A.Nombre || ' ' || A.Apellido);
+			END LOOP;
+		END LOOP;
+	END IF;
+END;
