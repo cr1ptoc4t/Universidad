@@ -3627,3 +3627,687 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.core.jobs 2 2 2023-11-09 15:40:24.893
 !MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.launchbar.core.internal.LaunchBarManager$1
+!SESSION 2024-01-27 13:34:27.470 -----------------------------------------------
+eclipse.buildId=4.23.0.I20220308-0310
+java.version=17.0.2
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_ES
+Framework arguments:  -product org.eclipse.epp.package.embedcpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.embedcpp.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-01-27 13:34:49.897
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Catalina'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.core.jobs 4 2 2024-01-27 13:39:42.090
+!MESSAGE Deadlock detected. All locks owned by thread Worker-27: Updating workspace will be suspended.
+!STACK 0
+java.lang.IllegalStateException
+	at org.eclipse.core.internal.jobs.DeadlockDetector.reportDeadlock(DeadlockDetector.java:604)
+	at org.eclipse.core.internal.jobs.DeadlockDetector.lockWaitStart(DeadlockDetector.java:408)
+	at org.eclipse.core.internal.jobs.LockManager.addLockWaitThread(LockManager.java:147)
+	at org.eclipse.core.internal.jobs.OrderedLock.doAcquire(OrderedLock.java:171)
+	at org.eclipse.core.internal.jobs.OrderedLock.acquire(OrderedLock.java:109)
+	at org.eclipse.core.internal.jobs.OrderedLock.acquire(OrderedLock.java:85)
+	at org.eclipse.cdt.internal.core.language.settings.providers.LanguageSettingsProvidersSerializer.loadLanguageSettings(LanguageSettingsProvidersSerializer.java:1186)
+	at org.eclipse.cdt.internal.core.settings.model.xml.XmlProjectDescriptionStorage.loadProjectDescription(XmlProjectDescriptionStorage.java:509)
+	at org.eclipse.cdt.internal.core.settings.model.xml.XmlProjectDescriptionStorage.getProjectDescription(XmlProjectDescriptionStorage.java:240)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescriptionInternal(CProjectDescriptionManager.java:427)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:409)
+	at org.eclipse.cdt.managedbuilder.core.ManagedBuildManager.findBuildInfo(ManagedBuildManager.java:2660)
+	at org.eclipse.cdt.managedbuilder.core.ManagedBuildManager.getBuildInfo(ManagedBuildManager.java:2932)
+	at org.eclipse.cdt.managedbuilder.core.ManagedBuildManager.getBuildInfo(ManagedBuildManager.java:2885)
+	at org.eclipse.cdt.managedbuilder.core.ResourceChangeHandler2$Visitor.visit(ResourceChangeHandler2.java:125)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:67)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:51)
+	at org.eclipse.cdt.managedbuilder.core.ResourceChangeHandler2.resourceChanged(ResourceChangeHandler2.java:180)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:305)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:295)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:158)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:381)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1505)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2329)
+	at org.eclipse.core.internal.events.NotificationManager$NotifyJob.run(NotificationManager.java:44)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.core.jobs 4 2 2024-01-27 13:39:42.090
+!MESSAGE Thread Worker-27: Updating workspace has locks: OrderedLock (2), OrderedLock (32) and is waiting for lock OrderedLock (3)
+	at java.base/java.lang.Thread.getStackTrace(Thread.java:1610)
+	at org.eclipse.core.internal.jobs.DeadlockDetector.reportDeadlock(DeadlockDetector.java:618)
+	at org.eclipse.core.internal.jobs.DeadlockDetector.lockWaitStart(DeadlockDetector.java:408)
+	at org.eclipse.core.internal.jobs.LockManager.addLockWaitThread(LockManager.java:147)
+	at org.eclipse.core.internal.jobs.OrderedLock.doAcquire(OrderedLock.java:171)
+	at org.eclipse.core.internal.jobs.OrderedLock.acquire(OrderedLock.java:109)
+	at org.eclipse.core.internal.jobs.OrderedLock.acquire(OrderedLock.java:85)
+	at org.eclipse.cdt.internal.core.language.settings.providers.LanguageSettingsProvidersSerializer.loadLanguageSettings(LanguageSettingsProvidersSerializer.java:1186)
+	at org.eclipse.cdt.internal.core.settings.model.xml.XmlProjectDescriptionStorage.loadProjectDescription(XmlProjectDescriptionStorage.java:509)
+	at org.eclipse.cdt.internal.core.settings.model.xml.XmlProjectDescriptionStorage.getProjectDescription(XmlProjectDescriptionStorage.java:240)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescriptionInternal(CProjectDescriptionManager.java:427)
+	at org.eclipse.cdt.internal.core.settings.model.CProjectDescriptionManager.getProjectDescription(CProjectDescriptionManager.java:409)
+	at org.eclipse.cdt.managedbuilder.core.ManagedBuildManager.findBuildInfo(ManagedBuildManager.java:2660)
+	at org.eclipse.cdt.managedbuilder.core.ManagedBuildManager.getBuildInfo(ManagedBuildManager.java:2932)
+	at org.eclipse.cdt.managedbuilder.core.ManagedBuildManager.getBuildInfo(ManagedBuildManager.java:2885)
+	at org.eclipse.cdt.managedbuilder.core.ResourceChangeHandler2$Visitor.visit(ResourceChangeHandler2.java:125)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:67)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:77)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:51)
+	at org.eclipse.cdt.managedbuilder.core.ResourceChangeHandler2.resourceChanged(ResourceChangeHandler2.java:180)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:305)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:295)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:158)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:381)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1505)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2329)
+	at org.eclipse.core.internal.events.NotificationManager$NotifyJob.run(NotificationManager.java:44)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!SUBENTRY 1 org.eclipse.core.jobs 4 2 2024-01-27 13:39:42.090
+!MESSAGE Thread Worker-25: Discover compiler built-in language settings has locks: P/ej05, OrderedLock (3) and is waiting for lock OrderedLock (2)
+	at java.base@17.0.2/java.lang.Object.wait(Native Method)
+	at org.eclipse.core.internal.jobs.Semaphore.acquire(Semaphore.java:45)
+	at org.eclipse.core.internal.jobs.OrderedLock.doAcquire(OrderedLock.java:173)
+	at org.eclipse.core.internal.jobs.OrderedLock.acquire(OrderedLock.java:109)
+	at org.eclipse.core.internal.jobs.OrderedLock.acquire(OrderedLock.java:85)
+	at org.eclipse.core.internal.resources.WorkManager.checkIn(WorkManager.java:125)
+	at org.eclipse.core.internal.resources.Workspace.prepareOperation(Workspace.java:2265)
+	at org.eclipse.core.internal.resources.File.setContents(File.java:334)
+	at org.eclipse.cdt.internal.core.XmlUtil.serializeXml(XmlUtil.java:447)
+	at org.eclipse.cdt.internal.core.language.settings.providers.LanguageSettingsProvidersSerializer.serializeLanguageSettings(LanguageSettingsProvidersSerializer.java:911)
+	at org.eclipse.cdt.core.language.settings.providers.LanguageSettingsManager.serializeLanguageSettings(LanguageSettingsManager.java:358)
+	at org.eclipse.cdt.core.language.settings.providers.LanguageSettingsSerializableProvider.serializeLanguageSettings(LanguageSettingsSerializableProvider.java:274)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:614)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:518)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:42)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:42.643
+!MESSAGE Indexed 'ej03' (0 sources, 0 headers) in 0,007 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:44.532
+!MESSAGE Indexed 'ej05' (0 sources, 0 headers) in 0,002 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:44.588
+!MESSAGE Indexed 'ej07' (0 sources, 0 headers) in 0,001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:44.690
+!MESSAGE Indexed 'ej09' (0 sources, 0 headers) in 0,002 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:44.742
+!MESSAGE Indexed 'ej10' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:44.759
+!MESSAGE Indexed 'ej12' (0 sources, 0 headers) in 0,001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:44.938
+!MESSAGE Indexed 'ej14' (0 sources, 0 headers) in 0,001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:44.963
+!MESSAGE Indexed 'ej16' (0 sources, 0 headers) in 0,002 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:45.051
+!MESSAGE Indexed 'ej18' (0 sources, 0 headers) in 0,001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:45.080
+!MESSAGE Indexed 'ej21' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:45.081
+!MESSAGE Indexed 'ej23' (0 sources, 0 headers) in 0,001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:45.106
+!MESSAGE Indexed 'ej25' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:45.152
+!MESSAGE Indexed 'ej02' (0 sources, 0 headers) in 0,001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:45.172
+!MESSAGE Indexed 'ej04' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:45.185
+!MESSAGE Indexed 'ej06' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:45.188
+!MESSAGE Indexed 'ej08' (0 sources, 0 headers) in 0,001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:45.210
+!MESSAGE Indexed 'ej11' (0 sources, 0 headers) in 0,001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:45.230
+!MESSAGE Indexed 'ej13' (0 sources, 0 headers) in 0,001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:45.251
+!MESSAGE Indexed 'ej15' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:45.271
+!MESSAGE Indexed 'ej17' (0 sources, 0 headers) in 0,001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:45.291
+!MESSAGE Indexed 'ej19' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:45.313
+!MESSAGE Indexed 'ej20' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:45.334
+!MESSAGE Indexed 'ej22' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-01-27 13:39:45.382
+!MESSAGE Indexed 'ej24' (0 sources, 0 headers) in 0,001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.launch 4 150 2024-01-27 13:45:13.304
+!MESSAGE Error starting process.
+!STACK 0
+java.io.IOException: Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:450)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:147)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:134)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:131)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.exec(LocalRunLaunchDelegate.java:285)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:110)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.launch 4 150 2024-01-27 13:45:13.304
+!MESSAGE Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:450)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:147)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:134)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:131)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.exec(LocalRunLaunchDelegate.java:285)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:110)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.launch 4 104 2024-01-27 13:45:44.221
+!MESSAGE Program file does not exist
+!STACK 0
+java.io.FileNotFoundException: C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf not found
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate2.verifyProgramPath(AbstractCLaunchDelegate2.java:701)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.checkBinaryDetails(LocalRunLaunchDelegate.java:262)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:90)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.launch 4 104 2024-01-27 13:45:44.221
+!MESSAGE C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf not found
+!STACK 0
+java.io.FileNotFoundException: C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf not found
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate2.verifyProgramPath(AbstractCLaunchDelegate2.java:701)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.checkBinaryDetails(LocalRunLaunchDelegate.java:262)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:90)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.launch 4 104 2024-01-27 13:46:25.870
+!MESSAGE Program file does not exist
+!STACK 0
+java.io.FileNotFoundException: C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf not found
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate2.verifyProgramPath(AbstractCLaunchDelegate2.java:701)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.checkBinaryDetails(LocalRunLaunchDelegate.java:262)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:90)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.launch 4 104 2024-01-27 13:46:25.870
+!MESSAGE C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf not found
+!STACK 0
+java.io.FileNotFoundException: C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf not found
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate2.verifyProgramPath(AbstractCLaunchDelegate2.java:701)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.checkBinaryDetails(LocalRunLaunchDelegate.java:262)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:90)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.launch 4 104 2024-01-27 13:47:48.070
+!MESSAGE Program file does not exist
+!STACK 0
+java.io.FileNotFoundException: C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf not found
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate2.verifyProgramPath(AbstractCLaunchDelegate2.java:701)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.checkBinaryDetails(LocalRunLaunchDelegate.java:262)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:90)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.launch 4 104 2024-01-27 13:47:48.070
+!MESSAGE C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf not found
+!STACK 0
+java.io.FileNotFoundException: C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf not found
+	at org.eclipse.cdt.launch.AbstractCLaunchDelegate2.verifyProgramPath(AbstractCLaunchDelegate2.java:701)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.checkBinaryDetails(LocalRunLaunchDelegate.java:262)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:90)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.launch 4 150 2024-01-27 13:51:07.542
+!MESSAGE Error starting process.
+!STACK 0
+java.io.IOException: Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:450)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:147)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:134)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:131)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.exec(LocalRunLaunchDelegate.java:285)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:110)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.launch 4 150 2024-01-27 13:51:07.542
+!MESSAGE Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:450)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:147)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:134)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:131)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.exec(LocalRunLaunchDelegate.java:285)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:110)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2024-01-27 13:51:42.139
+!MESSAGE Error in final launch sequence:
+
+Failed to execute MI command:
+-exec-run
+Error message from debugger back end:
+Error creating process C:\Users\Catalina\Documents\Universidad\001-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf, (error 193).
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-run
+Error message from debugger back end:
+Error creating process C:\Users\Catalina\Documents\Universidad\001-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf, (error 193).
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:252)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.Exception: Error creating process C:\Users\Catalina\Documents\Universidad\001-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf, (error 193).
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1013)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:842)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2024-01-27 13:51:42.139
+!MESSAGE Failed to execute MI command:
+-exec-run
+Error message from debugger back end:
+Error creating process C:\Users\Catalina\Documents\Universidad\001-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf, (error 193).
+!STACK 0
+java.lang.Exception: Error creating process C:\Users\Catalina\Documents\Universidad\001-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf, (error 193).
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1013)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:842)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2024-01-27 13:51:50.989
+!MESSAGE Error in final launch sequence:
+
+Failed to execute MI command:
+-exec-run
+Error message from debugger back end:
+Error creating process C:\Users\Catalina\Documents\Universidad\001-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf, (error 193).
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-run
+Error message from debugger back end:
+Error creating process C:\Users\Catalina\Documents\Universidad\001-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf, (error 193).
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:252)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.Exception: Error creating process C:\Users\Catalina\Documents\Universidad\001-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf, (error 193).
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1013)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:842)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2024-01-27 13:51:50.989
+!MESSAGE Failed to execute MI command:
+-exec-run
+Error message from debugger back end:
+Error creating process C:\Users\Catalina\Documents\Universidad\001-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf, (error 193).
+!STACK 0
+java.lang.Exception: Error creating process C:\Users\Catalina\Documents\Universidad\001-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf, (error 193).
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1013)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:842)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2024-01-27 13:52:45.279
+!MESSAGE Error in final launch sequence:
+
+Failed to execute MI command:
+-exec-run
+Error message from debugger back end:
+Error creating process C:\Users\Catalina\Documents\Universidad\001-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf, (error 193).
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-run
+Error message from debugger back end:
+Error creating process C:\Users\Catalina\Documents\Universidad\001-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf, (error 193).
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:252)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.Exception: Error creating process C:\Users\Catalina\Documents\Universidad\001-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf, (error 193).
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1013)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:842)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2024-01-27 13:52:45.279
+!MESSAGE Failed to execute MI command:
+-exec-run
+Error message from debugger back end:
+Error creating process C:\Users\Catalina\Documents\Universidad\001-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf, (error 193).
+!STACK 0
+java.lang.Exception: Error creating process C:\Users\Catalina\Documents\Universidad\001-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf, (error 193).
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1013)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:842)
+
+!ENTRY org.eclipse.cdt.launch 4 150 2024-01-27 13:53:02.429
+!MESSAGE Error starting process.
+!STACK 0
+java.io.IOException: Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:450)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:147)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:134)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:131)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.exec(LocalRunLaunchDelegate.java:285)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:110)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.launch 4 150 2024-01-27 13:53:02.429
+!MESSAGE Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:450)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:147)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:134)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:131)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.exec(LocalRunLaunchDelegate.java:285)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:110)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.launch 4 150 2024-01-27 13:53:42.240
+!MESSAGE Error starting process.
+!STACK 0
+java.io.IOException: Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:450)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:147)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:134)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:131)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.exec(LocalRunLaunchDelegate.java:285)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:110)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.launch 4 150 2024-01-27 13:53:42.240
+!MESSAGE Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:450)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:147)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:134)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:131)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.exec(LocalRunLaunchDelegate.java:285)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:110)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.launch 4 150 2024-01-27 13:53:47.905
+!MESSAGE Error starting process.
+!STACK 0
+java.io.IOException: Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:450)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:147)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:134)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:131)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.exec(LocalRunLaunchDelegate.java:285)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:110)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.launch 4 150 2024-01-27 13:53:47.905
+!MESSAGE Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:450)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:147)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:134)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:131)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.exec(LocalRunLaunchDelegate.java:285)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:110)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.launch 4 150 2024-01-27 13:54:00.734
+!MESSAGE Error starting process.
+!STACK 0
+java.io.IOException: Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:450)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:147)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:134)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:131)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.exec(LocalRunLaunchDelegate.java:285)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:110)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.launch 4 150 2024-01-27 13:54:00.734
+!MESSAGE Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:450)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:147)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:134)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:131)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.exec(LocalRunLaunchDelegate.java:285)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:110)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2024-01-27 13:54:46.981
+!MESSAGE Error in final launch sequence:
+
+Failed to execute MI command:
+-exec-run
+Error message from debugger back end:
+Error creating process C:\Users\Catalina\Documents\Universidad\001-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf, (error 193).
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+-exec-run
+Error message from debugger back end:
+Error creating process C:\Users\Catalina\Documents\Universidad\001-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf, (error 193).
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:252)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.Exception: Error creating process C:\Users\Catalina\Documents\Universidad\001-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf, (error 193).
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1013)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:842)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2024-01-27 13:54:46.981
+!MESSAGE Failed to execute MI command:
+-exec-run
+Error message from debugger back end:
+Error creating process C:\Users\Catalina\Documents\Universidad\001-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf, (error 193).
+!STACK 0
+java.lang.Exception: Error creating process C:\Users\Catalina\Documents\Universidad\001-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf, (error 193).
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1013)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:842)
+
+!ENTRY org.eclipse.cdt.launch 4 150 2024-01-27 13:56:17.487
+!MESSAGE Error starting process.
+!STACK 0
+java.io.IOException: Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:450)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:147)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:134)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:131)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.exec(LocalRunLaunchDelegate.java:285)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:110)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.launch 4 150 2024-01-27 13:56:17.487
+!MESSAGE Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:450)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:147)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:134)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:131)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.exec(LocalRunLaunchDelegate.java:285)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:110)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.launch 4 150 2024-01-27 13:56:22.460
+!MESSAGE Error starting process.
+!STACK 0
+java.io.IOException: Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:450)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:147)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:134)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:131)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.exec(LocalRunLaunchDelegate.java:285)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:110)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.launch 4 150 2024-01-27 13:56:22.460
+!MESSAGE Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:450)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:147)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:134)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:131)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.exec(LocalRunLaunchDelegate.java:285)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:110)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.launch 4 150 2024-01-27 13:56:37.523
+!MESSAGE Error starting process.
+!STACK 0
+java.io.IOException: Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:450)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:147)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:134)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:131)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.exec(LocalRunLaunchDelegate.java:285)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:110)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.cdt.launch 4 150 2024-01-27 13:56:37.523
+!MESSAGE Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+!STACK 0
+java.io.IOException: Cannot run program "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej02\Debug\ej02.elf": Launching failed
+	at org.eclipse.cdt.utils.spawner.Spawner.exec(Spawner.java:450)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:147)
+	at org.eclipse.cdt.utils.spawner.Spawner.<init>(Spawner.java:134)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:131)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.exec(LocalRunLaunchDelegate.java:285)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.runLocalApplication(LocalRunLaunchDelegate.java:110)
+	at org.eclipse.cdt.launch.internal.LocalRunLaunchDelegate.launch(LocalRunLaunchDelegate.java:78)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:803)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
