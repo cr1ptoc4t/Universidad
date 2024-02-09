@@ -34,12 +34,7 @@ public:
 	 */
 
 	Memoria(unsigned int capacidad) {
-		_capacidad = capacidad;
-		_celdas = new T * [_capacidad];
-
-		for (unsigned int i = 0; i < _capacidad; ++i) {
-			_celdas[i] = nullptr;
-		}
+		crearMem(capacidad);
 	}
 	
 	//constructor de copia
@@ -57,15 +52,14 @@ public:
 		}	
 
 	}
-	/*
+	
 	~Memoria() {
-		for (unsigned int i = 0; i < _capacidad; i++) {
+		for (unsigned int i = 0; i < _capacidad; i++)
 			delete _celdas[i];
-			_celdas[i] = nullptr;
-		}
+		_capacidad = 0;
 		delete[] _celdas; 
 	}
-	*/
+	
 
 	/**
 	 * Devuelve el valor almacenado en la celda 'd'.
@@ -88,11 +82,11 @@ public:
 		if (d < 0 || d >= _capacidad)
 			throw EDireccionInvalida();
 		else{
-			if (_celdas[d] == nullptr) {
+			if (_celdas[d] == nullptr)
 				_celdas[d] = new T(v);
-			}
 			else {
-				*_celdas[d] = v;
+				delete _celdas[d];
+				_celdas[d] = new T(v);
 			}
 		}
 	}
@@ -114,31 +108,26 @@ public:
 	Memoria& operator=(const Memoria& m1) {
 		
 		if (&m1!=this) {
-
-			//si la nueva memoria es mayor
-			if (_capacidad < m1._capacidad) {
-				//redimensionamos el array this a longitud m1._capacidad
-
-				//eliminamos todo
-				for (unsigned int i = 0; i < _capacidad; i++) {
+			if (m1._celdas != nullptr) {
+				//borramos
+				for (int i = 0; i < _capacidad; i++) {
 					delete _celdas[i];
 					_celdas[i] = nullptr;
 				}
-				delete[] _celdas;
 
-				//reconstruimos
-				this->_celdas = new T * [m1._capacidad];
-				
-				//todo a null
-				for (int i = 0; i < m1._capacidad; i++)
-					_celdas[i] = nullptr;
+				if(this->_celdas==nullptr){
+					//creamos
+					crearMem(m1._capacidad);
+					
+				} 					
+				copiar(m1);
 			}
-			//copiamos al nuevo
-			for (int i = 0; i < m1._capacidad; i++)
-				_celdas[i] = m1._celdas[i];
-			//nueva capacidad
-			this->_capacidad = m1._capacidad;
-
+			else {
+				for (int i = 0; i < m1._capacidad; i++)
+					delete _celdas[i];
+				//nueva capacidad
+				this->_capacidad = m1._capacidad;
+			}
 		}
 		return *this;
 	}
@@ -158,11 +147,66 @@ public:
 	/* Implementar el resto de operaciones y métodos necesarios
 	   para que la implementación funcione */
 
-//private:
+private:
 	/* Declarar los campos necesarios para representar los
 	   valores de este TAD, así como las operaciones auxiliares
 	   que se consideren oportunas */
+	void copiar(const Memoria<T>& m1) {
+		if (m1._capacidad > _capacidad) {
+			//redimensionar a tamaño de m1
 
+			
+			T** temp = _celdas;
+			_celdas = new T * [m1._capacidad];
+			//_capacidad = m1._capacidad;
+
+			//poner todos a nullptr
+			for (int i = 0; i < m1._capacidad; i++) {
+				_celdas[i] = nullptr;
+			}
+
+
+			//copiar ambas memorias
+			for (int i = 0; i < _capacidad; i++) {
+				//si no hay dato a nullptr
+				if (temp[i] == nullptr) _celdas[i] = nullptr;
+				//si hay dato copiar VALORES porq si copias punterlos dependen del otro
+				else *_celdas[i] = *temp[i];
+
+				//liberar espacio
+				delete temp[i];
+			}
+
+			
+			//liberamos la variable temporal
+			delete[] temp;
+
+		}
+
+		this->_capacidad = m1._capacidad;
+		for (int i = 0; i < _capacidad; i++) {
+			if (m1._celdas[i] != nullptr) {
+				if (_celdas[i] == nullptr)
+					_celdas[i] = new T (*m1._celdas[i]);
+				else
+					*_celdas[i] = *m1._celdas[i];
+			}
+			else {
+				if (_celdas[i] != nullptr)  delete _celdas[i];
+				_celdas[i] = nullptr;
+			}
+		}
+		
+	}
+
+	void crearMem(int tam) {
+		this->_capacidad = tam;
+		this->_celdas = new T * [_capacidad];
+
+		for (int i = 0; i < _capacidad; i++) {
+			_celdas[i] = nullptr;
+		}
+	}
 };
 
 
