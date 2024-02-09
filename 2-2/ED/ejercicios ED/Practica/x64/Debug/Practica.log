@@ -1,6 +1,9 @@
 ﻿  FileName.cpp
-C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios ED\Practica\Memoria.h(118,22): warning C4018: '<': no coinciden signed/unsigned
-C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios ED\Practica\Memoria.h(113,1): message : al compilar la función del miembro clase plantilla "Memoria<int> &Memoria<int>::operator =(const Memoria<int> &)"
-C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios ED\Practica\FileName.cpp(108,5): message : Vea la referencia a la creación de una instancia de la función plantilla "Memoria<int> &Memoria<int>::operator =(const Memoria<int> &)" que se está compilando
-C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios ED\Practica\FileName.cpp(99,31): message : Vea la referencia a la creación de una instancia de clase plantilla "Memoria<int>" que se está compilando
-  Practica.vcxproj -> C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios ED\x64\Debug\Practica 1.exe
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios ED\Practica\Memoria.h(114,5): error C2662: 'void Memoria<int>::muestra(void)': no se puede convertir el puntero 'this' de 'const Memoria<int>' a 'Memoria<int> &'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios ED\Practica\Memoria.h(114,3): message : Se pierden calificadores en la conversión
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios ED\Practica\Memoria.h(127,7): message : vea la declaración de 'Memoria<int>::muestra'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios ED\Practica\Memoria.h(114,5): message : al hacer coincidir la lista de argumentos '()'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios ED\Practica\Memoria.h(112,1): message : al compilar la función del miembro clase plantilla "Memoria<int> &Memoria<int>::operator =(const Memoria<int> &)"
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios ED\Practica\FileName.cpp(110,5): message : Vea la referencia a la creación de una instancia de la función plantilla "Memoria<int> &Memoria<int>::operator =(const Memoria<int> &)" que se está compilando
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios ED\Practica\FileName.cpp(101,31): message : Vea la referencia a la creación de una instancia de clase plantilla "Memoria<int>" que se está compilando
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios ED\Practica\Memoria.h(119,22): warning C4018: '<': no coinciden signed/unsigned

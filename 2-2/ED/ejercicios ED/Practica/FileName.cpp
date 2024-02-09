@@ -94,7 +94,6 @@ const static int TAM_MEM_PRUEBA = 1024;
 typedef class {
 	int a[TAM_MEM_PRUEBA];
 } tElem;
-
 void crea_memoria() {
 	Memoria<int> m(TAM_MEM_PRUEBA);
 	for (int i = 0; i < TAM_MEM_PRUEBA; i++) {
@@ -121,7 +120,6 @@ void valida_liberacion() {
 
 int main() {
 	valida_liberacion();
-
 	int capacidad;
 	cin >> capacidad;
 	Memoria<Par> m(capacidad);

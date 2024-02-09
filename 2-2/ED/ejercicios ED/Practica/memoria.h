@@ -1,5 +1,5 @@
 /*
-Número de grupo:
+Número de grupo:G25
 
 Nombre y apellidos de los autores de la práctica (si alguno de los miembros del grupo
 no hay realizado la práctica, no debe incluirse su nombre): 
@@ -27,10 +27,12 @@ private:
 	unsigned int _capacidad;
 	
 	T** _celdas;
+	
 public:
 	/**
 	 * crea una memoria con 'capacidad' celdas.
 	 */
+
 	Memoria(unsigned int capacidad) {
 		_capacidad = capacidad;
 		_celdas = new T * [_capacidad];
@@ -58,10 +60,10 @@ public:
 	/*
 	~Memoria() {
 		for (unsigned int i = 0; i < _capacidad; i++) {
-			//delete _celdas[i];
-			//_celdas[i] = nullptr;
+			delete _celdas[i];
+			_celdas[i] = nullptr;
 		}
-		delete[] _celdas;
+		delete[] _celdas; 
 	}
 	*/
 
@@ -71,7 +73,6 @@ public:
 	 * Si la celda 'd' no está inicializada, levanta ECeldaSinInicializar.
 	 */
 
-	//try - catch
 	const T& valor(unsigned int d) const {
 		if (d < 0 || d >= _capacidad) throw EDireccionInvalida();
 		else if (_celdas[d] == nullptr) throw ECeldaSinInicializar();
@@ -87,7 +88,7 @@ public:
 		if (d < 0 || d >= _capacidad)
 			throw EDireccionInvalida();
 		else{
-			if (_celdas[d]==nullptr) {
+			if (_celdas[d] == nullptr) {
 				_celdas[d] = new T(v);
 			}
 			else {
@@ -111,18 +112,48 @@ public:
 	
 	//operador de asignacion
 	Memoria& operator=(const Memoria& m1) {
+		
 		if (&m1!=this) {
-			this->_capacidad = m1._capacidad;
-			_celdas = new T * [_capacidad];
 
+			//si la nueva memoria es mayor
+			if (_capacidad < m1._capacidad) {
+				//redimensionamos el array this a longitud m1._capacidad
+
+				//eliminamos todo
+				for (unsigned int i = 0; i < _capacidad; i++) {
+					delete _celdas[i];
+					_celdas[i] = nullptr;
+				}
+				delete[] _celdas;
+
+				//reconstruimos
+				this->_celdas = new T * [m1._capacidad];
+				
+				//todo a null
+				for (int i = 0; i < m1._capacidad; i++)
+					_celdas[i] = nullptr;
+			}
+			//copiamos al nuevo
 			for (int i = 0; i < m1._capacidad; i++)
-				if (m1._celdas[i] != nullptr)
-					this->_celdas[i] = m1._celdas[i];
-				else this->_celdas = nullptr;
+				_celdas[i] = m1._celdas[i];
+			//nueva capacidad
+			this->_capacidad = m1._capacidad;
+
 		}
 		return *this;
 	}
 
+
+
+	void muestra() {
+		cout << _capacidad << endl;
+		for (int i = 0; i < _capacidad; i++)
+			if(_celdas[i] == nullptr)
+				cout << i << "- \t" << "nullptr" << "\t" << endl;
+			else
+				cout << i << "- \t" << _celdas[i] << "\t" << endl;
+
+	}
 
 	/* Implementar el resto de operaciones y métodos necesarios
 	   para que la implementación funcione */

@@ -131,7 +131,7 @@
     <ClCompile Include="FileName.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="memoria.h" />
+    <ClInclude Include="Memoria.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
