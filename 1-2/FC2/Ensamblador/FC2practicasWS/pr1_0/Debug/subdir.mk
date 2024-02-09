@@ -4,13 +4,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 ASM_SRCS += \
-../pr1.asm 
+../pr1_0.asm 
 
 OBJS += \
-./pr1.o 
+./pr1_0.o 
 
 ASM_DEPS += \
-./pr1.d 
+./pr1_0.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

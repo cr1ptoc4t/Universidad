@@ -33,6 +33,9 @@ V:   .word -7,3,-9,8,15,-16,0,3
 min: .space 4
 
 .text
+
+
+/*
 main:
 	li t1, N		//t1=N
     la s5, min		//s5=min
@@ -67,3 +70,4 @@ fin_for:
 end:
 	j .
 	.end
+*/

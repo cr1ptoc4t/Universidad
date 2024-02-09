@@ -21,6 +21,7 @@
 **-------------------------------------------------------------------*/
 
 .global main
+.data
 //defino la constante N
 .equ N, 10
 //reservo espacio para el resultado
@@ -29,6 +30,26 @@ res:	.space 4
 
 //programa
 .text
+main:
+	li t2, N
+	li t3, 0	//t3=res
+	li t4, 0	//t4=i
+	li t5, 0
+for:
+	bge t4, t2, end
+	add t3, t3, t4
+	addi t4, t4, 1
+	j for
+end_for:
+	la t5, res
+	sw t3, 0(t5)
+
+end:
+    j .
+.end
+
+
+/*
 main:
 	li t2, N 			//t2=N
 	li t3, 0			//t3=i
@@ -49,3 +70,5 @@ fin_for:
 end:
 	j .
 .end
+
+*/
