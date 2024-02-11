@@ -154,7 +154,6 @@ private:
 	void copiar(const Memoria<T>& m1) {
 		if (m1._capacidad > _capacidad) {
 			//redimensionar a tamaño de m1
-
 			
 			T** temp = _celdas;
 			_celdas = new T * [m1._capacidad];
