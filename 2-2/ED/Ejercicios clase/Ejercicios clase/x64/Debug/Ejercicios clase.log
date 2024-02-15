@@ -1,0 +1,5 @@
+﻿  pila.cpp
+C:\Users\Catalina\Documents\Universidad\2-2\ED\Ejercicios clase\Ejercicios clase\pila.cpp(12,2): error C2065: 'Pila': identificador no declarado
+C:\Users\Catalina\Documents\Universidad\2-2\ED\Ejercicios clase\Ejercicios clase\pila.cpp(12,8): error C2062: tipo 'int' inesperado
+C:\Users\Catalina\Documents\Universidad\2-2\ED\Ejercicios clase\Ejercicios clase\pila.cpp(14,3): error C3861: 'desapila': no se encontró el identificador
+C:\Users\Catalina\Documents\Universidad\2-2\ED\Ejercicios clase\Ejercicios clase\pila.cpp(19,2): error C2065: 's': identificador no declarado
