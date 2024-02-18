@@ -14,6 +14,7 @@ Universidad Complutense de Madrid
 #ifndef __PILAVD_H
 #define __PILAVD_H
 #include <cstddef>
+#include <iostream>
 
 /// Excepciones generadas por algunos m?todos
 class EPilaVacia {};
@@ -129,7 +130,11 @@ public:
 	bool operator!=(const Pila<T>& rhs) const {
 		return !(*this == rhs);
 	}
-
+	void muestra() {
+		for (unsigned int i = 0; i < _numElems; ++i)
+			std::cout << _v[i] << " ";
+		std::cout << "\n";
+	}
 
 private:
 
@@ -168,6 +173,8 @@ private:
 
 		delete[]viejo;
 	}
+
+	
 };
 
 #endif // __PILAVD_H

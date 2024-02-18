@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\Catalina\Documents\GitHub\Universidad\2-2\ED\ejercicios juez\hundir al mayor\main.cpp(38,20): warning C4101: 'e': variable local sin referencia
+C:\Users\Catalina\Documents\GitHub\Universidad\2-2\ED\ejercicios juez\hundir al mayor\main.cpp(55,20): warning C4101: 'e': variable local sin referencia
+  hundir al mayor.vcxproj -> C:\Users\Catalina\Documents\GitHub\Universidad\2-2\ED\ejercicios juez\x64\Debug\hundir al mayor.exe
