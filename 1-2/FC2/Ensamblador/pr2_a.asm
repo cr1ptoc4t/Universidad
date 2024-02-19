@@ -36,6 +36,22 @@ min: .space 4
 main:
     la s1, min
     li t0, INT_MAX
-    sw t0, 0(s1)
-
+    sw t0, 0(s1)	//t0=min
+	li t3, N		//t3=N
 //completar
+	li t1, 0		//t1=i
+	
+for:
+	bge t1, t3, end_for
+	//slli
+	if:
+		bge ____, t0, end_if
+		addi t0, ______, 0
+	end_if:
+		
+		addi t1, t1, 1
+	j for
+end_for:
+	//guardar en memoria min
+end:
+	 j end
