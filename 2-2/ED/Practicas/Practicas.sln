@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Practica1. Memoria", "Pract
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Practica2. Ecuacion equilibrada", "Practica2. Ecuacion equilibrada\Practica2. Ecuacion equilibrada.vcxproj", "{6AAE1005-1AB1-45A8-B06D-6FD4D6864465}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Practica3. Alumno Afortunado", "Practica3. Alumno Afortunado\Practica3. Alumno Afortunado.vcxproj", "{994F39AF-3672-44BA-ADB2-A3D141574B4E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{6AAE1005-1AB1-45A8-B06D-6FD4D6864465}.Release|x64.Build.0 = Release|x64
 		{6AAE1005-1AB1-45A8-B06D-6FD4D6864465}.Release|x86.ActiveCfg = Release|Win32
 		{6AAE1005-1AB1-45A8-B06D-6FD4D6864465}.Release|x86.Build.0 = Release|Win32
+		{994F39AF-3672-44BA-ADB2-A3D141574B4E}.Debug|x64.ActiveCfg = Debug|x64
+		{994F39AF-3672-44BA-ADB2-A3D141574B4E}.Debug|x64.Build.0 = Debug|x64
+		{994F39AF-3672-44BA-ADB2-A3D141574B4E}.Debug|x86.ActiveCfg = Debug|Win32
+		{994F39AF-3672-44BA-ADB2-A3D141574B4E}.Debug|x86.Build.0 = Debug|Win32
+		{994F39AF-3672-44BA-ADB2-A3D141574B4E}.Release|x64.ActiveCfg = Release|x64
+		{994F39AF-3672-44BA-ADB2-A3D141574B4E}.Release|x64.Build.0 = Release|x64
+		{994F39AF-3672-44BA-ADB2-A3D141574B4E}.Release|x86.ActiveCfg = Release|Win32
+		{994F39AF-3672-44BA-ADB2-A3D141574B4E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
