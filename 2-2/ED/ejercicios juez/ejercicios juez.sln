@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Racionales", "Racionales\Ra
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hundir al mayor", "hundir al mayor\hundir al mayor.vcxproj", "{B10406C4-7FC0-4C75-B034-D9F36C2DF007}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Colarse", "Colarse\Colarse.vcxproj", "{2E725334-10D1-488A-8022-3BBAF145B4A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{B10406C4-7FC0-4C75-B034-D9F36C2DF007}.Release|x64.Build.0 = Release|x64
 		{B10406C4-7FC0-4C75-B034-D9F36C2DF007}.Release|x86.ActiveCfg = Release|Win32
 		{B10406C4-7FC0-4C75-B034-D9F36C2DF007}.Release|x86.Build.0 = Release|Win32
+		{2E725334-10D1-488A-8022-3BBAF145B4A5}.Debug|x64.ActiveCfg = Debug|x64
+		{2E725334-10D1-488A-8022-3BBAF145B4A5}.Debug|x64.Build.0 = Debug|x64
+		{2E725334-10D1-488A-8022-3BBAF145B4A5}.Debug|x86.ActiveCfg = Debug|Win32
+		{2E725334-10D1-488A-8022-3BBAF145B4A5}.Debug|x86.Build.0 = Debug|Win32
+		{2E725334-10D1-488A-8022-3BBAF145B4A5}.Release|x64.ActiveCfg = Release|x64
+		{2E725334-10D1-488A-8022-3BBAF145B4A5}.Release|x64.Build.0 = Release|x64
+		{2E725334-10D1-488A-8022-3BBAF145B4A5}.Release|x86.ActiveCfg = Release|Win32
+		{2E725334-10D1-488A-8022-3BBAF145B4A5}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

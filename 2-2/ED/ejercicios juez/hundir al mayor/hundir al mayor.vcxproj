@@ -24,6 +24,7 @@
     <ProjectGuid>{b10406c4-7fc0-4c75-b034-d9f36c2df007}</ProjectGuid>
     <RootNamespace>hundiralmayor</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>5. hundir al mayor</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
