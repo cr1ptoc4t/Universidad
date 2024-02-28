@@ -31,8 +31,35 @@ V:   .word -7,3,-9,8,15,-16,0,3
 
 .bss
 min: .space 4
-
 .text
+main:
+	li t3, N		//t3=N
+    li t2, INT_MAX  //t0=int_max
+    la t4, V		//t4 =dir de V
+    la  t6, min    // Carga la dirección de memoria de min en t6
+	sw  t2, 0(t6)
+	li t1, 0		//t1=i
+
+for:
+	bge t1, t3, end_for
+	//t5 = V[i]
+
+	//lw  t5, 0(t4)
+	slli t0, t1, 2
+	add s5, s5, t4
+	lw t5, 0(s5)
+
+	if:
+		bge t5, t2, end_if
+		addi t0, t5, 0
+	end_if:
+		addi t1, t1, 1
+	j for
+end_for:
+	//guardar en memoria min
+end:
+	 j end
+
 
 
 /*

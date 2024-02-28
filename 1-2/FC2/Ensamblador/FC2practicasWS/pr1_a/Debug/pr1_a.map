@@ -11,12 +11,12 @@ Name             Origin             Length             Attributes
 Linker script and memory map
 
 LOAD ./pr1_a.o
-LOAD c:/eclipsedos/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a
+LOAD c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a
 START GROUP
-LOAD c:/eclipsedos/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a
-LOAD c:/eclipsedos/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a
+LOAD c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a
+LOAD c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a
 END GROUP
-LOAD c:/eclipsedos/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a
+LOAD c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a
                 0x0000000000000000                . = 0x0
 
 .text           0x0000000000000000       0x30

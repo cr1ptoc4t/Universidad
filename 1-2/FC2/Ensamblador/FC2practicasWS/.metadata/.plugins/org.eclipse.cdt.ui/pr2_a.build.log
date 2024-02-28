@@ -1,4 +1,4 @@
-22:28:46 **** Build of configuration Debug for project pr2_a ****
+16:52:35 **** Incremental Build of configuration Debug for project pr2_a ****
 make all 
 'Building file: ../pr2_a.asm'
 'Invoking: GNU RISC-V Cross Assembler'
@@ -21,9 +21,9 @@ riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --li
 'Invoking: GNU RISC-V Cross Print Size'
 riscv64-unknown-elf-size --format=berkeley "pr2_a.elf"
    text	   data	    bss	    dec	    hex	filename
-     96	     32	      4	    132	     84	pr2_a.elf
+     72	     32	      4	    108	     6c	pr2_a.elf
 'Finished building: pr2_a.siz'
 ' '
 
-22:28:48 Build Finished. 0 errors, 0 warnings. (took 2s.305ms)
+16:52:35 Build Finished. 0 errors, 0 warnings. (took 662ms)
 

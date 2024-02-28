@@ -1,5 +1,23 @@
-17:18:26 **** Incremental Build of configuration Debug for project pr1_a ****
+16:34:48 **** Incremental Build of configuration Debug for project pr1_a ****
 make all 
+'Building file: ../pr1_a.asm'
+'Invoking: GNU RISC-V Cross Assembler'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"pr1_a.d" -MT"pr1_a.o" -c -o "pr1_a.o" "../pr1_a.asm"
+'Finished building: ../pr1_a.asm'
+' '
+'Building target: pr1_a.elf'
+'Invoking: GNU RISC-V Cross C Linker'
+riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_a\ldscript.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"pr1_a.map" -o "pr1_a.elf"  ./pr1_a.o   
+'Finished building target: pr1_a.elf'
+' '
+'Invoking: GNU RISC-V Cross Create Flash Image'
+riscv64-unknown-elf-objcopy -O ihex "pr1_a.elf"  "pr1_a.hex"
+'Finished building: pr1_a.hex'
+' '
+'Invoking: GNU RISC-V Cross Create Listing'
+riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --line-numbers --wide "pr1_a.elf" > "pr1_a.lst"
+'Finished building: pr1_a.lst'
+' '
 'Invoking: GNU RISC-V Cross Print Size'
 riscv64-unknown-elf-size --format=berkeley "pr1_a.elf"
    text	   data	    bss	    dec	    hex	filename
@@ -7,5 +25,5 @@ riscv64-unknown-elf-size --format=berkeley "pr1_a.elf"
 'Finished building: pr1_a.siz'
 ' '
 
-17:18:26 Build Finished. 0 errors, 0 warnings. (took 212ms)
+16:34:49 Build Finished. 0 errors, 0 warnings. (took 605ms)
 

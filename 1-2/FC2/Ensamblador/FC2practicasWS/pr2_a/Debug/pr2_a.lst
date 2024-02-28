@@ -7,21 +7,21 @@ start address 0x00000000
 
 Program Header:
     LOAD off    0x00001000 vaddr 0x00000000 paddr 0x00000000 align 2**12
-         filesz 0x00000060 memsz 0x00000060 flags r-x
+         filesz 0x00000048 memsz 0x00000048 flags r-x
     LOAD off    0x00002000 vaddr 0x00010000 paddr 0x00010000 align 2**12
          filesz 0x00000020 memsz 0x00000024 flags rw-
 
 Sections:
 Idx Name              Size      VMA       LMA       File off  Algn  Flags
-  0 .text             00000060  00000000  00000000  00001000  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  0 .text             00000048  00000000  00000000  00001000  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
   1 .data             00000020  00010000  00010000  00002000  2**0  CONTENTS, ALLOC, LOAD, DATA
   2 .bss              00000004  00010020  00010020  00002020  2**0  ALLOC
   3 .riscv.attributes 0000001f  00000000  00000000  00002020  2**0  CONTENTS, READONLY
-  4 .debug_line       000000a9  00000000  00000000  0000203f  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
-  5 .debug_info       00000026  00000000  00000000  000020e8  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
-  6 .debug_abbrev     00000014  00000000  00000000  0000210e  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
-  7 .debug_aranges    00000020  00000000  00000000  00002128  2**3  CONTENTS, READONLY, DEBUGGING, OCTETS
-  8 .debug_str        00000070  00000000  00000000  00002148  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  4 .debug_line       00000091  00000000  00000000  0000203f  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  5 .debug_info       00000026  00000000  00000000  000020d0  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  6 .debug_abbrev     00000014  00000000  00000000  000020f6  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  7 .debug_aranges    00000020  00000000  00000000  00002110  2**3  CONTENTS, READONLY, DEBUGGING, OCTETS
+  8 .debug_str        00000070  00000000  00000000  00002130  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
 SYMBOL TABLE:
 00000000 l    d  .text	00000000 .text
 00010000 l    d  .data	00000000 .data
@@ -37,11 +37,11 @@ SYMBOL TABLE:
 7fffffff l       *ABS*	00000000 INT_MAX
 00010000 l       .data	00000000 V
 00010020 l       .bss	00000000 min
-00000028 l       .text	00000000 for
-00000048 l       .text	00000000 fin_for
-00000038 l       .text	00000000 if
-00000040 l       .text	00000000 fin_if
-0000005c l       .text	00000000 end
+00000024 l       .text	00000000 for
+00000044 l       .text	00000000 end_for
+00000034 l       .text	00000000 if
+0000003c l       .text	00000000 end_if
+00000044 l       .text	00000000 end
 00000000 g       .text	00000000 main
 
 
@@ -50,98 +50,79 @@ Disassembly of section .text:
 
 00000000 <main>:
 main():
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:37
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:36
+
 .bss
 min: .space 4
-
 .text
 main:
-	li t1, N		//t1=N
-   0:	00800313          	li	t1,8
+	li t3, N		//t3=N
+   0:	00800e13          	li	t3,8
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:37
+    li t2, INT_MAX  //t0=int_max
+   4:	800003b7          	lui	t2,0x80000
+   8:	fff38393          	addi	t2,t2,-1 # 7fffffff <INT_MAX+0x0>
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:38
-    la s5, min		//s5=min
-   4:	00010a97          	auipc	s5,0x10
-   8:	01ca8a93          	addi	s5,s5,28 # 10020 <min>
+    la t4, V		//t4 =dir de V
+   c:	00010e97          	auipc	t4,0x10
+  10:	ff4e8e93          	addi	t4,t4,-12 # 10000 <V>
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:39
-    li s5, 0
-   c:	00000a93          	li	s5,0
+    la  t6, min    // Carga la dirección de memoria de min en t6
+  14:	00010f97          	auipc	t6,0x10
+  18:	00cf8f93          	addi	t6,t6,12 # 10020 <min>
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:40
-    li t0, INT_MAX	//t0=INT_MAX
-  10:	800002b7          	lui	t0,0x80000
-  14:	fff28293          	addi	t0,t0,-1 # 7fffffff <INT_MAX+0x0>
+	sw  t2, 0(t6)
+  1c:	007fa023          	sw	t2,0(t6)
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:41
-    sw t0, 0(s5)
-  18:	005aa023          	sw	t0,0(s5)
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:42
-    li t2, 0		//t2=i
-  1c:	00000393          	li	t2,0
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:44
-    //lw s1, V
-	la t3, V
-  20:	00010e17          	auipc	t3,0x10
-  24:	fe0e0e13          	addi	t3,t3,-32 # 10000 <V>
+	li t1, 0		//t1=i
+  20:	00000313          	li	t1,0
 
-00000028 <for>:
+00000024 <for>:
 for():
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:46
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:44
+
 for:
-	bge t2, t1, fin_for		//si cc, saltar
-  28:	0263d063          	bge	t2,t1,48 <fin_for>
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:47
-	slli t5, t2, 2			//desplazamiento
-  2c:	00239f13          	slli	t5,t2,0x2
+	bge t1, t3, end_for
+  24:	03c35063          	bge	t1,t3,44 <end>
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:48
-	add t5, t5, t3		//t5=t5+t3
-  30:	01cf0f33          	add	t5,t5,t3
+	//t5 = V[i]
+
+	//lw  t5, 0(t4)
+	slli t0, t1, 2
+  28:	00231293          	slli	t0,t1,0x2
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:49
-	lw  s3, 0(t5)     	// @s1=v[i]
-  34:	000f2983          	lw	s3,0(t5)
+	add s5, s5, t4
+  2c:	01da8ab3          	add	s5,s5,t4
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:50
+	lw t5, 0(s5)
+  30:	000aaf03          	lw	t5,0(s5)
 
-00000038 <if>:
+00000034 <if>:
 if():
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:52
-
-if:
-	ble s5, s3, fin_if
-  38:	0159d463          	bge	s3,s5,40 <fin_if>
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:53
-	mv s5,s3
-  3c:	00098a93          	mv	s5,s3
 
-00000040 <fin_if>:
-fin_if():
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:59
-	//sw s3, 0 (s5)		//almacenar el valor de s3 en min
+	if:
+		bge t5, t2, end_if
+  34:	007f5463          	bge	t5,t2,3c <end_if>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:54
+		addi t0, t5, 0
+  38:	000f0293          	mv	t0,t5
 
-	//min toma valor de s3
-
-fin_if:
-	addi t2, t2, 1 			//incrementar indice
-  40:	00138393          	addi	t2,t2,1
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:60
+0000003c <end_if>:
+end_if():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:56
+	end_if:
+		addi t1, t1, 1
+  3c:	00130313          	addi	t1,t1,1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:57
 	j for
-  44:	fe5ff06f          	j	28 <for>
+  40:	fe5ff06f          	j	24 <for>
 
-00000048 <fin_for>:
-fin_for():
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:63
-
-fin_for:
-	la s3, min
-  48:	00010997          	auipc	s3,0x10
-  4c:	fd898993          	addi	s3,s3,-40 # 10020 <min>
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:64
-	la s5, min //resultado en s5
-  50:	00010a97          	auipc	s5,0x10
-  54:	fd0a8a93          	addi	s5,s5,-48 # 10020 <min>
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:65
-	j end
-  58:	0040006f          	j	5c <end>
-
-0000005c <end>:
-end():
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:68
-
+00000044 <end>:
+end_for():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr2_a\Debug/../pr2_a.asm:61
+end_for:
+	//guardar en memoria min
 end:
-	j .
-  5c:	0000006f          	j	5c <end>
+	 j end
+  44:	0000006f          	j	44 <end>

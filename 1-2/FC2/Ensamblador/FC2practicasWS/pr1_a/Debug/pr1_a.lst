@@ -34,8 +34,8 @@ SYMBOL TABLE:
 0000000a l       *ABS*	00000000 N
 00010000 l       .bss	00000000 res
 00000010 l       .text	00000000 for
-0000002c l       .text	00000000 end
 00000020 l       .text	00000000 end_for
+0000002c l       .text	00000000 end
 00000000 g       .text	00000000 main
 
 
@@ -44,55 +44,55 @@ Disassembly of section .text:
 
 00000000 <main>:
 main():
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_a\Debug/../pr1_a.asm:34
-res:	.space 4
-
-//programa
-.text
-main:
-	li t2, N
-   0:	00a00393          	li	t2,10
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_a\Debug/../pr1_a.asm:35
-	li t3, 0	//t3=res
-   4:	00000e13          	li	t3,0
+
+.global main
+
+
+main:
+	li t0, 0  	//	res=t0
+   0:	00000293          	li	t0,0
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_a\Debug/../pr1_a.asm:36
-	li t4, 0	//t4=i
-   8:	00000e93          	li	t4,0
+	li t1, 0 	//	t1=i
+   4:	00000313          	li	t1,0
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_a\Debug/../pr1_a.asm:37
-	li t5, 0
-   c:	00000f13          	li	t5,0
+	li t2, 0
+   8:	00000393          	li	t2,0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_a\Debug/../pr1_a.asm:38
+	li t3, N	//	t3=N
+   c:	00a00e13          	li	t3,10
 
 00000010 <for>:
 for():
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_a\Debug/../pr1_a.asm:39
-for:
-	bge t4, t2, end
-  10:	007ede63          	bge	t4,t2,2c <end>
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_a\Debug/../pr1_a.asm:40
-	add t3, t3, t4
-  14:	01de0e33          	add	t3,t3,t4
+for:
+	bge t1, t3, end_for
+  10:	01c35863          	bge	t1,t3,20 <end_for>
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_a\Debug/../pr1_a.asm:41
-	addi t4, t4, 1
-  18:	001e8e93          	addi	t4,t4,1
+	add t0, t0, t1
+  14:	006282b3          	add	t0,t0,t1
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_a\Debug/../pr1_a.asm:42
+	addi t1, t1, 1
+  18:	00130313          	addi	t1,t1,1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_a\Debug/../pr1_a.asm:43
 	j for
   1c:	ff5ff06f          	j	10 <for>
 
 00000020 <end_for>:
 end_for():
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_a\Debug/../pr1_a.asm:44
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_a\Debug/../pr1_a.asm:46
+
 end_for:
-	la t5, res
-  20:	00010f17          	auipc	t5,0x10
-  24:	fe0f0f13          	addi	t5,t5,-32 # 10000 <res>
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_a\Debug/../pr1_a.asm:45
-	sw t3, 0(t5)
-  28:	01cf2023          	sw	t3,0(t5)
+	la t2, res
+  20:	00010397          	auipc	t2,0x10
+  24:	fe038393          	addi	t2,t2,-32 # 10000 <res>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_a\Debug/../pr1_a.asm:47
+	sw t0, 0(t2)
+  28:	0053a023          	sw	t0,0(t2)
 
 0000002c <end>:
 end():
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_a\Debug/../pr1_a.asm:48
-
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_a\Debug/../pr1_a.asm:49
 end:
-    j .
+	j end
   2c:	0000006f          	j	2c <end>
