@@ -47,3 +47,5 @@ end_for:
 	sw t0, 0(t2)
 end:
 	j end
+
+	.end

@@ -12,40 +12,44 @@
 **
 **  Notas de diseño:
 **	propuesta para el laboratorio:
-**	A=10
-**	B=5
-**	multiplicación =0
-**	for (i=0;i<A;i++){
-**		multiplicación =multiplicacion +B
-**	}
+**
 **-------------------------------------------------------------------*/
-
+.equ N, 7
 .global main
 
 .data
 	a: .word 5
 	b: .word 3
 .bss
-	multiplicacion: .space 4
+	res: .space 4
 
 .text
 main:
-	la t0, a		# t0 = A
-	lw t4, 0(t0)
-	la t1, b		# t1 = B
-	lw t5, 0(t1)
-	li t2, 0		# t2 = i
-	li t3, 0 		# t3 = multiplicacion
-	la t6, multiplicacion
-
+	li t0, -4 //t0=i
+	li t1, 0 //res=t1
+	li t2, 2
+	la t3, a
+	la t4, b
+	lw t3, 0(t3) //t3=a
+	lw t4, 0(t4) //t4=b
+	li t5, N //t5=N
+	li t6, 0 //t6 = abs(i)
 for:
-	bge t2, t4, end_for		# si condicion contraria saltar al end for
-	add t3, t3, t5			# mult+=b
-	addi t2, t2, 1			# incrementar indice
+	bge t0, t5, end_for
+	add t6, t0, x0
+	if:
+		bge t0, x0,end_if
+		sub t6, zero, t6
+	end_if:
+	mul t6, t6, t2
+	add t1, t1, t6
+	addi t0,t0, 1
 	j for
-
 end_for:
-	sw t3, 0(t6)
+	la t2, res
+	sw t1, 0(t2)
 end:
-	j .
-	.end
+	j end
+.end
+
+

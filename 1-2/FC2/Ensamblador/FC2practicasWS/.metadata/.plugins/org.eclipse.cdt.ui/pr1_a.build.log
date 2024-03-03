@@ -1,4 +1,4 @@
-16:34:48 **** Incremental Build of configuration Debug for project pr1_a ****
+18:17:07 **** Incremental Build of configuration Debug for project pr1_a ****
 make all 
 'Building file: ../pr1_a.asm'
 'Invoking: GNU RISC-V Cross Assembler'
@@ -25,5 +25,5 @@ riscv64-unknown-elf-size --format=berkeley "pr1_a.elf"
 'Finished building: pr1_a.siz'
 ' '
 
-16:34:49 Build Finished. 0 errors, 0 warnings. (took 605ms)
+18:17:08 Build Finished. 0 errors, 0 warnings. (took 708ms)
 

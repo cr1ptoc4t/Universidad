@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hanoi", "hanoi\hanoi.vcxproj", "{113F6CC7-73BD-4F4F-A471-DBE253D3B9E7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "6. Hanoificar", "hanoi\hanoi.vcxproj", "{113F6CC7-73BD-4F4F-A471-DBE253D3B9E7}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Secuencia", "Secuencia\Secuencia.vcxproj", "{A4730E42-332A-4255-B0A8-B23B72AC3B98}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "3. Secuencia", "Secuencia\Secuencia.vcxproj", "{A4730E42-332A-4255-B0A8-B23B72AC3B98}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Racionales", "Racionales\Racionales.vcxproj", "{2A238725-3B90-4045-AFD9-B20A69A4A9D4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1. Fracciones", "Racionales\Racionales.vcxproj", "{2A238725-3B90-4045-AFD9-B20A69A4A9D4}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hundir al mayor", "hundir al mayor\hundir al mayor.vcxproj", "{B10406C4-7FC0-4C75-B034-D9F36C2DF007}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "5. hundir al mayor", "hundir al mayor\hundir al mayor.vcxproj", "{B10406C4-7FC0-4C75-B034-D9F36C2DF007}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Colarse", "Colarse\Colarse.vcxproj", "{2E725334-10D1-488A-8022-3BBAF145B4A5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "7. Colarse", "Colarse\Colarse.vcxproj", "{2E725334-10D1-488A-8022-3BBAF145B4A5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "8. Minimo a cima", "8. Minimo a cima\8. Minimo a cima.vcxproj", "{54B901C7-271E-4519-A826-35B39D57EF86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,14 @@ Global
 		{2E725334-10D1-488A-8022-3BBAF145B4A5}.Release|x64.Build.0 = Release|x64
 		{2E725334-10D1-488A-8022-3BBAF145B4A5}.Release|x86.ActiveCfg = Release|Win32
 		{2E725334-10D1-488A-8022-3BBAF145B4A5}.Release|x86.Build.0 = Release|Win32
+		{54B901C7-271E-4519-A826-35B39D57EF86}.Debug|x64.ActiveCfg = Debug|x64
+		{54B901C7-271E-4519-A826-35B39D57EF86}.Debug|x64.Build.0 = Debug|x64
+		{54B901C7-271E-4519-A826-35B39D57EF86}.Debug|x86.ActiveCfg = Debug|Win32
+		{54B901C7-271E-4519-A826-35B39D57EF86}.Debug|x86.Build.0 = Debug|Win32
+		{54B901C7-271E-4519-A826-35B39D57EF86}.Release|x64.ActiveCfg = Release|x64
+		{54B901C7-271E-4519-A826-35B39D57EF86}.Release|x64.Build.0 = Release|x64
+		{54B901C7-271E-4519-A826-35B39D57EF86}.Release|x86.ActiveCfg = Release|Win32
+		{54B901C7-271E-4519-A826-35B39D57EF86}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

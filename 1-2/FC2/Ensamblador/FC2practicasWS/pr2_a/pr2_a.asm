@@ -25,7 +25,7 @@
 
 .global main
 .equ N, 8
-.equ INT_MAX, 2147483647
+.equ INT_MAX, 214748
 .data
 V:   .word -7,3,-9,8,15,-16,0,3
 
@@ -33,68 +33,32 @@ V:   .word -7,3,-9,8,15,-16,0,3
 min: .space 4
 .text
 main:
+	la s1 , min		//s1= dir min
+	li t0 , INT_MAX // t0=MAX
+	sw t0 , 0( s1)	//min=max=t0
 	li t3, N		//t3=N
-    li t2, INT_MAX  //t0=int_max
     la t4, V		//t4 =dir de V
-    la  t6, min    // Carga la dirección de memoria de min en t6
-	sw  t2, 0(t6)
 	li t1, 0		//t1=i
+	li t5,0
 
 for:
 	bge t1, t3, end_for
-	//t5 = V[i]
-
-	//lw  t5, 0(t4)
-	slli t0, t1, 2
-	add s5, s5, t4
-	lw t5, 0(s5)
-
+	slli t2 , t1 , 2 // t2 contiene ahora (t1 << 2) , igual a "t1 *4"
+	add t5 , t4 , t2 // t3 contiene "s1 + t1 *4" , justo la direcci ón buscada
+	lw a0 , 0(t5)
 	if:
-		bge t5, t2, end_if
-		addi t0, t5, 0
+		bge a0, t0, end_if //salta si a0(v[i])>=t0(min)
+		addi t0, a0, 0
+
 	end_if:
 		addi t1, t1, 1
 	j for
 end_for:
-	//guardar en memoria min
+	sw t0, 0(s1)
+
 end:
 	 j end
 
 
 
-/*
-main:
-	li t1, N		//t1=N
-    la s5, min		//s5=min
-    li s5, 0
-    li t0, INT_MAX	//t0=INT_MAX
-    sw t0, 0(s5)
-    li t2, 0		//t2=i
-    //lw s1, V
-	la t3, V
-for:
-	bge t2, t1, fin_for		//si cc, saltar
-	slli t5, t2, 2			//desplazamiento
-	add t5, t5, t3		//t5=t5+t3
-	lw  s3, 0(t5)     	// @s1=v[i]
 
-if:
-	ble s5, s3, fin_if
-	mv s5,s3
-	//sw s3, 0 (s5)		//almacenar el valor de s3 en min
-
-	//min toma valor de s3
-
-fin_if:
-	addi t2, t2, 1 			//incrementar indice
-	j for
-
-fin_for:
-	la s3, min
-	la s5, min //resultado en s5
-	j end
-
-end:
-	j .
-	.end
-*/

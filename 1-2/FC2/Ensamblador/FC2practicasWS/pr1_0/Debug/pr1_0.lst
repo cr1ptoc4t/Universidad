@@ -46,54 +46,54 @@ Disassembly of section .text:
 
 00000000 <main>:
 main():
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_0\Debug/../pr1_0.asm:27
-    MAYOR:  .space 4//dato 'MAYOR' ocupa 4 bytes
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_0\Debug/../pr1_0.asm:28
+.text // secci ón de có digo
 
-.text               //sección de código
-.global main        //''main'' se puede llamar desde fuera
-main:               //punto de entrada del código
-    la t2, A        //cargamos en t2 la DIRECCIÓN de A
+.global main // ’’main ’’ se puede llamar desde fuera
+
+main: // punto de entrada del có digo
+	la t2 , A // cargamos en t2 la DIRECCI ÓN de A
    0:	00010397          	auipc	t2,0x10
    4:	00038393          	mv	t2,t2
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_0\Debug/../pr1_0.asm:28
-    lw t0, 0(t2)    //usamos la dirección para cargar el VALOR de A
-   8:	0003a283          	lw	t0,0(t2) # 10000 <A>
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_0\Debug/../pr1_0.asm:29
-    la t3, B        //cargamos en t3 la DIRECCIÓN de B
+	lw t0 , 0( t2) // usamos la direcci ón para cargar el VALOR de A
+   8:	0003a283          	lw	t0,0(t2) # 10000 <A>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_0\Debug/../pr1_0.asm:30
+	la t3 , B // cargamos en t3 la DIRECCI ÓN de B
    c:	00010e17          	auipc	t3,0x10
   10:	ff8e0e13          	addi	t3,t3,-8 # 10004 <B>
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_0\Debug/../pr1_0.asm:30
-    lw t1, 0(t3)    //usamos la dirección para cargar el VALOR de B
-  14:	000e2303          	lw	t1,0(t3)
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_0\Debug/../pr1_0.asm:31
-    ble t0, t1, mayb//Si t0 (A) <= t1 (B), salto (condición inversa)
+	lw t1 , 0( t3) // usamos la direcci ón para cargar el VALOR de B
+  14:	000e2303          	lw	t1,0(t3)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_0\Debug/../pr1_0.asm:32
+	ble t0 , t1 , mayb // Si t0 (A) <= t1 (B), salto ( condici ón inversa )
   18:	00535a63          	bge	t1,t0,2c <mayb>
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_0\Debug/../pr1_0.asm:33
-                    //en este caso no hemos saltado (a es mayor)
-    la t4, MAYOR      //cargamos en t4 la DIRECCIÓN de MAYOR
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_0\Debug/../pr1_0.asm:34
+// en este caso no hemos saltado (a es mayor )
+	la t4 , MAYOR // cargamos en t4 la DIRECCI ÓN de MAYOR
   1c:	00010e97          	auipc	t4,0x10
   20:	fece8e93          	addi	t4,t4,-20 # 10008 <MAYOR>
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_0\Debug/../pr1_0.asm:34
-    sw t0, 0(t4)      //guardamos t0 (A) en MAYOR
-  24:	005ea023          	sw	t0,0(t4)
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_0\Debug/../pr1_0.asm:35
-    j fin             //saltamos al final del programa
+	sw t0 , 0( t4) // guardamos t0 (A) en MAYOR
+  24:	005ea023          	sw	t0,0(t4)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_0\Debug/../pr1_0.asm:36
+	j fin // saltamos al final del programa
   28:	0100006f          	j	38 <fin>
 
 0000002c <mayb>:
 mayb():
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_0\Debug/../pr1_0.asm:37
-mayb:               //en este caso, b es mayor (o igual)
-    la t4, MAYOR      //cargamos en t4 la DIRECCIÓN de MAYOR
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_0\Debug/../pr1_0.asm:38
+mayb: // en este caso , b es mayor (o igual )
+	la t4 , MAYOR // cargamos en t4 la DIRECCI ÓN de MAYOR
   2c:	00010e97          	auipc	t4,0x10
   30:	fdce8e93          	addi	t4,t4,-36 # 10008 <MAYOR>
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_0\Debug/../pr1_0.asm:38
-    sw t1, 0(t4)      //guardamos t1 (B) en MAYOR
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_0\Debug/../pr1_0.asm:39
+	sw t1 , 0( t4) // guardamos t1 (B) en MAYOR
   34:	006ea023          	sw	t1,0(t4)
 
 00000038 <fin>:
 fin():
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_0\Debug/../pr1_0.asm:40
-fin:                //fin del programa
-    j fin           //salto sobre sí mismo, parando el programa
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr1_0\Debug/../pr1_0.asm:41
+fin: // fin del programa
+	j fin // salto sobre sí mismo , parando el programa
   38:	0000006f          	j	38 <fin>
