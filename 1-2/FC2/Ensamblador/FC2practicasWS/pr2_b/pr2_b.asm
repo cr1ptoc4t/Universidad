@@ -13,7 +13,7 @@
 **  Notas de diseño:
 **
 **	# define N 8
-**	# define INT_MAX 2147483647
+**	# define INT_MAX 65536
 **	int V [ N ] = { -7 ,3 , -9 ,8 ,15 , -16 ,0 ,3};
 **	int W [ N ];
 **	int min , index ;
@@ -33,7 +33,7 @@
 
 .global main
 .equ N , 8
-.equ INT_MAX , 2147483647
+.equ INT_MAX , 65536
 
 .data
 V: 	 .word -7 ,3 , -9 ,8 ,15 , -16 ,0 ,3
@@ -44,50 +44,53 @@ ind: .space 4
 
 .text
 main:
-	li t1, N			//t1=N´
-	la s8, ind			//s8=ind=0
-	li s8, 0
-	la s5, min
-	li s5, 0			//min=s5=0
-	li t0, INT_MAX		//t0=INT_MAX
-	li t2, 0			//t2=i
-	li t4, 0			//t4=j
-	la t3, V
-	la t6, W
+	li t0, 0			//t0=j
+	li t1, N			//t1=N(8)
+	li t2, INT_MAX		//t2=INT_MAX
+	la t3, V			//t3=@V
+	la t4, W			//t4=@W
+	la t5, min			//t5=@min
+	la t6, ind			//t6=@ind
 
-for:
-	bge t2, t1, fin_for		//si cc, saltar
-	li t4, 0
-segundo_for:
-	bge t4, t1, fin_segundo_for
+	//i=s2
 
+for_j:
+	bge t0, t1, e_for_j
+	mv s1, t2
+	sw s1, 0(t5)    	//min=INT_MAX
+	li s2, 0        	//s2=i=0
 
-if:
-	slli t5, t4, 2			//desplazamiento
-	add t5, t5, t6			//t5=t5+t3
-	lw  s6, 0(t5)     		// @s1=v[i]
-	ble s5, s3, fin_if
-	mv s5,s3
-	mv s8,t4
+	for_i:
+	bge s2, t1, e_for_i
+	slli s3, s2, 2   	// desplazamiento
+	add s3, s3, t3   	// direccion
+	lw s3, 0(s3)     	// s3= V[i]
 
-fin_if:
-	addi t4, t4, 1
-	j segundo_for
+		if:
+		bge s3, s1, end_if //salta si s3 = v[i] >= s1 = min
+		mv s1, s3
+		sw s1, 0(t5)     //min=V[i]
+		sw s2, 0(t6)     //ind=i
+		end_if:
+	addi s2, s2, 1    	//i++
+	j for_i
 
-fin_segundo_for:
+	e_for_i:
 
-	slli t5, t2, 2			//desplazamiento
-	add t5, t5, s6			//t5=t5+t6
-	mv s6, t5
-	mv t5, t1
+	//W[j]=V[index]
+	slli s4, t0, 2    //s4=desplazamiento
+	add s4, s4, t4    //s4=dirección elemento a colocar
+	sw s1, 0(s4)      //W[j]=V[ind]
 
-	addi t2, t2, 1 			//incrementar indice
-	j for
+	//V[index]=INT_MAX
+	lw s5, 0(t6)      //s5=ind
+	slli s5, s5, 2    //desplazamiento
+	add s5, s5, t3    //direccion
+	sw t2, 0(s5)      //V[index]=INT_MAX
 
-
-fin_for:
-
-	j end
-end:
-	j .
-	.end
+	//j++ y jump
+	addi t0,t0,1
+	j for_j
+e_for_j:
+fin: j .
+.end

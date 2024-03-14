@@ -49,34 +49,35 @@
 .global main
 .equ N, 4
 
-
 .data
-A: .word 3, 5, 1, 9
-B: .word 1, 6, 2, 3
+A: .word 3,5,1,9
+B: .word 1,6,2,3
 .bss
 res: .space 4
+.text
 main:
-	li a2, N	//n=4
-
-	la a0, A	//a0=A
-	la a1, B
-
+	la sp , _stack
+	la a0, A		//a0=A
+	la a1, A
+	li a2, N		//N=a2
 	call dot_prod	//llamar a la funcion
-	la t0, res		//dotprod devuelve res
-	sw a0, 0(t0)	//guardado de res
-	//guarda normA en var
+	mv t2, a0		//t2=normA
 
-	call dot_prod2
-	//normB eb var
+	la a0, B		//a0=B
+	la a1, B		//a1=B
+	li a2, N
+	call dot_prod	//llamar a la funcion
+	mv t3, a0		//t3= normB
+
 	if:
-		//bge normB, normA, else
-
-		//mv t2, 0xa //res=0xa
-
+	bge t3, t2, else //Salto si normB=t3>=t2=normA
+	li t4, 0xa 		//res=0xa
+	j end_if
 	else:
-		//res=0xb
-
-
+	li t4, 0xb	//res=0xb
+	end_if:
+	la t3, res;
+	sw t4, 0(t3)
 
 end:
 	j .
@@ -88,26 +89,37 @@ dot_prod:
 	sw s1 , 12( sp) // PRÓLOGO
 	sw s2 , 8( sp) //
 	sw s3 , 4( sp) //
-	sw s4 , 0( sp) // ///
+	sw s4 , 0( sp) //
+
+	//a0=V
+	//a1=W
+	//a2=n
+
 	li s0 , 0 // s0 guarda acc
 	li s1 , 0 // s1 guarda i
-	mv s2 , a0 // s2 guarda A
-	mv s3 , a1 // s3 guarda B
-	mv s4 , a2 // s4 guarda n
-	for:
-		bge s1, s4, fin_for
-		la t1, V
-		slli t3, s2, 2
-		add t2, t1, t3
-		lw s3, 0(t2)
-		//acc += mul(V[i], W[i]); donde v(i) es s3, acc es s4 y w[i] es x
+	mv s2 , a0 // s2 = dir V
+	mv s3 , a1 // s3= dir W
+	//mv s4 , a2 // s4 guarda n
+	li s4, 0
 
-		sw s3, 0(t2)
-		nextiter:
-		addi s1 , s1 , 1 // actualizo iterador
-		addi s2 , s2 , 4 //A++
-		addi s3 , s3 , 4 //B++
-		addi s2, s2, 1
+	for:
+		bge s1, a2, fin_for
+
+		// a0 = W[i] (dir s3)
+		slli s4, s1, 2    //s4=desplazamiento
+		add s4, s4, s3    //s4=dirección elemento
+		lw a0, 0(s4)
+
+		// a1 = V[i] (dir s2)
+		slli s5, s1, 2
+		add s5, s5, s2    //s4=dirección elemento a colocar
+		lw a1, 0(s5)		//a1 = v[i]
+
+		call mul
+
+		add s0, s0, a0
+
+		addi s1, s1, 1
 		j for
 	fin_for:
 		mv a0 , s0 // colocar acc para devolver
@@ -120,17 +132,35 @@ dot_prod:
 		addi sp , sp , 24 // ///
 		ret // devuelvo control
 
+
+
 mul:
-	//a1 =a
-	//a2=b
-	li a0, 0;			//int res = 0;
+	addi sp , sp , -24	//
+	sw ra , 20( sp)		//
+	sw s0 , 16( sp)		//
+	sw s1 , 12( sp)		// PRÓLOGO
+	sw s2 , 8( sp)		//
+	sw s3 , 4( sp) 		//
+	sw s4 , 0( sp)		//
+	//a0=a
+	//a1=b
+
+	li s0, 0;			//int res = 0;
 	while:
-		beq zero, a2, end_while
-		add a0, a0, a1
-		addi a2, a2, -1
+		beq zero, a1, end_while
+		add s0, s0, a0	//res+=a
+		addi a1, a1, -1
 		j while
 
 	end_while:
-	ret
+	mv a0 , s0
+	lw ra , 20( sp) 	/////
+	lw s0 , 16( sp) 	//
+	lw s1 , 12( sp) 	//
+	lw s2 , 8( sp)		// EPÍ LOGO
+	lw s3 , 4( sp) 		//
+	lw s4 , 0( sp) 		//
+	addi sp , sp , 24 	/////
+	ret // devuelvo control
 
 .end

@@ -21,13 +21,13 @@
 		<item key="WHOLE_WORD" value="false"/>
 		<item key="SEARCH_DERIVED" value="false"/>
 		<item key="SEARCH_IN_BINARIES" value="false"/>
-		<item key="HISTORY_SIZE" value="2"/>
+		<item key="HISTORY_SIZE" value="7"/>
 		<section name="HISTORY0">
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="s5"/>
-			<item key="scope" value="0"/>
+			<item key="textPattern" value="t8"/>
+			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.asm"/>
 			</list>
@@ -41,6 +41,66 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="s8"/>
+			<item key="scope" value="3"/>
+			<list key="fileNamePatterns">
+				<item value="*.asm"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY2">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="t4"/>
+			<item key="scope" value="3"/>
+			<list key="fileNamePatterns">
+				<item value="*.asm"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY3">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="t2"/>
+			<item key="scope" value="3"/>
+			<list key="fileNamePatterns">
+				<item value="*.asm"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY4">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="s4"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*.asm"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY5">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="s5"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*.asm"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY6">
+			<item key="ignoreCase" value="true"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
 			<item key="textPattern" value="s2"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
@@ -51,14 +111,14 @@
 		</section>
 	</section>
 	<section name="SearchDialog.ScopePart">
-		<item key="scope" value="0"/>
+		<item key="scope" value="3"/>
 	</section>
 	<section name="DialogBounds_SearchDialog">
 		<item key="DIALOG_X_ORIGIN" value="942"/>
 		<item key="DIALOG_Y_ORIGIN" value="171"/>
-		<item key="DIALOG_WIDTH" value="669"/>
-		<item key="DIALOG_HEIGHT" value="553"/>
-		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		<item key="DIALOG_WIDTH" value="506"/>
+		<item key="DIALOG_HEIGHT" value="462"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
 	<section name="">
 		<item key="org.eclipse.search.resultpage.limit" value="1000"/>
@@ -68,7 +128,14 @@
 	</section>
 	<section name="ReplaceDialog2">
 		<list key="replace_with">
+			<item value="t2"/>
+			<item value="t8"/>
+			<item value="s4"/>
+			<item value="s2"/>
 			<item value="s0"/>
 		</list>
+	</section>
+	<section name="">
+		<item key="org.eclipse.search.resultpage.limit" value="1000"/>
 	</section>
 </section>
