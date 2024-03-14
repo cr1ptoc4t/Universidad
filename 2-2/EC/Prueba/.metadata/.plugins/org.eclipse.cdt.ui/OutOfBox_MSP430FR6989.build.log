@@ -1,0 +1,9 @@
+
+**** Build of configuration Debug for project OutOfBox_MSP430FR6989 ****
+
+"C:\\Users\\Catalina\\ccs\\utils\\bin\\gmake" -k -j 8 all -O 
+ 
+gmake[1]: 'OutOfBox_MSP430FR6989.out' is up to date.
+gmake[1]: Nothing to be done for 'secondary-outputs'.
+
+**** Build Finished ****

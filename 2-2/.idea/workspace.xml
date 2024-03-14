@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b01dbeb7-7bc1-4239-b2c5-2e56827bd3a3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.log" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.cdt.core/.log" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.cdt.core/.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.cdt.ui/global-build.log" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.cdt.ui/global-build.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.core.resources/.projects/pr2_b/.indexes/properties.index" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.core.resources/.projects/pr2_b/.indexes/properties.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.core.resources/.projects/pr4/.indexes/properties.index" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.core.resources/.projects/pr4/.indexes/properties.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.core.resources/.root/34.tree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.launchbar.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.launchbar.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.debug.ui/dialog_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.debug.ui/dialog_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.wst.sse.core/task-tags.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/.plugins/org.eclipse.wst.sse.core/task-tags.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/version.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2practicasWS/.metadata/version.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej02/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej02/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej02/Debug/ej02.elf" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej02/Debug/ej02.elf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej02/Debug/ej02.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej02/Debug/ej02.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej02/Debug/ej02.map" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej02/Debug/ej02.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej02/Debug/ej02.o" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej02/Debug/ej02.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej02/Debug/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej02/Debug/makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej02/Debug/sources.mk" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej02/Debug/sources.mk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej02/Debug/subdir.mk" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej02/Debug/subdir.mk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej02/ej02.asm" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej02/ej02.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej03/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej03/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej04/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej04/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej05/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej05/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej06/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej06/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej07/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej07/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej08/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej08/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej09/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej09/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej10/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej10/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej11/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej11/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej12/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej12/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej13/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej13/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej14/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej14/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej15/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej15/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej16/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej16/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej17/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej17/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej18/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej18/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej19/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej19/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej20/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej20/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej21/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej21/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej22/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej22/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej23/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej23/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej24/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej24/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej25/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../1-2/FC2/Ensamblador/FC2problemasWS/ej25/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2-1/TP/TODAS LAS VERSIONES DE LA PRACTICA/v1_1/practica/2324-SpaceInvaders-main/src/tp1/logic/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/../2-1/TP/TODAS LAS VERSIONES DE LA PRACTICA/v1_1/practica/2324-SpaceInvaders-main/src/tp1/logic/Move.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="R Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2bRGvAzBfmVg66suu14hT84kUcY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b01dbeb7-7bc1-4239-b2c5-2e56827bd3a3" name="Changes" comment="" />
+      <created>1706170705594</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1706170705594</updated>
+      <workItem from="1706170706685" duration="2331000" />
+      <workItem from="1706602936362" duration="92000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

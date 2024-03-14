@@ -1,0 +1,17 @@
+#include <msp430.h> 
+#include <driverlib.h>
+//#include "StopWatchMode.h"
+//#include "TempSensorMode.h"
+#include "hal_LCD.h"
+
+
+/**
+ * main.c
+ */
+int main(void)
+{
+	WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
+    displayScrollText("WELCOME TO THE FR6989 LAUNCHPAD");
+
+	return 0;
+}
