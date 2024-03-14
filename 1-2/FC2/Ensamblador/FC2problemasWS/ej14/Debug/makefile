@@ -31,57 +31,57 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := ej02
+BUILD_ARTIFACT_NAME := ej14
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 SECONDARY_FLASH += \
-ej02.hex \
+ej14.hex \
 
 SECONDARY_LIST += \
-ej02.lst \
+ej14.lst \
 
 SECONDARY_SIZE += \
-ej02.siz \
+ej14.siz \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: ej02.elf secondary-outputs
+main-build: ej14.elf secondary-outputs
 
 # Tool invocations
-ej02.elf: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+ej14.elf: $(OBJS) $(USER_OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GNU RISC-V Cross C Linker'
-	riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\usuario\Desktop\rvworkspace_ejercicios\ej02\ldscript.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"ej02.map" -o "ej02.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	riscv64-unknown-elf-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -mno-save-restore -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej14\ldscript.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"ej14.map" -o "ej14.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-ej02.hex: ej02.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+ej14.hex: ej14.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Invoking: GNU RISC-V Cross Create Flash Image'
-	riscv64-unknown-elf-objcopy -O ihex "ej02.elf"  "ej02.hex"
+	riscv64-unknown-elf-objcopy -O ihex "ej14.elf"  "ej14.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-ej02.lst: ej02.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+ej14.lst: ej14.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Invoking: GNU RISC-V Cross Create Listing'
-	riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --line-numbers --wide "ej02.elf" > "ej02.lst"
+	riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --line-numbers --wide "ej14.elf" > "ej14.lst"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-ej02.siz: ej02.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
+ej14.siz: ej14.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Invoking: GNU RISC-V Cross Print Size'
-	riscv64-unknown-elf-size --format=berkeley "ej02.elf"
+	riscv64-unknown-elf-size --format=berkeley "ej14.elf"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS)$(SECONDARY_FLASH)$(SECONDARY_LIST)$(SECONDARY_SIZE)$(ASM_DEPS)$(S_UPPER_DEPS)$(C_DEPS) ej02.elf
+	-$(RM) $(OBJS)$(SECONDARY_FLASH)$(SECONDARY_LIST)$(SECONDARY_SIZE)$(ASM_DEPS)$(S_UPPER_DEPS)$(C_DEPS) ej14.elf
 	-@echo ' '
 
 secondary-outputs: $(SECONDARY_FLASH) $(SECONDARY_LIST) $(SECONDARY_SIZE)

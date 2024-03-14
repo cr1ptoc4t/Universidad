@@ -4,13 +4,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 ASM_SRCS += \
-../ej02.asm 
+../ej08.asm 
 
 OBJS += \
-./ej02.o 
+./ej08.o 
 
 ASM_DEPS += \
-./ej02.d 
+./ej08.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

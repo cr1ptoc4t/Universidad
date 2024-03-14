@@ -1,0 +1,147 @@
+
+ej05.elf:     file format elf32-littleriscv
+ej05.elf
+architecture: riscv:rv32, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x00000000
+
+Program Header:
+    LOAD off    0x00001000 vaddr 0x00000000 paddr 0x00000000 align 2**12
+         filesz 0x00000084 memsz 0x00000084 flags r-x
+    LOAD off    0x00000000 vaddr 0x00010000 paddr 0x00010000 align 2**12
+         filesz 0x00000000 memsz 0x00000014 flags rw-
+
+Sections:
+Idx Name              Size      VMA       LMA       File off  Algn  Flags
+  0 .text             00000084  00000000  00000000  00001000  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss              00000014  00010000  00010000  00002000  2**0  ALLOC
+  2 .riscv.attributes 0000001f  00000000  00000000  00001084  2**0  CONTENTS, READONLY
+  3 .debug_line       000000d2  00000000  00000000  000010a3  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  4 .debug_info       00000026  00000000  00000000  00001175  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  5 .debug_abbrev     00000014  00000000  00000000  0000119b  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  6 .debug_aranges    00000020  00000000  00000000  000011b0  2**3  CONTENTS, READONLY, DEBUGGING, OCTETS
+  7 .debug_str        0000006e  00000000  00000000  000011d0  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+SYMBOL TABLE:
+00000000 l    d  .text	00000000 .text
+00010000 l    d  .bss	00000000 .bss
+00000000 l    d  .riscv.attributes	00000000 .riscv.attributes
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    df *ABS*	00000000 ./ej05.o
+00010000 l       .bss	00000000 n
+00010004 l       .bss	00000000 fprev
+00010008 l       .bss	00000000 f
+0001000c l       .bss	00000000 i
+00010010 l       .bss	00000000 faux
+00000040 l       .text	00000000 while
+00000080 l       .text	00000000 end
+00000000 g       .text	00000000 main
+
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+main():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:38
+i: .space 4
+faux : .space 4
+
+.text
+main :
+    la t1,f
+   0:	00010317          	auipc	t1,0x10
+   4:	00830313          	addi	t1,t1,8 # 10008 <f>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:39
+    li s1,1         # cargo f en s1 y la guardo
+   8:	00100493          	li	s1,1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:40
+    sw s1,0(t1)
+   c:	00932023          	sw	s1,0(t1)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:41
+    la t0,i
+  10:	00010297          	auipc	t0,0x10
+  14:	ffc28293          	addi	t0,t0,-4 # 1000c <i>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:42
+    li s2,2         # cargo i en s2 y la guardo
+  18:	00200913          	li	s2,2
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:43
+    sw s2,0(t0)
+  1c:	0122a023          	sw	s2,0(t0)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:44
+    la t0,fprev
+  20:	00010297          	auipc	t0,0x10
+  24:	fe428293          	addi	t0,t0,-28 # 10004 <fprev>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:45
+    li s3,1         # cargo fprev en s3 y la guardo
+  28:	00100993          	li	s3,1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:46
+    sw s3,0(t0)
+  2c:	0132a023          	sw	s3,0(t0)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:47
+    la t0,n
+  30:	00010297          	auipc	t0,0x10
+  34:	fd028293          	addi	t0,t0,-48 # 10000 <n>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:48
+    li s4,5         # cargo n en s4 y la guardo
+  38:	00500a13          	li	s4,5
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:49
+    sw s4,0(t0)
+  3c:	0142a023          	sw	s4,0(t0)
+
+00000040 <while>:
+while():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:52
+
+while :
+    bgt s2,s4,end
+  40:	052a4063          	blt	s4,s2,80 <end>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:53
+    mv t2,s1        # t2 es faux , guardo al modificar
+  44:	00048393          	mv	t2,s1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:54
+    la t3,faux
+  48:	00010e17          	auipc	t3,0x10
+  4c:	fc8e0e13          	addi	t3,t3,-56 # 10010 <faux>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:55
+    sw t2,0(t3)
+  50:	007e2023          	sw	t2,0(t3)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:56
+    add s1,s1,s3        # f = f + fprev
+  54:	013484b3          	add	s1,s1,s3
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:57
+    sw s1,0(t1)         # guardo f al modificarse
+  58:	00932023          	sw	s1,0(t1)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:58
+    mv s3,t2        # modifico fprev , la guardo
+  5c:	00038993          	mv	s3,t2
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:59
+    la t3,fprev
+  60:	00010e17          	auipc	t3,0x10
+  64:	fa4e0e13          	addi	t3,t3,-92 # 10004 <fprev>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:60
+    sw s3,0(t3)
+  68:	013e2023          	sw	s3,0(t3)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:61
+    addi s2,s2,1        # modifico i, la guardo
+  6c:	00190913          	addi	s2,s2,1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:62
+    la t3,i
+  70:	00010e17          	auipc	t3,0x10
+  74:	f9ce0e13          	addi	t3,t3,-100 # 1000c <i>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:63
+    sw s2,0(t3)
+  78:	012e2023          	sw	s2,0(t3)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:64
+    j while
+  7c:	fc5ff06f          	j	40 <while>
+
+00000080 <end>:
+end():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej05\Debug/../ej05.asm:66
+end:
+    j .
+  80:	0000006f          	j	80 <end>

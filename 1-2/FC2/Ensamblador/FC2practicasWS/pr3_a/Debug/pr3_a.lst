@@ -7,21 +7,21 @@ start address 0x00000000
 
 Program Header:
     LOAD off    0x00001000 vaddr 0x00000000 paddr 0x00000000 align 2**12
-         filesz 0x00000134 memsz 0x00000134 flags r-x
+         filesz 0x0000011c memsz 0x0000011c flags r-x
     LOAD off    0x00002000 vaddr 0x00010000 paddr 0x00010000 align 2**12
          filesz 0x00000020 memsz 0x00000024 flags rw-
 
 Sections:
 Idx Name              Size      VMA       LMA       File off  Algn  Flags
-  0 .text             00000134  00000000  00000000  00001000  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  0 .text             0000011c  00000000  00000000  00001000  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
   1 .data             00000020  00010000  00010000  00002000  2**0  CONTENTS, ALLOC, LOAD, DATA
   2 .bss              00000004  00010020  00010020  00002020  2**0  ALLOC
   3 .riscv.attributes 0000001f  00000000  00000000  00002020  2**0  CONTENTS, READONLY
-  4 .debug_line       000001e1  00000000  00000000  0000203f  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
-  5 .debug_info       00000026  00000000  00000000  00002220  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
-  6 .debug_abbrev     00000014  00000000  00000000  00002246  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
-  7 .debug_aranges    00000020  00000000  00000000  00002260  2**3  CONTENTS, READONLY, DEBUGGING, OCTETS
-  8 .debug_str        00000070  00000000  00000000  00002280  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  4 .debug_line       000001bd  00000000  00000000  0000203f  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  5 .debug_info       00000026  00000000  00000000  000021fc  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  6 .debug_abbrev     00000014  00000000  00000000  00002222  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  7 .debug_aranges    00000020  00000000  00000000  00002238  2**3  CONTENTS, READONLY, DEBUGGING, OCTETS
+  8 .debug_str        00000070  00000000  00000000  00002258  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
 SYMBOL TABLE:
 00000000 l    d  .text	00000000 .text
 00010000 l    d  .data	00000000 .data
@@ -42,11 +42,11 @@ SYMBOL TABLE:
 0000004c l       .text	00000000 else
 00000050 l       .text	00000000 end_if
 0000005c l       .text	00000000 end
-00000090 l       .text	00000000 for
-000000bc l       .text	00000000 fin_for
-000000e0 l       .text	00000000 mul
-00000100 l       .text	00000000 while
-00000110 l       .text	00000000 end_while
+00000094 l       .text	00000000 for
+000000c0 l       .text	00000000 fin_for
+000000e8 l       .text	00000000 mul
+000000f8 l       .text	00000000 while
+00000108 l       .text	00000000 end_while
 00000000 g       .text	00000000 main
 00020000 g       *ABS*	00000000 _stack
 
@@ -106,7 +106,7 @@ if():
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:73
 
 	if:
-	bge t3, t2, else //Salto si normB=t3<=t2=normA
+	bge t3, t2, else //Salto si normB=t3>=t2=normA
   40:	007e5663          	bge	t3,t2,4c <else>
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:74
 	li t4, 0xa 		//res=0xa
@@ -146,202 +146,184 @@ dot_prod():
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:86
 
 dot_prod:
-	addi sp , sp , -24
-  60:	fe810113          	addi	sp,sp,-24 # 1ffe8 <res+0xffc8>
+	addi sp, sp, -28
+  60:	fe410113          	addi	sp,sp,-28 # 1ffe4 <res+0xffc4>
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:87
-	sw ra , 20( sp) //
-  64:	00112a23          	sw	ra,20(sp)
+	sw ra, 24(sp) //
+  64:	00112c23          	sw	ra,24(sp)
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:88
-	sw s0 , 16( sp) //
-  68:	00812823          	sw	s0,16(sp)
+	sw s0, 20(sp) //
+  68:	00812a23          	sw	s0,20(sp)
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:89
-	sw s1 , 12( sp) // PRÓLOGO
-  6c:	00912623          	sw	s1,12(sp)
+	sw s1, 16(sp) // PRÓLOGO
+  6c:	00912823          	sw	s1,16(sp)
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:90
-	sw s2 , 8( sp) //
-  70:	01212423          	sw	s2,8(sp)
+	sw s2, 12 (sp) //
+  70:	01212623          	sw	s2,12(sp)
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:91
-	sw s3 , 4( sp) //
-  74:	01312223          	sw	s3,4(sp)
+	sw s3, 8 (sp) //
+  74:	01312423          	sw	s3,8(sp)
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:92
-	sw s4 , 0( sp) //
-  78:	01412023          	sw	s4,0(sp)
+	sw s4, 4 (sp) //
+  78:	01412223          	sw	s4,4(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:93
+	sw s5, 0 (sp)
+  7c:	01512023          	sw	s5,0(sp)
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:98
-
 	//a0=V
 	//a1=W
 	//a2=n
 
 	li s0 , 0 // s0 guarda acc
-  7c:	00000413          	li	s0,0
+  80:	00000413          	li	s0,0
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:99
 	li s1 , 0 // s1 guarda i
-  80:	00000493          	li	s1,0
+  84:	00000493          	li	s1,0
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:100
 	mv s2 , a0 // s2 = dir V
-  84:	00050913          	mv	s2,a0
+  88:	00050913          	mv	s2,a0
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:101
 	mv s3 , a1 // s3= dir W
-  88:	00058993          	mv	s3,a1
+  8c:	00058993          	mv	s3,a1
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:103
 	//mv s4 , a2 // s4 guarda n
 	li s4, 0
-  8c:	00000a13          	li	s4,0
+  90:	00000a13          	li	s4,0
 
-00000090 <for>:
+00000094 <for>:
 for():
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:106
 
 	for:
 		bge s1, a2, fin_for
-  90:	02c4d663          	bge	s1,a2,bc <fin_for>
+  94:	02c4d663          	bge	s1,a2,c0 <fin_for>
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:109
 
 		// a0 = W[i] (dir s3)
 		slli s4, s1, 2    //s4=desplazamiento
-  94:	00249a13          	slli	s4,s1,0x2
+  98:	00249a13          	slli	s4,s1,0x2
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:110
 		add s4, s4, s3    //s4=dirección elemento
-  98:	013a0a33          	add	s4,s4,s3
+  9c:	013a0a33          	add	s4,s4,s3
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:111
 		lw a0, 0(s4)
-  9c:	000a2503          	lw	a0,0(s4)
+  a0:	000a2503          	lw	a0,0(s4)
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:114
 
 		// a1 = V[i] (dir s2)
 		slli s5, s1, 2
-  a0:	00249a93          	slli	s5,s1,0x2
+  a4:	00249a93          	slli	s5,s1,0x2
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:115
 		add s5, s5, s2    //s4=dirección elemento a colocar
-  a4:	012a8ab3          	add	s5,s5,s2
+  a8:	012a8ab3          	add	s5,s5,s2
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:116
 		lw a1, 0(s5)		//a1 = v[i]
-  a8:	000aa583          	lw	a1,0(s5)
+  ac:	000aa583          	lw	a1,0(s5)
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:118
 
 		call mul
-  ac:	034000ef          	jal	ra,e0 <mul>
+  b0:	038000ef          	jal	ra,e8 <mul>
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:120
 
 		add s0, s0, a0
-  b0:	00a40433          	add	s0,s0,a0
+  b4:	00a40433          	add	s0,s0,a0
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:122
 
 		addi s1, s1, 1
-  b4:	00148493          	addi	s1,s1,1
+  b8:	00148493          	addi	s1,s1,1
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:123
 		j for
-  b8:	fd9ff06f          	j	90 <for>
+  bc:	fd9ff06f          	j	94 <for>
 
-000000bc <fin_for>:
+000000c0 <fin_for>:
 fin_for():
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:125
 	fin_for:
 		mv a0 , s0 // colocar acc para devolver
-  bc:	00040513          	mv	a0,s0
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:126
-		lw ra , 20( sp) //
-  c0:	01412083          	lw	ra,20(sp)
+  c0:	00040513          	mv	a0,s0
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:127
-		lw s0 , 16( sp) //
-  c4:	01012403          	lw	s0,16(sp)
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:128
-		lw s1 , 12( sp) //
-  c8:	00c12483          	lw	s1,12(sp)
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:129
-		lw s2 , 8( sp) // EPÍLOGO
-  cc:	00812903          	lw	s2,8(sp)
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:130
-		lw s3 , 4( sp) //
-  d0:	00412983          	lw	s3,4(sp)
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:131
-		lw s4 , 0( sp) //
-  d4:	00012a03          	lw	s4,0(sp)
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:132
-		addi sp , sp , 24 // ///
-  d8:	01810113          	addi	sp,sp,24
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:133
-		ret // devuelvo control
-  dc:	00008067          	ret
 
-000000e0 <mul>:
+		lw ra , 24( sp) //
+  c4:	01812083          	lw	ra,24(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:128
+		lw s0 , 20( sp) //
+  c8:	01412403          	lw	s0,20(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:129
+		lw s1 , 16( sp) //
+  cc:	01012483          	lw	s1,16(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:130
+		lw s2 , 12( sp) // EPÍLOGO
+  d0:	00c12903          	lw	s2,12(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:131
+		lw s3 , 8( sp) //
+  d4:	00812983          	lw	s3,8(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:132
+		lw s4 , 4( sp) //
+  d8:	00412a03          	lw	s4,4(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:133
+		lw s5 , 0( sp) //
+  dc:	00012a83          	lw	s5,0(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:134
+		addi sp , sp , 28 // ///
+  e0:	01c10113          	addi	sp,sp,28
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:135
+		ret // devuelvo control
+  e4:	00008067          	ret
+
+000000e8 <mul>:
 mul():
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:138
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:140
 
 
 
 mul:
-	addi sp , sp , -24	//
-  e0:	fe810113          	addi	sp,sp,-24
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:139
-	sw ra , 20( sp)		//
-  e4:	00112a23          	sw	ra,20(sp)
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:140
-	sw s0 , 16( sp)		//
-  e8:	00812823          	sw	s0,16(sp)
+	addi sp , sp , -8	//
+  e8:	ff810113          	addi	sp,sp,-8
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:141
-	sw s1 , 12( sp)		// PRÓLOGO
-  ec:	00912623          	sw	s1,12(sp)
+	sw ra , 4( sp)		//
+  ec:	00112223          	sw	ra,4(sp)
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:142
-	sw s2 , 8( sp)		//
-  f0:	01212423          	sw	s2,8(sp)
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:143
-	sw s3 , 4( sp) 		//
-  f4:	01312223          	sw	s3,4(sp)
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:144
-	sw s4 , 0( sp)		//
-  f8:	01412023          	sw	s4,0(sp)
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:148
+	sw s0 , 0( sp)		//
+  f0:	00812023          	sw	s0,0(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:146
 	//a0=a
 	//a1=b
 
 	li s0, 0;			//int res = 0;
-  fc:	00000413          	li	s0,0
+  f4:	00000413          	li	s0,0
 
-00000100 <while>:
+000000f8 <while>:
 while():
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:150
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:148
 	while:
 		beq zero, a1, end_while
- 100:	00b00863          	beq	zero,a1,110 <end_while>
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:151
+  f8:	00b00863          	beq	zero,a1,108 <end_while>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:149
 		add s0, s0, a0	//res+=a
- 104:	00a40433          	add	s0,s0,a0
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:152
+  fc:	00a40433          	add	s0,s0,a0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:150
 		addi a1, a1, -1
- 108:	fff58593          	addi	a1,a1,-1
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:153
+ 100:	fff58593          	addi	a1,a1,-1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:151
 		j while
- 10c:	ff5ff06f          	j	100 <while>
+ 104:	ff5ff06f          	j	f8 <while>
 
-00000110 <end_while>:
+00000108 <end_while>:
 end_while():
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:156
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:154
 
 	end_while:
 	mv a0 , s0
- 110:	00040513          	mv	a0,s0
+ 108:	00040513          	mv	a0,s0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:155
+	lw ra , 4( sp) 	/////
+ 10c:	00412083          	lw	ra,4(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:156
+	lw s0 , 0( sp) 	//
+ 110:	00012403          	lw	s0,0(sp)
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:157
-	lw ra , 20( sp) 	/////
- 114:	01412083          	lw	ra,20(sp)
+	addi sp , sp , 8 	/////
+ 114:	00810113          	addi	sp,sp,8
 C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:158
-	lw s0 , 16( sp) 	//
- 118:	01012403          	lw	s0,16(sp)
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:159
-	lw s1 , 12( sp) 	//
- 11c:	00c12483          	lw	s1,12(sp)
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:160
-	lw s2 , 8( sp)		// EPÍ LOGO
- 120:	00812903          	lw	s2,8(sp)
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:161
-	lw s3 , 4( sp) 		//
- 124:	00412983          	lw	s3,4(sp)
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:162
-	lw s4 , 0( sp) 		//
- 128:	00012a03          	lw	s4,0(sp)
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:163
-	addi sp , sp , 24 	/////
- 12c:	01810113          	addi	sp,sp,24
-C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_a\Debug/../pr3_a.asm:164
 	ret // devuelvo control
- 130:	00008067          	ret
+ 118:	00008067          	ret

@@ -83,14 +83,14 @@ end:
 	j .
 
 dot_prod:
-	addi sp , sp , -24
-	sw ra , 20( sp) //
-	sw s0 , 16( sp) //
-	sw s1 , 12( sp) // PRÓLOGO
-	sw s2 , 8( sp) //
-	sw s3 , 4( sp) //
-	sw s4 , 0( sp) //
-
+	addi sp, sp, -28
+	sw ra, 24(sp) //
+	sw s0, 20(sp) //
+	sw s1, 16(sp) // PRÓLOGO
+	sw s2, 12 (sp) //
+	sw s3, 8 (sp) //
+	sw s4, 4 (sp) //
+	sw s5, 0 (sp)
 	//a0=V
 	//a1=W
 	//a2=n
@@ -123,25 +123,23 @@ dot_prod:
 		j for
 	fin_for:
 		mv a0 , s0 // colocar acc para devolver
-		lw ra , 20( sp) //
-		lw s0 , 16( sp) //
-		lw s1 , 12( sp) //
-		lw s2 , 8( sp) // EPÍLOGO
-		lw s3 , 4( sp) //
-		lw s4 , 0( sp) //
-		addi sp , sp , 24 // ///
+
+		lw ra , 24( sp) //
+		lw s0 , 20( sp) //
+		lw s1 , 16( sp) //
+		lw s2 , 12( sp) // EPÍLOGO
+		lw s3 , 8( sp) //
+		lw s4 , 4( sp) //
+		lw s5 , 0( sp) //
+		addi sp , sp , 28 // ///
 		ret // devuelvo control
 
 
 
 mul:
-	addi sp , sp , -24	//
-	sw ra , 20( sp)		//
-	sw s0 , 16( sp)		//
-	sw s1 , 12( sp)		// PRÓLOGO
-	sw s2 , 8( sp)		//
-	sw s3 , 4( sp) 		//
-	sw s4 , 0( sp)		//
+	addi sp , sp , -8	//
+	sw ra , 4( sp)		//
+	sw s0 , 0( sp)		//
 	//a0=a
 	//a1=b
 
@@ -154,13 +152,9 @@ mul:
 
 	end_while:
 	mv a0 , s0
-	lw ra , 20( sp) 	/////
-	lw s0 , 16( sp) 	//
-	lw s1 , 12( sp) 	//
-	lw s2 , 8( sp)		// EPÍ LOGO
-	lw s3 , 4( sp) 		//
-	lw s4 , 0( sp) 		//
-	addi sp , sp , 24 	/////
+	lw ra , 4( sp) 	/////
+	lw s0 , 0( sp) 	//
+	addi sp , sp , 8 	/////
 	ret // devuelvo control
 
 .end

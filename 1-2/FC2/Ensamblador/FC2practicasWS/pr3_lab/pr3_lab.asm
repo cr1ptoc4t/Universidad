@@ -11,89 +11,171 @@
 **    Fichero de código para la práctica 3_lab
 **
 **-------------------------------------------------------------------*/
-//.extern _stack
+.extern _stack
 .global main
-.equ N, 4
+.equ N, 6
+.equ c, 3
+.equ d, 5
+.equ e, 2
+.equ f, 4
 
 .data
-A: .word 3, 5, 1, 9
-B: .word 1, 6, 2, 3
+A: .word 3, 5, -1, 9, 7, 4
+B: .word 1,-6, 2, 3, 5, 8
+
 .bss
-res: .space 4
+resultado: .space 4
+
+.text
 main:
-	li a2, N	//n=4
-	la a0, A	//a0=A
-	la a1, B
 
-	//call dot_prod	//llamar a la funcion
-	//la t0, res		//dotprod devuelve res
-	//sw a0, 0(t0)	//guardado de res
-	//guarda normA en var
+	la a0, A
+	li a1, c
+	li a2, d
+	la a3, B
+	li a4, e
+	li a5, f
+	li a6, N
 
-	//call dot_prod2
-	//normB eb var
-	if:
-		//bge normB, normA, else
+	call comparacion
 
-		//mv t2, 0xa //res=0xa
-	else:
-		//res=0xb
-
-
+	la t0, resultado
+	sw a0, 0(t0)
 end:
 	j .
 
-dot_prod:
-	addi sp , sp , -24 // ///
-	sw ra , 20( sp) //
-	sw s0 , 16( sp) //
-	sw s1 , 12( sp) // PRÓ LOGO
-	sw s2 , 8( sp) //
-	sw s3 , 4( sp) //
-	sw s4 , 0( sp) // ///
-	li s0 , 0 // s0 guarda acc
-	li s1 , 0 // s1 guarda i
-	mv s2 , a0 // s2 guarda A
-	mv s3 , a1 // s3 guarda B
-	mv s4 , a2 // s4 guarda n
-	for:
-		bge s1, s4, fin_for
-		/*
-		la t1, V
-		slli t3, s2, 2
-		add t2, t1, t3
-		lw s3, 0(t2)
-		//acc += mul(V[i], W[i]); donde v(i) es s3, acc es s4 y w[i] es x
 
-		sw s3, 0(t2)*/
-		nextiter:
-		addi s1 , s1 , 1 // actualizo iterador
-		addi s2 , s2 , 4 //A++
-		addi s3 , s3 , 4 //B++
-		addi s2, s2, 1
-		j for
-	fin_for:
-		mv a0 , s0 // colocar acc para devolver NO ES A0
-		lw ra , 20( sp) //
-		lw s0 , 16( sp) //
-		lw s1 , 12( sp) //
-		lw s2 , 8( sp) // EPÍLOGO
-		lw s3 , 4( sp) //
-		lw s4 , 0( sp) //
-		addi sp , sp , 24 // ///
-		ret // devuelvo control
+comparacion:
+	addi sp , sp , -24	//
+	sw ra , 20( sp)		//
+	sw s0 , 16( sp)		//
+	sw s1 , 12( sp)		// PRÓLOGO
+	sw s2 , 8( sp)		//
+	sw s3 , 4( sp) 	//
+	sw s4 , 0( sp)		//
+
+	li s0, 0 // s0= diff
+
+	//normA = s1
+	mv s3, a3
+	mv a3, a6
+	call dotprodmodif
+	mv s1, a0
+
+	//normB = s2
+	mv a0, s3
+	mv a1, a4
+	mv a2, a5
+	mv a3, a6
+	call dotprodmodif
+	mv s2, a0
+
+	sub s0, s1, s2
+
+	mv a0, s0
+
+	lw ra , 20( sp) 	//
+	lw s0 , 16( sp) 	//
+	lw s1 , 12( sp) 	//
+	lw s2 , 8( sp)		// EPÍLOGO
+	lw s3 , 4( sp) 		//
+	lw s4 , 0(sp)
+
+	addi sp , sp , 24 	//
+	ret
+
+
+dotprodmodif:
+	addi sp , sp , -28	//
+	sw ra , 24( sp)		//
+	sw s0 , 20( sp)		//
+	sw s1 , 16( sp)		//
+	sw s2 , 12( sp)		// PRÓLOGO
+	sw s3 , 8( sp)		//
+	sw s4 , 4( sp) 		//
+	sw s5 , 0( sp)		//
+
+
+	li s0, 0			//s0=i
+	mv s1, a3
+	srl s1, s1, 1		//DIVIDIR S1/2
+	li s2, 0			// s2= acc
+	mv s5, a0			//s5= dir V
+	//mv s6, a1
+
+	for1:
+		bge s0, s1, end_for_1
+
+		// V[i] -> a0
+		slli s4, s0, 2    //s4=desplazamiento
+		add s4, s4, s5    //s4=dirección elemento
+		lw a0, 0(s4)
+
+		call mul
+
+		add s2, s2, a0 //acc+=mul
+		addi s0, s0, 1	//i++
+		j for1
+	end_for_1:
+	mv s6, a3
+	srl s6, s6, 1//dividir a0/2
+	mv s1, a3
+	mv a1, a2
+	for2:
+		bge s6, a3, end_for_2
+
+		// V[i] -> a0
+		slli s4, s6, 2    //s4=desplazamiento
+		add s4, s4, s5    //s4=dirección elemento
+		lw a0, 0(s4)
+
+		call mul
+
+		add s2, s2, a0 //acc+=mul
+		addi s6, s6, 1	//i++
+		j for2
+	end_for_2:
+
+	mv a0, s2
+
+	lw ra , 24( sp) 	//
+	lw s0 , 20( sp) 	//
+	lw s1 , 16( sp) 	//
+	lw s2 , 12( sp)		// EPÍLOGO
+	lw s3 , 8( sp) 		//
+	lw s4 , 4( sp) 		//
+	lw s5 , 0( sp) 		//
+	addi sp , sp , 28 	//
+	ret
+
+
 
 mul:
-	//a1 =a
-	//a2=b
-	li a0, 0;			//int res = 0;
+	addi sp , sp , -24	//
+	sw ra , 20( sp)		//
+	sw s0 , 16( sp)		//
+	sw s1 , 12( sp)		// PRÓLOGO
+	sw s2 , 8( sp)		//
+	sw s3 , 4( sp) 		//
+	sw s4 , 0( sp)		//
+	//a0=a
+	//a1=b
+	li s1, 0;			//int res = 0;
+	mv t1, a1;
 	while:
-		beq zero, a2, end_while
-		add a0, a0, a1
-		addi a2, a2, -1
+		beq zero, t1, end_while
+		add s1, s1, a0	//res+=a
+		addi t1, t1, -1
 		j while
-
 	end_while:
-	ret
+	mv a0 , s1
+	lw ra , 20( sp) 	//
+	lw s0 , 16( sp) 	//
+	lw s1 , 12( sp) 	//
+	lw s2 , 8( sp)		// EPÍLOGO
+	lw s3 , 4( sp) 		//
+	lw s4 , 0( sp) 		//
+	addi sp , sp , 24 	//
+	ret // devuelvo control
 
 .end

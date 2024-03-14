@@ -1,0 +1,139 @@
+
+ej12.elf:     file format elf32-littleriscv
+ej12.elf
+architecture: riscv:rv32, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x00000000
+
+Program Header:
+    LOAD off    0x00001000 vaddr 0x00000000 paddr 0x00000000 align 2**12
+         filesz 0x00000060 memsz 0x00000060 flags r-x
+    LOAD off    0x00002000 vaddr 0x00010000 paddr 0x00010000 align 2**12
+         filesz 0x00000030 memsz 0x00000064 flags rw-
+
+Sections:
+Idx Name              Size      VMA       LMA       File off  Algn  Flags
+  0 .text             00000060  00000000  00000000  00001000  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data             00000030  00010000  00010000  00002000  2**0  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss              00000034  00010030  00010030  00002030  2**0  ALLOC
+  3 .riscv.attributes 0000001f  00000000  00000000  00002030  2**0  CONTENTS, READONLY
+  4 .debug_line       000000b4  00000000  00000000  0000204f  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  5 .debug_info       00000026  00000000  00000000  00002103  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  6 .debug_abbrev     00000014  00000000  00000000  00002129  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  7 .debug_aranges    00000020  00000000  00000000  00002140  2**3  CONTENTS, READONLY, DEBUGGING, OCTETS
+  8 .debug_str        0000006e  00000000  00000000  00002160  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+SYMBOL TABLE:
+00000000 l    d  .text	00000000 .text
+00010000 l    d  .data	00000000 .data
+00010030 l    d  .bss	00000000 .bss
+00000000 l    d  .riscv.attributes	00000000 .riscv.attributes
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    df *ABS*	00000000 ./ej12.o
+0000000c l       *ABS*	00000000 n
+00010000 l       .data	00000000 a
+00010030 l       .bss	00000000 b
+00010060 l       .bss	00000000 countB
+0000001c l       .text	00000000 for
+00000050 l       .text	00000000 fin_for
+00000048 l       .text	00000000 fin_if
+0000005c l       .text	00000000 fin
+00000000 g       .text	00000000 main
+
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+main():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:38
+.bss
+b:      .space 48
+countB: .space 4
+.text
+main:
+    mv   t1,zero    # t1 es j
+   0:	00000313          	li	t1,0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:39
+    mv   t2,zero    # t2 es i
+   4:	00000393          	li	t2,0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:40
+    la   s1,a       # s1 es la @base de a
+   8:	00010497          	auipc	s1,0x10
+   c:	ff848493          	addi	s1,s1,-8 # 10000 <a>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:41
+    la   s2,b       # s2 es la @base de b
+  10:	00010917          	auipc	s2,0x10
+  14:	02090913          	addi	s2,s2,32 # 10030 <b>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:42
+    li   s3,n       # s3 contien la constante n
+  18:	00c00993          	li	s3,12
+
+0000001c <for>:
+for():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:44
+for:
+    bge  t2,s3,fin_for
+  1c:	0333da63          	bge	t2,s3,50 <fin_for>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:45
+    slli t3,t2,2    # i*4
+  20:	00239e13          	slli	t3,t2,0x2
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:46
+    add  t3,t3,s1   # @efectiva de i
+  24:	009e0e33          	add	t3,t3,s1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:47
+    lw   t4,0(t3)
+  28:	000e2e83          	lw	t4,0(t3)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:48
+    blez t4,fin_if
+  2c:	01d05e63          	blez	t4,48 <fin_if>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:49
+    andi t6,t4,1    # pone a cero todos los bits menos el
+  30:	001eff93          	andi	t6,t4,1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:51
+                    # último, que depende de t4
+    bnez t6,fin_if
+  34:	000f9a63          	bnez	t6,48 <fin_if>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:52
+    slli t3,t1,2
+  38:	00231e13          	slli	t3,t1,0x2
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:53
+    add  t3,t3,s2
+  3c:	012e0e33          	add	t3,t3,s2
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:54
+    sw   t4,0(t3)   # B[j]=A[i]
+  40:	01de2023          	sw	t4,0(t3)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:55
+    addi t1,t1,1
+  44:	00130313          	addi	t1,t1,1
+
+00000048 <fin_if>:
+fin_if():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:57
+fin_if:
+    addi t2,t2,1
+  48:	00138393          	addi	t2,t2,1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:58
+    j    for
+  4c:	fd1ff06f          	j	1c <for>
+
+00000050 <fin_for>:
+fin_for():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:60
+fin_for:
+    la   t3,countB
+  50:	00010e17          	auipc	t3,0x10
+  54:	010e0e13          	addi	t3,t3,16 # 10060 <countB>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:61
+    sw   t1,0(t3)   # countB=j
+  58:	006e2023          	sw	t1,0(t3)
+
+0000005c <fin>:
+fin():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2problemasWS\ej12\Debug/../ej12.asm:63
+fin:
+    j .
+  5c:	0000006f          	j	5c <fin>

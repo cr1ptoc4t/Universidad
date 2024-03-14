@@ -3,25 +3,29 @@ pr3_lab.elf:     file format elf32-littleriscv
 pr3_lab.elf
 architecture: riscv:rv32, flags 0x00000112:
 EXEC_P, HAS_SYMS, D_PAGED
-start address 0x00010024
+start address 0x00000000
 
 Program Header:
-    LOAD off    0x00001000 vaddr 0x00010000 paddr 0x00010000 align 2**12
-         filesz 0x00000020 memsz 0x000000c0 flags rw-
+    LOAD off    0x00001000 vaddr 0x00000000 paddr 0x00000000 align 2**12
+         filesz 0x000001ac memsz 0x000001ac flags r-x
+    LOAD off    0x00002000 vaddr 0x00010000 paddr 0x00010000 align 2**12
+         filesz 0x00000030 memsz 0x00000034 flags rw-
 
 Sections:
 Idx Name              Size      VMA       LMA       File off  Algn  Flags
-  0 .data             00000020  00010000  00010000  00001000  2**0  CONTENTS, ALLOC, LOAD, DATA
-  1 .bss              000000a0  00010020  00010020  00001020  2**0  ALLOC
-  2 .riscv.attributes 0000001f  00000000  00000000  00001020  2**0  CONTENTS, READONLY
-  3 .debug_line       00000117  00000000  00000000  0000103f  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
-  4 .debug_info       00000026  00000000  00000000  00001156  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
-  5 .debug_abbrev     00000014  00000000  00000000  0000117c  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
-  6 .debug_aranges    00000020  00000000  00000000  00001190  2**3  CONTENTS, READONLY, DEBUGGING, OCTETS
-  7 .debug_str        00000074  00000000  00000000  000011b0  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  0 .text             000001ac  00000000  00000000  00001000  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data             00000030  00010000  00010000  00002000  2**0  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss              00000004  00010030  00010030  00002030  2**0  ALLOC
+  3 .riscv.attributes 0000001f  00000000  00000000  00002030  2**0  CONTENTS, READONLY
+  4 .debug_line       000002a9  00000000  00000000  0000204f  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  5 .debug_info       00000026  00000000  00000000  000022f8  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  6 .debug_abbrev     00000014  00000000  00000000  0000231e  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+  7 .debug_aranges    00000020  00000000  00000000  00002338  2**3  CONTENTS, READONLY, DEBUGGING, OCTETS
+  8 .debug_str        00000074  00000000  00000000  00002358  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
 SYMBOL TABLE:
+00000000 l    d  .text	00000000 .text
 00010000 l    d  .data	00000000 .data
-00010020 l    d  .bss	00000000 .bss
+00010030 l    d  .bss	00000000 .bss
 00000000 l    d  .riscv.attributes	00000000 .riscv.attributes
 00000000 l    d  .debug_line	00000000 .debug_line
 00000000 l    d  .debug_info	00000000 .debug_info
@@ -29,20 +33,423 @@ SYMBOL TABLE:
 00000000 l    d  .debug_aranges	00000000 .debug_aranges
 00000000 l    d  .debug_str	00000000 .debug_str
 00000000 l    df *ABS*	00000000 ./pr3_lab.o
-00000004 l       *ABS*	00000000 N
+00000006 l       *ABS*	00000000 N
+00000003 l       *ABS*	00000000 c
+00000005 l       *ABS*	00000000 d
+00000002 l       *ABS*	00000000 e
+00000004 l       *ABS*	00000000 f
 00010000 l       .data	00000000 A
-00010010 l       .data	00000000 B
-00010020 l       .bss	00000000 res
-00010038 l       .bss	00000000 if
-00010038 l       .bss	00000000 else
-00010038 l       .bss	00000000 end
-0001003c l       .bss	00000000 dot_prod
-0001006c l       .bss	00000000 for
-00010084 l       .bss	00000000 fin_for
-00010070 l       .bss	00000000 nextiter
-000100a8 l       .bss	00000000 mul
-000100ac l       .bss	00000000 while
-000100bc l       .bss	00000000 end_while
-00010024 g       .bss	00000000 main
+00010018 l       .data	00000000 B
+00010030 l       .bss	00000000 resultado
+00000038 l       .text	00000000 comparacion
+00000034 l       .text	00000000 end
+000000a8 l       .text	00000000 dotprodmodif
+000000dc l       .text	00000000 for1
+000000fc l       .text	00000000 end_for_1
+00000154 l       .text	00000000 mul
+0000010c l       .text	00000000 for2
+0000012c l       .text	00000000 end_for_2
+00000178 l       .text	00000000 while
+00000188 l       .text	00000000 end_while
+00000000 g       .text	00000000 main
 
 
+
+Disassembly of section .text:
+
+00000000 <main>:
+main():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:32
+resultado: .space 4
+
+.text
+main:
+
+	la a0, A
+   0:	00010517          	auipc	a0,0x10
+   4:	00050513          	mv	a0,a0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:33
+	li a1, c
+   8:	00300593          	li	a1,3
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:34
+	li a2, d
+   c:	00500613          	li	a2,5
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:35
+	la a3, B
+  10:	00010697          	auipc	a3,0x10
+  14:	00868693          	addi	a3,a3,8 # 10018 <B>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:36
+	li a4, e
+  18:	00200713          	li	a4,2
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:37
+	li a5, f
+  1c:	00400793          	li	a5,4
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:38
+	li a6, N
+  20:	00600813          	li	a6,6
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:40
+
+	call comparacion
+  24:	014000ef          	jal	ra,38 <comparacion>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:42
+
+	la t0, resultado
+  28:	00010297          	auipc	t0,0x10
+  2c:	00828293          	addi	t0,t0,8 # 10030 <resultado>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:43
+	sw a0, 0(t0)
+  30:	00a2a023          	sw	a0,0(t0)
+
+00000034 <end>:
+end():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:45
+end:
+	j .
+  34:	0000006f          	j	34 <end>
+
+00000038 <comparacion>:
+comparacion():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:49
+
+
+comparacion:
+	addi sp , sp , -24	//
+  38:	fe810113          	addi	sp,sp,-24
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:50
+	sw ra , 20( sp)		//
+  3c:	00112a23          	sw	ra,20(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:51
+	sw s0 , 16( sp)		//
+  40:	00812823          	sw	s0,16(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:52
+	sw s1 , 12( sp)		// PRÓLOGO
+  44:	00912623          	sw	s1,12(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:53
+	sw s2 , 8( sp)		//
+  48:	01212423          	sw	s2,8(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:54
+	sw s3 , 4( sp) 	//
+  4c:	01312223          	sw	s3,4(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:55
+	sw s4 , 0( sp)		//
+  50:	01412023          	sw	s4,0(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:57
+
+	li s0, 0 // s0= diff
+  54:	00000413          	li	s0,0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:60
+
+	//normA = s1
+	mv s3, a3
+  58:	00068993          	mv	s3,a3
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:61
+	mv a3, a6
+  5c:	00080693          	mv	a3,a6
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:62
+	call dotprodmodif
+  60:	048000ef          	jal	ra,a8 <dotprodmodif>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:63
+	mv s1, a0
+  64:	00050493          	mv	s1,a0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:66
+
+	//normB = s2
+	mv a0, s3
+  68:	00098513          	mv	a0,s3
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:67
+	mv a1, a4
+  6c:	00070593          	mv	a1,a4
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:68
+	mv a2, a5
+  70:	00078613          	mv	a2,a5
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:69
+	mv a3, a6
+  74:	00080693          	mv	a3,a6
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:70
+	call dotprodmodif
+  78:	030000ef          	jal	ra,a8 <dotprodmodif>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:71
+	mv s2, a0
+  7c:	00050913          	mv	s2,a0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:73
+
+	sub s0, s1, s2
+  80:	41248433          	sub	s0,s1,s2
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:75
+
+	mv a0, s0
+  84:	00040513          	mv	a0,s0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:77
+
+	lw ra , 20( sp) 	//
+  88:	01412083          	lw	ra,20(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:78
+	lw s0 , 16( sp) 	//
+  8c:	01012403          	lw	s0,16(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:79
+	lw s1 , 12( sp) 	//
+  90:	00c12483          	lw	s1,12(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:80
+	lw s2 , 8( sp)		// EPÍLOGO
+  94:	00812903          	lw	s2,8(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:81
+	lw s3 , 4( sp) 		//
+  98:	00412983          	lw	s3,4(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:82
+	lw s4 , 0(sp)
+  9c:	00012a03          	lw	s4,0(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:84
+
+	addi sp , sp , 24 	//
+  a0:	01810113          	addi	sp,sp,24
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:85
+	ret
+  a4:	00008067          	ret
+
+000000a8 <dotprodmodif>:
+dotprodmodif():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:89
+
+
+dotprodmodif:
+	addi sp , sp , -28	//
+  a8:	fe410113          	addi	sp,sp,-28
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:90
+	sw ra , 24( sp)		//
+  ac:	00112c23          	sw	ra,24(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:91
+	sw s0 , 20( sp)		//
+  b0:	00812a23          	sw	s0,20(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:92
+	sw s1 , 16( sp)		//
+  b4:	00912823          	sw	s1,16(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:93
+	sw s2 , 12( sp)		// PRÓLOGO
+  b8:	01212623          	sw	s2,12(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:94
+	sw s3 , 8( sp)		//
+  bc:	01312423          	sw	s3,8(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:95
+	sw s4 , 4( sp) 		//
+  c0:	01412223          	sw	s4,4(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:96
+	sw s5 , 0( sp)		//
+  c4:	01512023          	sw	s5,0(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:99
+
+
+	li s0, 0			//s0=i
+  c8:	00000413          	li	s0,0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:100
+	mv s1, a3
+  cc:	00068493          	mv	s1,a3
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:101
+	srl s1, s1, 1		//DIVIDIR S1/2
+  d0:	0014d493          	srli	s1,s1,0x1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:102
+	li s2, 0			// s2= acc
+  d4:	00000913          	li	s2,0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:103
+	mv s5, a0			//s5= dir V
+  d8:	00050a93          	mv	s5,a0
+
+000000dc <for1>:
+for1():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:107
+	//mv s6, a1
+
+	for1:
+		bge s0, s1, end_for_1
+  dc:	02945063          	bge	s0,s1,fc <end_for_1>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:110
+
+		// V[i] -> a0
+		slli s4, s0, 2    //s4=desplazamiento
+  e0:	00241a13          	slli	s4,s0,0x2
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:111
+		add s4, s4, s5    //s4=dirección elemento
+  e4:	015a0a33          	add	s4,s4,s5
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:112
+		lw a0, 0(s4)
+  e8:	000a2503          	lw	a0,0(s4)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:114
+
+		call mul
+  ec:	068000ef          	jal	ra,154 <mul>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:116
+
+		add s2, s2, a0 //acc+=mul
+  f0:	00a90933          	add	s2,s2,a0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:117
+		addi s0, s0, 1	//i++
+  f4:	00140413          	addi	s0,s0,1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:118
+		j for1
+  f8:	fe5ff06f          	j	dc <for1>
+
+000000fc <end_for_1>:
+end_for_1():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:120
+	end_for_1:
+	mv s6, a3
+  fc:	00068b13          	mv	s6,a3
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:121
+	srl s6, s6, 1//dividir a0/2
+ 100:	001b5b13          	srli	s6,s6,0x1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:122
+	mv s1, a3
+ 104:	00068493          	mv	s1,a3
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:123
+	mv a1, a2
+ 108:	00060593          	mv	a1,a2
+
+0000010c <for2>:
+for2():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:125
+	for2:
+		bge s6, a3, end_for_2
+ 10c:	02db5063          	bge	s6,a3,12c <end_for_2>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:128
+
+		// V[i] -> a0
+		slli s4, s6, 2    //s4=desplazamiento
+ 110:	002b1a13          	slli	s4,s6,0x2
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:129
+		add s4, s4, s5    //s4=dirección elemento
+ 114:	015a0a33          	add	s4,s4,s5
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:130
+		lw a0, 0(s4)
+ 118:	000a2503          	lw	a0,0(s4)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:132
+
+		call mul
+ 11c:	038000ef          	jal	ra,154 <mul>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:134
+
+		add s2, s2, a0 //acc+=mul
+ 120:	00a90933          	add	s2,s2,a0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:135
+		addi s6, s6, 1	//i++
+ 124:	001b0b13          	addi	s6,s6,1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:136
+		j for2
+ 128:	fe5ff06f          	j	10c <for2>
+
+0000012c <end_for_2>:
+end_for_2():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:139
+	end_for_2:
+
+	mv a0, s2
+ 12c:	00090513          	mv	a0,s2
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:141
+
+	lw ra , 24( sp) 	//
+ 130:	01812083          	lw	ra,24(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:142
+	lw s0 , 20( sp) 	//
+ 134:	01412403          	lw	s0,20(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:143
+	lw s1 , 16( sp) 	//
+ 138:	01012483          	lw	s1,16(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:144
+	lw s2 , 12( sp)		// EPÍLOGO
+ 13c:	00c12903          	lw	s2,12(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:145
+	lw s3 , 8( sp) 		//
+ 140:	00812983          	lw	s3,8(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:146
+	lw s4 , 4( sp) 		//
+ 144:	00412a03          	lw	s4,4(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:147
+	lw s5 , 0( sp) 		//
+ 148:	00012a83          	lw	s5,0(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:148
+	addi sp , sp , 28 	//
+ 14c:	01c10113          	addi	sp,sp,28
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:149
+	ret
+ 150:	00008067          	ret
+
+00000154 <mul>:
+mul():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:154
+
+
+
+mul:
+	addi sp , sp , -24	//
+ 154:	fe810113          	addi	sp,sp,-24
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:155
+	sw ra , 20( sp)		//
+ 158:	00112a23          	sw	ra,20(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:156
+	sw s0 , 16( sp)		//
+ 15c:	00812823          	sw	s0,16(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:157
+	sw s1 , 12( sp)		// PRÓLOGO
+ 160:	00912623          	sw	s1,12(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:158
+	sw s2 , 8( sp)		//
+ 164:	01212423          	sw	s2,8(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:159
+	sw s3 , 4( sp) 		//
+ 168:	01312223          	sw	s3,4(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:160
+	sw s4 , 0( sp)		//
+ 16c:	01412023          	sw	s4,0(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:163
+	//a0=a
+	//a1=b
+	li s1, 0;			//int res = 0;
+ 170:	00000493          	li	s1,0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:164
+	mv t1, a1;
+ 174:	00058313          	mv	t1,a1
+
+00000178 <while>:
+while():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:166
+	while:
+		beq zero, t1, end_while
+ 178:	00600863          	beq	zero,t1,188 <end_while>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:167
+		add s1, s1, a0	//res+=a
+ 17c:	00a484b3          	add	s1,s1,a0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:168
+		addi t1, t1, -1
+ 180:	fff30313          	addi	t1,t1,-1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:169
+		j while
+ 184:	ff5ff06f          	j	178 <while>
+
+00000188 <end_while>:
+end_while():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:171
+	end_while:
+	mv a0 , s1
+ 188:	00048513          	mv	a0,s1
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:172
+	lw ra , 20( sp) 	//
+ 18c:	01412083          	lw	ra,20(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:173
+	lw s0 , 16( sp) 	//
+ 190:	01012403          	lw	s0,16(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:174
+	lw s1 , 12( sp) 	//
+ 194:	00c12483          	lw	s1,12(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:175
+	lw s2 , 8( sp)		// EPÍLOGO
+ 198:	00812903          	lw	s2,8(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:176
+	lw s3 , 4( sp) 		//
+ 19c:	00412983          	lw	s3,4(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:177
+	lw s4 , 0( sp) 		//
+ 1a0:	00012a03          	lw	s4,0(sp)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:178
+	addi sp , sp , 24 	//
+ 1a4:	01810113          	addi	sp,sp,24
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\FC2practicasWS\pr3_lab\Debug/../pr3_lab.asm:179
+	ret // devuelvo control
+ 1a8:	00008067          	ret
