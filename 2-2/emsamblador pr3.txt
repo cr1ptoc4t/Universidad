@@ -1,0 +1,39 @@
+for1:
+	bge s4, t1, end_for1
+	li s2, 0
+					//min =int_max
+	for2:
+		bge s2, t1, end_for2
+
+		slli t5, s2, 2			//desplazamiento
+		add t5, t5, t3			//t5=t5+t3
+		lw  s6, 0(t5)     		// @s6=v[i]
+		if:
+			bge s6,s5, end_if
+			mv s5, s6
+			addi s8, s2,0
+		end_if:
+		addi s2, s2, 1
+		j for2
+	end_for2:
+	//v[index]
+	slli s4, s8, 2	//desplazamiento
+	add t5, t3, s4
+	lw s8, 0(t5) //s8 = V[index]
+
+	//W[j]
+	slli t5, t4, 2
+	add t3, t6, t5
+
+	// W[j] = v[index]
+	sw s8, 0(t4)
+
+	// V [ index ] = INT_MAX;
+	slli t4, s8, 2  # t4 = s8 * 4
+	add t5, t3, t4
+	li t6, INT_MAX  # Cargar el valor de INT_MAX en un registro temporal
+	sw t6, 0(t5)
+
+	addi t4, t4, 1 			//incrementar indice
+	j for1
+end_for1:
