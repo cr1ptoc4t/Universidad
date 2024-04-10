@@ -1,7 +1,11 @@
-16:00:47 **** Clean-only build of configuration Debug for project pr5 ****
-make clean 
-rm -rf  ./fun_asm.o ./fun_c.o  pr5.hex  pr5.lst  pr5.siz  ./fun_asm.d  ./fun_c.d  pr5.elf
+22:23:44 **** Incremental Build of configuration Debug for project pr5 ****
+make all 
+'Invoking: GNU RISC-V Cross Print Size'
+riscv64-unknown-elf-size --format=berkeley "pr5.elf"
+   text	   data	    bss	    dec	    hex	filename
+   1048	      0	      0	   1048	    418	pr5.elf
+'Finished building: pr5.siz'
 ' '
 
-16:00:47 Build Finished. 0 errors, 0 warnings. (took 98ms)
+22:23:44 Build Finished. 0 errors, 0 warnings. (took 212ms)
 

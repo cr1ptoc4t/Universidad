@@ -1,0 +1,320 @@
+
+pr4.elf:     file format elf32-littleriscv
+pr4.elf
+architecture: riscv:rv32, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x000001b0
+
+Program Header:
+    LOAD off    0x00001000 vaddr 0x00000000 paddr 0x00000000 align 2**12
+         filesz 0x00000214 memsz 0x00000214 flags r-x
+    LOAD off    0x00002000 vaddr 0x00010000 paddr 0x00010000 align 2**12
+         filesz 0x00000028 memsz 0x00000029 flags rw-
+
+Sections:
+Idx Name              Size      VMA       LMA       File off  Algn  Flags
+  0 .text.guardar     00000034  00000000  00000000  00001000  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .text.mul         00000084  00000034  00000034  00001034  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .text.i_sqrt      00000058  000000b8  000000b8  000010b8  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  3 .text.eucl_dist   000000a0  00000110  00000110  00001110  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  4 .text.main        00000064  000001b0  000001b0  000011b0  2**2  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  5 .data.U           00000014  00010000  00010000  00002000  2**2  CONTENTS, ALLOC, LOAD, DATA
+  6 .data.V           00000014  00010014  00010014  00002014  2**2  CONTENTS, ALLOC, LOAD, DATA
+  7 .sbss.mayor_u     00000001  00010028  00010028  00002028  2**0  ALLOC
+  8 .riscv.attributes 00000021  00000000  00000000  00002028  2**0  CONTENTS, READONLY
+  9 .comment          00000012  00000000  00000000  00002049  2**0  CONTENTS, READONLY
+ 10 .debug_info       000001ed  00000000  00000000  0000205b  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 11 .debug_abbrev     0000012d  00000000  00000000  00002248  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 12 .debug_aranges    00000040  00000000  00000000  00002375  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 13 .debug_ranges     00000030  00000000  00000000  000023b5  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 14 .debug_macro      000006ff  00000000  00000000  000023e5  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 15 .debug_line       000001ec  00000000  00000000  00002ae4  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 16 .debug_str        0000242c  00000000  00000000  00002cd0  2**0  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 17 .debug_frame      000000c4  00000000  00000000  000050fc  2**2  CONTENTS, READONLY, DEBUGGING, OCTETS
+SYMBOL TABLE:
+00000000 l    d  .text.guardar	00000000 .text.guardar
+00000034 l    d  .text.mul	00000000 .text.mul
+000000b8 l    d  .text.i_sqrt	00000000 .text.i_sqrt
+00000110 l    d  .text.eucl_dist	00000000 .text.eucl_dist
+000001b0 l    d  .text.main	00000000 .text.main
+00010000 l    d  .data.U	00000000 .data.U
+00010014 l    d  .data.V	00000000 .data.V
+00010028 l    d  .sbss.mayor_u	00000000 .sbss.mayor_u
+00000000 l    d  .riscv.attributes	00000000 .riscv.attributes
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_ranges	00000000 .debug_ranges
+00000000 l    d  .debug_macro	00000000 .debug_macro
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    df *ABS*	00000000 pr4.c
+00000110 g     F .text.eucl_dist	000000a0 eucl_dist
+000000b8 g     F .text.i_sqrt	00000058 i_sqrt
+00010014 g     O .data.V	00000014 V
+00000034 g     F .text.mul	00000084 mul
+000001b0 g     F .text.main	00000064 main
+00010028 g     O .sbss.mayor_u	00000001 mayor_u
+00010000 g     O .data.U	00000014 U
+00020000 g       *ABS*	00000000 _stack
+00000000 g     F .text.guardar	00000034 guardar
+
+
+
+Disassembly of section .text.guardar:
+
+00000000 <guardar>:
+guardar():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:27
+char mayor_u;
+
+/**
+ * Función que guarda un valor en el puntero proporcionado
+ */
+void guardar(char valor, char * ubicación) {
+   0:	fe010113          	addi	sp,sp,-32
+   4:	00812e23          	sw	s0,28(sp)
+   8:	02010413          	addi	s0,sp,32
+   c:	00050793          	mv	a5,a0
+  10:	feb42423          	sw	a1,-24(s0)
+  14:	fef407a3          	sb	a5,-17(s0)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:28
+	*ubicación = valor;
+  18:	fe842783          	lw	a5,-24(s0)
+  1c:	fef44703          	lbu	a4,-17(s0)
+  20:	00e78023          	sb	a4,0(a5)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:29
+}
+  24:	00000013          	nop
+  28:	01c12403          	lw	s0,28(sp)
+  2c:	02010113          	addi	sp,sp,32
+  30:	00008067          	ret
+
+Disassembly of section .text.mul:
+
+00000034 <mul>:
+mul():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:34
+
+/**
+ * Función simple que multiplica dos números iterativamente
+ */
+int mul(int a, int b) {
+  34:	fd010113          	addi	sp,sp,-48
+  38:	02812623          	sw	s0,44(sp)
+  3c:	03010413          	addi	s0,sp,48
+  40:	fca42e23          	sw	a0,-36(s0)
+  44:	fcb42c23          	sw	a1,-40(s0)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:35
+	int res = 0, sign = 0;
+  48:	fe042623          	sw	zero,-20(s0)
+  4c:	fe042423          	sw	zero,-24(s0)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:36
+	if (a < 0) {
+  50:	fdc42783          	lw	a5,-36(s0)
+  54:	0207d663          	bgez	a5,80 <mul+0x4c>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:37
+		sign = 1;
+  58:	00100793          	li	a5,1
+  5c:	fef42423          	sw	a5,-24(s0)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:38
+		a = -a;
+  60:	fdc42783          	lw	a5,-36(s0)
+  64:	40f007b3          	neg	a5,a5
+  68:	fcf42e23          	sw	a5,-36(s0)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:40
+	}
+	while (a--) res += b;
+  6c:	0140006f          	j	80 <mul+0x4c>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:40 (discriminator 2)
+  70:	fec42703          	lw	a4,-20(s0)
+  74:	fd842783          	lw	a5,-40(s0)
+  78:	00f707b3          	add	a5,a4,a5
+  7c:	fef42623          	sw	a5,-20(s0)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:40 (discriminator 1)
+  80:	fdc42783          	lw	a5,-36(s0)
+  84:	fff78713          	addi	a4,a5,-1
+  88:	fce42e23          	sw	a4,-36(s0)
+  8c:	fe0792e3          	bnez	a5,70 <mul+0x3c>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:41
+	if (sign)
+  90:	fe842783          	lw	a5,-24(s0)
+  94:	00078863          	beqz	a5,a4 <mul+0x70>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:42
+		return -res;
+  98:	fec42783          	lw	a5,-20(s0)
+  9c:	40f007b3          	neg	a5,a5
+  a0:	0080006f          	j	a8 <mul+0x74>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:44
+	else
+		return res;
+  a4:	fec42783          	lw	a5,-20(s0)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:45
+}
+  a8:	00078513          	mv	a0,a5
+  ac:	02c12403          	lw	s0,44(sp)
+  b0:	03010113          	addi	sp,sp,48
+  b4:	00008067          	ret
+
+Disassembly of section .text.i_sqrt:
+
+000000b8 <i_sqrt>:
+i_sqrt():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:50
+
+/**
+ * Función simple que obtiene la raíz cuadrada iterativamente
+ */
+int i_sqrt(int a) {
+  b8:	fd010113          	addi	sp,sp,-48
+  bc:	02112623          	sw	ra,44(sp)
+  c0:	02812423          	sw	s0,40(sp)
+  c4:	03010413          	addi	s0,sp,48
+  c8:	fca42e23          	sw	a0,-36(s0)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:51
+	int root = 0;
+  cc:	fe042623          	sw	zero,-20(s0)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:52
+	while (mul(root, root) < a) {
+  d0:	0100006f          	j	e0 <i_sqrt+0x28>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:53
+		root++;
+  d4:	fec42783          	lw	a5,-20(s0)
+  d8:	00178793          	addi	a5,a5,1
+  dc:	fef42623          	sw	a5,-20(s0)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:52
+	while (mul(root, root) < a) {
+  e0:	fec42583          	lw	a1,-20(s0)
+  e4:	fec42503          	lw	a0,-20(s0)
+  e8:	f4dff0ef          	jal	ra,34 <mul>
+  ec:	00050713          	mv	a4,a0
+  f0:	fdc42783          	lw	a5,-36(s0)
+  f4:	fef740e3          	blt	a4,a5,d4 <i_sqrt+0x1c>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:55
+	}
+	return root;
+  f8:	fec42783          	lw	a5,-20(s0)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:56
+}
+  fc:	00078513          	mv	a0,a5
+ 100:	02c12083          	lw	ra,44(sp)
+ 104:	02812403          	lw	s0,40(sp)
+ 108:	03010113          	addi	sp,sp,48
+ 10c:	00008067          	ret
+
+Disassembly of section .text.eucl_dist:
+
+00000110 <eucl_dist>:
+eucl_dist():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:62
+
+/**
+ * Calculamos distancia euclídea. Sumamos todos los cuadrados
+ * y terminamos sacando la raíz cuadrada (entera)
+ */
+int eucl_dist(int w [], int size) {
+ 110:	fd010113          	addi	sp,sp,-48
+ 114:	02112623          	sw	ra,44(sp)
+ 118:	02812423          	sw	s0,40(sp)
+ 11c:	03010413          	addi	s0,sp,48
+ 120:	fca42e23          	sw	a0,-36(s0)
+ 124:	fcb42c23          	sw	a1,-40(s0)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:63
+	int acc = 0;
+ 128:	fe042623          	sw	zero,-20(s0)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:64
+	for (int i = 0; i < size; i++) {
+ 12c:	fe042423          	sw	zero,-24(s0)
+ 130:	0540006f          	j	184 <eucl_dist+0x74>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:65 (discriminator 3)
+		acc += mul(w[i], w[i]);
+ 134:	fe842783          	lw	a5,-24(s0)
+ 138:	00279793          	slli	a5,a5,0x2
+ 13c:	fdc42703          	lw	a4,-36(s0)
+ 140:	00f707b3          	add	a5,a4,a5
+ 144:	0007a683          	lw	a3,0(a5)
+ 148:	fe842783          	lw	a5,-24(s0)
+ 14c:	00279793          	slli	a5,a5,0x2
+ 150:	fdc42703          	lw	a4,-36(s0)
+ 154:	00f707b3          	add	a5,a4,a5
+ 158:	0007a783          	lw	a5,0(a5)
+ 15c:	00078593          	mv	a1,a5
+ 160:	00068513          	mv	a0,a3
+ 164:	ed1ff0ef          	jal	ra,34 <mul>
+ 168:	00050713          	mv	a4,a0
+ 16c:	fec42783          	lw	a5,-20(s0)
+ 170:	00e787b3          	add	a5,a5,a4
+ 174:	fef42623          	sw	a5,-20(s0)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:64 (discriminator 3)
+	for (int i = 0; i < size; i++) {
+ 178:	fe842783          	lw	a5,-24(s0)
+ 17c:	00178793          	addi	a5,a5,1
+ 180:	fef42423          	sw	a5,-24(s0)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:64 (discriminator 1)
+ 184:	fe842703          	lw	a4,-24(s0)
+ 188:	fd842783          	lw	a5,-40(s0)
+ 18c:	faf744e3          	blt	a4,a5,134 <eucl_dist+0x24>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:67
+	}
+	return i_sqrt(acc);
+ 190:	fec42503          	lw	a0,-20(s0)
+ 194:	f25ff0ef          	jal	ra,b8 <i_sqrt>
+ 198:	00050793          	mv	a5,a0
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:68
+}
+ 19c:	00078513          	mv	a0,a5
+ 1a0:	02c12083          	lw	ra,44(sp)
+ 1a4:	02812403          	lw	s0,40(sp)
+ 1a8:	03010113          	addi	sp,sp,48
+ 1ac:	00008067          	ret
+
+Disassembly of section .text.main:
+
+000001b0 <main>:
+main():
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:73
+
+/**
+ * Punto de entrada al programa
+ */
+void main() {
+ 1b0:	fe010113          	addi	sp,sp,-32
+ 1b4:	00112e23          	sw	ra,28(sp)
+ 1b8:	00812c23          	sw	s0,24(sp)
+ 1bc:	02010413          	addi	s0,sp,32
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:75
+	//calculamos la distancia euclídea al origen
+	int d_u = eucl_dist(U, N);
+ 1c0:	00500593          	li	a1,5
+ 1c4:	000107b7          	lui	a5,0x10
+ 1c8:	00078513          	mv	a0,a5
+ 1cc:	f45ff0ef          	jal	ra,110 <eucl_dist>
+ 1d0:	fea42623          	sw	a0,-20(s0)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:76
+	int d_v = eucl_dist(V, N);
+ 1d4:	00500593          	li	a1,5
+ 1d8:	000107b7          	lui	a5,0x10
+ 1dc:	01478513          	addi	a0,a5,20 # 10014 <V>
+ 1e0:	f31ff0ef          	jal	ra,110 <eucl_dist>
+ 1e4:	fea42423          	sw	a0,-24(s0)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:78
+	//vemos si U estaba más lejos
+	char mayor = d_u > d_v;
+ 1e8:	fec42703          	lw	a4,-20(s0)
+ 1ec:	fe842783          	lw	a5,-24(s0)
+ 1f0:	00e7a7b3          	slt	a5,a5,a4
+ 1f4:	0ff7f793          	andi	a5,a5,255
+ 1f8:	fef403a3          	sb	a5,-25(s0)
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:79
+	guardar(mayor, &mayor_u);
+ 1fc:	fe740703          	lb	a4,-25(s0)
+ 200:	000107b7          	lui	a5,0x10
+ 204:	02878593          	addi	a1,a5,40 # 10028 <mayor_u>
+ 208:	00070513          	mv	a0,a4
+ 20c:	df5ff0ef          	jal	ra,0 <guardar>
+C:\Users\Catalina\Documents\Universidad\1-2\FC2\Ensamblador\practicasw2\pr4\Debug/../pr4.c:81 (discriminator 1)
+
+	while(1); //quedo en un bucle infinito
+ 210:	0000006f          	j	210 <main+0x60>

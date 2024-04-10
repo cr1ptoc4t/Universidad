@@ -1,87 +1,95 @@
-/*---------------------------------------------------------------------
-**
-**  Fichero:
-**    pr4.c  19/10/2022
-**
-**    (c) Daniel Báscones García
-**    Fundamentos de Computadores II
-**    Facultad de Informática. Universidad Complutense de Madrid
-**
-**  Propósito:
-**    Fichero de código para la práctica 4
-**
-**-------------------------------------------------------------------*/
-
-
-#define N 5
-
-//nuestros dos vectores de N componentes
-int U[N] = {5, 2, -3, 7, 6};
-int V[N] = {6, -1, 1, 0, 3};
-//variable que almacenará el resultado: 1 si U es mayor, 0 si es V
-char mayor_u;
+/**
+ * @file
+ * @brief Implementation of [merge
+ * sort](https://en.wikipedia.org/wiki/Merge_sort) algorithm
+ */
 
 /**
- * Función que guarda un valor en el puntero proporcionado
+ * @addtogroup sorting Sorting algorithms
+ * @{
  */
-void guardar(char valor, char * ubicación) {
-	*ubicación = valor;
+/** Swap two integer variables
+ * @param [in,out] a pointer to first variable
+ * @param [in,out] b pointer to second variable
+ */
+extern void swap(int *a, int *b);
+extern int main(void);
+//extern int *a[];
+//extern int n;
+/**
+ * @brief Perform merge of segments.
+ *
+ * @param a array to sort
+ * @param l left index for merge
+ * @param r right index for merge
+ * @param n total number of elements in the array
+ */
+
+extern void merge_sort ( int *a, int n, int l, int r ) ;
+void merge(int *a, int l, int r, int n)
+{
+    int *b = (int *)malloc(n * sizeof(int)); /* dynamic memory must be freed */
+
+		int c = l;
+		int p1, p2;
+		p1 = l;
+		p2 = ((l + r) / 2) + 1;
+		while ((p1 < ((l + r) / 2) + 1) && (p2 < r + 1))
+		{
+			if (a[p1] <= a[p2])
+			{
+				b[c++] = a[p1];
+				p1++;
+			}
+			else
+			{
+				b[c++] = a[p2];
+				p2++;
+			}
+		}
+
+		if (p2 == r + 1)
+		{
+			while ((p1 < ((l + r) / 2) + 1))
+			{
+				b[c++] = a[p1];
+				p1++;
+			}
+		}
+		else
+		{
+			while ((p2 < r + 1))
+			{
+				b[c++] = a[p2];
+				p2++;
+			}
+		}
+
+		for (c = l; c < r + 1; c++) a[c] = b[c];
+
 }
-//extern void guardar(char valor, char *ubicacion);
-/**
- * Función simple que multiplica dos números iterativamente
+
+/** Merge sort algorithm implementation
+ * @param a array to sort
+ * @param n number of elements in the array
+ * @param l index to sort from
+ * @param r index to sort till
  */
-extern int mul(int a, int b);
+
+/** @} */
+
+/** Main function */
 /*
-int mul(int a, int b) {
-	int res = 0, sign = 0;
-	if (a < 0) {
-		sign = 1;
-		a = -a;
-	}
-	while (a--) res += b;
-	if (sign)
-		return -res;
-	else
-		return res;
+int main(void)
+{
+
+    //int n=7;
+    //int a[]={4,2,3,6,8, 5,9};
+
+
+    merge_sort(a, n, 0, n - 1);
+    //printf("Sorted Array: ");
+
+    return 0;
 }
 */
-/**
- * Función simple que obtiene la raíz cuadrada iterativamente
- */
-
-extern int i_sqrt(int a);
-/*
-int i_sqrt(int a) {
-	int root = 0;
-	while (mul(root, root) < a) {
-		root++;
-	}
-	return root;
-}
-*/
-/**
- * Calculamos distancia euclídea. Sumamos todos los cuadrados
- * y terminamos sacando la raíz cuadrada (entera)
- */
-int eucl_dist(int w [], int size) {
-	int acc = 0;
-	for (int i = 0; i < size; i++) {
-		acc += mul(w[i], w[i]);
-	}
-	return i_sqrt(acc);
-}
-
-/**
- * Punto de entrada al programa
- */
-void main() {
-	//calculamos la distancia euclídea al origen
-	int d_u = eucl_dist(U, N);
-	int d_v = eucl_dist(V, N);
-	//vemos si U estaba más lejos
-	char mayor = d_u > d_v;
-	guardar(mayor, &mayor_u);
-
-	while(1); //quedo en un bucle infinito
-}
