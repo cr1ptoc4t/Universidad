@@ -62,33 +62,33 @@ END GROUP
 LOAD c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/rv32im/ilp32\libgcc.a
                 0x0000000000000000                . = 0x0
 
-.text           0x0000000000000000      0xe58
+.text           0x0000000000000000      0xe64
  *(.text)
- .text          0x0000000000000000      0x118 ./fun_asm.o
+ .text          0x0000000000000000      0x124 ./fun_asm.o
                 0x0000000000000000                merge_sort
-                0x00000000000000ac                swap
-                0x00000000000000fc                main
- .text          0x0000000000000118       0x20 c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-malloc.o)
-                0x0000000000000118                malloc
-                0x0000000000000128                free
- .text          0x0000000000000138      0x7b8 c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mallocr.o)
-                0x0000000000000138                _malloc_r
- .text          0x00000000000008f0        0x8 c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mlock.o)
-                0x00000000000008f0                __malloc_lock
-                0x00000000000008f4                __malloc_unlock
- .text          0x00000000000008f8       0x60 c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-sbrkr.o)
-                0x00000000000008f8                _sbrk_r
- .text          0x0000000000000958      0x454 c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-freer.o)
-                0x0000000000000958                _malloc_trim_r
-                0x0000000000000a98                _free_r
- .text          0x0000000000000dac       0xa0 c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_sbrk.o)
-                0x0000000000000dac                _sbrk
- .text          0x0000000000000e4c        0xc c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-errno.o)
-                0x0000000000000e4c                __errno
+                0x00000000000000b8                swap
+                0x0000000000000108                main
+ .text          0x0000000000000124       0x20 c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-malloc.o)
+                0x0000000000000124                malloc
+                0x0000000000000134                free
+ .text          0x0000000000000144      0x7b8 c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mallocr.o)
+                0x0000000000000144                _malloc_r
+ .text          0x00000000000008fc        0x8 c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-mlock.o)
+                0x00000000000008fc                __malloc_lock
+                0x0000000000000900                __malloc_unlock
+ .text          0x0000000000000904       0x60 c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-sbrkr.o)
+                0x0000000000000904                _sbrk_r
+ .text          0x0000000000000964      0x454 c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-freer.o)
+                0x0000000000000964                _malloc_trim_r
+                0x0000000000000aa4                _free_r
+ .text          0x0000000000000db8       0xa0 c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_sbrk.o)
+                0x0000000000000db8                _sbrk
+ .text          0x0000000000000e58        0xc c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-errno.o)
+                0x0000000000000e58                __errno
 
-.text.merge     0x0000000000000e58      0x268
- .text.merge    0x0000000000000e58      0x268 ./pr4.o
-                0x0000000000000e58                merge
+.text.merge     0x0000000000000e64      0x268
+ .text.merge    0x0000000000000e64      0x268 ./pr4.o
+                0x0000000000000e64                merge
                 0x0000000000010000                . = 0x10000
 
 .data           0x0000000000010000      0x850
@@ -162,9 +162,9 @@ OUTPUT(pr4.elf elf32-littleriscv)
  .comment       0x0000000000000012       0x13 c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libgloss.a(sys_sbrk.o)
  .comment       0x0000000000000012       0x13 c:/eclipse/sysgcc/bin/../lib/gcc/riscv64-unknown-elf/10.1.0/../../../../riscv64-unknown-elf/lib/rv32im/ilp32\libc.a(lib_a-errno.o)
 
-.debug_line     0x0000000000000000      0x3e2
- .debug_line    0x0000000000000000      0x1d1 ./fun_asm.o
- .debug_line    0x00000000000001d1      0x211 ./pr4.o
+.debug_line     0x0000000000000000      0x3f4
+ .debug_line    0x0000000000000000      0x1e3 ./fun_asm.o
+ .debug_line    0x00000000000001e3      0x211 ./pr4.o
 
 .debug_info     0x0000000000000000       0xfc
  .debug_info    0x0000000000000000       0x26 ./fun_asm.o

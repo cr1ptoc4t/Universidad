@@ -1,4 +1,4 @@
-22:30:34 **** Incremental Build of configuration Debug for project pr4 ****
+15:12:32 **** Incremental Build of configuration Debug for project pr4 ****
 make all 
 'Building file: ../fun_asm.asm'
 'Invoking: GNU RISC-V Cross Assembler'
@@ -21,9 +21,9 @@ riscv64-unknown-elf-objdump --source --all-headers --demangle --disassemble --li
 'Invoking: GNU RISC-V Cross Print Size'
 riscv64-unknown-elf-size --format=berkeley "pr4.elf"
    text	   data	    bss	    dec	    hex	filename
-   4288	   2140	     60	   6488	   1958	pr4.elf
+   4300	   2140	     60	   6500	   1964	pr4.elf
 'Finished building: pr4.siz'
 ' '
 
-22:30:35 Build Finished. 0 errors, 0 warnings. (took 669ms)
+15:12:32 Build Finished. 0 errors, 0 warnings. (took 555ms)
 

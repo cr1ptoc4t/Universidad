@@ -34,10 +34,14 @@ merge_sort:
 	sw s4, 4 (sp) //
 	sw s5, 0 (sp)
 
+	//s4 <=a0
+	//s5 <=a1
+	//s6 <=a2
+
 	addi t1, a2, 1		//t1 = l+1
 	bne a3, t1, else	//if r !=l+1-> salta
-	mv t2, a0
-	mv t3, a1
+	mv s4, a0
+	mv s5, a1
 
 	li s1,0
 	mv s3, a0			//s3 = dir vector
@@ -61,11 +65,13 @@ merge_sort:
 	mv a3, t4			//operaciones l+r/2 en a3
 	call merge_sort;
 
+	mv a0, s4
+	mv a1, s5
+	mv a2, s6
 	//operaciones l+r/2 +1 en a2
-	div t4, a3, t5
-	add t4, t4, a2
-	mv a2, t4
-
+	div t4, a3, t5		//t4= r/2
+	add t4, t4, a2		//t4 +=l
+	addi a2, t4, 1		//a2=t4+1
 
 	mv a1, t3
 	call merge_sort;
@@ -81,6 +87,7 @@ end:
 	lw s5 , 0( sp) 		//
 	addi sp , sp , 28 	//
 	ret
+
 
 
 swap:

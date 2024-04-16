@@ -8,6 +8,8 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="t1"/>
+			<item value="t2"/>
 			<item value="dotprod"/>
 			<item value="s0"/>
 			<item value="s5"/>
@@ -16,7 +18,6 @@
 			<item value="s8"/>
 			<item value="s7"/>
 			<item value="s6"/>
-			<item value="t1"/>
 		</list>
 		<list key="replacehistory">
 			<item value="s4"/>
