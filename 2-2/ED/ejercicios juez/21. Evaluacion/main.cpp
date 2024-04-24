@@ -31,6 +31,38 @@ public:
 void califica(const Lista<string>& bien, const Lista<string>& mal, Lista<Puntuacion>& listado) {
 	DiccionarioHash <string, int> dic;
 
+	for (int i = 0; i < bien.longitud(); i++) {
+		string alumno = bien.elem(i);
+		if (dic.contiene(alumno)){
+			int freq= dic.valorPara(alumno);
+			dic.inserta(alumno, freq+1);
+		}
+		else
+			dic.inserta(alumno, 1);
+	}
+
+	for (int i = 0; i < mal.longitud(); i++) {
+		string alumno = mal.elem(i);
+		if (dic.contiene(alumno)) {
+			int freq = dic.valorPara(alumno);
+			dic.inserta(alumno, freq - 1);
+		}
+		else
+			dic.inserta(alumno, - 1);
+	}
+
+	DiccionarioHash<string, int>::Iterator it = dic.begin();
+
+	
+	while (it != dic.end()) {
+		if (it.valor() != 0) {
+			Puntuacion punt(it.clave(), it.valor());
+			listado.pon_final(punt);
+		}
+
+		it.next();
+	}
+
 }
 
 void imprimePuntuaciones(Lista<Puntuacion>& listado) {

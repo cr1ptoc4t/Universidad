@@ -12,8 +12,8 @@
  *     Modificacion Jose Luis Sierra 2022, para permitir asignación entre iteradores,
  *     y declaración de iteradores sin inicializar.
  */
-#ifndef __DICCIO2_H
-#define __DICCIO2_H
+#ifndef __DiccionarioHash_H
+#define __DiccionarioHash_H
 
 #include "hash.h"
 #include <cstddef>
@@ -608,4 +608,4 @@ private:
 
 };
 
-#endif //__DICCIO2_H
+#endif //__DiccionarioHash_H
