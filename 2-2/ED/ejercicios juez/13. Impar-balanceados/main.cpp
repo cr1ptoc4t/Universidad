@@ -21,7 +21,10 @@ using namespace std;
 
 */
 int num_imparBalanceados(const Arbin<int>& a) {
-	// A IMPLEMENTAR
+	if (a.esVacio())
+		return 0;
+
+
 }
 
 

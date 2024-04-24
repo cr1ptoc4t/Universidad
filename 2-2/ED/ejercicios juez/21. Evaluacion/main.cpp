@@ -1,5 +1,6 @@
 #include "lista.h"
 #include "DiccionarioHash.h"
+#include "Diccionario.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -29,7 +30,7 @@ public:
 //          es distinta de 0.
 
 void califica(const Lista<string>& bien, const Lista<string>& mal, Lista<Puntuacion>& listado) {
-	DiccionarioHash <string, int> dic;
+	Diccionario <string, int> dic;
 
 	for (int i = 0; i < bien.longitud(); i++) {
 		string alumno = bien.elem(i);
@@ -51,9 +52,9 @@ void califica(const Lista<string>& bien, const Lista<string>& mal, Lista<Puntuac
 			dic.inserta(alumno, - 1);
 	}
 
-	DiccionarioHash<string, int>::Iterator it = dic.begin();
+	Diccionario<string, int>::Iterator it = dic.begin();
 
-	
+
 	while (it != dic.end()) {
 		if (it.valor() != 0) {
 			Puntuacion punt(it.clave(), it.valor());

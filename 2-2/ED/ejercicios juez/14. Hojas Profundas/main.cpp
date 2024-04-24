@@ -12,27 +12,25 @@ using namespace std;
 */
 int numHojasAux(Arbin<int> a, int k, int altura);
 unsigned int numero_hojas_mas_profundas_que(const Arbin<int>& a, unsigned int k) {
-	// A IMPLEMENTAR
-	int cont=numHojasAux(a, k, 0);
+	int cont=numHojasAux(a, k, 1);
 	return cont;
 }
 
 int numHojasAux(Arbin<int> a, int k, int altura) {
 	
-	if (a.esVacio())
+	if (a.esVacio()){
 		return 0;
-	
+	}
+
 	if (a.hijoIz().esVacio() && a.hijoDer().esVacio()) {
 		if (altura > k)
 			return 1;
 		else
 			return 0;
-		
 	}
 
-
-	unsigned int leftCount = numHojasAux(a.hijoIz(), k, altura + 1);
-	unsigned int rightCount = numHojasAux(a.hijoDer(), k, altura + 1);
+	int leftCount = numHojasAux(a.hijoIz(), k, altura + 1);
+	int rightCount = numHojasAux(a.hijoDer(), k, altura + 1);
 
 	return leftCount + rightCount;
 }
