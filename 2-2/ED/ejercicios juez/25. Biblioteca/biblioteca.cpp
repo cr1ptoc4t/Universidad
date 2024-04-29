@@ -13,7 +13,7 @@ DiccionarioHash <tSignatura, tNumEjemplares> _libros;
 
 DiccionarioHash <tCodigo, tNombre> _socios;
 
-DiccionarioHash <tSignatura, Cola<Codigo_y_Nombre>> _cola_libros;
+DiccionarioHash <tSignatura, Cola<Codigo_y_Nombre>> _lista_espera;
 
 DiccionarioHash <tCodigo, Lista<Signatura_y_Fecha>> _prestados_a;
 
@@ -22,10 +22,7 @@ DiccionarioHash <tCodigo, Lista<Signatura_y_Fecha>> _prestados_a;
  COMPLEJIDAD: Determina y justifica aqu� la complejidad de la operaci�n
 
 */
-Biblioteca::Biblioteca() {
-	// A IMPLEMENTAR
-
-}
+Biblioteca::Biblioteca() {}
 
 
 /**
@@ -62,8 +59,13 @@ unsigned int Biblioteca::prestar(tSignatura signatura, tCodigo id, tFecha fecha)
 	// A IMPLEMENTAR
 	if (!_socios.contiene(id)||!_libros.contiene(signatura)){
 		throw EPrestamoNoAdmitido();
+		return 0;
 	}
-	else if (_libros.valorPara(signatura)!=0) {
+
+	else if (_libros.valorPara(signatura)>0) {
+		//si quedan libros
+
+		//si has prestado alguno al user
 		if (_prestados_a.contiene(id)) {
 			Lista<Signatura_y_Fecha> libros_aux = _prestados_a.valorPara(id);
 			Signatura_y_Fecha s;
@@ -72,11 +74,9 @@ unsigned int Biblioteca::prestar(tSignatura signatura, tCodigo id, tFecha fecha)
 
 			libros_aux.pon_final(s);
 			_prestados_a.inserta(id, libros_aux);
-			
-			int cantidad = _libros.valorPara(signatura);
-			_libros.inserta(signatura, cantidad-1);
 
 		}
+		//si no has prestado ninguno al user
 		else {
 			Lista<Signatura_y_Fecha> libros_aux;
 			Signatura_y_Fecha s;
@@ -85,28 +85,30 @@ unsigned int Biblioteca::prestar(tSignatura signatura, tCodigo id, tFecha fecha)
 
 			libros_aux.pon_final(s);
 			_prestados_a.inserta(id, libros_aux);
-
-			int cantidad = _libros.valorPara(signatura);
-			_libros.inserta(signatura, cantidad - 1);
 		}
+
+		int cantidad = _libros.valorPara(signatura);
+		_libros.inserta(signatura, cantidad - 1);
+
+		return 1;
 	}
 	else {
-		/*
-		if (_cola_libros.contiene(signatura)) {
-			Cola<Codigo_y_Nombre> c = _cola_libros.valorPara(signatura);
-			c.pon(id);
-			_cola_libros.inserta(signatura, c);
+		if (!_lista_espera.contiene(signatura)) {
+			Cola<Codigo_y_Nombre> c = _lista_espera.valorPara(signatura);
+			_lista_espera.inserta(signatura, c);
 		}
-		else {
-			Cola<Codigo_y_Nombre> c;
-			c.pon(id);
-			_cola_libros.inserta(signatura, c);
-		}
-		*/
+
+		Cola<Codigo_y_Nombre> c1 = _lista_espera.valorPara(signatura);
+		Codigo_y_Nombre aux;
+		aux.id = id;
+		aux.n = _socios.valorPara(id);
+
+		c1.pon(aux);
+		_lista_espera.inserta(signatura, c1);
+
+		return 2;
 	}
 
-
-	return 0;
 }
 
 
@@ -115,7 +117,15 @@ unsigned int Biblioteca::prestar(tSignatura signatura, tCodigo id, tFecha fecha)
 
 */
 Codigo_y_Nombre Biblioteca::primeroEnEspera(tSignatura signatura) const {
-	return _cola_libros.valorPara(signatura).primero();
+	if (_lista_espera.contiene(signatura) && !_lista_espera.valorPara(signatura).esVacia())
+		return  _lista_espera.valorPara(signatura).primero();
+	else if (!_libros.contiene(signatura))
+		throw ELibroInexistente();
+	else
+		throw ESinEsperas();
+
+	Codigo_y_Nombre c;
+	return c;
 }
 
 
@@ -124,8 +134,14 @@ Codigo_y_Nombre Biblioteca::primeroEnEspera(tSignatura signatura) const {
 
 */
 Lista<Signatura_y_Fecha> Biblioteca::prestados(tCodigo id) const {
+	if (!_prestados_a.contiene(id)){
+		throw ESocioInexistente();
+		Lista <Signatura_y_Fecha> l;
+		return l;
+	}
 
 	return _prestados_a.valorPara(id);
+	
 }
 
 
@@ -133,9 +149,11 @@ Lista<Signatura_y_Fecha> Biblioteca::prestados(tCodigo id) const {
  COMPLEJIDAD: Determina y justifica aqu� la complejidad de la operaci�n
 
 */
+
 bool Biblioteca::devolver(tSignatura signatura, tCodigo id, tFecha fecha) {
+	// Verificar si el libro y el socio existen
+	if (!_libros.contiene(signatura) || !_socios.contiene(id)) {
+		throw EDevolucionNoAdmitida();
+	}
 
-	return false;
 }
-
-
