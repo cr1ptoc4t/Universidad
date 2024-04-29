@@ -133,9 +133,11 @@
   <ItemGroup>
     <ClInclude Include="biblioteca.h" />
     <ClInclude Include="Cola.h" />
+    <ClInclude Include="Diccionario.h" />
     <ClInclude Include="DiccionarioHash.h" />
     <ClInclude Include="Hash.h" />
     <ClInclude Include="lista.h" />
+    <ClInclude Include="pila.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

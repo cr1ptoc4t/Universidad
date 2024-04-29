@@ -53,7 +53,8 @@ public:
     Lista<Signatura_y_Fecha>prestados(tCodigo id) const;
     bool devolver(tSignatura signatura, tCodigo id, tFecha fecha);
 private:
-
+    bool estaLibro(Lista<Signatura_y_Fecha> l, tSignatura signatura);
+    bool socio_tiene_libro(tCodigo id, tSignatura signatura);
 };
 
 #endif
