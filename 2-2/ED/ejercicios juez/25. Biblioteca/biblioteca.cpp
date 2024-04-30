@@ -5,7 +5,6 @@
 
 #include "biblioteca.h"
 #include "Cola.h"
-#include "DiccionarioHash.h"
 #include "Diccionario.h"
 #include <iostream>
 using namespace std;
@@ -17,6 +16,8 @@ Diccionario <tCodigo, tNombre> _socios;
 Diccionario <tSignatura, Cola<Codigo_y_Nombre>> _lista_espera;
 
 Diccionario <tCodigo, Lista<Signatura_y_Fecha>> _prestados_a;
+
+void actualizalibros(tSignatura s, int n);
 
 /**
  COMPLEJIDAD: Determina y justifica aqu� la complejidad de la operaci�n
@@ -65,17 +66,14 @@ unsigned int Biblioteca::prestar(tSignatura signatura, tCodigo id, tFecha fecha)
 		return 0;
 	}	else if (_libros.valorPara(signatura)>0) {
 		//si quedan libros
-		int val = _libros.valorPara(signatura);
 		//si has prestado alguno al user
 		if (_prestados_a.contiene(id)) {
-			Lista<Signatura_y_Fecha > libros_aux = _prestados_a.valorPara(id);
+			Diccionario<tCodigo, Lista<Signatura_y_Fecha>>::Iterator t = _prestados_a.busca(id);
 			Signatura_y_Fecha s;
 			s.signatura = signatura;
 			s.fecha = fecha;
 
-			libros_aux.pon_final(s);
-			_prestados_a.inserta(id, libros_aux);
-
+			t.valor().pon_final(s);
 		}
 		//si no has prestado ninguno al user
 		else {
@@ -88,8 +86,7 @@ unsigned int Biblioteca::prestar(tSignatura signatura, tCodigo id, tFecha fecha)
 			_prestados_a.inserta(id, libros_aux);
 		}
 
-		int cantidad = _libros.valorPara(signatura);
-		_libros.inserta(signatura, cantidad - 1);
+		actualizalibros(signatura, -1);
 
 		return 1;
 	}
@@ -109,19 +106,22 @@ unsigned int Biblioteca::prestar(tSignatura signatura, tCodigo id, tFecha fecha)
 
 		return 2;
 	}
-
 }
 
+void actualizalibros(tSignatura s, int n) {
+	Diccionario <tSignatura, tNumEjemplares>:: Iterator it = _libros.busca(s);
+	it.valor() += n;
+}
 
 /**
  COMPLEJIDAD: Determina y justifica aqu� la complejidad de la operaci�n
 
 */
 Codigo_y_Nombre Biblioteca::primeroEnEspera(tSignatura signatura) const {
-	if (_lista_espera.contiene(signatura) && !_lista_espera.valorPara(signatura).esVacia())
-		return  _lista_espera.valorPara(signatura).primero();
-	else if (!_libros.contiene(signatura))
+	if (!_libros.contiene(signatura))
 		throw ELibroInexistente();
+	else if (_lista_espera.contiene(signatura) && !_lista_espera.valorPara(signatura).esVacia())
+		return  _lista_espera.valorPara(signatura).primero(); 
 	else
 		throw ESinEsperas();
 }
@@ -137,9 +137,8 @@ Lista<Signatura_y_Fecha> Biblioteca::prestados(tCodigo id) const {
 	else if (!_prestados_a.contiene(id)) {
 		Lista<Signatura_y_Fecha> l;
 		return l;
-	}
-
-	return _prestados_a.valorPara(id);
+	}else
+		return _prestados_a.valorPara(id);
 	
 }
 
@@ -164,6 +163,7 @@ bool Biblioteca::devolver(tSignatura signatura, tCodigo id, tFecha fecha) {
 			t.next();
 		}
 
+
 		l.eliminar(t);
 		_prestados_a.inserta(id, l);
 		
@@ -172,14 +172,22 @@ bool Biblioteca::devolver(tSignatura signatura, tCodigo id, tFecha fecha) {
 		// prestar al siguiente de la lista
 		bool prestado = false;
 		if (_lista_espera.contiene(signatura) && !_lista_espera.valorPara(signatura).esVacia()) {
+			//a quien le prestaremos
 			Codigo_y_Nombre cod = primeroEnEspera(signatura);
-			Diccionario <tSignatura, Cola<Codigo_y_Nombre>>::Iterator t = _lista_espera.begin();
-
-			while (t != _lista_espera.end() && t.clave()!=signatura) {
-				t.next();
-			}
-
+			
+			//buscamos si existe lista de espera
+			Diccionario <tSignatura, Cola<Codigo_y_Nombre>>::Iterator t = _lista_espera.busca(signatura);
+			
 			if (t != _lista_espera.end()) {
+				Lista<Signatura_y_Fecha> l;
+				if(_prestados_a.contiene(cod.id))
+					l = _prestados_a.valorPara(cod.id);
+				Signatura_y_Fecha f;
+				f.fecha = fecha;
+				f.signatura = signatura;
+				l.pon_final(f);
+				_prestados_a.inserta(cod.id, l);
+
 				t.valor().quita();
 				prestado = true;
 				if (t.valor().esVacia())
@@ -188,10 +196,11 @@ bool Biblioteca::devolver(tSignatura signatura, tCodigo id, tFecha fecha) {
 		}
 
 		if(!prestado) {
-			if (!_libros.contiene(id)) {
-				_libros.inserta(id, 1);
+			if (!_libros.contiene(signatura)) {
+				_libros.inserta(signatura, 1);
 			} else {
-				_libros.inserta(id, _libros.valorPara(id) + 1);
+				actualizalibros(signatura, 1);
+
 			}
 		}
 
