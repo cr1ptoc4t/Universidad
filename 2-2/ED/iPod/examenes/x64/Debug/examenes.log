@@ -1,0 +1,8 @@
+﻿  iPud.cpp
+C:\Users\Catalina\Documents\Universidad\2-2\ED\iPod\examenes\iPud.cpp(45,42): error C2440: '<function-style-cast>': no se puede realizar la conversión de 'initializer list' a 'iPud::InfoCancion'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\iPod\examenes\iPud.cpp(45,42): message : Ningún constructor ha podido aceptar el tipo de origen o bien la resolución de sobrecarga del constructor era ambigua
+C:\Users\Catalina\Documents\Universidad\2-2\ED\iPod\examenes\iPud.cpp(45,13): error C2660: 'DiccionarioHash<std::string,iPud::InfoCancion>::inserta': la función no acepta 1 argumentos
+C:\Users\Catalina\Documents\Universidad\2-2\ED\iPod\examenes\DiccionarioHash.h(123,7): message : vea la declaración de 'DiccionarioHash<std::string,iPud::InfoCancion>::inserta'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\iPod\examenes\iPud.cpp(45,13): message : al hacer coincidir la lista de argumentos '(const std::string)'
+  main.cpp
+  Generando código...
