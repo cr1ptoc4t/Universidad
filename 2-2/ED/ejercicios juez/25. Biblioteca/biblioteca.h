@@ -9,6 +9,9 @@
 
 
 #include "lista.h"
+#include "DiccionarioHash.h"
+#include "Diccionario.h"
+#include "Cola.h"
 #include <string>
 using namespace std;
 
@@ -55,6 +58,12 @@ public:
 private:
     bool estaLibro(Lista<Signatura_y_Fecha> l, tSignatura signatura);
     bool socio_tiene_libro(tCodigo id, tSignatura signatura);
+    void actualizalibros(tSignatura s, int n);
+    DiccionarioHash <tSignatura, tNumEjemplares> _libros;
+    DiccionarioHash <tCodigo, tNombre> _socios;
+    DiccionarioHash <tSignatura, Cola<Codigo_y_Nombre>> _lista_espera;
+    DiccionarioHash <tCodigo, DiccionarioHash<tSignatura, tFecha>> _prestados_a;
+    DiccionarioHash <tCodigo, Diccionario<tSignatura, tFecha>> _prestados_a_ordenado;
 };
 
 #endif

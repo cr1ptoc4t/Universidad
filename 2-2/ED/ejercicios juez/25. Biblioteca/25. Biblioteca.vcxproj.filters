@@ -32,7 +32,7 @@
     <ClInclude Include="DiccionarioHash.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Hash.h">
+    <ClInclude Include="hash.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Cola.h">

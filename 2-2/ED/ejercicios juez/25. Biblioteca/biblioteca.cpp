@@ -9,15 +9,6 @@
 #include <iostream>
 using namespace std;
 
-Diccionario <tSignatura, tNumEjemplares> _libros;
-
-Diccionario <tCodigo, tNombre> _socios;
-
-Diccionario <tSignatura, Cola<Codigo_y_Nombre>> _lista_espera;
-
-Diccionario <tCodigo, Lista<Signatura_y_Fecha>> _prestados_a;
-
-void actualizalibros(tSignatura s, int n);
 
 /**
  COMPLEJIDAD: Determina y justifica aqu� la complejidad de la operaci�n
@@ -33,8 +24,10 @@ Biblioteca::Biblioteca() {}
 void Biblioteca::annadir_libro(tSignatura signatura, tNumEjemplares num_ejemplares) {
 	if (_libros.contiene(signatura))
 		throw ELibroExistente();
-	else
-		_libros.inserta(signatura, num_ejemplares);
+	
+	_libros.inserta(signatura, num_ejemplares);
+	Cola<Codigo_y_Nombre> aux;
+	_lista_espera.inserta(signatura, aux);
 	
 }
 
@@ -47,9 +40,14 @@ void Biblioteca::annadir_socio(tCodigo id, tNombre nombre) {
 	// A IMPLEMENTAR
 	if (_socios.contiene(id))
 		throw ESocioExistente();
-	else {
-		_socios.inserta(id, nombre);
-	}
+	
+	_socios.inserta(id, nombre);
+
+	DiccionarioHash<tSignatura, tFecha> aux;
+	_prestados_a.inserta(id, aux);
+
+	Diccionario<tSignatura, tFecha> aux_ordenado;
+	_prestados_a_ordenado.inserta(id, aux_ordenado);
 }
 
 
@@ -64,28 +62,11 @@ unsigned int Biblioteca::prestar(tSignatura signatura, tCodigo id, tFecha fecha)
 	}
 	else if (socio_tiene_libro(id, signatura)) {
 		return 0;
-	}	else if (_libros.valorPara(signatura)>0) {
-		//si quedan libros
-		//si has prestado alguno al user
-		if (_prestados_a.contiene(id)) {
-			Diccionario<tCodigo, Lista<Signatura_y_Fecha>>::Iterator t = _prestados_a.busca(id);
-			Signatura_y_Fecha s;
-			s.signatura = signatura;
-			s.fecha = fecha;
-
-			t.valor().pon_final(s);
-		}
-		//si no has prestado ninguno al user
-		else {
-			Lista<Signatura_y_Fecha> libros_aux;
-			Signatura_y_Fecha s;
-			s.signatura = signatura;
-			s.fecha = fecha;
-
-			libros_aux.pon_final(s);
-			_prestados_a.inserta(id, libros_aux);
-		}
-
+	}
+	
+	if (_libros.valorPara(signatura)>0) {
+		_prestados_a.busca(id).valor().inserta(signatura, fecha);
+		_prestados_a_ordenado.busca(id).valor().inserta(signatura, fecha);
 		actualizalibros(signatura, -1);
 
 		return 1;
@@ -96,9 +77,7 @@ unsigned int Biblioteca::prestar(tSignatura signatura, tCodigo id, tFecha fecha)
 			_lista_espera.inserta(signatura, c);
 		}
 
-
-
-		Diccionario <tSignatura, Cola<Codigo_y_Nombre>>::Iterator t = _lista_espera.busca(signatura);
+		DiccionarioHash <tSignatura, Cola<Codigo_y_Nombre>>::Iterator t = _lista_espera.busca(signatura);
 
 		Codigo_y_Nombre aux;
 		aux.id = id;
@@ -110,11 +89,10 @@ unsigned int Biblioteca::prestar(tSignatura signatura, tCodigo id, tFecha fecha)
 	}
 }
 
-void actualizalibros(tSignatura s, int n) {
-
-	Diccionario <tSignatura, tNumEjemplares>:: Iterator it = _libros.busca(s);
-	if (it != _libros.end())
-		it.valor() += n;
+void Biblioteca::actualizalibros(tSignatura s, int n) {
+	DiccionarioHash <tSignatura, tNumEjemplares>:: Iterator aux = _libros.busca(s);
+	if (aux != _libros.end())
+		aux.valor() += n;
 	else
 		_libros.inserta(s, n);
 }
@@ -126,10 +104,11 @@ void actualizalibros(tSignatura s, int n) {
 Codigo_y_Nombre Biblioteca::primeroEnEspera(tSignatura signatura) const {
 	if (!_libros.contiene(signatura))
 		throw ELibroInexistente();
-	else if (_lista_espera.contiene(signatura) && !_lista_espera.valorPara(signatura).esVacia())
-		return  _lista_espera.valorPara(signatura).primero(); 
-	else
+	else if (_lista_espera.valorPara(signatura).esVacia())
 		throw ESinEsperas();
+	else 
+		return  _lista_espera.valorPara(signatura).primero(); 
+	
 }
 
 
@@ -143,8 +122,25 @@ Lista<Signatura_y_Fecha> Biblioteca::prestados(tCodigo id) const {
 	else if (!_prestados_a.contiene(id)) {
 		Lista<Signatura_y_Fecha> l;
 		return l;
-	}else
-		return _prestados_a.valorPara(id);
+	}
+	else {
+		Lista <Signatura_y_Fecha> lista_ret;
+		
+		Diccionario<tSignatura, tFecha> aux_ord = _prestados_a_ordenado.valorPara(id);
+		Diccionario<tSignatura, tFecha>::ConstIterator aux2 = aux_ord.cbegin();
+
+
+		while (aux2 != _prestados_a_ordenado.valorPara(id).cend()) {
+			Signatura_y_Fecha s;
+			s.signatura = aux2.clave();
+			s.fecha = aux2.valor();
+			lista_ret.pon_final(s);
+
+			aux2.next();
+		}
+
+		return lista_ret;
+	}
 	
 }
 
@@ -162,92 +158,27 @@ bool Biblioteca::devolver(tSignatura signatura, tCodigo id, tFecha fecha) {
 		return false;
 	
 	else {
-		Lista<Signatura_y_Fecha> l = _prestados_a.valorPara(id);
-
-		Lista<Signatura_y_Fecha>::Iterator t = l.begin();
-		while (t!= l.end() && t.elem().signatura != signatura) {
-			t.next();
-		}
-
-
-		l.eliminar(t);
-		_prestados_a.inserta(id, l);
+		//para cada diccionario, editamos valor
+		DiccionarioHash<tCodigo, DiccionarioHash<tSignatura,tFecha>>::Iterator it = _prestados_a.busca(id);
+		it.valor().borra(signatura);
 		
+		DiccionarioHash<tCodigo, Diccionario<tSignatura,tFecha>>::Iterator it2 = _prestados_a_ordenado.busca(id);
+		it2.valor().borra(signatura);
 
-		bool prestado = false;
+		actualizalibros(signatura, 1);
+
+		//si la lista no es vacia - prestamos al siguiente
 		if (_lista_espera.contiene(signatura)&&!_lista_espera.valorPara(signatura).esVacia()) {
-			Diccionario <tSignatura, Cola<Codigo_y_Nombre>>::Iterator t = _lista_espera.busca(signatura);
+			tCodigo nuevo_adquiridor = _lista_espera.busca(signatura).valor().primero().id;
 
-			if (t != _lista_espera.end()) {
-				//buscar persona
-				tCodigo c = t.valor().primero().id;
-
-				//insertar en prestados
-				Signatura_y_Fecha s;
-				s.fecha = fecha;
-				s.signatura = signatura;
-
-				
-				if(_prestados_a.contiene(c))
-					_prestados_a.busca(c).valor().pon_final(s);
-				else {
-					Lista<Signatura_y_Fecha> l;
-					l.pon_final(s);
-					_prestados_a.inserta(c, l);
-				}
-				//eliminar del anterior dueño
-				Lista<Signatura_y_Fecha> l =_prestados_a.valorPara(id);
-				Lista<Signatura_y_Fecha>::Iterator it = l.begin();
-
-				while (it != l.end()&& it.elem().signatura!=signatura) {
-					it.next();
-				}
-
-				if(it!=l.end())
-					l.eliminar(it);
-
-				_prestados_a.inserta(id,l);
-
-				//borrar de lista de espera
-				_lista_espera.busca(signatura).valor().quita();
+			(_prestados_a.busca(nuevo_adquiridor)).valor().inserta(signatura, fecha);
 
 
-				prestado = true;
-			}
-		} 
+			_prestados_a_ordenado.busca(nuevo_adquiridor).valor().inserta(signatura, fecha);
+			actualizalibros(signatura, -1);
 
-
-
-		if(!prestado)  //eliminar de libros
-			actualizalibros(signatura, 1);
-
-		/*
-		// prestar al siguiente de la lista
-		if (_lista_espera.contiene(signatura) && !_lista_espera.valorPara(signatura).esVacia()) {
-			//a quien le prestaremos
-			Codigo_y_Nombre cod = primeroEnEspera(signatura);
-			
-			//buscamos si existe lista de espera
-			Diccionario <tSignatura, Cola<Codigo_y_Nombre>>::Iterator t = _lista_espera.busca(signatura);
-			
-			if (t != _lista_espera.end()) {
-				Lista<Signatura_y_Fecha> l;
-				if(_prestados_a.contiene(cod.id))
-					l = _prestados_a.valorPara(cod.id);
-
-				Signatura_y_Fecha f;
-				f.fecha = fecha;
-				f.signatura = signatura;
-				l.pon_final(f);
-				_prestados_a.inserta(cod.id, l);
-
-				t.valor().quita();
-				prestado = true;
-				if (t.valor().esVacia())
-					_lista_espera.borra(t.clave());
-			}
+			_lista_espera.busca(signatura).valor().quita();
 		}
-		*/
 
 		return true;
 	}
@@ -255,22 +186,10 @@ bool Biblioteca::devolver(tSignatura signatura, tCodigo id, tFecha fecha) {
 }
 
 bool Biblioteca::socio_tiene_libro(tCodigo id, tSignatura signatura) {
-	if (!_prestados_a.contiene(id))
-		return false;
-	else {
-		Lista <Signatura_y_Fecha> lista = _prestados_a.valorPara(id);
-
-		return estaLibro(lista, signatura);
-	}
+	return _prestados_a.valorPara(id).contiene(signatura);
 }
 
 bool Biblioteca::estaLibro(Lista<Signatura_y_Fecha> l, tSignatura signatura) {
-	int i = 0;
-	while (i < l.longitud() && l.elem(i).signatura != signatura)
-		i++;
 
-	if (i == l.longitud())
-		return false;
-	else
-		return true;
+	return true;
 }
