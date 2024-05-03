@@ -33,6 +33,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "23. Patatitas Picantonas", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "25. Biblioteca", "25. Biblioteca\25. Biblioteca.vcxproj", "{8CCF2861-7DE3-4CDC-BCE3-479036DB34A7}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "24. Yo me vacuno", "24. Yo me vacuno\24. Yo me vacuno.vcxproj", "{508435B4-53EE-454B-8CF7-0A6EB3E7906F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -161,6 +163,14 @@ Global
 		{8CCF2861-7DE3-4CDC-BCE3-479036DB34A7}.Release|x64.Build.0 = Release|x64
 		{8CCF2861-7DE3-4CDC-BCE3-479036DB34A7}.Release|x86.ActiveCfg = Release|Win32
 		{8CCF2861-7DE3-4CDC-BCE3-479036DB34A7}.Release|x86.Build.0 = Release|Win32
+		{508435B4-53EE-454B-8CF7-0A6EB3E7906F}.Debug|x64.ActiveCfg = Debug|x64
+		{508435B4-53EE-454B-8CF7-0A6EB3E7906F}.Debug|x64.Build.0 = Debug|x64
+		{508435B4-53EE-454B-8CF7-0A6EB3E7906F}.Debug|x86.ActiveCfg = Debug|Win32
+		{508435B4-53EE-454B-8CF7-0A6EB3E7906F}.Debug|x86.Build.0 = Debug|Win32
+		{508435B4-53EE-454B-8CF7-0A6EB3E7906F}.Release|x64.ActiveCfg = Release|x64
+		{508435B4-53EE-454B-8CF7-0A6EB3E7906F}.Release|x64.Build.0 = Release|x64
+		{508435B4-53EE-454B-8CF7-0A6EB3E7906F}.Release|x86.ActiveCfg = Release|Win32
+		{508435B4-53EE-454B-8CF7-0A6EB3E7906F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

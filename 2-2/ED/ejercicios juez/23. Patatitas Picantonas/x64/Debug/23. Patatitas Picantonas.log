@@ -1,0 +1,51 @@
+﻿  GestionComandas.cpp
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(13,6): error C2065: 'tPedidos': identificador no declarado
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(13,1): error C2923: 'Cola': 'tPedidos' no es un argumento de tipo plantilla válido para el parámetro 'T'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(13,6): message : vea la declaración de 'tPedidos'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(13,16): error C2133: '_pedidos': tamaño desconocido
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(13,16): error C2512: 'Cola': no hay disponible un constructor predeterminado adecuado
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\Cola.h(36,1): message : vea la declaración de 'Cola'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(15,28): error C2065: 'tComanda': identificador no declarado
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(15,1): error C2923: 'DiccionarioHash': 'tComanda' no es un argumento de tipo plantilla válido para el parámetro 'tValor'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(15,28): message : vea la declaración de 'tComanda'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(15,38): error C2133: '_servicios': tamaño desconocido
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(15,38): error C2512: 'DiccionarioHash': no hay disponible un constructor predeterminado adecuado
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\DiccionarioHash.h(60,1): message : vea la declaración de 'DiccionarioHash'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(40,16): error C2662: 'bool DiccionarioHash<tClave,tValor>::contiene(const tClave &) const': no se puede convertir el puntero 'this' de 'DiccionarioHash' a 'const DiccionarioHash<tClave,tValor> &'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(40,6): message : Razón: no se puede realizar la conversión de 'DiccionarioHash' a 'const DiccionarioHash<tClave,tValor>'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(40,6): message : La conversión requiere un segundo operador de conversión definido por el usuario o constructor
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\DiccionarioHash.h(154,7): message : vea la declaración de 'DiccionarioHash<tClave,tValor>::contiene'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(40,16): message : al hacer coincidir la lista de argumentos '(const tServicio)'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(45,13): error C2662: 'void DiccionarioHash<tClave,tValor>::inserta(const tClave &,const tValor &)': no se puede convertir el puntero 'this' de 'DiccionarioHash' a 'DiccionarioHash<tClave,tValor> &'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(45,3): message : Razón: no se puede realizar la conversión de 'DiccionarioHash' a 'DiccionarioHash<tClave,tValor>'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(45,3): message : La conversión requiere un segundo operador de conversión definido por el usuario o constructor
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\DiccionarioHash.h(124,7): message : vea la declaración de 'DiccionarioHash<tClave,tValor>::inserta'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(45,13): message : al hacer coincidir la lista de argumentos '(const tServicio, Lista<tProducto>)'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(55,12): error C2662: 'void DiccionarioHash<tClave,tValor>::inserta(const tClave &,const tValor &)': no se puede convertir el puntero 'this' de 'DiccionarioHash' a 'DiccionarioHash<tClave,tValor> &'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(55,2): message : Razón: no se puede realizar la conversión de 'DiccionarioHash' a 'DiccionarioHash<tClave,tValor>'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(55,2): message : La conversión requiere un segundo operador de conversión definido por el usuario o constructor
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\DiccionarioHash.h(124,7): message : vea la declaración de 'DiccionarioHash<tClave,tValor>::inserta'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(55,12): message : al hacer coincidir la lista de argumentos '(const tServicio, const Lista<tProducto>)'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(64,6): error C2065: '_comandas': identificador no declarado
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(67,3): error C2065: 'tComanda': identificador no declarado
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(67,12): error C2146: error de sintaxis: falta ';' delante del identificador 'c'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(67,12): error C2065: 'c': identificador no declarado
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(67,16): error C2065: '_comandas': identificador no declarado
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(71,3): error C2065: '_comandas': identificador no declarado
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(80,17): error C2662: 'bool DiccionarioHash<tClave,tValor>::contiene(const tClave &) const': no se puede convertir el puntero 'this' de 'DiccionarioHash' a 'const DiccionarioHash<tClave,tValor> &'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(80,7): message : Razón: no se puede realizar la conversión de 'DiccionarioHash' a 'const DiccionarioHash<tClave,tValor>'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(80,7): message : La conversión requiere un segundo operador de conversión definido por el usuario o constructor
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\DiccionarioHash.h(154,7): message : vea la declaración de 'DiccionarioHash<tClave,tValor>::contiene'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(80,17): message : al hacer coincidir la lista de argumentos '(const tServicio)'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(80,50): error C2662: 'const tValor &DiccionarioHash<tClave,tValor>::valorPara(const tClave &) const': no se puede convertir el puntero 'this' de 'DiccionarioHash' a 'const DiccionarioHash<tClave,tValor> &'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(80,40): message : Razón: no se puede realizar la conversión de 'DiccionarioHash' a 'const DiccionarioHash<tClave,tValor>'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(80,40): message : La conversión requiere un segundo operador de conversión definido por el usuario o constructor
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\DiccionarioHash.h(143,16): message : vea la declaración de 'DiccionarioHash<tClave,tValor>::valorPara'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(80,50): message : al hacer coincidir la lista de argumentos '(const tServicio)'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(85,42): error C2662: 'const tValor &DiccionarioHash<tClave,tValor>::valorPara(const tClave &) const': no se puede convertir el puntero 'this' de 'DiccionarioHash' a 'const DiccionarioHash<tClave,tValor> &'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(85,32): message : Razón: no se puede realizar la conversión de 'DiccionarioHash' a 'const DiccionarioHash<tClave,tValor>'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(85,32): message : La conversión requiere un segundo operador de conversión definido por el usuario o constructor
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\DiccionarioHash.h(143,16): message : vea la declaración de 'DiccionarioHash<tClave,tValor>::valorPara'
+C:\Users\Catalina\Documents\Universidad\2-2\ED\ejercicios juez\23. Patatitas Picantonas\GestionComandas.cpp(85,42): message : al hacer coincidir la lista de argumentos '(const tServicio)'
+  main.cpp
+  Generando código...

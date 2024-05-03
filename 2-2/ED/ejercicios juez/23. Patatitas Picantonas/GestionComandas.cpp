@@ -10,9 +10,7 @@ DNI: 41618813Z
 
 DiccionarioHash<tProducto, double> _carta;
 
-typedef Lista<tProducto> tComanda;
-Cola<tComanda> _comandas;
-
+Cola<tPedidos> _pedidos;
 
 DiccionarioHash<tServicio, tComanda> _servicios;
 
@@ -22,7 +20,6 @@ DiccionarioHash<tServicio, tComanda> _servicios;
 
 */
 GestionComandas::GestionComandas() {
-	// A IMPLEMENTAR
 };
 
 /*
@@ -105,13 +102,3 @@ Cuenta GestionComandas::cierra_servicio(const tServicio& servicio) {
 		return c;
 	}
 }
-
-/*
-class Cuenta {
-public:
-	Cuenta(const Lista<ApunteCuenta>& apuntes, unsigned int precio) :
-		apuntes(apuntes), precio(precio) {}
-	Lista<ApunteCuenta> apuntes;     // Apuntes que conforman la cuenta
-	unsigned int precio;             // Cantidad de dinero total a pagar    
-};
-*/
