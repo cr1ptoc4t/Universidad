@@ -29,7 +29,7 @@ public class EnergyTableModel  extends AbstractTableModel implements EcoSysObser
     private void fillHeaders() {
         _headers = new ArrayList<>();
         _headers.add("type");
-        for(double i=0; i<=MAX_ENERGY; i+=increment){
+        for(int i=0; i<=MAX_ENERGY; i+=increment){
             _headers.add(i+"");
         }
     }
@@ -55,7 +55,7 @@ public class EnergyTableModel  extends AbstractTableModel implements EcoSysObser
     @Override
     public void onRegister(double time, MapInfo map, List<AnimalInfo> animals) {
 
-        Map<String, Map<Double, Integer>> _map = new HashMap<>();
+        Map<String, Map<Integer, Integer>> _map = new HashMap<>();
 
 
         for(AnimalInfo a:animals){
@@ -64,24 +64,23 @@ public class EnergyTableModel  extends AbstractTableModel implements EcoSysObser
                 _map.put(a.get_genetic_code(), newInternMap());
             }
 
-            Map<Double, Integer> mapa_interno = _map.get(a.get_genetic_code());
-            double energy = ((int)a.get_energy()/10) *10;
-            //System.out.println(energy);
+            Map<Integer, Integer> mapa_interno = _map.get(a.get_genetic_code());
+            int energy = ((int)a.get_energy()/10) *10;
 
             int freq = mapa_interno.get(energy);
             mapa_interno.put(energy, freq+1);
             _map.put(a.get_genetic_code(), mapa_interno);
         }
 
-        for (Map.Entry<String, Map<Double, Integer>> key : _map.entrySet()) {
+        for (Map.Entry<String, Map<Integer, Integer>> key : _map.entrySet()) {
             _content.add(new EnergyData(key.getKey(), key.getValue()));
         }
     }
 
 
-    private Map<Double, Integer> newInternMap() {
-        Map<Double, Integer> mapaInterno = new HashMap<>();
-        for(double i=0; i<=MAX_ENERGY; i+=increment)
+    private Map<Integer, Integer> newInternMap() {
+        Map<Integer, Integer> mapaInterno = new HashMap<>();
+        for(int i=0; i<=MAX_ENERGY; i+=increment)
             mapaInterno.put(i, 0);
 
         return mapaInterno;

@@ -17,10 +17,12 @@ import java.util.Map;
 public class VelocityTableModel extends AbstractTableModel implements EcoSysObserver {
     List<VelocityData> _velocity;
     List<String> _headers;
+    Controller _controller;
     public VelocityTableModel(Controller ctrl) {
         _velocity = new ArrayList<>();
         initHeaders();
-        ctrl.addObserver(this);
+        _controller = ctrl;
+        _controller.addObserver(this);
 
     }
 
@@ -48,16 +50,10 @@ public class VelocityTableModel extends AbstractTableModel implements EcoSysObse
     public Object getValueAt(int rowIndex, int columnIndex) {
         return _velocity.get(rowIndex).getValueAt(columnIndex);
     }
-/*
-    Pair<Integer, String> pair = new Pair<>(1, "One");
-    Integer key = pair.getKey();
-    String value = pair.getValue();
 
-
- */
     @Override
     public void onRegister(double time, MapInfo map, List<AnimalInfo> animals) {
-        //en el par -> velocidad media - num muestras
+        //en el par -> sumatorio velocidades medias - num muestras
         Map<String, Pair> _map = new HashMap<>();
         for (AnimalInfo animal : animals) {
             if(!_map.containsKey(animal.get_genetic_code()))
@@ -71,6 +67,7 @@ public class VelocityTableModel extends AbstractTableModel implements EcoSysObse
         }
 
         for(Map.Entry<String, Pair> key: _map.entrySet()){
+                        // genetic code                 -       sumatorio velocidades/num muestras
             _velocity.add(new VelocityData(key.getKey(), key.getValue().getX()/ key.getValue().getY()));
         }
 
