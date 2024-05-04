@@ -56,14 +56,19 @@ public:
     Lista<Asignacion> atiende_solicitudes();
     bool administra_vacuna(tIdCentro idCentro);
 private:
-    // A INCLUIR DETALLES DE REPRESENTACION
     tAnio _anio;
     tNumVacunas _n;
+
     Diccionario <tIdCentro, tDireccion> _centros;
-    Diccionario <tIdCentro, Cola<tIdCiudadano>> _lista_espera;
+    Diccionario<tIdCentro, int> centros_ord;
+
     DiccionarioHash <tIdCiudadano, tAnio> _ciudadanos;
-    DiccionarioHash <tIdCiudadano, tIdCentro> _ciudadanos_cita;
+    
     Cola <tIdCiudadano> _peticiones;
+    Diccionario <tIdCentro, Cola<tIdCiudadano>> _lista_espera;
+    DiccionarioHash <tIdCiudadano, tIdCentro> _ciudadanos_cita;
+    DiccionarioHash<tIdCiudadano, bool> _ciud_cita_pedida;
+    Diccionario <tIdCentro, tDireccion>::ConstIterator _itcentros;
 };
 
 #endif

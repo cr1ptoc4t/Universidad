@@ -12,10 +12,8 @@ USUARIO DomJudge ASIGNADO:
  DETERMINACION DE LA COMPLEJIDAD
 
 */
-YoMeVacuno::YoMeVacuno(tAnio anio, tNumVacunas n) {
-	_anio = anio;
-	_n = n;
-}
+YoMeVacuno::YoMeVacuno(tAnio anio, tNumVacunas n) :_n(n), _anio(anio) {}
+
 
 /*
  DETERMINACION DE LA COMPLEJIDAD
@@ -34,9 +32,11 @@ void YoMeVacuno::registra_centro(tIdCentro id, tDireccion dir) {
 	if (_centros.contiene(id))
 		throw ECentroDuplicado();
 
+
 	_centros.inserta(id, dir);
 	Cola <tIdCiudadano> c;
 	_lista_espera.inserta(id, c);
+	centros_ord.inserta(id, 1);
 }
 
 /*
@@ -57,12 +57,13 @@ void YoMeVacuno::registra_ciudadano(tIdCiudadano id, tAnio anio) {
 void YoMeVacuno::pide_cita(tIdCiudadano id) {
 	if (!_ciudadanos.contiene(id))
 		throw ECiudadanoInexistente();
-	else if (_ciudadanos.valorPara(id) < _anio)
+	else if (_ciudadanos.valorPara(id) != _anio)
 		throw EAnioErroneo();
-	else if (_ciudadanos_cita.contiene(id))
+	else if (_ciud_cita_pedida.contiene(id) || _ciudadanos_cita.contiene(id))
 		throw EExisteCita();
 	else {
 		_peticiones.pon(id);
+		_ciud_cita_pedida.inserta(id, 1);
 	}
 }
 
@@ -79,35 +80,39 @@ bool YoMeVacuno::en_espera() {
 
 */
 Lista<Asignacion> YoMeVacuno::atiende_solicitudes() {
-	if (_centros.esVacio()||_peticiones.esVacia())
+	if (_centros.esVacio())
 		throw EErrorDeAtencion();
-	
-	Diccionario <tIdCentro, tDireccion>::Iterator itcentros = _centros.begin();
+	if (_peticiones.esVacia() || _n == 0)
+		return Lista<Asignacion>();
+
+
+	_itcentros = _centros.cbegin();
 
 	Lista<Asignacion> asignaciones;
 
 	while (!_peticiones.esVacia() && _n>0) {
-
 
 		tIdCiudadano beneficiado = _peticiones.primero();
 		_peticiones.quita();
 
 		Asignacion a;
 		a.ponCiudadano(beneficiado);
-		a.ponCentro(itcentros.clave());
-		a.ponDireccion(itcentros.valor());
+		a.ponCentro(_itcentros.clave());
+		a.ponDireccion(_itcentros.valor());
 		
 		asignaciones.pon_final(a);
 
-		_ciudadanos_cita.inserta(beneficiado, itcentros.clave());
+		//_ciudadanos_cita.inserta(beneficiado, _itcentros.clave());
 
-		//actualizar lista espera
-		_lista_espera.busca(itcentros.clave()).valor().pon(beneficiado);
+		_lista_espera.busca(_itcentros.clave()).valor().pon(beneficiado);
 
-		itcentros.next();
+		_itcentros.next();
 
-		if (itcentros == _centros.end())
-			itcentros = _centros.begin();
+		if (_itcentros == _centros.cend())
+			_itcentros = _centros.cbegin();
+
+
+		_ciud_cita_pedida.borra(beneficiado);
 
 		_n--;
 	}
@@ -128,8 +133,10 @@ bool YoMeVacuno::administra_vacuna(tIdCentro idCentro) {
 	
 	if (t.valor().esVacia())
 		return false;
-
+	
 	tIdCiudadano c = t.valor().primero();
+	_ciudadanos.borra(c);
+	_ciudadanos_cita.borra(c);
 	t.valor().quita();
 
 	_ciudadanos.borra(c);
