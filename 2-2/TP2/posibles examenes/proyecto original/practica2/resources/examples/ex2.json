@@ -1,0 +1,30 @@
+{
+  "width" : 800,
+  "height" : 600,
+  "cols" : 20,
+  "rows" : 15,
+  "animals" : [ {
+    "amount" : 100,
+    "spec" : {
+      "type" : "sheep",
+      "data" : { }
+    }
+  }, {
+    "amount" : 30,
+    "spec" : {
+      "type" : "wolf",
+      "data" : { }
+    }
+  } ],
+  "regions" : [ {
+    "row" : [ 7, 7 ],
+    "col" : [ 0, 19 ],
+    "spec" : {
+      "type" : "dynamic",
+      "data" : {
+        "food" : 1000.0,
+        "factor" : 100
+      }
+    }
+  } ]
+}

@@ -1,0 +1,75 @@
+{
+  "width" : 800,
+  "height" : 600,
+  "cols" : 20,
+  "rows" : 15,
+  "animals" : [ {
+    "amount" : 50,
+    "spec" : {
+      "type" : "sheep",
+      "data" : {
+        "mate_strategy" : {
+          "type" : "youngest"
+        }
+      }
+    }
+  }, {
+    "amount" : 50,
+    "spec" : {
+      "type" : "sheep",
+      "data" : {
+        "danger_strategy" : {
+          "type" : "youngest"
+        }
+      }
+    }
+  }, {
+    "amount" : 50,
+    "spec" : {
+      "type" : "sheep",
+      "data" : {
+        "mate_strategy" : {
+          "type" : "youngest"
+        },
+        "danger_strategy" : {
+          "type" : "closest"
+        }
+      }
+    }
+  }, {
+    "amount" : 50,
+    "spec" : {
+      "type" : "sheep",
+      "data" : { }
+    }
+  }, {
+    "amount" : 10,
+    "spec" : {
+      "type" : "wolf",
+      "data" : { }
+    }
+  }, {
+    "amount" : 10,
+    "spec" : {
+      "type" : "wolf",
+      "data" : {
+        "mate_strategy" : {
+          "type" : "youngest"
+        },
+        "hunt_strategy" : {
+          "type" : "closest"
+        }
+      }
+    }
+  }, {
+    "amount" : 10,
+    "spec" : {
+      "type" : "wolf",
+      "data" : {
+        "hunt_strategy" : {
+          "type" : "youngest"
+        }
+      }
+    }
+  } ]
+}

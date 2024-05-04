@@ -1,0 +1,86 @@
+GENERAL--------------------------------------------------------------
+    -   Instrucciones Generales                         -       HECHO
+CAMBIOS EN MODELO Y CONTROLADOR--------------------------------------
+    -   Método reset en el simulator                    -       HECHO
+    -   Método toString() en las clases de regiones     -       HECHO
+    -   El método fill_in_data de los builders          -       HECHO
+        -   DefaultRegionBuilder                        -       HECHO
+        -   DynamicSupplyRegionBuilder                  -       HECHO
+        -   Selects                                     -       HECHO
+        -   WolfBuilder                                 -       HECHO
+        -   SheepBuilder                                -       HECHO
+    -   Iterador de regiones en la clase RegionManager  -       HECHO
+    -   La interfaz EcoSysObserver                      -       HECHO
+    -   Envío de notificaciones                         -       HECHO
+    -   Cambios en la clase Controller                  -       HECHO
+    -   Factorías y delta-time públicos en el Main      -       HECHO
+
+GUI------------------------------------------------------------------
+    -   Ventana principal                               -       HECHO
+    -   Barra de control                                -       HECHO
+    -   Barra de estado                                 -       HECHO
+    -   Tablas de Información                           -       HECHO
+        -   Tabla de especies                           -       HECHO
+        -   Tabla de regiones                           -       HECHO
+    -   Diálogo de cambio de regiones                   -   A MEDIAS*
+    -   Visor del mapa                                  -       HECHO
+
+ARCHIVOS COMPLEMENTARIOS---------------------------------------------
+    -   ViewUtils                                       -       HECHO
+    -   AbstractMapViewer                               -       HECHO
+    -   MapViewer                                       -       HECHO
+
+MAIN-----------------------------------------------------------------
+ - Nueva opción --mode                                  -       HECHO
+ - Método start_batch_mode                              -       HECHO
+
+*********************************************************************
+*             TO-DO LIST Y PROBLEMAS QUE VAN SALIENDO               *
+*********************************************************************
+VENTANA PRINCIPAL ->
+    -   FALTA EL SET_REGIONS                            -       HECHO
+
+TABLAS DE INFORMACION ->
+    -   FALTAN LOS HEADERS                              -       HECHO
+    -   FALTA LA SCROLLBAR                              -       HECHO
+    -   REVISAR FORMA DE CARGAR INFO DE SPECIES (MAPA)  -
+    -   NO SE ACTUALIZAN LAS TABLAS CUANDO EL VISOR     -       HECHO
+
+BARRA DE ESTADO ->
+    -   REVISAR SI LAS LABELS ESTAN BIEN HECHAS         -       HECHO
+
+DIÁLOGO DE CAMBIO DE REGIONES ->
+    -   ACTUALIZACIONES                                 -   POR HACER
+    -   TABLA                                           -  CASI HECHO
+        -   VALORES POR DEFECTO                         -       HECHO
+        -   ON ANIMAL ADDED
+    -   VALORES COMBOBOX                                -  CASI HECHO
+        -   OBTENER VALORES DE COLUMNAS Y FILAS         -
+    -   ACTIONLISTENERS COMBOBOX PANEL                  -
+    -   MÉTODOS:
+        -   CREATE_REGIONS_JSONOBJECT                   -       HECHO
+
+UPDATES!!!!!!!!!!!!!!!!!!!!!!!!1                        -
+NOTIFICACIONES                                          -
+
+VISOR DEL MAPA
+    -   INDICADOR DE CANTIDADES DE ANIMALES             -       HECHO
+    -   COLORES PARA CADA ANIMAL DISTINTO               -       HECHO
+    -   NO FUNCIONA, NO SE REPRODUCEN                   -       HECHO
+    -   SHOW HELP (texto rojo arriba izq)               -       HECHO
+    -   SHOW HELP                                       -       HECHO
+        -   TOGGLE HELP                                 -       HECHO
+        -   SHOW ANIMALS                                -       HECHO
+    -   EN VEZ DEL TIEMPO ORIGINAL, MUESTRA DT :(       -       HECHO
+    -   IMPORTAR JSONS EN EL EXPLORER!!!                -       HECHO
+
+
+
+*********************************************************************
+*                         ÚLTIMO ESTIRÓN!!!!!                       *
+*********************************************************************
+
+    -   EN BATCH MODE NO SE GUARDA BIEN EL ARCHIVO
+    -   TIEMPO ANTES DE COMPILAR
+    -   CHANGE REGIONS DIALOG, LE FALTA ALGO??????
+    -   REVISAR NOTIFICACIONES

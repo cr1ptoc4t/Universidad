@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="practica1/src"/>
+	<classpathentry kind="lib" path="lib/commons-cli-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/json.jar"/>
+	<classpathentry kind="lib" path="lib/viewer.jar"/>
+	<classpathentry kind="output" path="out/production/practica-tp2"/>
+</classpath>

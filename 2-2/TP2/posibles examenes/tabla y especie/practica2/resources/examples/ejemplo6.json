@@ -1,0 +1,188 @@
+{
+  "width": 800,
+  "height": 600,
+  "cols": 4,
+  "rows": 3,
+  "animals": [
+    {
+      "amount": 40,
+      "spec": {
+        "type": "sheep",
+        "data": {
+          "pos": {
+            "x_range": [
+              100.0,
+              200.0
+            ],
+            "y_range": [
+              100.0,
+              200.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "amount": 40,
+      "spec": {
+        "type": "sheep",
+        "data": {
+          "pos": {
+            "x_range": [
+              600.0,
+              700.0
+            ],
+            "y_range": [
+              100.0,
+              200.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "amount": 40,
+      "spec": {
+        "type": "sheep",
+        "data": {
+          "pos": {
+            "x_range": [
+              600.0,
+              700.0
+            ],
+            "y_range": [
+              450.0,
+              550.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "amount": 40,
+      "spec": {
+        "type": "sheep",
+        "data": {
+          "pos": {
+            "x_range": [
+              100.0,
+              200.0
+            ],
+            "y_range": [
+              450.0,
+              550.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "amount": 40,
+      "spec": {
+        "type": "sheep",
+        "data": {
+          "pos": {
+            "x_range": [
+              400.0,
+              500.0
+            ],
+            "y_range": [
+              250.0,
+              350.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "amount": 6,
+      "spec": {
+        "type": "wolf",
+        "data": {
+          "pos": {
+            "x_range": [
+              300.0,
+              400.0
+            ],
+            "y_range": [
+              100.0,
+              200.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "amount": 6,
+      "spec": {
+        "type": "wolf",
+        "data": {
+          "pos": {
+            "x_range": [
+              800.0,
+              900.0
+            ],
+            "y_range": [
+              300.0,
+              400.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "amount": 20,
+      "spec": {
+        "type": "wolf",
+        "data": {
+          "pos": {
+            "x_range": [
+              50.0,
+              150.0
+            ],
+            "y_range": [
+              50.0,
+              150.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "amount": 20,
+      "spec": {
+        "type": "wolf",
+        "data": {
+          "pos": {
+            "x_range": [
+              300.0,
+              400.0
+            ],
+            "y_range": [
+              600.0,
+              700.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "amount": 8,
+      "spec": {
+        "type": "sheep",
+        "data": {
+          "pos": {
+            "x_range": [
+              700.0,
+              800.0
+            ],
+            "y_range": [
+              300.0,
+              400.0
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
