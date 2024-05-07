@@ -133,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cola.h" />
+    <ClInclude Include="Diccionario.h" />
     <ClInclude Include="DiccionarioHash.h" />
     <ClInclude Include="hash.h" />
     <ClInclude Include="Lista.h" />

@@ -15,6 +15,7 @@ class iPud {
 private:
 	class ECancionNoExiste{};
 	class ECancionExiste{};
+	class ENoHayCancion{};
 	class InfoCancion {
 	public:
 		InfoCancion(const string& artista, int duracion,
@@ -41,8 +42,9 @@ private:
 void iPud::aniade_cancion(const string& cancion, const string& artista, int duracion) {
 	if (_canciones.contiene(cancion))
 		throw ECancionExiste();
-	else
+	else {
 		_canciones.inserta(cancion, InfoCancion(artista, duracion, _reproduccion.end(), _reproducidas.end()));
+	}
 
 }
 void iPud::aniade_a_reproduccion(const string& cancion) {
@@ -62,9 +64,10 @@ void iPud::aniade_a_reproduccion(const string& cancion) {
 void iPud::borra_cancion(const string& cancion) {
 	DiccionarioHash<string, InfoCancion>::Iterator ic = _canciones.busca(cancion);
 
-	if (ic == _canciones.end()) {
+	if (ic != _canciones.end()) {
 		if (ic.valor().pos_reproduccion != _reproduccion.end()) {
 			_reproduccion.eliminar(ic.valor().pos_reproduccion);
+			duracion -= ic.valor().duracion;
 		}
 
 		if (ic.valor().pos_reproducidas != _reproducidas.end()) {
@@ -76,14 +79,35 @@ void iPud::borra_cancion(const string& cancion) {
 	}
 }
 void iPud::reproduce() {
+	if (_reproduccion.esVacia()) throw ENoHayCancion();
+
+	DiccionarioHash<string, InfoCancion>::Iterator it = _canciones.busca(_reproduccion.ultimo());
+	duracion -= it.valor().duracion;
+
+	if (it.valor().pos_reproducidas != _reproducidas.end())
+		_reproducidas.eliminar(it.valor().pos_reproducidas);
+		
+	_reproducidas.pon_ppio(_reproduccion.ultimo());
+	it.valor().pos_reproducidas = _reproducidas.begin();
+	it.valor().pos_reproduccion = _reproduccion.end();
+	_reproduccion.quita_final();
+
 
 }
 const string& iPud::primera() const {
-
+	return _reproduccion.ultimo();
 }
-int iPud::duracion_total() const {
 
+int iPud::duracion_total() const {
+	return duracion;
 }
 Lista<string> iPud::recientes(int n) const {
-
+	Lista <string> resul;
+	Lista <string>:: ConstIterator c = resul.cbegin();
+	while (c != _reproducidas.cend() && n > 0) {
+		resul.pon_final(c.elem());
+		n--;
+		c.next();
+	}
+	return resul;
 }
