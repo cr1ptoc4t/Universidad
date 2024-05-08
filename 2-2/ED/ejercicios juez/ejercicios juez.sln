@@ -35,6 +35,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "25. Biblioteca", "25. Bibli
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "24. Yo me vacuno", "24. Yo me vacuno\24. Yo me vacuno.vcxproj", "{508435B4-53EE-454B-8CF7-0A6EB3E7906F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "26. Carnet por puntos", "26. Carnet por puntos\26. Carnet por puntos.vcxproj", "{9E249F55-0809-488F-8EB3-C283A7CFE5F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -171,6 +173,14 @@ Global
 		{508435B4-53EE-454B-8CF7-0A6EB3E7906F}.Release|x64.Build.0 = Release|x64
 		{508435B4-53EE-454B-8CF7-0A6EB3E7906F}.Release|x86.ActiveCfg = Release|Win32
 		{508435B4-53EE-454B-8CF7-0A6EB3E7906F}.Release|x86.Build.0 = Release|Win32
+		{9E249F55-0809-488F-8EB3-C283A7CFE5F1}.Debug|x64.ActiveCfg = Debug|x64
+		{9E249F55-0809-488F-8EB3-C283A7CFE5F1}.Debug|x64.Build.0 = Debug|x64
+		{9E249F55-0809-488F-8EB3-C283A7CFE5F1}.Debug|x86.ActiveCfg = Debug|Win32
+		{9E249F55-0809-488F-8EB3-C283A7CFE5F1}.Debug|x86.Build.0 = Debug|Win32
+		{9E249F55-0809-488F-8EB3-C283A7CFE5F1}.Release|x64.ActiveCfg = Release|x64
+		{9E249F55-0809-488F-8EB3-C283A7CFE5F1}.Release|x64.Build.0 = Release|x64
+		{9E249F55-0809-488F-8EB3-C283A7CFE5F1}.Release|x86.ActiveCfg = Release|Win32
+		{9E249F55-0809-488F-8EB3-C283A7CFE5F1}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

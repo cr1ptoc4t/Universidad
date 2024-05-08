@@ -15,7 +15,8 @@ memoria dinámica
 
 Las operaciones son:
 
-- ArbolVacio: -> Arbin. Generadora que crea un árbol vacío.
+- ArbolVacio: -> Arbin. Generadora que 
+un árbol vacío.
 Implementada mediante un constructor sin parámetros.
 - ArbolSimple: Elem -> Arbin. Generadora que crea un árbol con
 un único nodo. Implementada mediante un constructor con parámetro
