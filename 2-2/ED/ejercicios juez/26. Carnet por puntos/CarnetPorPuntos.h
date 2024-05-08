@@ -2,7 +2,8 @@
 #define _CARNET_POR_PUNTOS_H
 
 #include "lista.h"
-#include "DiccionarioHash.h"
+#include "Diccionario.h"
+
 #include <string>
 using namespace std;
 
@@ -12,6 +13,7 @@ class EPuntosNoValidos {};
 
 class CarnetPorPuntos {
 public:
+	CarnetPorPuntos();
 	void nuevo(const string& dni);
 	void quitar(const string& dni, unsigned int puntos);
 	void recuperar(const string& dni, unsigned int puntos);
@@ -19,7 +21,8 @@ public:
 	unsigned int cuantos_con_puntos(unsigned int puntos) const;
 	const Lista<string>& lista_por_puntos(unsigned int puntos) const;
 private:
-	DiccionarioHash<string, int> _conductores;
+	 Diccionario<string, unsigned int> _conductores;
+
 };
 
 #endif

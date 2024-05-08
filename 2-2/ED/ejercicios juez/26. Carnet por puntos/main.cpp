@@ -1,5 +1,5 @@
 #include "CarnetPorPuntos.h"
-
+#include "lista.h"
 #include <iostream>
 #include <string>
 using namespace std;

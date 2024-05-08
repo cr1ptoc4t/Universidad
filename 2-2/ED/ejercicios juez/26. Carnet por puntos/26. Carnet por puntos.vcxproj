@@ -133,8 +133,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CarnetPorPuntos.h" />
+    <ClInclude Include="Diccionario.h" />
     <ClInclude Include="DiccionarioHash.h" />
     <ClInclude Include="lista.h" />
+    <ClInclude Include="pila.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

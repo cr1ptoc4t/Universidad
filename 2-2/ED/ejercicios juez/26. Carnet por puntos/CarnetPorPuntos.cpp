@@ -5,6 +5,9 @@
 Implementa aquí los métodos de las clases adicionales
 */
 
+CarnetPorPuntos:: CarnetPorPuntos() {
+	
+}
 
 /**
 Debes completar la implementación de las operaciones de CarnetPorPuntos,
@@ -27,7 +30,7 @@ void CarnetPorPuntos::nuevo(const string& dni) {
  O(log n)
 */
 void CarnetPorPuntos::quitar(const string& dni, unsigned int puntos) {
-	DiccionarioHash<string, int>::Iterator c = _conductores.busca(dni);
+	Diccionario<string, unsigned int>::Iterator c = _conductores.busca(dni);
 
 	if (c == _conductores.end())
 		throw EConductorNoExiste();
@@ -41,13 +44,17 @@ void CarnetPorPuntos::quitar(const string& dni, unsigned int puntos) {
  o(log n)
 */
 void CarnetPorPuntos::recuperar(const string& dni, unsigned int puntos) {
-	DiccionarioHash<string, int>::Iterator c = _conductores.busca(dni);
+	Diccionario<string, unsigned int>::Iterator c = _conductores.busca(dni);
 
 	if (c == _conductores.end())
 		throw EConductorNoExiste();
 
 	c.valor() += puntos;
 	if (c.valor() >15) c.valor() = 15;
+	int p = c.valor();
+	_conductores.borra(dni);
+
+	_conductores.inserta(dni, p);
 }
 
 /**
@@ -55,7 +62,7 @@ void CarnetPorPuntos::recuperar(const string& dni, unsigned int puntos) {
  o(log n)
 */
 unsigned int CarnetPorPuntos::consultar(const string& dni) const {
-	DiccionarioHash<string, int>::ConstIterator c = _conductores.cbusca(dni);
+	Diccionario<string, unsigned int>::ConstIterator c = _conductores.cbusca(dni);
 
 	if (c == _conductores.cend())
 		throw EConductorNoExiste();
@@ -71,7 +78,7 @@ unsigned int CarnetPorPuntos::cuantos_con_puntos(unsigned int puntos) const {
 	if (puntos < 0 || puntos>15)
 		throw EPuntosNoValidos();
 
-	DiccionarioHash<string, int>::ConstIterator c = _conductores.cbegin();
+	Diccionario<string, unsigned int>::ConstIterator c = _conductores.cbegin();
 	unsigned int cont = 0;
 	while (c != _conductores.cend()) {
 		if (c.valor()==puntos) {
@@ -90,12 +97,12 @@ const Lista<string>& CarnetPorPuntos::lista_por_puntos(unsigned int puntos) cons
 	if (puntos < 0 || puntos>15)
 		throw EPuntosNoValidos();
 
-	Lista<string> lista;
+	Lista<string> *lista = new Lista<string>();
 
-	DiccionarioHash<string, int>::ConstIterator c = _conductores.cbegin();
+	Diccionario<string, unsigned int>::ConstIterator c = _conductores.cbegin();
 	while (c != _conductores.cend()) {
 		if (c.valor() == puntos) {
-			lista.pon_final(c.clave());
+			lista->pon_final(c.clave());
 		}
 		c.next();
 	}
@@ -103,7 +110,7 @@ const Lista<string>& CarnetPorPuntos::lista_por_puntos(unsigned int puntos) cons
 	//const Lista<string> l2 = lista;
 
 	//return l2;
-	return lista;
+	return *lista;
 }
 
  
