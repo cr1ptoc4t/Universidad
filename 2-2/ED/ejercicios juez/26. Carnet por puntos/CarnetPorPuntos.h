@@ -2,7 +2,7 @@
 #define _CARNET_POR_PUNTOS_H
 
 #include "lista.h"
-#include "Diccionario.h"
+#include "DiccionarioHash.h"
 
 #include <string>
 using namespace std;
@@ -21,7 +21,7 @@ public:
 	unsigned int cuantos_con_puntos(unsigned int puntos) const;
 	const Lista<string>& lista_por_puntos(unsigned int puntos) const;
 private:
-	 Diccionario<string, unsigned int> _conductores;
+	 DiccionarioHash<string, unsigned int> _conductores;
 
 };
 

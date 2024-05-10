@@ -1,9 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Practica10. Gestión de admisiones",
     "\\Practica2. Ecuacion equilibrada",
-    "\\Practica3. Alumno Afortunado"
+    "\\Practica3. Alumno Afortunado",
+    "\\Practica6. Contando Singulares"
   ],
-  "SelectedNode": "\\Practica3. Alumno Afortunado\\main.cpp",
+  "SelectedNode": "\\Practica10. Gestión de admisiones\\GestionAdmisiones.cpp",
   "PreviewInSolutionExplorer": false
 }
