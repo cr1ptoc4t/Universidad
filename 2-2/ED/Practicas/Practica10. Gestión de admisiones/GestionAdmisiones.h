@@ -1,5 +1,7 @@
 /**
   NOMBRE Y APELLIDOS DE LOS/AS AUTORES/AS DEL CONTROL:
+  CATALINA FULLANA MORA
+  ALAI MIRANDA BLANCO LASCURAIN
 
 
   (Si alguno de los miembros no ha participado, no debe aparecer)
@@ -10,12 +12,12 @@
 
 #include <string>
 #include "DiccionarioHash.h"
-//#include "Lista.h"
+#include "lista.h"
 using namespace std;
 
 
 /**
-Tipo que representa el código de los
+Tipo que representa el cï¿½digo de los
 pacientes
 */
 typedef unsigned int CodigoPaciente;
@@ -34,19 +36,19 @@ Y TIPOS ADICIONALES QUE CONSIDERES OPORTUNO
 
 
 /**
-Excepción que debe levantarse cuando trata de darse de alta
-un paciente con un código duplicado
+Excepciï¿½n que debe levantarse cuando trata de darse de alta
+un paciente con un cï¿½digo duplicado
 */
 class EPacienteDuplicado {};
 
 /**
-Excepción que debe levantarse cuando trata de consultarse los
-datos de un paciente a través de un código que no existe.
+Excepciï¿½n que debe levantarse cuando trata de consultarse los
+datos de un paciente a travï¿½s de un cï¿½digo que no existe.
 */
 class EPacienteNoExiste {};
 
 /**
-Excepción que debe levantarse cuando trata de consultarse la información
+Excepciï¿½n que debe levantarse cuando trata de consultarse la informaciï¿½n
 del siguiente paciente a atender, pero no hay pacientes en el sistema.
 */
 class ENoHayPacientes {};
@@ -57,14 +59,14 @@ Clase que implementa el TAD
 class GestionAdmisiones {
 public:
 	/**
-	  Constructora: crea un sistema de gestión de admisiones vacío
+	  Constructora: crea un sistema de gestiï¿½n de admisiones vacï¿½o
 	*/
 	GestionAdmisiones();
 	/**
-	  Añade un paciente al sistema.
-	  Levanta la excepción EPacienteDuplicado si ya hay un paciente esperando con el
+	  Aï¿½ade un paciente al sistema.
+	  Levanta la excepciï¿½n EPacienteDuplicado si ya hay un paciente esperando con el
 	  mismo codigo
-	  @param codigo El código del paciente
+	  @param codigo El cï¿½digo del paciente
 	  @param nombre El nombre del paciente
 	  @param edad La edad del paciente
 	  @param sintomas Los sintomas del paciente
@@ -72,19 +74,19 @@ public:
 	*/
 	void an_paciente(CodigoPaciente codigo, const string& nombre, unsigned int edad, const string& sintomas, Gravedad gravedad);
 	/**
-	  Recupera los datos de un paciente, dado su código.
-	  Levanta la excepción EPacienteNoExiste si el código no se corresponde con el
-	  de ningún paciente en espera
-	  @param codigo El código del paciente
+	  Recupera los datos de un paciente, dado su cï¿½digo.
+	  Levanta la excepciï¿½n EPacienteNoExiste si el cï¿½digo no se corresponde con el
+	  de ningï¿½n paciente en espera
+	  @param codigo El cï¿½digo del paciente
 	  @param nombre El nombre del paciente
 	  @param edad La edad del paciente
 	  @param sintomas Los sintomas del paciente
 	*/
 	void info_paciente(CodigoPaciente codigo, string& nombre, unsigned int& edad, string& sintomas) const;
 	/**
-	  Recupera el código y el nivel de gravedad del siguiente paciente que va a ser atendido.
-	  Levanta la excepción ENoHayPacientes en caso de que no haya pacientes en espera.
-	  @param codigo El código del paciente
+	  Recupera el cï¿½digo y el nivel de gravedad del siguiente paciente que va a ser atendido.
+	  Levanta la excepciï¿½n ENoHayPacientes en caso de que no haya pacientes en espera.
+	  @param codigo El cï¿½digo del paciente
 	  @param gravedad El nivel de gravedad del paciente
 	*/
 	void siguiente(CodigoPaciente& codigo, Gravedad& gravedad) const;
@@ -94,8 +96,8 @@ public:
 	*/
 	bool hay_pacientes() const;
 	/**
-	  Elimina del sistema todo el rasto de un paciente, dado su código.
-	  Si el código no existe, la operación no tiene efecto.
+	  Elimina del sistema todo el rasto de un paciente, dado su cï¿½digo.
+	  Si el cï¿½digo no existe, la operaciï¿½n no tiene efecto.
 	  @param codigo El codigo del paciente a eliminar.
 	*/
 	void elimina(CodigoPaciente codigo);
@@ -108,19 +110,23 @@ public:
 		unsigned int _edad;
 		string _sintomas;
 		Gravedad _g;
+		 Lista<CodigoPaciente>::Iterator _pos;
 
-		tPaciente(CodigoPaciente c, string nombre, unsigned int edad, string sintomas, Gravedad g) {
+		tPaciente(CodigoPaciente c, string nombre, unsigned int edad, string sintomas, Gravedad g,Lista<CodigoPaciente>::Iterator pos) {
 			_codigo = c;
 			_nombre = nombre;
 			_edad = edad;
 			_sintomas = sintomas;
 			_g = g;
+			_pos = pos;
 		}
 	private:
 	};
 private:
+	Gravedad gravedad_paciente(string gravedad)const;
+	string gravedad_a_string(Gravedad gravedad)const;
 	DiccionarioHash <CodigoPaciente, tPaciente> _pacientes;
-	//DiccionarioHash <Gravedad, Lista<CodigoPaciente>> _gravedad;
+	DiccionarioHash <string, Lista<CodigoPaciente>> _gravedad;
 };
 
 #endif

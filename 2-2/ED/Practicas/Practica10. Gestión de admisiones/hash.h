@@ -1,16 +1,15 @@
-
 /**
  @file hash.h
 
- Declaraci�n e implementaci�n de funciones de codificaci�n para
- tipos b�sicos y funci�n gen�rica que conf�a en la existencia
- del m�todo m�todo hash de las clases.
+ Declaración e implementación de funciones de codificación para
+ tipos básicos y función genérica que confía en la existencia
+ del método método hash de las clases.
 
  Estructura de Datos y Algoritmos
- Facultad de Inform�tica
+ Facultad de Informática
  Universidad Complutense de Madrid
 
- (c) Antonio S�nchez Ruiz-Granados, 2012. A�adidas algunas funciones Jose Luis Sierra, 2016
+ (c) Antonio Sánchez Ruiz-Granados, 2012. Añadidas algunas funciones Jose Luis Sierra, 2016
  */
 
 #ifndef __HASH_H
@@ -20,7 +19,7 @@
 
  // ----------------------------------------------------
  //
- // Funciones hash para distintos tipos de datos b�sicos
+ // Funciones hash para distintos tipos de datos básicos
  //
  // ----------------------------------------------------
 
@@ -71,8 +70,8 @@ inline unsigned int h(std::string clave) {
 
 
 /**
- * Funci�n hash gen�rica para clases que implementen un
- * m�todo publico hashcode.
+ * Función hash genérica para clases que implementen un
+ * método publico hashcode.
  */
 template<class C>
 unsigned int h(const C& clave) {
