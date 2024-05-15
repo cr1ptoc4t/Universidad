@@ -3,7 +3,7 @@ package simulator.model.animals;
 import java.util.Objects;
 
 public enum State {
-    NORMAL, MATE, HUNGER, DANGER, DEAD;
+    NORMAL, MATE, HUNGER, DANGER, DEAD, CHILL;
     private State(){}
 
     public static State castState(String str){
@@ -19,7 +19,10 @@ public enum State {
                 s = State.DANGER;
                 break;}
             case "DEAD": {
-                s = State.DEAD;}
+                s = State.DEAD;
+                break;}
+            case "CHILL": {
+                s = State.CHILL;}
         }
         return s;
     }

@@ -224,6 +224,7 @@ public class Main {
         List<Builder<Region>> region_builders = new ArrayList<>();
         region_builders.add(new DefaultRegionBuilder());
         region_builders.add(new DynamicSupplyRegionBuilder());
+        region_builders.add(new NewRegionBuilder());
         regionFactory = new BuilderBasedFactory<>(region_builders);
 
     }

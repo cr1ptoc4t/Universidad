@@ -7,18 +7,18 @@ import simulator.model.regionmanager.MapInfo;
 import simulator.model.regionmanager.RegionInfo;
 
 import javax.swing.table.AbstractTableModel;
-import javax.swing.table.TableModel;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 
-public class VelocityTableModel extends AbstractTableModel implements EcoSysObserver {
-    List<VelocityData> _velocity;
-    List<String> _headers;
-    Controller _controller;
-    public VelocityTableModel(Controller ctrl) {
+class VelocityTableModel extends AbstractTableModel implements EcoSysObserver {
+     List<VelocityData> _velocity;
+    private List<String> _headers;
+    private Controller _controller;
+
+    VelocityTableModel(Controller ctrl) {
         _velocity = new ArrayList<>();
         initHeaders();
         _controller = ctrl;
@@ -42,8 +42,9 @@ public class VelocityTableModel extends AbstractTableModel implements EcoSysObse
     public int getColumnCount() {
         return _headers.size();
     }
-    public String getColumnName(int col) {
-        return _headers.get(col);
+
+    public String getColumnName(int indx) {
+        return _headers.get(indx);
     }
 
     @Override

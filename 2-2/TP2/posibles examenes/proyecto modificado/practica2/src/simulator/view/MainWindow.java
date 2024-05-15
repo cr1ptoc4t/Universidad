@@ -50,7 +50,7 @@ public class MainWindow extends JFrame {
 
         //tabla animales por energia
         InfoTable media_velocidades = new InfoTable("Velocity", new VelocityTableModel(_ctrl));
-        media_velocidades.setPreferredSize(new Dimension(500, 100));
+        media_velocidades.setPreferredSize(new Dimension(500, 110));
         contentPanel.add(media_velocidades);
 
 
