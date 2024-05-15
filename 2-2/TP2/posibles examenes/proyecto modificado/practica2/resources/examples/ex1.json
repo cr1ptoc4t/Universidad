@@ -15,5 +15,11 @@
       "type" : "wolf",
       "data" : { }
     }
+  } , {
+    "amount" : 30,
+    "spec" : {
+      "type" : "cow",
+      "data" : { }
+    }
   } ]
 }

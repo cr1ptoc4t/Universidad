@@ -217,6 +217,7 @@ public class Main {
 
         animal_builders.add(new WolfBuilder(selection_strategy_factory));
         animal_builders.add(new SheepBuilder(selection_strategy_factory));
+        animal_builders.add(new CowBuilder(selection_strategy_factory));
 
         animalFactory = new BuilderBasedFactory<Animal>(animal_builders);
 

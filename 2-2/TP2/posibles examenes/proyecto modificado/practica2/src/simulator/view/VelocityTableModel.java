@@ -67,7 +67,6 @@ public class VelocityTableModel extends AbstractTableModel implements EcoSysObse
         }
 
         for(Map.Entry<String, Pair> key: _map.entrySet()){
-                        // genetic code                 -       sumatorio velocidades/num muestras
             _velocity.add(new VelocityData(key.getKey(), key.getValue().getX()/ key.getValue().getY()));
         }
 
@@ -95,5 +94,4 @@ public class VelocityTableModel extends AbstractTableModel implements EcoSysObse
         _velocity.clear();
         onRegister(time, map, animals);
     }
-
 }

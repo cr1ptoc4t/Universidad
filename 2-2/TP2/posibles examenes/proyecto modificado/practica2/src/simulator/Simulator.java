@@ -30,6 +30,8 @@ public class Simulator implements Observable<EcoSysObserver> {
 
     private Factory<Animal> _animals_factory;
     private Factory<Region> _regions_factory;
+
+
     public Simulator(int cols, int rows, int width, int height,
                      Factory<Animal> animals_factory, Factory<Region> regions_factory){
         if(cols<0 || rows<0 || width<0 || height<0 || animals_factory==null || regions_factory== null)
