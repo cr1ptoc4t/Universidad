@@ -24,6 +24,7 @@ import simulator.factories.*;
 import simulator.misc.Utils;
 import simulator.model.animals.*;
 import simulator.model.regions.Region;
+import simulator.view.Counter;
 import simulator.view.MainWindow;
 
 import javax.swing.*;
@@ -64,6 +65,7 @@ public class Main {
     private static Factory<Animal> animalFactory;
     public static Factory<Region> regionFactory;
     private static boolean sv = false;
+    private static boolean _car = false;
     private static int cols;
     private static int rows;
     private static int width;
@@ -87,10 +89,10 @@ public class Main {
             parse_mode_option(line);
             parse_in_file_option(line);
             parse_out_file_option(line);
-
             parse_time_option(line);
             parse_sv_option(line);
             parse_dt_option(line);
+            parse_car_option(line);
 
             String[] remaining = line.getArgs();
 
@@ -142,6 +144,10 @@ public class Main {
         cmdLineOptions.addOption(Option.builder("t").longOpt("time").hasArg()
                 .desc("An real number representing the total simulation " +
                         "time in seconds. Default value: " + _default_time + ". (only for BATCH mode).").build());
+
+        // steps
+        cmdLineOptions.addOption(Option.builder("car").longOpt("car")
+                .desc("only for BATCH").build());
 
 
         return cmdLineOptions;
@@ -205,7 +211,10 @@ public class Main {
             throw new ParseException("Invalid value for dt: " + dt);
         }
     }
-
+    private static void parse_car_option(CommandLine line) throws ParseException {
+        if(ExecMode.BATCH == _mode)
+            _car = line.hasOption("car");
+    }
     private static void init_factories() {
 
         List<Builder<SelectionStrategy>> selection_strategy_builders = new ArrayList<>();
@@ -248,7 +257,12 @@ public class Main {
             // (5) llamar a load_data pasandole el JSONObject de la entrada
             cont.load_data(archivo_entrada);
             // (6) run
-            cont.run(_time, _dt, sv, os);
+            if(_car){
+                Counter c = new Counter(cont);
+                cont.run(_time, _dt, sv, os);
+                c.showMessage();
+            }else
+                cont.run(_time, _dt, sv, os);
             // (7) cerrar archivo
             os.close();
         } catch (FileNotFoundException e){
