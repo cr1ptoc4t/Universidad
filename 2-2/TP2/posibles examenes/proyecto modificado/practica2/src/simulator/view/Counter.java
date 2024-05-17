@@ -12,7 +12,8 @@ import java.util.*;
 
 public class Counter implements EcoSysObserver {
     private Controller _ctrl;
-    private Map<int[], Integer> _map;
+    private Map<Integer, Integer> _map;
+    private int num_cols;
 
     public Counter(Controller ctrl) {
         _ctrl = ctrl;
@@ -22,22 +23,25 @@ public class Counter implements EcoSysObserver {
 
 
     public void showMessage() {
-        for (Map.Entry<int[], Integer> entry : _map.entrySet()) {
-            int[] key = entry.getKey();
+        for (Map.Entry<Integer, Integer> entry : _map.entrySet()) {
+            int num_region = entry.getKey();
+            int x = num_region % num_cols;
+            int y = (int)((num_region-1) / num_cols);
             Integer value = entry.getValue();
-            System.out.println("Region: " + key[0] + " " + key[1] + ", Value: " + value);
+            System.out.println("Region: " + x + " " + y + ", Value: " + value);
         }
     }
 
 
     @Override
     public void onRegister(double time, MapInfo map, List<AnimalInfo> animals) {
-
+        num_cols = map.get_cols();
     }
 
     @Override
     public void onReset(double time, MapInfo map, List<AnimalInfo> animals) {
-
+        num_cols = map.get_cols();
+        _map = new HashMap<>();
     }
 
     @Override
@@ -52,44 +56,31 @@ public class Counter implements EcoSysObserver {
 
     @Override
     public void onAvanced(double time, MapInfo map, List<AnimalInfo> animals, double dt) {
-        Map<int[], Integer> mapa1 = new HashMap<>();
+        Map<Integer, Integer> mapa1 = new HashMap<>();
 
         for (AnimalInfo a : animals) {
             if (a.get_diet() == Diet.CARNIVORE) {
-                int[] ar = {(int) (a.get_position().getX() / map.get_region_width()),
-                        (int) (a.get_position().getY() / map.get_region_height())};
+                int fila = (int) (a.get_position().getX() / map.get_region_width());
+                int columna = (int) (a.get_position().getY() / map.get_region_height());
 
-                boolean found = false;
-                for (int[] key : mapa1.keySet()) {
-                    if (Arrays.equals(key, ar)) {
-                        mapa1.put(key, mapa1.get(key) + 1);
-                        found = true;
-                        break;
-                    }
-                }
+                int num_region = fila * num_cols + (columna + 1);
 
-                if (!found) {
-                    mapa1.put(ar, 1);
-                }
+                if (!mapa1.containsKey(num_region))
+                    mapa1.put(num_region, 1);
+                else
+                    mapa1.put(num_region, mapa1.get(num_region) + 1);
             }
         }
 
-        for (Map.Entry<int[], Integer> entry : mapa1.entrySet()) {
-            int[] key = entry.getKey();
-            int value = entry.getValue();
+        for (Map.Entry<Integer, Integer> entry : mapa1.entrySet()) {
+            int num_region = entry.getKey();
+            int numero_carnivoros = entry.getValue();
 
-            if (value >= 3) {
-                boolean found = false;
-                for (int[] existingKey : _map.keySet()) {
-                    if (Arrays.equals(existingKey, key)) {
-                        _map.put(existingKey, _map.get(existingKey) + 1);
-                        found = true;
-                        break;
-                    }
-                }
-                if (!found) {
-                    _map.put(key, 1);
-                }
+            if (numero_carnivoros >= 3) {
+                if (!_map.containsKey(num_region))
+                    _map.put(num_region, numero_carnivoros);
+                else
+                    _map.put(num_region, mapa1.get(num_region) + 1);
             }
         }
     }

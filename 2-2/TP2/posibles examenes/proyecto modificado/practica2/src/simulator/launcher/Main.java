@@ -186,7 +186,7 @@ public class Main {
             String opt=line.getOptionValue("m");
             if(Objects.equals(opt, "gui"))
                 _mode = ExecMode.GUI;
-            else if (Objects.equals(opt, "BATCH")) {
+            else if (Objects.equals(opt, "batch")) {
                 _mode = ExecMode.BATCH;
             }
         }
