@@ -26,6 +26,7 @@ import simulator.model.animals.*;
 import simulator.model.regions.Region;
 import simulator.view.Counter;
 import simulator.view.MainWindow;
+import simulator.view.North;
 
 import javax.swing.*;
 
@@ -66,6 +67,7 @@ public class Main {
     public static Factory<Region> regionFactory;
     private static boolean sv = false;
     private static boolean _car = false;
+    private static boolean _no = false;
     private static int cols;
     private static int rows;
     private static int width;
@@ -92,6 +94,7 @@ public class Main {
             parse_time_option(line);
             parse_sv_option(line);
             parse_dt_option(line);
+            parse_no_option(line);
             parse_car_option(line);
 
             String[] remaining = line.getArgs();
@@ -149,6 +152,8 @@ public class Main {
         cmdLineOptions.addOption(Option.builder("car").longOpt("car")
                 .desc("only for BATCH").build());
 
+        cmdLineOptions.addOption(Option.builder("no").longOpt("no")
+                .desc("only for BATCH").build());
 
         return cmdLineOptions;
     }
@@ -179,6 +184,10 @@ public class Main {
         if (_mode == ExecMode.BATCH && line.hasOption("-sv")) {
             sv = true;
         }
+    }
+
+    private static void parse_no_option(CommandLine line) throws ParseException {
+        _no = _mode ==ExecMode.BATCH && line.hasOption("-no");
     }
 
     private static void parse_mode_option(CommandLine line) throws ParseException {
@@ -261,6 +270,10 @@ public class Main {
                 Counter c = new Counter(cont);
                 cont.run(_time, _dt, sv, os);
                 c.showMessage();
+            }else if(_no){
+                North n = new North(cont);
+                cont.run(_time, _dt, sv, os);
+                n.print();
             }else
                 cont.run(_time, _dt, sv, os);
             // (7) cerrar archivo

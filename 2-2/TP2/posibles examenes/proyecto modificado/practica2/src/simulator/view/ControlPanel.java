@@ -26,6 +26,7 @@ class ControlPanel extends JPanel {
     private JButton _explorer, _run,_regions_button, _viewer_button, _stop;
     private JSpinner _steps;
     private JTextField _delta_time;
+    private Dialog2 _dialog;
 
     ControlPanel(Controller ctrl) {
         _ctrl = ctrl;
@@ -66,6 +67,8 @@ class ControlPanel extends JPanel {
         _toolaBar.add(_quitButton);
 
         _changeRegionsDialog = new ChangeRegionsDialog(_ctrl, ViewUtils.getWindow(this.getParent()));
+        _dialog = new Dialog2(_ctrl, ViewUtils.getWindow(this.getParent()));
+
     }
 
     private void stepsSpinner(){
@@ -177,7 +180,9 @@ class ControlPanel extends JPanel {
             _stopped = true;
 
             setEnability(_stopped);
+            _dialog.setVisible(true);
         }
+
     }
 
     private void setEnability(boolean b){
