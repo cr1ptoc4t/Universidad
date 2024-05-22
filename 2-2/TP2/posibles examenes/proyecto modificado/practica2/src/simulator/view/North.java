@@ -40,7 +40,11 @@ public class North implements EcoSysObserver {
 
     @Override
     public void onReset(double time, MapInfo map, List<AnimalInfo> animals) {
-
+        _pos_anterior = new HashMap<>();
+        _iterations = new HashMap<>();
+        for (AnimalInfo a : animals) {
+            _pos_anterior.put(a, a.get_position().getY());
+        }
     }
 
     @Override

@@ -243,6 +243,7 @@ public class Main {
         region_builders.add(new DefaultRegionBuilder());
         region_builders.add(new DynamicSupplyRegionBuilder());
         region_builders.add(new NewRegionBuilder());
+        region_builders.add(new DryRegionBuilder());
         regionFactory = new BuilderBasedFactory<>(region_builders);
 
     }
