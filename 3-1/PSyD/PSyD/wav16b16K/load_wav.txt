@@ -1,0 +1,44 @@
+#-------------------------------------------------------------------
+#
+#  Fichero:
+#    load_wav.txt  26/3/2014
+#
+#    (c) J.M. Mendias
+#    Programación de Sistemas y Dispositivos
+#    Facultad de Informática. Universidad Complutense de Madrid
+#
+#  Propósito:
+#    Script del GDB que carga archivos WAV en la memoria de la placa 
+#    de prototipado S3CEV40 para su reproducción por el audio-codec  
+#
+#  Notas de diseño:
+#    - El script está orientado a la realización del lab 9
+#    - Los ficheros WAV y este script deben estar ubicados en el mismo 
+#      directorio
+#    - Previo a su ejecución desde una consola del GDB, debe cambiarse 
+#      al mencionado directorio con el comando: cd <ruta>
+#    - Para ejecutarlo debe usarse el comando: source load_wav.txt
+#
+#-------------------------------------------------------------------
+
+echo Cargando ficheros WAV...\n
+
+restore dtmf0.wav      binary 0x0c400000
+restore dtmf1.wav      binary 0x0c402000
+restore dtmf2.wav      binary 0x0c404000
+restore dtmf3.wav      binary 0x0c406000
+restore dtmf4.wav      binary 0x0c408000
+restore dtmf5.wav      binary 0x0c40a000
+restore dtmf6.wav      binary 0x0c40c000
+restore dtmf7.wav      binary 0x0c40e000
+restore dtmf8.wav      binary 0x0c410000
+restore dtmf9.wav      binary 0x0c412000
+restore dtmfStar.wav   binary 0x0c414000
+restore dtmfSharp.wav  binary 0x0c418000
+restore nokiaTune.wav  binary 0x0c41a000
+restore invitacion.wav binary 0x0c47a000
+restore llamada.wav    binary 0x0c4fa000
+restore congestion.wav binary 0x0c54a000
+restore ocupado.wav    binary 0x0c56a000
+
+echo ...carga finalizada

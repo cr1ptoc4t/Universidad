@@ -1,0 +1,7 @@
+12:10:13 **** Clean-only build of configuration Debug for project BSP ****
+cs-make clean 
+cs-rm -rf  ./src/adc.o ./src/at24C04.o ./src/dma.o ./src/font8x16.o ./src/iic.o ./src/iis.o ./src/keypad.o ./src/l3.o ./src/lcd.o ./src/leds.o ./src/pbs.o ./src/rtc.o ./src/segs.o ./src/system.o ./src/timers.o ./src/ts.o ./src/uart.o ./src/uda1341ts.o  ./include/s3c44b0x.o ./include/s3cev40.o  ./src/adc.d ./src/at24C04.d ./src/dma.d ./src/font8x16.d ./src/iic.d ./src/iis.d ./src/keypad.d ./src/l3.d ./src/lcd.d ./src/leds.d ./src/pbs.d ./src/rtc.d ./src/segs.d ./src/system.d ./src/timers.d ./src/ts.d ./src/uart.d ./src/uda1341ts.d  ./include/s3c44b0x.d ./include/s3cev40.d  libBSP.a
+' '
+
+12:10:14 Build Finished (took 387ms)
+

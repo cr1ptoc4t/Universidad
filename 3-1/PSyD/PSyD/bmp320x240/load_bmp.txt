@@ -1,0 +1,34 @@
+#-------------------------------------------------------------------
+#
+#  Fichero:
+#    load_bmp.txt  26/3/2014
+#
+#    (c) J.M. Mendias
+#    Programación de Sistemas y Dispositivos
+#    Facultad de Informática. Universidad Complutense de Madrid
+#
+#  Propósito:
+#    Script del GDB que carga archivos BMP en la memoria de la placa 
+#    de prototipado S3CEV40 para su visualización por el LCD  
+#
+#  Notas de diseño:
+#    - El script está orientado a la realización del lab 7
+#    - Los ficheros BMP y este script deben estar ubicados en el mismo 
+#      directorio
+#    - Previo a su ejecución desde una consola del GDB, debe cambiarse 
+#      al mencionado directorio con el comando: cd <ruta>
+#    - Para ejecurtarlo debe usarse el comando: source load_bmp.txt
+#
+#-------------------------------------------------------------------
+
+echo Cargando ficheros BMP...\n
+
+restore arbol.bmp   binary 0x0c210000
+restore padrino.bmp binary 0x0c220000
+restore picachu.bmp binary 0x0c230000
+restore harry.bmp   binary 0x0c240000
+restore chaplin.bmp binary 0x0c250000
+restore pulp.bmp    binary 0x0c260000
+restore mapa.bmp    binary 0x0c270000
+
+echo ...carga finalizada
