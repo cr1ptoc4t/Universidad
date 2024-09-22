@@ -3,6 +3,7 @@
 
 #include "lista.h"
 #include "DiccionarioHash.h"
+#include "Diccionario.h"
 
 #include <string>
 using namespace std;
@@ -22,6 +23,7 @@ public:
 	const Lista<string>& lista_por_puntos(unsigned int puntos) const;
 private:
 	 DiccionarioHash<string, unsigned int> _conductores;
+	 Diccionario<string, unsigned int> _conductores_ord;
 
 };
 

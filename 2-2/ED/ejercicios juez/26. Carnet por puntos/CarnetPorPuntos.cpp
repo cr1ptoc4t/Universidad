@@ -23,6 +23,7 @@ void CarnetPorPuntos::nuevo(const string& dni) {
 		throw EConductorDuplicado();
 
 	_conductores.inserta(dni, 15);
+	_conductores_ord.inserta(dni, 15);
 }
 
 /**
@@ -31,12 +32,21 @@ void CarnetPorPuntos::nuevo(const string& dni) {
 */
 void CarnetPorPuntos::quitar(const string& dni, unsigned int puntos) {
 	DiccionarioHash<string, unsigned int>::Iterator c = _conductores.busca(dni);
-
+	Diccionario<string, unsigned int>::Iterator d = _conductores_ord.busca(dni);
 	if (c == _conductores.end())
 		throw EConductorNoExiste();
 	
 	c.valor() -= puntos;
 	if (c.valor() < 0) c.valor() = 0;
+	
+	d.valor() -= puntos;
+	if (d.valor() < 0) d.valor() = 0;
+
+
+	int p = c.valor();
+	_conductores.borra(dni);
+	_conductores.inserta(dni, p);
+
 }
 
 /**
@@ -45,17 +55,21 @@ void CarnetPorPuntos::quitar(const string& dni, unsigned int puntos) {
 */
 void CarnetPorPuntos::recuperar(const string& dni, unsigned int puntos) {
 	DiccionarioHash<string, unsigned int>::Iterator c = _conductores.busca(dni);
+	Diccionario<string, unsigned int>::Iterator d = _conductores_ord.busca(dni);
 
 	if (c == _conductores.end())
 		throw EConductorNoExiste();
 
 	c.valor() += puntos;
 	if (c.valor() >15) c.valor() = 15;
+	d.valor() += puntos;
+	if (d.valor() >15) d.valor() = 15;
 
+	
 	int p = c.valor();
 	_conductores.borra(dni);
-
 	_conductores.inserta(dni, p);
+	
 }
 
 /**

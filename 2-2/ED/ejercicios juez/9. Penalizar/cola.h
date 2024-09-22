@@ -53,7 +53,7 @@ public:
 	*/
 	void penalizaSecuencia(int inicio, int fin) {
 		/*  A IMPLEMENTAR */
-		if(!esVacia()){
+		if(!esVacia() && (inicio<=fin)){
 			//copiamos a cola aux
 			Cola <int> ini;
 			for (int i = 0; i < inicio; i++){
