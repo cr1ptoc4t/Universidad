@@ -231,9 +231,9 @@
  1138              	.Letext0:
 DEFINED SYMBOLS
                             *ABS*:00000000 lab0.c
-C:\Users\Catalina\AppData\Local\Temp\cc6YdMVx.s:971    .text:00000000 $a
-C:\Users\Catalina\AppData\Local\Temp\cc6YdMVx.s:974    .text:00000000 main
-C:\Users\Catalina\AppData\Local\Temp\cc6YdMVx.s:1132   .text:000001d4 $d
+C:\Users\Catalina\AppData\Local\Temp\ccI9uNvD.s:971    .text:00000000 $a
+C:\Users\Catalina\AppData\Local\Temp\ccI9uNvD.s:974    .text:00000000 main
+C:\Users\Catalina\AppData\Local\Temp\ccI9uNvD.s:1132   .text:000001d4 $d
                      .debug_frame:00000010 $d
 
 UNDEFINED SYMBOLS

@@ -1,0 +1,229 @@
+
+lab1.elf:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000001d0  0c100000  0c100000  00008000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .debug_abbrev 00000047  00000000  00000000  000081d0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  2 .debug_info   0000006a  00000000  00000000  00008217  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_line   0000007a  00000000  00000000  00008281  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_macinfo 0000212b  00000000  00000000  000082fb  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_loc    0000002c  00000000  00000000  0000a426  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_pubnames 0000001b  00000000  00000000  0000a452  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_aranges 00000020  00000000  00000000  0000a46d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    0000007c  00000000  00000000  0000a48d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .comment      0000002a  00000000  00000000  0000a509  2**0
+                  CONTENTS, READONLY
+ 10 .ARM.attributes 00000032  00000000  00000000  0000a533  2**0
+                  CONTENTS, READONLY
+ 11 .debug_frame  00000030  00000000  00000000  0000a568  2**2
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+0c100000 <main>:
+**-----------------------------------------------------------------*/
+
+#define SEGS (*(volatile unsigned char *) 0x2140000)
+
+void main(void) 
+{
+ c100000:	e1a0c00d 	mov	ip, sp
+ c100004:	e92dd800 	push	{fp, ip, lr, pc}
+ c100008:	e24cb004 	sub	fp, ip, #4
+ c10000c:	e24dd008 	sub	sp, sp, #8
+
+    unsigned char i;
+    unsigned int j;
+
+    SEGS = 0xff;
+ c100010:	e3a03785 	mov	r3, #34865152	; 0x2140000
+ c100014:	e3e02000 	mvn	r2, #0
+ c100018:	e5c32000 	strb	r2, [r3]
+    while( 1 )
+        for( i=0; i<16; i++ )
+ c10001c:	e3a03000 	mov	r3, #0
+ c100020:	e54b300d 	strb	r3, [fp, #-13]
+ c100024:	ea000064 	b	c1001bc <main+0x1bc>
+        {
+            for( j=0; j<300000; j++ );
+ c100028:	e3a03000 	mov	r3, #0
+ c10002c:	e50b3014 	str	r3, [fp, #-20]	; 0xffffffec
+ c100030:	ea000002 	b	c100040 <main+0x40>
+ c100034:	e51b3014 	ldr	r3, [fp, #-20]	; 0xffffffec
+ c100038:	e2833001 	add	r3, r3, #1
+ c10003c:	e50b3014 	str	r3, [fp, #-20]	; 0xffffffec
+ c100040:	e51b2014 	ldr	r2, [fp, #-20]	; 0xffffffec
+ c100044:	e59f3180 	ldr	r3, [pc, #384]	; c1001cc <main+0x1cc>
+ c100048:	e1520003 	cmp	r2, r3
+ c10004c:	9afffff8 	bls	c100034 <main+0x34>
+            switch( i ){
+ c100050:	e55b300d 	ldrb	r3, [fp, #-13]
+ c100054:	e353000f 	cmp	r3, #15
+ c100058:	979ff103 	ldrls	pc, [pc, r3, lsl #2]
+ c10005c:	ea00004f 	b	c1001a0 <main+0x1a0>
+ c100060:	0c1000a0 	.word	0x0c1000a0
+ c100064:	0c1000b0 	.word	0x0c1000b0
+ c100068:	0c1000c0 	.word	0x0c1000c0
+ c10006c:	0c1000d0 	.word	0x0c1000d0
+ c100070:	0c1000e0 	.word	0x0c1000e0
+ c100074:	0c1000f0 	.word	0x0c1000f0
+ c100078:	0c100100 	.word	0x0c100100
+ c10007c:	0c100110 	.word	0x0c100110
+ c100080:	0c100120 	.word	0x0c100120
+ c100084:	0c100130 	.word	0x0c100130
+ c100088:	0c100140 	.word	0x0c100140
+ c10008c:	0c100150 	.word	0x0c100150
+ c100090:	0c100160 	.word	0x0c100160
+ c100094:	0c100170 	.word	0x0c100170
+ c100098:	0c100180 	.word	0x0c100180
+ c10009c:	0c100190 	.word	0x0c100190
+                case 0x00:
+                    SEGS = 0x12; // 0b00010010;
+ c1000a0:	e3a03785 	mov	r3, #34865152	; 0x2140000
+ c1000a4:	e3a02012 	mov	r2, #18
+ c1000a8:	e5c32000 	strb	r2, [r3]
+                    break;
+ c1000ac:	ea00003f 	b	c1001b0 <main+0x1b0>
+                case 0x01:
+                    SEGS = 0x9f; // 0b10011111;
+ c1000b0:	e3a03785 	mov	r3, #34865152	; 0x2140000
+ c1000b4:	e3e02060 	mvn	r2, #96	; 0x60
+ c1000b8:	e5c32000 	strb	r2, [r3]
+                    break;
+ c1000bc:	ea00003b 	b	c1001b0 <main+0x1b0>
+                case 0x02:
+                    SEGS = 0x31; // 0b10011111;
+ c1000c0:	e3a03785 	mov	r3, #34865152	; 0x2140000
+ c1000c4:	e3a02031 	mov	r2, #49	; 0x31
+ c1000c8:	e5c32000 	strb	r2, [r3]
+                    break;
+ c1000cc:	ea000037 	b	c1001b0 <main+0x1b0>
+                case 0x03:
+                                    SEGS = 0x15; // 0b00010101;
+ c1000d0:	e3a03785 	mov	r3, #34865152	; 0x2140000
+ c1000d4:	e3a02015 	mov	r2, #21
+ c1000d8:	e5c32000 	strb	r2, [r3]
+                                    break;
+ c1000dc:	ea000033 	b	c1001b0 <main+0x1b0>
+                case 0x04:
+                                    SEGS = 0x9c;
+ c1000e0:	e3a03785 	mov	r3, #34865152	; 0x2140000
+ c1000e4:	e3e02063 	mvn	r2, #99	; 0x63
+ c1000e8:	e5c32000 	strb	r2, [r3]
+                                    break;
+ c1000ec:	ea00002f 	b	c1001b0 <main+0x1b0>
+                case 0x05:
+                                    SEGS = 0x54; // 0b10101011;
+ c1000f0:	e3a03785 	mov	r3, #34865152	; 0x2140000
+ c1000f4:	e3a02054 	mov	r2, #84	; 0x54
+ c1000f8:	e5c32000 	strb	r2, [r3]
+                                    break;
+ c1000fc:	ea00002b 	b	c1001b0 <main+0x1b0>
+                case 0x06:
+                                    SEGS = 0x50; // 0b10101111;
+ c100100:	e3a03785 	mov	r3, #34865152	; 0x2140000
+ c100104:	e3a02050 	mov	r2, #80	; 0x50
+ c100108:	e5c32000 	strb	r2, [r3]
+                                    break;
+ c10010c:	ea000027 	b	c1001b0 <main+0x1b0>
+                case 0x07:
+                                                    SEGS = 0x1f; // 0b00011111;
+ c100110:	e3a03785 	mov	r3, #34865152	; 0x2140000
+ c100114:	e3a0201f 	mov	r2, #31
+ c100118:	e5c32000 	strb	r2, [r3]
+                                                    break;
+ c10011c:	ea000023 	b	c1001b0 <main+0x1b0>
+                                case 0x08:
+                                                    SEGS = 0x10; //	0b00010000;
+ c100120:	e3a03785 	mov	r3, #34865152	; 0x2140000
+ c100124:	e3a02010 	mov	r2, #16
+ c100128:	e5c32000 	strb	r2, [r3]
+                                                    break;
+ c10012c:	ea00001f 	b	c1001b0 <main+0x1b0>
+                                case 0x09:
+                                                    SEGS = 0x1c; // 0b00001100;
+ c100130:	e3a03785 	mov	r3, #34865152	; 0x2140000
+ c100134:	e3a0201c 	mov	r2, #28
+ c100138:	e5c32000 	strb	r2, [r3]
+                                                    break;
+ c10013c:	ea00001b 	b	c1001b0 <main+0x1b0>
+                                case 0x0a:
+                                                    SEGS = 0x9f; // 0b10101111;
+ c100140:	e3a03785 	mov	r3, #34865152	; 0x2140000
+ c100144:	e3e02060 	mvn	r2, #96	; 0x60
+ c100148:	e5c32000 	strb	r2, [r3]
+                                                    break;
+ c10014c:	ea000017 	b	c1001b0 <main+0x1b0>
+
+                                case 0x0b:
+                                                                    SEGS = 0xd0;
+ c100150:	e3a03785 	mov	r3, #34865152	; 0x2140000
+ c100154:	e3e0202f 	mvn	r2, #47	; 0x2f
+ c100158:	e5c32000 	strb	r2, [r3]
+                                                                    break;
+ c10015c:	ea000013 	b	c1001b0 <main+0x1b0>
+                                                case 0x0c:
+                                                                    SEGS = 0x72; // 0b10101011;
+ c100160:	e3a03785 	mov	r3, #34865152	; 0x2140000
+ c100164:	e3a02072 	mov	r2, #114	; 0x72
+ c100168:	e5c32000 	strb	r2, [r3]
+                                                                    break;
+ c10016c:	ea00000f 	b	c1001b0 <main+0x1b0>
+                            case 0x0d:
+                                 SEGS = 0x91; // 0b10101111;
+ c100170:	e3a03785 	mov	r3, #34865152	; 0x2140000
+ c100174:	e3e0206e 	mvn	r2, #110	; 0x6e
+ c100178:	e5c32000 	strb	r2, [r3]
+                                 break;
+ c10017c:	ea00000b 	b	c1001b0 <main+0x1b0>
+                           case 0x0e:
+                                SEGS = 0x70; // 0b10101011;
+ c100180:	e3a03785 	mov	r3, #34865152	; 0x2140000
+ c100184:	e3a02070 	mov	r2, #112	; 0x70
+ c100188:	e5c32000 	strb	r2, [r3]
+                                                 break;
+ c10018c:	ea000007 	b	c1001b0 <main+0x1b0>
+                           case 0x0f:
+                        	   	SEGS = 0x78; // 0b10101111;
+ c100190:	e3a03785 	mov	r3, #34865152	; 0x2140000
+ c100194:	e3a02078 	mov	r2, #120	; 0x78
+ c100198:	e5c32000 	strb	r2, [r3]
+                                break;
+ c10019c:	ea000003 	b	c1001b0 <main+0x1b0>
+                           default:
+                                                                                                	SEGS = 0x00;
+ c1001a0:	e3a03785 	mov	r3, #34865152	; 0x2140000
+ c1001a4:	e3a02000 	mov	r2, #0
+ c1001a8:	e5c32000 	strb	r2, [r3]
+                                                                                                	break;
+ c1001ac:	e1a00000 	nop			; (mov r0, r0)
+    unsigned char i;
+    unsigned int j;
+
+    SEGS = 0xff;
+    while( 1 )
+        for( i=0; i<16; i++ )
+ c1001b0:	e55b300d 	ldrb	r3, [fp, #-13]
+ c1001b4:	e2833001 	add	r3, r3, #1
+ c1001b8:	e54b300d 	strb	r3, [fp, #-13]
+ c1001bc:	e55b300d 	ldrb	r3, [fp, #-13]
+ c1001c0:	e353000f 	cmp	r3, #15
+ c1001c4:	9affff97 	bls	c100028 <main+0x28>
+                                break;
+                           default:
+                                                                                                	SEGS = 0x00;
+                                                                                                	break;
+        }
+    }
+ c1001c8:	eaffff93 	b	c10001c <main+0x1c>
+ c1001cc:	000493df 	.word	0x000493df

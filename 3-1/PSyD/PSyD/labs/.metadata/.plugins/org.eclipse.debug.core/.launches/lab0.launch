@@ -33,13 +33,13 @@
 <intAttribute key="org.eclipse.cdt.launch.ATTR_BUILD_BEFORE_LAUNCH_ATTR" value="2"/>
 <stringAttribute key="org.eclipse.cdt.launch.COREFILE_PATH" value=""/>
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_REGISTER_GROUPS" value=""/>
-<stringAttribute key="org.eclipse.cdt.launch.FORMAT" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;contentList&gt;&lt;content id=&quot;cpsr-(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;lr-(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;r11-(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;a-main-(format)&quot; val=&quot;1&quot;/&gt;&lt;content id=&quot;b-main-(format)&quot; val=&quot;1&quot;/&gt;&lt;content id=&quot;c-main-(format)&quot; val=&quot;1&quot;/&gt;&lt;/contentList&gt;"/>
+<stringAttribute key="org.eclipse.cdt.launch.FORMAT" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;contentList&gt;&lt;content id=&quot;la-main-(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;c-main-(format)&quot; val=&quot;1&quot;/&gt;&lt;content id=&quot;b-main-(format)&quot; val=&quot;1&quot;/&gt;&lt;content id=&quot;a-main-(format)&quot; val=&quot;1&quot;/&gt;&lt;content id=&quot;cpsr-(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;lr-(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;r11-(format)&quot; val=&quot;4&quot;/&gt;&lt;/contentList&gt;"/>
 <stringAttribute key="org.eclipse.cdt.launch.GLOBAL_VARIABLES" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;globalVariableList/&gt;&#13;&#10;"/>
 <stringAttribute key="org.eclipse.cdt.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;memoryBlockExpressionList&gt;&#13;&#10;&lt;memoryBlockExpressionItem&gt;&#13;&#10;&lt;expression text=&quot;0xc000000&quot;/&gt;&#13;&#10;&lt;/memoryBlockExpressionItem&gt;&#13;&#10;&lt;/memoryBlockExpressionList&gt;&#13;&#10;"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug\lab0.elf"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="lab0"/>
 <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="true"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value=""/>
+<stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="org.eclipse.cdt.cross.arm.gnu.sourcery.windows.elf.debug.868042208"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/lab0"/>
 </listAttribute>

@@ -1,0 +1,35 @@
+12:45:54 **** Incremental Build of configuration Debug for project lab1 ****
+cs-make all 
+'Building file: ../lab1.c'
+'Invoking: ARM Sourcery Windows GCC C Compiler'
+arm-none-eabi-gcc -O0 -Wall -Wa,-adhlns="lab1.o.lst" -c -fmessage-length=0 -mapcs-frame -MMD -MP -MF"lab1.d" -MT"lab1.d" -mcpu=arm7tdmi -g3 -gdwarf-2 -o "lab1.o" "../lab1.c"
+../lab1.c:21:6: warning: return type of 'main' is not 'int'
+'Finished building: ../lab1.c'
+' '
+'Building target: lab1.elf'
+'Invoking: ARM Sourcery Windows GCC C Linker'
+arm-none-eabi-gcc -T"../lab1.ld" -nostartfiles -Wl,-Map,lab1.map -mcpu=arm7tdmi -g3 -gdwarf-2 -o "lab1.elf"  ./lab1.o   
+'Finished building target: lab1.elf'
+' '
+'Invoking: ARM Sourcery Windows GNU Create Flash Image'
+arm-none-eabi-objcopy -O binary lab1.elf  "lab1.hex"
+'Finished building: lab1.hex'
+' '
+'Invoking: ARM Sourcery Windows GNU Create Listing'
+arm-none-eabi-objdump -h -S lab1.elf > "lab1.lst"
+'Finished building: lab1.lst'
+' '
+'Invoking: ARM Sourcery Windows GNU Print Size'
+arm-none-eabi-size  --format=berkeley lab1.elf
+   text	   data	    bss	    dec	    hex	filename
+    464	      0	      0	    464	    1d0	lab1.elf
+'Finished building: lab1.siz'
+' '
+12:45:58 **** Incremental Build of configuration Debug for project lab1 ****
+cs-make all 
+'Invoking: ARM Sourcery Windows GNU Print Size'
+arm-none-eabi-size  --format=berkeley lab1.elf
+   text	   data	    bss	    dec	    hex	filename
+    464	      0	      0	    464	    1d0	lab1.elf
+'Finished building: lab1.siz'
+' '

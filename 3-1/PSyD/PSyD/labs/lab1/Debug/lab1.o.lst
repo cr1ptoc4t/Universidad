@@ -1,0 +1,316 @@
+   1              		.cpu arm7tdmi
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 18, 4
+  11              		.file	"lab1.c"
+  21              	.Ltext0:
+  22              		.file 1 "../lab1.c"
+ 968              		.align	2
+ 969              		.global	main
+ 971              	main:
+ 972              	.LFB0:
+   1:../lab1.c     **** /*-------------------------------------------------------------------
+   2:../lab1.c     **** **
+   3:../lab1.c     **** **  Fichero:
+   4:../lab1.c     **** **    lab1.c  25/8/2016
+   5:../lab1.c     **** **
+   6:../lab1.c     **** **    (c) J.M. Mendias
+   7:../lab1.c     **** **    Programación de Sistemas y Dispositivos
+   8:../lab1.c     **** **    Facultad de Informática. Universidad Complutense de Madrid
+   9:../lab1.c     **** **
+  10:../lab1.c     **** **  Propósito:
+  11:../lab1.c     **** **    Test del laboratorio 1
+  12:../lab1.c     **** **
+  13:../lab1.c     **** **  Notas de diseño:
+  14:../lab1.c     **** **    Presupone que todo el SoC ha sido previamente configurado
+  15:../lab1.c     **** **    por el programa residente en ROM que se ejecuta tras reset
+  16:../lab1.c     **** **
+  17:../lab1.c     **** **-----------------------------------------------------------------*/
+  18:../lab1.c     **** 
+  19:../lab1.c     **** #define SEGS (*(volatile unsigned char *) 0x2140000)
+  20:../lab1.c     **** 
+  21:../lab1.c     **** void main(void) 
+  22:../lab1.c     **** {
+ 973              		.loc 1 22 0
+ 974              		.cfi_startproc
+ 975              		@ Function supports interworking.
+ 976              		@ args = 0, pretend = 0, frame = 8
+ 977              		@ frame_needed = 1, uses_anonymous_args = 0
+ 978 0000 0DC0A0E1 		mov	ip, sp
+ 979              	.LCFI0:
+ 980              		.cfi_def_cfa_register 12
+ 981 0004 00D82DE9 		stmfd	sp!, {fp, ip, lr, pc}
+ 982 0008 04B04CE2 		sub	fp, ip, #4
+ 983              		.cfi_offset 14, -8
+ 984              		.cfi_offset 13, -12
+ 985              		.cfi_offset 11, -16
+ 986              	.LCFI1:
+ 987              		.cfi_def_cfa 11, 4
+ 988 000c 08D04DE2 		sub	sp, sp, #8
+  23:../lab1.c     **** 
+  24:../lab1.c     ****     unsigned char i;
+  25:../lab1.c     ****     unsigned int j;
+  26:../lab1.c     **** 
+  27:../lab1.c     ****     SEGS = 0xff;
+ 989              		.loc 1 27 0
+ 990 0010 8537A0E3 		mov	r3, #34865152
+ 991 0014 0020E0E3 		mvn	r2, #0
+ 992 0018 0020C3E5 		strb	r2, [r3, #0]
+ 993              	.L25:
+  28:../lab1.c     ****     while( 1 )
+  29:../lab1.c     ****         for( i=0; i<16; i++ )
+ 994              		.loc 1 29 0
+ 995 001c 0030A0E3 		mov	r3, #0
+ 996 0020 0D304BE5 		strb	r3, [fp, #-13]
+ 997 0024 640000EA 		b	.L2
+ 998              	.L24:
+  30:../lab1.c     ****         {
+  31:../lab1.c     ****             for( j=0; j<300000; j++ );
+ 999              		.loc 1 31 0
+ 1000 0028 0030A0E3 		mov	r3, #0
+ 1001 002c 14300BE5 		str	r3, [fp, #-20]
+ 1002 0030 020000EA 		b	.L3
+ 1003              	.L4:
+ 1004              		.loc 1 31 0 is_stmt 0 discriminator 2
+ 1005 0034 14301BE5 		ldr	r3, [fp, #-20]
+ 1006 0038 013083E2 		add	r3, r3, #1
+ 1007 003c 14300BE5 		str	r3, [fp, #-20]
+ 1008              	.L3:
+ 1009              		.loc 1 31 0 discriminator 1
+ 1010 0040 14201BE5 		ldr	r2, [fp, #-20]
+ 1011 0044 80319FE5 		ldr	r3, .L26
+ 1012 0048 030052E1 		cmp	r2, r3
+ 1013 004c F8FFFF9A 		bls	.L4
+  32:../lab1.c     ****             switch( i ){
+ 1014              		.loc 1 32 0 is_stmt 1
+ 1015 0050 0D305BE5 		ldrb	r3, [fp, #-13]	@ zero_extendqisi2
+ 1016 0054 0F0053E3 		cmp	r3, #15
+ 1017 0058 03F19F97 		ldrls	pc, [pc, r3, asl #2]
+ 1018 005c 4F0000EA 		b	.L5
+ 1019              	.L22:
+ 1020 0060 A0000000 		.word	.L6
+ 1021 0064 B0000000 		.word	.L7
+ 1022 0068 C0000000 		.word	.L8
+ 1023 006c D0000000 		.word	.L9
+ 1024 0070 E0000000 		.word	.L10
+ 1025 0074 F0000000 		.word	.L11
+ 1026 0078 00010000 		.word	.L12
+ 1027 007c 10010000 		.word	.L13
+ 1028 0080 20010000 		.word	.L14
+ 1029 0084 30010000 		.word	.L15
+ 1030 0088 40010000 		.word	.L16
+ 1031 008c 50010000 		.word	.L17
+ 1032 0090 60010000 		.word	.L18
+ 1033 0094 70010000 		.word	.L19
+ 1034 0098 80010000 		.word	.L20
+ 1035 009c 90010000 		.word	.L21
+ 1036              	.L6:
+  33:../lab1.c     ****                 case 0x00:
+  34:../lab1.c     ****                     SEGS = 0x12; // 0b00010010;
+ 1037              		.loc 1 34 0
+ 1038 00a0 8537A0E3 		mov	r3, #34865152
+ 1039 00a4 1220A0E3 		mov	r2, #18
+ 1040 00a8 0020C3E5 		strb	r2, [r3, #0]
+  35:../lab1.c     ****                     break;
+ 1041              		.loc 1 35 0
+ 1042 00ac 3F0000EA 		b	.L23
+ 1043              	.L7:
+  36:../lab1.c     ****                 case 0x01:
+  37:../lab1.c     ****                     SEGS = 0x9f; // 0b10011111;
+ 1044              		.loc 1 37 0
+ 1045 00b0 8537A0E3 		mov	r3, #34865152
+ 1046 00b4 6020E0E3 		mvn	r2, #96
+ 1047 00b8 0020C3E5 		strb	r2, [r3, #0]
+  38:../lab1.c     ****                     break;
+ 1048              		.loc 1 38 0
+ 1049 00bc 3B0000EA 		b	.L23
+ 1050              	.L8:
+  39:../lab1.c     ****                 case 0x02:
+  40:../lab1.c     ****                     SEGS = 0x31; // 0b10011111;
+ 1051              		.loc 1 40 0
+ 1052 00c0 8537A0E3 		mov	r3, #34865152
+ 1053 00c4 3120A0E3 		mov	r2, #49
+ 1054 00c8 0020C3E5 		strb	r2, [r3, #0]
+  41:../lab1.c     ****                     break;
+ 1055              		.loc 1 41 0
+ 1056 00cc 370000EA 		b	.L23
+ 1057              	.L9:
+  42:../lab1.c     ****                 case 0x03:
+  43:../lab1.c     ****                                     SEGS = 0x15; // 0b00010101;
+ 1058              		.loc 1 43 0
+ 1059 00d0 8537A0E3 		mov	r3, #34865152
+ 1060 00d4 1520A0E3 		mov	r2, #21
+ 1061 00d8 0020C3E5 		strb	r2, [r3, #0]
+  44:../lab1.c     ****                                     break;
+ 1062              		.loc 1 44 0
+ 1063 00dc 330000EA 		b	.L23
+ 1064              	.L10:
+  45:../lab1.c     ****                 case 0x04:
+  46:../lab1.c     ****                                     SEGS = 0x9c;
+ 1065              		.loc 1 46 0
+ 1066 00e0 8537A0E3 		mov	r3, #34865152
+ 1067 00e4 6320E0E3 		mvn	r2, #99
+ 1068 00e8 0020C3E5 		strb	r2, [r3, #0]
+  47:../lab1.c     ****                                     break;
+ 1069              		.loc 1 47 0
+ 1070 00ec 2F0000EA 		b	.L23
+ 1071              	.L11:
+  48:../lab1.c     ****                 case 0x05:
+  49:../lab1.c     ****                                     SEGS = 0x54; // 0b10101011;
+ 1072              		.loc 1 49 0
+ 1073 00f0 8537A0E3 		mov	r3, #34865152
+ 1074 00f4 5420A0E3 		mov	r2, #84
+ 1075 00f8 0020C3E5 		strb	r2, [r3, #0]
+  50:../lab1.c     ****                                     break;
+ 1076              		.loc 1 50 0
+ 1077 00fc 2B0000EA 		b	.L23
+ 1078              	.L12:
+  51:../lab1.c     ****                 case 0x06:
+  52:../lab1.c     ****                                     SEGS = 0x50; // 0b10101111;
+ 1079              		.loc 1 52 0
+ 1080 0100 8537A0E3 		mov	r3, #34865152
+ 1081 0104 5020A0E3 		mov	r2, #80
+ 1082 0108 0020C3E5 		strb	r2, [r3, #0]
+  53:../lab1.c     ****                                     break;
+ 1083              		.loc 1 53 0
+ 1084 010c 270000EA 		b	.L23
+ 1085              	.L13:
+  54:../lab1.c     ****                 case 0x07:
+  55:../lab1.c     ****                                                     SEGS = 0x1f; // 0b00011111;
+ 1086              		.loc 1 55 0
+ 1087 0110 8537A0E3 		mov	r3, #34865152
+ 1088 0114 1F20A0E3 		mov	r2, #31
+ 1089 0118 0020C3E5 		strb	r2, [r3, #0]
+  56:../lab1.c     ****                                                     break;
+ 1090              		.loc 1 56 0
+ 1091 011c 230000EA 		b	.L23
+ 1092              	.L14:
+  57:../lab1.c     ****                                 case 0x08:
+  58:../lab1.c     ****                                                     SEGS = 0x10; //	0b00010000;
+ 1093              		.loc 1 58 0
+ 1094 0120 8537A0E3 		mov	r3, #34865152
+ 1095 0124 1020A0E3 		mov	r2, #16
+ 1096 0128 0020C3E5 		strb	r2, [r3, #0]
+  59:../lab1.c     ****                                                     break;
+ 1097              		.loc 1 59 0
+ 1098 012c 1F0000EA 		b	.L23
+ 1099              	.L15:
+  60:../lab1.c     ****                                 case 0x09:
+  61:../lab1.c     ****                                                     SEGS = 0x1c; // 0b00001100;
+ 1100              		.loc 1 61 0
+ 1101 0130 8537A0E3 		mov	r3, #34865152
+ 1102 0134 1C20A0E3 		mov	r2, #28
+ 1103 0138 0020C3E5 		strb	r2, [r3, #0]
+  62:../lab1.c     ****                                                     break;
+ 1104              		.loc 1 62 0
+ 1105 013c 1B0000EA 		b	.L23
+ 1106              	.L16:
+  63:../lab1.c     ****                                 case 0x0a:
+  64:../lab1.c     ****                                                     SEGS = 0x9f; // 0b10101111;
+ 1107              		.loc 1 64 0
+ 1108 0140 8537A0E3 		mov	r3, #34865152
+ 1109 0144 6020E0E3 		mvn	r2, #96
+ 1110 0148 0020C3E5 		strb	r2, [r3, #0]
+  65:../lab1.c     ****                                                     break;
+ 1111              		.loc 1 65 0
+ 1112 014c 170000EA 		b	.L23
+ 1113              	.L17:
+  66:../lab1.c     **** 
+  67:../lab1.c     ****                                 case 0x0b:
+  68:../lab1.c     ****                                                                     SEGS = 0xd0;
+ 1114              		.loc 1 68 0
+ 1115 0150 8537A0E3 		mov	r3, #34865152
+ 1116 0154 2F20E0E3 		mvn	r2, #47
+ 1117 0158 0020C3E5 		strb	r2, [r3, #0]
+  69:../lab1.c     ****                                                                     break;
+ 1118              		.loc 1 69 0
+ 1119 015c 130000EA 		b	.L23
+ 1120              	.L18:
+  70:../lab1.c     ****                                                 case 0x0c:
+  71:../lab1.c     ****                                                                     SEGS = 0x72; // 0b10101011;
+ 1121              		.loc 1 71 0
+ 1122 0160 8537A0E3 		mov	r3, #34865152
+ 1123 0164 7220A0E3 		mov	r2, #114
+ 1124 0168 0020C3E5 		strb	r2, [r3, #0]
+  72:../lab1.c     ****                                                                     break;
+ 1125              		.loc 1 72 0
+ 1126 016c 0F0000EA 		b	.L23
+ 1127              	.L19:
+  73:../lab1.c     ****                             case 0x0d:
+  74:../lab1.c     ****                                  SEGS = 0x91; // 0b10101111;
+ 1128              		.loc 1 74 0
+ 1129 0170 8537A0E3 		mov	r3, #34865152
+ 1130 0174 6E20E0E3 		mvn	r2, #110
+ 1131 0178 0020C3E5 		strb	r2, [r3, #0]
+  75:../lab1.c     ****                                  break;
+ 1132              		.loc 1 75 0
+ 1133 017c 0B0000EA 		b	.L23
+ 1134              	.L20:
+  76:../lab1.c     ****                            case 0x0e:
+  77:../lab1.c     ****                                 SEGS = 0x70; // 0b10101011;
+ 1135              		.loc 1 77 0
+ 1136 0180 8537A0E3 		mov	r3, #34865152
+ 1137 0184 7020A0E3 		mov	r2, #112
+ 1138 0188 0020C3E5 		strb	r2, [r3, #0]
+  78:../lab1.c     ****                                                  break;
+ 1139              		.loc 1 78 0
+ 1140 018c 070000EA 		b	.L23
+ 1141              	.L21:
+  79:../lab1.c     ****                            case 0x0f:
+  80:../lab1.c     ****                         	   	SEGS = 0x78; // 0b10101111;
+ 1142              		.loc 1 80 0
+ 1143 0190 8537A0E3 		mov	r3, #34865152
+ 1144 0194 7820A0E3 		mov	r2, #120
+ 1145 0198 0020C3E5 		strb	r2, [r3, #0]
+  81:../lab1.c     ****                                 break;
+ 1146              		.loc 1 81 0
+ 1147 019c 030000EA 		b	.L23
+ 1148              	.L5:
+  82:../lab1.c     ****                            default:
+  83:../lab1.c     ****                                                                                                 	SE
+ 1149              		.loc 1 83 0
+ 1150 01a0 8537A0E3 		mov	r3, #34865152
+ 1151 01a4 0020A0E3 		mov	r2, #0
+ 1152 01a8 0020C3E5 		strb	r2, [r3, #0]
+  84:../lab1.c     ****                                                                                                 	br
+ 1153              		.loc 1 84 0
+ 1154 01ac 0000A0E1 		mov	r0, r0	@ nop
+ 1155              	.L23:
+  29:../lab1.c     ****         for( i=0; i<16; i++ )
+ 1156              		.loc 1 29 0
+ 1157 01b0 0D305BE5 		ldrb	r3, [fp, #-13]
+ 1158 01b4 013083E2 		add	r3, r3, #1
+ 1159 01b8 0D304BE5 		strb	r3, [fp, #-13]
+ 1160              	.L2:
+  29:../lab1.c     ****         for( i=0; i<16; i++ )
+ 1161              		.loc 1 29 0 is_stmt 0 discriminator 1
+ 1162 01bc 0D305BE5 		ldrb	r3, [fp, #-13]	@ zero_extendqisi2
+ 1163 01c0 0F0053E3 		cmp	r3, #15
+ 1164 01c4 97FFFF9A 		bls	.L24
+  85:../lab1.c     ****         }
+  86:../lab1.c     ****     }
+ 1165              		.loc 1 86 0 is_stmt 1
+ 1166 01c8 93FFFFEA 		b	.L25
+ 1167              	.L27:
+ 1168              		.align	2
+ 1169              	.L26:
+ 1170 01cc DF930400 		.word	299999
+ 1171              		.cfi_endproc
+ 1172              	.LFE0:
+ 1174              	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 lab1.c
+C:\Users\Catalina\AppData\Local\Temp\ccMUdibV.s:968    .text:00000000 $a
+C:\Users\Catalina\AppData\Local\Temp\ccMUdibV.s:971    .text:00000000 main
+C:\Users\Catalina\AppData\Local\Temp\ccMUdibV.s:1020   .text:00000060 $d
+C:\Users\Catalina\AppData\Local\Temp\ccMUdibV.s:1038   .text:000000a0 $a
+C:\Users\Catalina\AppData\Local\Temp\ccMUdibV.s:1170   .text:000001cc $d
+                     .debug_frame:00000010 $d
+
+NO UNDEFINED SYMBOLS

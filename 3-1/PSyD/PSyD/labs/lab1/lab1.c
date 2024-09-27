@@ -16,7 +16,7 @@
 **
 **-----------------------------------------------------------------*/
 
-#define SEGS (*(volatile unsigned char *) ... )
+#define SEGS (*(volatile unsigned char *) 0x2140000)
 
 void main(void) 
 {
@@ -34,18 +34,56 @@ void main(void)
                     SEGS = 0x12; // 0b00010010;
                     break;
                 case 0x01:
-                    SEGS = ...; 
+                    SEGS = 0x9f; // 0b10011111;
                     break;
-                ...
-                case 0x0f:
-                    SEGS = ...; 
+                case 0x02:
+                    SEGS = 0x31; // 0b10011111;
                     break;
-                default:
-                    SEGS = ...;
-                    break;
-            }                    
-        }
+                case 0x03:
+                                    SEGS = 0x15; // 0b00010101;
+                                    break;
+                case 0x04:
+                                    SEGS = 0x9c;
+                                    break;
+                case 0x05:
+                                    SEGS = 0x54; // 0b10101011;
+                                    break;
+                case 0x06:
+                                    SEGS = 0x50; // 0b10101111;
+                                    break;
+                case 0x07:
+                                                    SEGS = 0x1f; // 0b00011111;
+                                                    break;
+                                case 0x08:
+                                                    SEGS = 0x10; //	0b00010000;
+                                                    break;
+                                case 0x09:
+                                                    SEGS = 0x1c; // 0b00001100;
+                                                    break;
+                                case 0x0a:
+                                                    SEGS = 0x9f; // 0b10101111;
+                                                    break;
 
+                                case 0x0b:
+                                                                    SEGS = 0xd0;
+                                                                    break;
+                                                case 0x0c:
+                                                                    SEGS = 0x72; // 0b10101011;
+                                                                    break;
+                            case 0x0d:
+                                 SEGS = 0x91; // 0b10101111;
+                                 break;
+                           case 0x0e:
+                                SEGS = 0x70; // 0b10101011;
+                                                 break;
+                           case 0x0f:
+                        	   	SEGS = 0x78; // 0b10101111;
+                                break;
+                           default:
+                                                                                                	SEGS = 0x00;
+                                                                                                	break;
+        }
+    }
 }
 
 
