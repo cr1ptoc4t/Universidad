@@ -1,35 +1,56 @@
-12:45:54 **** Incremental Build of configuration Debug for project lab1 ****
+17:03:29 **** Build of configuration Debug for project lab4 ****
 cs-make all 
-'Building file: ../lab1.c'
+'Building file: ../lab4.c'
 'Invoking: ARM Sourcery Windows GCC C Compiler'
-arm-none-eabi-gcc -O0 -Wall -Wa,-adhlns="lab1.o.lst" -c -fmessage-length=0 -mapcs-frame -MMD -MP -MF"lab1.d" -MT"lab1.d" -mcpu=arm7tdmi -g3 -gdwarf-2 -o "lab1.o" "../lab1.c"
-../lab1.c:21:6: warning: return type of 'main' is not 'int'
-'Finished building: ../lab1.c'
+arm-none-eabi-gcc -I..\..\BSP\include -O0 -Wall -Wa,-adhlns="lab4.o.lst" -c -fmessage-length=0 -mapcs-frame -MMD -MP -MF"lab4.d" -MT"lab4.d" -mcpu=arm7tdmi -g3 -gdwarf-2 -o "lab4.o" "../lab4.c"
+../lab4.c:21:6: warning: return type of 'main' is not 'int'
+'Finished building: ../lab4.c'
 ' '
-'Building target: lab1.elf'
+'Building file: ../systemLab4.c'
+'Invoking: ARM Sourcery Windows GCC C Compiler'
+arm-none-eabi-gcc -I..\..\BSP\include -O0 -Wall -Wa,-adhlns="systemLab4.o.lst" -c -fmessage-length=0 -mapcs-frame -MMD -MP -MF"systemLab4.d" -MT"systemLab4.d" -mcpu=arm7tdmi -g3 -gdwarf-2 -o "systemLab4.o" "../systemLab4.c"
+'Finished building: ../systemLab4.c'
+' '
+'Building target: lab4.elf'
 'Invoking: ARM Sourcery Windows GCC C Linker'
-arm-none-eabi-gcc -T"../lab1.ld" -nostartfiles -Wl,-Map,lab1.map -mcpu=arm7tdmi -g3 -gdwarf-2 -o "lab1.elf"  ./lab1.o   
-'Finished building target: lab1.elf'
+arm-none-eabi-gcc -T"../lab4.ld" -nostartfiles -L../../BSP/Debug -Wl,-Map,lab4.map -mcpu=arm7tdmi -g3 -gdwarf-2 -o "lab4.elf"  ./lab4.o ./systemLab4.o   -lBSP
+'Finished building target: lab4.elf'
 ' '
 'Invoking: ARM Sourcery Windows GNU Create Flash Image'
-arm-none-eabi-objcopy -O binary lab1.elf  "lab1.hex"
-'Finished building: lab1.hex'
+arm-none-eabi-objcopy -O binary lab4.elf  "lab4.hex"
+'Finished building: lab4.hex'
 ' '
 'Invoking: ARM Sourcery Windows GNU Create Listing'
-arm-none-eabi-objdump -h -S lab1.elf > "lab1.lst"
-'Finished building: lab1.lst'
+arm-none-eabi-objdump -h -S lab4.elf > "lab4.lst"
+'Finished building: lab4.lst'
 ' '
 'Invoking: ARM Sourcery Windows GNU Print Size'
-arm-none-eabi-size  --format=berkeley lab1.elf
+arm-none-eabi-size  --format=berkeley lab4.elf
    text	   data	    bss	    dec	    hex	filename
-    464	      0	      0	    464	    1d0	lab1.elf
-'Finished building: lab1.siz'
+   4176	   1080	      0	   5256	   1488	lab4.elf
+'Finished building: lab4.siz'
 ' '
-12:45:58 **** Incremental Build of configuration Debug for project lab1 ****
+17:03:37 **** Incremental Build of configuration Debug for project lab4 ****
 cs-make all 
 'Invoking: ARM Sourcery Windows GNU Print Size'
-arm-none-eabi-size  --format=berkeley lab1.elf
+arm-none-eabi-size  --format=berkeley lab4.elf
    text	   data	    bss	    dec	    hex	filename
-    464	      0	      0	    464	    1d0	lab1.elf
-'Finished building: lab1.siz'
+   4176	   1080	      0	   5256	   1488	lab4.elf
+'Finished building: lab4.siz'
+' '
+17:04:14 **** Incremental Build of configuration Debug for project lab4 ****
+cs-make all 
+'Invoking: ARM Sourcery Windows GNU Print Size'
+arm-none-eabi-size  --format=berkeley lab4.elf
+   text	   data	    bss	    dec	    hex	filename
+   4176	   1080	      0	   5256	   1488	lab4.elf
+'Finished building: lab4.siz'
+' '
+17:05:07 **** Incremental Build of configuration Debug for project lab4 ****
+cs-make all 
+'Invoking: ARM Sourcery Windows GNU Print Size'
+arm-none-eabi-size  --format=berkeley lab4.elf
+   text	   data	    bss	    dec	    hex	filename
+   4176	   1080	      0	   5256	   1488	lab4.elf
+'Finished building: lab4.siz'
 ' '

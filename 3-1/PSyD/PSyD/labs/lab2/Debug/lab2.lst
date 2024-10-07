@@ -1,0 +1,75 @@
+
+lab2.elf:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000078  0c100000  0c100000  00008000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .debug_abbrev 0000002b  00000000  00000000  00008078  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  2 .debug_info   0000003f  00000000  00000000  000080a3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_line   00000041  00000000  00000000  000080e2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_macinfo 000021e6  00000000  00000000  00008123  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_loc    0000002c  00000000  00000000  0000a309  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_pubnames 0000001b  00000000  00000000  0000a335  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_aranges 00000020  00000000  00000000  0000a350  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    00000061  00000000  00000000  0000a370  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .comment      0000002a  00000000  00000000  0000a3d1  2**0
+                  CONTENTS, READONLY
+ 10 .ARM.attributes 00000032  00000000  00000000  0000a3fb  2**0
+                  CONTENTS, READONLY
+ 11 .debug_frame  00000030  00000000  00000000  0000a430  2**2
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+0c100000 <main>:
+#define PCONG (*(volatile unsigned int *)0x01D20040)
+#define PDATG (*(volatile unsigned int *)0x01D20044)
+#define PUPG  (*(volatile unsigned int *)0x01D20048)
+    
+void main(void) 
+{
+ c100000:	e1a0c00d 	mov	ip, sp
+ c100004:	e92dd800 	push	{fp, ip, lr, pc}
+ c100008:	e24cb004 	sub	fp, ip, #4
+    PCONB &= ~( (1<<10) | 1<<9 );  // PB[10] = out, PF[9] = out
+ c10000c:	e59f3050 	ldr	r3, [pc, #80]	; c100064 <main+0x64>
+ c100010:	e59f204c 	ldr	r2, [pc, #76]	; c100064 <main+0x64>
+ c100014:	e5922000 	ldr	r2, [r2]
+ c100018:	e3c22c06 	bic	r2, r2, #1536	; 0x600
+ c10001c:	e5832000 	str	r2, [r3]
+    PCONG &= ~( (3<<14) | 3<<12 );  // PG[7] = in, PG[6] = in
+ c100020:	e59f3040 	ldr	r3, [pc, #64]	; c100068 <main+0x68>
+ c100024:	e59f203c 	ldr	r2, [pc, #60]	; c100068 <main+0x68>
+ c100028:	e5922000 	ldr	r2, [r2]
+ c10002c:	e3c22a0f 	bic	r2, r2, #61440	; 0xf000
+ c100030:	e5832000 	str	r2, [r3]
+    PUPG  |= ( (1<<7) | (1<<6) );   // Deshabilita pull-up de PG[7] y PG[6]
+ c100034:	e59f3030 	ldr	r3, [pc, #48]	; c10006c <main+0x6c>
+ c100038:	e59f202c 	ldr	r2, [pc, #44]	; c10006c <main+0x6c>
+ c10003c:	e5922000 	ldr	r2, [r2]
+ c100040:	e38220c0 	orr	r2, r2, #192	; 0xc0
+ c100044:	e5832000 	str	r2, [r3]
+
+    while( 1 )
+        PDATB = (PDATG & ((1<<7) | (1<<6))) << 3;    // PB[10:9] = PG[7:6]
+ c100048:	e59f3020 	ldr	r3, [pc, #32]	; c100070 <main+0x70>
+ c10004c:	e59f2020 	ldr	r2, [pc, #32]	; c100074 <main+0x74>
+ c100050:	e5922000 	ldr	r2, [r2]
+ c100054:	e20220c0 	and	r2, r2, #192	; 0xc0
+ c100058:	e1a02182 	lsl	r2, r2, #3
+ c10005c:	e5832000 	str	r2, [r3]
+ c100060:	eafffff8 	b	c100048 <main+0x48>
+ c100064:	01d20008 	.word	0x01d20008
+ c100068:	01d20040 	.word	0x01d20040
+ c10006c:	01d20048 	.word	0x01d20048
+ c100070:	01d2000c 	.word	0x01d2000c
+ c100074:	01d20044 	.word	0x01d20044
