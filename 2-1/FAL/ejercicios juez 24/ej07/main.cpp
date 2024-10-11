@@ -51,6 +51,7 @@ POSTCONDICION DE LA FUNCION:
  */
 
 int llena_mochila(const int a[], int n, int k) {
+
 	int ini = 0;
 	int fin;
 	int suma_act=0;
