@@ -5,4 +5,4 @@ UIActivities.org.eclipse.cdt.debug.cdigdbActivity=true
 UIActivities.org.eclipse.cdt.debug.dsfgdbActivity=true
 eclipse.preferences.version=1
 org.eclipse.cdt.ui.buildconsole.ConsoleFont=1|Courier New|20.25|0|WINDOWS|1|-27|0|0|0|400|0|0|0|0|3|2|1|49|Courier New;
-org.eclipse.cdt.ui.editors.textfont=1|Courier New|20.25|0|WINDOWS|1|-27|0|0|0|400|0|0|0|0|3|2|1|49|Courier New;
+org.eclipse.cdt.ui.editors.textfont=1|Courier New|15.75|0|WINDOWS|1|-21|0|0|0|400|0|0|0|0|3|2|1|49|Courier New;

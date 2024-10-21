@@ -1,4 +1,4 @@
-/*
+
 #include <s3c44b0x.h>
 #include <s3cev40.h>
 #include <system.h>
@@ -118,35 +118,35 @@ void sys_init( void )
 
 static inline void port_init( void )
 {
-    PDATA = ~0;
-    PCONA = ...;
+	PDATA = ~0;
+	PCONA = 0xFE;
 
-    PDATB = ~0;
-    PCONB = ...;
+	PDATB = ~0;
+	PCONB = 0x14F;
 
-    PDATC = ~0;
-    PCONC = ...;
-    PUPC  = ...;
+	PDATC = ~0;
+	PCONC = 0x5FF555FF;
+		    PUPC  = 0x94FB;
 
-    PDATD = ~0;
-    PCOND = ...;
-    PUPD  = ...;
-    
-    PDATE = ~0;
-    PCONE = ...;
-    PUPE  = ...;
+		    PDATD = ~0;
+		    PCOND = 0xAAAA;
+		    PUPD  = 0xFF;
 
-    PDATF = ~0;
-    PCONF = ...;
-    PUPF  = ...;
-    
-    PDATG = ~0;
-    PCONG = ...;
-    PUPG  = ...;
+		    PDATE = ~0;
+		    PCONE = 0x255A9;
+		    PUPE  = 0xFB;
 
-    SPUCR = ...;
-    
-    EXTINT = ...;
+		    PDATF = ~0;
+		    PCONF = 0x251A;
+		    PUPF  = 0x74;
+
+		    PDATG = ~0;
+		    PCONG = 0xF5FF;
+		    PUPG  = 0x30;
+
+		    SPUCR = 0x7;
+
+		   EXTINT = 0x22000220;
 }
 
 static inline void install_dummy_isr( void )
@@ -395,4 +395,4 @@ static void sys_recovery( void ) // NO TOCAR
     asm volatile ( "ldr fp, %0" : : "m" (fp) : );    // actualiza FP para que apunte al marco de la pila SVC, debe ser siempre la última sentencia
 }
 
-*/
+

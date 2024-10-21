@@ -1,0 +1,1071 @@
+   1              	# 1 "../bootloader.asm"
+   1              	/*-----------------------------------------------------------------
+   0              	
+   0              	
+   0              	
+   2              	**
+   3              	**  Fichero:
+   4              	**    bootloader.asm  26/3/2014
+   5              	**
+   6              	**    (c) J.M. Mendias
+   7              	**    Programación de Sistemas y Dispositivos
+   8              	**    Facultad de Informática. Universidad Complutense de Madrid
+   9              	**
+  10              	**  Propósito:
+  11              	**    Bootloader elemental genérico para aplicaciones desarrolladas
+  12              	**    para la placa de prototipado Embest S3CEV40
+  13              	**
+  14              	**  Notas de diseño:
+  15              	**    - Asume ser una unica imagen plana ubicada al inicio de la ROM
+  16              	**    - Replica un mapa de memoria similar al existente en proyectos
+  17              	**      volcados en RAM (pilas y tabla virtual de vectores de excepción)
+  18              	**    - Permite el portado directo de proyectos volcados en RAM
+  19              	**    - Asume que las RTI están a menos de 32MB de distancia, en otro
+  20              	**      caso reemplazar "B etq" por "LDR PC,=etq"
+  21              	**
+  22              	**---------------------------------------------------------------*/
+  23              	
+  24              	.include "s3c44b0x.asm"
+   1              	#-----------------------------------------------------------------
+   2              	#
+   3              	#  Fichero:
+   4              	#    s3c44b0x.asm  24/4/2013
+   5              	#
+   6              	#    (c) J.M. Mendias
+   7              	#    Programación de Sistemas y Dispositivos
+   8              	#    Facultad de Informática. Universidad Complutense de Madrid
+   9              	#
+  10              	#  Propósito:
+  11              	#    Creación de nemotécnicos para los registros de los
+  12              	#    controladores de dispositivos internos del chip S3C44BOX
+  13              	#
+  14              	#  Notas de diseño:
+  15              	#    Las direcciones usadas asumen un alineamiento little-endian
+  16              	#
+  17              	#-----------------------------------------------------------------
+  18              	
+  19              	/* Controlador de memoria */
+  20              	.equ BWSCON,    0x1c80000
+  21              	.equ BANKCON0,  0x1c80004
+  22              	.equ BANKCON1,  0x1c80008
+  23              	.equ BANKCON2,  0x1c8000c
+  24              	.equ BANKCON3,  0x1c80010
+  25              	.equ BANKCON4,  0x1c80014
+  26              	.equ BANKCON5,  0x1c80018
+  27              	.equ BANKCON6,  0x1c8001c
+  28              	.equ BANKCON7,  0x1c80020
+  29              	.equ REFRESH,   0x1c80024
+  30              	.equ BANKSIZE,  0x1c80028
+  31              	.equ MRSRB6,    0x1c8002c
+  32              	.equ MRSRB7,    0x1c80030
+  33              	
+  34              	/* Gestor de reloj y energía */
+  35              	.equ PLLCON,    0x1d80000
+  36              	.equ CLKCON,    0x1d80004
+  37              	.equ CLKSLOW,   0x1d80008
+  38              	.equ LOCKTIME,  0x1d8000c
+  39              	
+  40              	/* Controlador de cache */
+  41              	.equ SYSCFG,    0x1c00000
+  42              	.equ NCACHBE0,  0x1c00004
+  43              	.equ NCACHBE1,  0x1c00008
+  44              	
+  45              	/* Árbitro de bus */
+  46              	.equ SBUSCON,   0x1c40000
+  47              	 
+  48              	/* Controlador de DMA */ 
+  49              	.equ ZDCON0,    0x1e80000 /* canal ZDMA 0 */
+  50              	.equ ZDISRC0,   0x1e80004
+  51              	.equ ZDIDES0,   0x1e80008
+  52              	.equ ZDICNT0,   0x1e8000c
+  53              	.equ ZDCSRC0,   0x1e80010
+  54              	.equ ZDCDES0,   0x1e80014
+  55              	.equ ZDCCNT0,   0x1e80018
+  56              	.equ ZDCON1,    0x1e80020 /* canal ZDMA 1 */
+  57              	.equ ZDISRC1,   0x1e80024
+  58              	.equ ZDIDES1,   0x1e80028
+  59              	.equ ZDICNT1,   0x1e8002c
+  60              	.equ ZDCSRC1,   0x1e80030
+  61              	.equ ZDCDES1,   0x1e80034
+  62              	.equ ZDCCNT1,   0x1e80038
+  63              	.equ BDCON0,    0x1f80000 /* canal BDMA 0 */
+  64              	.equ BDISRC0,   0x1f80004
+  65              	.equ BDIDES0,   0x1f80008
+  66              	.equ BDICNT0,   0x1f8000c
+  67              	.equ BDCSRC0,   0x1f80010
+  68              	.equ BDCDES0,   0x1f80014
+  69              	.equ BDCCNT0,   0x1f80018
+  70              	.equ BDCON1,    0x1f80020 /* canal BDMA 1 */
+  71              	.equ BDISRC1,   0x1f80024
+  72              	.equ BDIDES1,   0x1f80028
+  73              	.equ BDICNT1,   0x1f8002c
+  74              	.equ BDCSRC1,   0x1f80030
+  75              	.equ BDCDES1,   0x1f80034
+  76              	.equ BDCCNT1,   0x1f80038
+  77              	
+  78              	/* Controlador de puertos de E/S */
+  79              	.equ SPUCR,     0x1d2004c
+  80              	.equ PCONA,     0x1d20000 /* puerto A */
+  81              	.equ PDATA,     0x1d20004
+  82              	.equ PCONB,     0x1d20008 /* puerto B */
+  83              	.equ PDATB,     0x1d2000c
+  84              	.equ PCONC,     0x1d20010 /* puerto C */
+  85              	.equ PDATC,     0x1d20014
+  86              	.equ PUPC,      0x1d20018
+  87              	.equ PCOND,     0x1d2001c /* puerto D */
+  88              	.equ PDATD,     0x1d20020
+  89              	.equ PUPD,      0x1d20024
+  90              	.equ PCONE,     0x1d20028 /* puerto E */
+  91              	.equ PDATE,     0x1d2002c
+  92              	.equ PUPE,      0x1d20030
+  93              	.equ PCONF,     0x1d20034 /* puerto F */
+  94              	.equ PDATF,     0x1d20038
+  95              	.equ PUPF,      0x1d2003c
+  96              	.equ PCONG,     0x1d20040 /* puerto G */
+  97              	.equ PDATG,     0x1d20044
+  98              	.equ PUPG,      0x1d20048
+  99              	.equ EXTINT,    0x1d20050
+ 100              	.equ EXTINTPND, 0x1d20054
+ 101              	 
+ 102              	/* Bits de EXTINTPND */
+ 103              	.equ BIT_EINT4,  (1<<0)
+ 104              	.equ BIT_EINT5,  (1<<1)
+ 105              	.equ BIT_EINT6,  (1<<2)
+ 106              	.equ BIT_EINT7,  (1<<3)
+ 107              	
+ 108              	/* Temporizadores */
+ 109              	.equ TCFG0,     0x1d50000 
+ 110              	.equ TCFG1,     0x1d50004
+ 111              	.equ TCON,      0x1d50008
+ 112              	.equ TCNTB0,    0x1d5000c /* temporizador 0 */
+ 113              	.equ TCMPB0,    0x1d50010
+ 114              	.equ TCNTO0,    0x1d50014
+ 115              	.equ TCNTB1,    0x1d50018 /* temporizador 1 */
+ 116              	.equ TCMPB1,    0x1d5001c
+ 117              	.equ TCNTO1,    0x1d50020
+ 118              	.equ TCNTB2,    0x1d50024 /* temporizador 2 */
+ 119              	.equ TCMPB2,    0x1d50028
+ 120              	.equ TCNTO2,    0x1d5002c
+ 121              	.equ TCNTB3,    0x1d50030 /* temporizador 3 */
+ 122              	.equ TCMPB3,    0x1d50034
+ 123              	.equ TCNTO3,    0x1d50038
+ 124              	.equ TCNTB4,    0x1d5003c /* temporizador 4 */
+ 125              	.equ TCMPB4,    0x1d50040
+ 126              	.equ TCNTO4,    0x1d50044
+ 127              	.equ TCNTB5,    0x1d50048 /* temporizador 5 */
+ 128              	.equ TCNTO5,    0x1d5004c
+ 129              	 
+ 130              	/* UART */
+ 131              	.equ ULCON0,    0x1d00000 /* canal 0 */
+ 132              	.equ UCON0,     0x1d00004
+ 133              	.equ UFCON0,    0x1d00008
+ 134              	.equ UMCON0,    0x1d0000c
+ 135              	.equ UTRSTAT0,  0x1d00010
+ 136              	.equ UERSTAT0,  0x1d00014
+ 137              	.equ UFSTAT0,   0x1d00018
+ 138              	.equ UMSTAT0,   0x1d0001c
+ 139              	.equ UTXH0,     0x1d00020
+ 140              	.equ URXH0,     0x1d00024
+ 141              	.equ UBRDIV0,   0x1d00028
+ 142              	.equ ULCON1,    0x1d04000 /* canal 1 */
+ 143              	.equ UCON1,     0x1d04004
+ 144              	.equ UFCON1,    0x1d04008
+ 145              	.equ UMCON1,    0x1d0400c
+ 146              	.equ UTRSTAT1,  0x1d04010
+ 147              	.equ UERSTAT1,  0x1d04014
+ 148              	.equ UFSTAT1,   0x1d04018
+ 149              	.equ UMSTAT1,   0x1d0401c
+ 150              	.equ UTXH1,     0x1d04020
+ 151              	.equ URXH1,     0x1d04024
+ 152              	.equ UBRDIV1,   0x1d04028
+ 153              	
+ 154              	/* Controlador de interrupciones */
+ 155              	.equ INTCON,    0x1e00000
+ 156              	.equ INTPND,    0x1e00004
+ 157              	.equ INTMOD,    0x1e00008
+ 158              	.equ INTMSK,    0x1e0000c
+ 159              	.equ I_PSLV,    0x1e00010
+ 160              	.equ I_PMST,    0x1e00014
+ 161              	.equ I_CSLV,    0x1e00018
+ 162              	.equ I_CMST,    0x1e0001c
+ 163              	.equ I_ISPR,    0x1e00020
+ 164              	.equ I_ISPC,    0x1e00024
+ 165              	.equ F_ISPC,    0x1e0003c
+ 166              	
+ 167              	/* Bits de INTMASK, I_ISPC/F_ISPC y I_ISPR */
+ 168              	.equ BIT_ADC,    (1<<0)
+ 169              	.equ BIT_RTC,    (1<<1)
+ 170              	.equ BIT_UTXD1,  (1<<2)
+ 171              	.equ BIT_UTXD0,  (1<<3)
+ 172              	.equ BIT_SIO,    (1<<4)
+ 173              	.equ BIT_IIC,    (1<<5)
+ 174              	.equ BIT_URXD1,  (1<<6)
+ 175              	.equ BIT_URXD0,  (1<<7)
+ 176              	.equ BIT_TIMER5, (1<<8)
+ 177              	.equ BIT_TIMER4, (1<<9)
+ 178              	.equ BIT_TIMER3, (1<<10)
+ 179              	.equ BIT_TIMER2, (1<<11)
+ 180              	.equ BIT_TIMER1, (1<<12)
+ 181              	.equ BIT_TIMER0, (1<<13)
+ 182              	.equ BIT_UERR01, (1<<14)
+ 183              	.equ BIT_WDT,    (1<<15)
+ 184              	.equ BIT_BDMA1,  (1<<16)
+ 185              	.equ BIT_BDMA0,  (1<<17)
+ 186              	.equ BIT_ZDMA1,  (1<<18)
+ 187              	.equ BIT_ZDMA0,  (1<<19)
+ 188              	.equ BIT_TICK,   (1<<20)
+ 189              	.equ BIT_EINT4567, (1<<21)
+ 190              	.equ BIT_EINT3,  (1<<22)
+ 191              	.equ BIT_EINT2,  (1<<23)
+ 192              	.equ BIT_EINT1,  (1<<24)
+ 193              	.equ BIT_EINT0,  (1<<25)
+ 194              	.equ BIT_GLOBAL, (1<<26)
+ 195              	
+ 196              	/* Controlador de LCD */
+ 197              	.equ LCDCON1,   0x1f00000
+ 198              	.equ LCDCON2,   0x1f00004
+ 199              	.equ LCDCON3,   0x1f00040
+ 200              	.equ LCDSADDR1, 0x1f00008
+ 201              	.equ LCDSADDR2, 0x1f0000c
+ 202              	.equ LCDSADDR3, 0x1f00010
+ 203              	.equ REDLUT,    0x1f00014
+ 204              	.equ GREENLUT,  0x1f00018
+ 205              	.equ BLUELUT,   0x1f0001c
+ 206              	.equ DP1_2,     0x1f00020
+ 207              	.equ DP4_7,     0x1f00024
+ 208              	.equ DP3_5,     0x1f00028
+ 209              	.equ DP2_3,     0x1f0002c
+ 210              	.equ DP5_7,     0x1f00030
+ 211              	.equ DP3_4,     0x1f00034
+ 212              	.equ DP4_5,     0x1f00038
+ 213              	.equ DP6_7,     0x1f0003c
+ 214              	.equ DITHMODE,  0x1f00044
+ 215              	
+ 216              	/* Conversor analógico digital */
+ 217              	.equ ADCCON,    0x1d40000
+ 218              	.equ ADCPSR,    0x1d40004
+ 219              	.equ ADCDAT,    0x1d40008
+ 220              	
+ 221              	/* Reloj de tiempo real */
+ 222              	.equ RTCCON,    0x1d70040
+ 223              	.equ RTCALM,    0x1d70050
+ 224              	.equ ALMSEC,    0x1d70054
+ 225              	.equ ALMMIN,    0x1d70058
+ 226              	.equ ALMHOUR,   0x1d7005c
+ 227              	.equ ALMDAY,    0x1d70060
+ 228              	.equ ALMMON,    0x1d70064
+ 229              	.equ ALMYEAR,   0x1d70068
+ 230              	.equ RTCRST,    0x1d7006c
+ 231              	.equ BCDSEC,    0x1d70070
+ 232              	.equ BCDMIN,    0x1d70074
+ 233              	.equ BCDHOUR,   0x1d70078
+ 234              	.equ BCDDAY,    0x1d7007c
+ 235              	.equ BCDDATE,   0x1d70080
+ 236              	.equ BCDMON,    0x1d70084
+ 237              	.equ BCDYEAR,   0x1d70088
+ 238              	.equ TICNT,     0x1d7008c
+ 239              	
+ 240              	/* Watchdog timer */
+ 241              	.equ WTCON,     0x1d30000
+ 242              	.equ WTDAT,     0x1d30004
+ 243              	.equ WTCNT,     0x1d30008
+ 244              	
+ 245              	/* Controlador de IIC */
+ 246              	.equ IICCON,    0x1d60000
+ 247              	.equ IICSTAT,   0x1d60004
+ 248              	.equ IICADD,    0x1d60008
+ 249              	.equ IICDS,     0x1d6000c
+ 250              	
+ 251              	/* Controlador de IIS */
+ 252              	.equ IISCON,    0x1d18000
+ 253              	.equ IISMOD,    0x1d18004
+ 254              	.equ IISPSR,    0x1d18008
+ 255              	.equ IISFCON,   0x1d1800c
+ 256              	.equ IISFIF,    0x1d18010
+ 257              	
+ 258              	/* Controlador de SIO */
+ 259              	.equ SIOCON,    0x1d14000
+ 260              	.equ SIODAT,    0x1d14004
+ 261              	.equ SBRDR,     0x1d14008
+ 262              	.equ IVTCNT,    0x1d1400c
+ 263              	.equ DCNTZ,     0x1d14010
+  25              	.include "s3cev40.asm"
+   1              	/*-------------------------------------------------------------------
+   2              	**
+   3              	**  Fichero:
+   4              	**    s3cev40.asm  24/4/2013
+   5              	**
+   6              	**    (c) J.M. Mendias
+   7              	**    Programación de Sistemas y Dispositivos
+   8              	**    Facultad de Informática. Universidad Complutense de Madrid
+   9              	**
+  10              	**  Propósito:
+  11              	**    Creación de nemotécnicos para acceso a distintos elementos
+  12              	**    de la placa de prototipado Embest S3CEV40
+  13              	**
+  14              	**  Notas de diseño:
+  15              	**    Las direcciones usadas asumen un alineamiento little-endian
+  16              	**
+  17              	**-----------------------------------------------------------------*/
+  18              	
+  19              	/* Mapa de memoria */
+  20              	
+  21              	.equ ROM_START_ADDRESS, 0x00000000
+  22              	.equ ROM_END_ADDRESS,   0x001fffff
+  23              	
+  24              	.equ DEVICES_START,     0x01c00000
+  25              	.equ DEVICES_END,       0x0bffffff
+  26              	
+  27              	.equ RAM_START_ADDRESS, 0x0c000000
+  28              	.equ RAM_END_ADDRESS,   0x0c7fffff
+  29              	
+  30              	.equ SP_START_ADDRESS,  0x10000000
+  31              	.equ SP_END_ADDRESS,    0x100001ff
+  32              	
+  33              	.equ CACHE_LRU_START,   0x10004000
+  34              	.equ CACHE_LRU_END,     0x100047ff
+  35              	
+  36              	/* Direcciones de las bases de las pilas del sistema */
+  37              	
+  38              	.equ USRSTACK,      0xc7ff000       
+  39              	.equ SVCSTACK,      0xc7ff100
+  40              	.equ UNDSTACK,      0xc7ff200
+  41              	.equ ABTSTACK,      0xc7ff300
+  42              	.equ IRQSTACK,      0xc7ff400
+  43              	.equ FIQSTACK,      0xc7ff500
+  44              	
+  45              	/* Tabla virtual de vectores de excepción */
+  46              	
+  47              	.equ pISR_RESET,    0xc7fff00
+  48              	.equ pISR_UNDEF,    0xc7fff04
+  49              	.equ pISR_SWI,      0xc7fff08
+  50              	.equ pISR_PABORT,   0xc7fff0c
+  51              	.equ pISR_DABORT,   0xc7fff10
+  52              	/* Reservado */
+  53              	.equ pISR_IRQ,      0xc7fff18
+  54              	.equ pISR_FIQ,      0xc7fff1c
+  55              	.equ pISR_ADC,      0xc7fff20
+  56              	.equ pISR_RTC,      0xc7fff24
+  57              	.equ pISR_UTXD1,    0xc7fff28
+  58              	.equ pISR_UTXD0,    0xc7fff2c
+  59              	.equ pISR_SIO,      0xc7fff30
+  60              	.equ pISR_IIC,      0xc7fff34
+  61              	.equ pISR_URXD1,    0xc7fff38
+  62              	.equ pISR_URXD0,    0xc7fff3c
+  63              	.equ pISR_TIMER5,   0xc7fff40
+  64              	.equ pISR_TIMER4,   0xc7fff44
+  65              	.equ pISR_TIMER3,   0xc7fff48
+  66              	.equ pISR_TIMER2,   0xc7fff4c
+  67              	.equ pISR_TIMER1,   0xc7fff50
+  68              	.equ pISR_TIMER0,   0xc7fff54
+  69              	.equ pISR_UERR01,   0xc7fff58
+  70              	.equ pISR_WDT,      0xc7fff5c
+  71              	.equ pISR_BDMA1,    0xc7fff60
+  72              	.equ pISR_BDMA0,    0xc7fff64
+  73              	.equ pISR_ZDMA1,    0xc7fff68
+  74              	.equ pISR_ZDMA0,    0xc7fff6c
+  75              	.equ pISR_TICK,     0xc7fff70
+  76              	.equ pISR_PB,       0xc7fff74 /* EINT4567 */
+  77              	.equ pISR_ETHERNET, 0xc7fff78 /* EINT3    */
+  78              	.equ pISR_TS,       0xc7fff7c /* EINT2    */
+  79              	.equ pISR_KEYPAD,   0xc7fff80 /* EINT1    */
+  80              	.equ pISR_USB,      0xc7fff84 /* EINT0    */
+  81              	
+  82              	/* Bits de INTMASK, I_ISPC/F_ISPC y I_ISPR */
+  83              	.equ BIT_PB,        (1<<21) /* EINT4567 */
+  84              	.equ BIT_ETHERNET,  (1<<22) /* EINT3    */
+  85              	.equ BIT_TS,        (1<<23) /* EINT2    */
+  86              	.equ BIT_KEYPAD,    (1<<24) /* EINT1    */
+  87              	.equ BIT_USB,       (1<<25) /* EINT0    */
+  88              	
+  89              	/* Bits de EXTINTPND */
+  90              	.equ BIT_RIGHTPB,   (1<<3)
+  91              	.equ BIT_LEFTPB,    (1<<2)
+  92              	.equ BIT_IDE_INTRQ, (1<<1)
+  93              	.equ BIT_IDE_DMACK, (1<<0)
+  26              	
+  27              	/*
+  28              	** Modos de operación
+  29              	*/
+  30              	.equ USRMODE, 0x10
+  31              	.equ FIQMODE, 0x11
+  32              	.equ IRQMODE, 0x12
+  33              	.equ SVCMODE, 0x13
+  34              	.equ ABTMODE, 0x17
+  35              	.equ UNDMODE, 0x1b
+  36              	.equ SYSMODE, 0x1f
+  37              	
+  38              	/*
+  39              	** Macro para la generación de un prologo para una RTI que, dado un puntero a su
+  40              	** comienzo (entrada de la tabla virtual de vectores de excepcon), salte a la RTI
+  41              	*/
+  42              	.macro HANDLER pISR
+  43              	  sub   sp,  sp, #4    /* deja un hueco en pila para almacenar la dirección de la RTI */
+  44              	  stmfd sp!, {r0}      /* apila r0 (registro de trabajo) */
+  45              	  ldr   r0,  =\pISR    /* carga en r0 la dirección de entrada de la tabla virtual de vectores indic
+  46              	  ldr   r0,  [r0]      /* accediendo a dicha entrada carga en r0 la direccion de la RTI */
+  47              	  str   r0,  [sp,#4]   /* almacena en pila la direccion de la RTI */
+  48              	  ldmfd sp!, {r0, pc}  /* restaura el r0 y salta a la RTI */
+  49              	.endm
+  50              	
+  51              	.extern _image_start
+  52              	.extern _image_end   
+  53              	
+  54              	.extern main
+  55              	
+  56              	.section .text
+  57              	
+  58              	/*
+  59              	** Tabla de vectores de excepción: saltos a los prologos de cada RTE
+  60              	*/
+  61 0000 EF0000EA 	  b bootloader         /* salta al comienzo del programa de arranque */
+  62 0004 2E0000EA 	  b handlerUndef           
+  63 0008 330000EA 	  b handlerSWI
+  64 000c 380000EA 	  b handlerPabort
+  65 0010 3D0000EA 	  b handlerDabort
+  66 0014 0000A0E1 	  nop                  /* Reservado */
+  67 0018 410000EA 	  b handlerIRQ
+  68 001c 460000EA 	  b handlerFIQ
+  69              	
+  70              	/*
+  71              	** Tabla de vectores de IRQ: saltos a los prologos de cada RTI
+  72              	*/
+  73 0020 4B0000EA 	  b handlerUSB         /* EINT0 */
+  74 0024 500000EA 	  b handlerKEYPAD      /* EINT1 */
+  75 0028 550000EA 	  b handlerTS          /* EINT2 */
+  76 002c 5A0000EA 	  b handlerETHERNET    /* EINT3 */
+  77 0030 5F0000EA 	  b handlerPB          /* EINT4567 */
+  78 0034 640000EA 	  b handlerTICK
+  79 0038 0000A0E1 	  nop                  /* Reservado */
+  80 003c 0000A0E1 	  nop                  /* Reservado */
+  81 0040 670000EA 	  b handlerZDMA0
+  82 0044 6C0000EA 	  b handlerZDMA1
+  83 0048 710000EA 	  b handlerBDMA0
+  84 004c 760000EA 	  b handlerBDMA1
+  85 0050 7B0000EA 	  b handlerWDT
+  86 0054 800000EA 	  b handlerUERR01
+  87 0058 0000A0E1 	  nop                  /* Reservado */
+  88 005c 0000A0E1 	  nop                  /* Reservado */
+  89 0060 830000EA 	  b handlerTIMER0
+  90 0064 880000EA 	  b handlerTIMER1
+  91 0068 8D0000EA 	  b handlerTIMER2
+  92 006c 920000EA 	  b handlerTIMER3
+  93 0070 970000EA 	  b handlerTIMER4
+  94 0074 9C0000EA 	  b handlerTIMER5
+  95 0078 0000A0E1 	  nop                  /* Reservado */
+  96 007c 0000A0E1 	  nop                  /* Reservado */
+  97 0080 9F0000EA 	  b handlerURXD0
+  98 0084 A40000EA 	  b handlerURXD1
+  99 0088 A90000EA 	  b handlerIIC
+ 100 008c AE0000EA 	  b handlerSIO
+ 101 0090 B30000EA 	  b handlerUTXD0
+ 102 0094 B80000EA 	  b handlerUTXD1
+ 103 0098 0000A0E1 	  nop                  /* Reservado */
+ 104 009c 0000A0E1 	  nop                  /* Reservado */
+ 105 00a0 BB0000EA 	  b handlerRTC
+ 106 00a4 0000A0E1 	  nop                  /* Reservado */
+ 107 00a8 0000A0E1 	  nop                  /* Reservado */
+ 108 00ac 0000A0E1 	  nop                  /* Reservado */
+ 109 00b0 0000A0E1 	  nop                  /* Reservado */
+ 110 00b4 0000A0E1 	  nop                  /* Reservado */
+ 111 00b8 0000A0E1 	  nop                  /* Reservado */
+ 112 00bc 0000A0E1 	  nop                  /* Reservado */
+ 113 00c0 B90000EA 	  b handlerADC
+ 114              	
+ 115              	/*
+ 116              	** Prologos de RTE
+ 117              	*/  
+ 118 00c4 04D04DE2 	  handlerUndef:    HANDLER pISR_UNDEF
+ 118      04002DE5 
+ 118      F0039FE5 
+ 118      000090E5 
+ 118      04008DE5 
+ 119 00dc 04D04DE2 	  handlerSWI:      HANDLER pISR_SWI
+ 119      04002DE5 
+ 119      DC039FE5 
+ 119      000090E5 
+ 119      04008DE5 
+ 120 00f4 04D04DE2 	  handlerPabort:   HANDLER pISR_PABORT
+ 120      04002DE5 
+ 120      C8039FE5 
+ 120      000090E5 
+ 120      04008DE5 
+ 121 010c 04D04DE2 	  handlerDabort:   HANDLER pISR_DABORT
+ 121      04002DE5 
+ 121      B4039FE5 
+ 121      000090E5 
+ 121      04008DE5 
+ 122 0124 04D04DE2 	  handlerIRQ:      HANDLER pISR_IRQ
+ 122      04002DE5 
+ 122      A0039FE5 
+ 122      000090E5 
+ 122      04008DE5 
+ 123 013c 04D04DE2 	  handlerFIQ:      HANDLER pISR_FIQ
+ 123      04002DE5 
+ 123      8C039FE5 
+ 123      000090E5 
+ 123      04008DE5 
+ 124              	
+ 125              	/*
+ 126              	** Prologos de RTI
+ 127              	*/
+ 128 0154 04D04DE2 	  handlerUSB:      HANDLER pISR_USB      /* EINT0 */
+ 128      04002DE5 
+ 128      78039FE5 
+ 128      000090E5 
+ 128      04008DE5 
+ 129 016c 04D04DE2 	  handlerKEYPAD:   HANDLER pISR_KEYPAD   /* EINT1 */
+ 129      04002DE5 
+ 129      64039FE5 
+ 129      000090E5 
+ 129      04008DE5 
+ 130 0184 04D04DE2 	  handlerTS:       HANDLER pISR_TS       /* EINT2 */
+ 130      04002DE5 
+ 130      50039FE5 
+ 130      000090E5 
+ 130      04008DE5 
+ 131 019c 04D04DE2 	  handlerETHERNET: HANDLER pISR_ETHERNET /* EINT3 */
+ 131      04002DE5 
+ 131      3C039FE5 
+ 131      000090E5 
+ 131      04008DE5 
+ 132 01b4 04D04DE2 	  handlerPB:       HANDLER pISR_PB       /* EINT4567 */
+ 132      04002DE5 
+ 132      28039FE5 
+ 132      000090E5 
+ 132      04008DE5 
+ 133 01cc 04D04DE2 	  handlerTICK:     HANDLER pISR_TICK
+ 133      04002DE5 
+ 133      14039FE5 
+ 133      000090E5 
+ 133      04008DE5 
+ 134 01e4 04D04DE2 	  handlerZDMA0:    HANDLER pISR_ZDMA0
+ 134      04002DE5 
+ 134      00039FE5 
+ 134      000090E5 
+ 134      04008DE5 
+ 135 01fc 04D04DE2 	  handlerZDMA1:    HANDLER pISR_ZDMA1
+ 135      04002DE5 
+ 135      EC029FE5 
+ 135      000090E5 
+ 135      04008DE5 
+ 136 0214 04D04DE2 	  handlerBDMA0:    HANDLER pISR_BDMA0
+ 136      04002DE5 
+ 136      D8029FE5 
+ 136      000090E5 
+ 136      04008DE5 
+ 137 022c 04D04DE2 	  handlerBDMA1:    HANDLER pISR_BDMA1
+ 137      04002DE5 
+ 137      C4029FE5 
+ 137      000090E5 
+ 137      04008DE5 
+ 138 0244 04D04DE2 	  handlerWDT:      HANDLER pISR_WDT
+ 138      04002DE5 
+ 138      B0029FE5 
+ 138      000090E5 
+ 138      04008DE5 
+ 139 025c 04D04DE2 	  handlerUERR01:   HANDLER pISR_UERR01
+ 139      04002DE5 
+ 139      9C029FE5 
+ 139      000090E5 
+ 139      04008DE5 
+ 140 0274 04D04DE2 	  handlerTIMER0:   HANDLER pISR_TIMER0
+ 140      04002DE5 
+ 140      88029FE5 
+ 140      000090E5 
+ 140      04008DE5 
+ 141 028c 04D04DE2 	  handlerTIMER1:   HANDLER pISR_TIMER1
+ 141      04002DE5 
+ 141      74029FE5 
+ 141      000090E5 
+ 141      04008DE5 
+ 142 02a4 04D04DE2 	  handlerTIMER2:   HANDLER pISR_TIMER2
+ 142      04002DE5 
+ 142      60029FE5 
+ 142      000090E5 
+ 142      04008DE5 
+ 143 02bc 04D04DE2 	  handlerTIMER3:   HANDLER pISR_TIMER3
+ 143      04002DE5 
+ 143      4C029FE5 
+ 143      000090E5 
+ 143      04008DE5 
+ 144 02d4 04D04DE2 	  handlerTIMER4:   HANDLER pISR_TIMER4
+ 144      04002DE5 
+ 144      38029FE5 
+ 144      000090E5 
+ 144      04008DE5 
+ 145 02ec 04D04DE2 	  handlerTIMER5:   HANDLER pISR_TIMER5
+ 145      04002DE5 
+ 145      24029FE5 
+ 145      000090E5 
+ 145      04008DE5 
+ 146 0304 04D04DE2 	  handlerURXD0:    HANDLER pISR_URXD0
+ 146      04002DE5 
+ 146      10029FE5 
+ 146      000090E5 
+ 146      04008DE5 
+ 147 031c 04D04DE2 	  handlerURXD1:    HANDLER pISR_URXD1
+ 147      04002DE5 
+ 147      FC019FE5 
+ 147      000090E5 
+ 147      04008DE5 
+ 148 0334 04D04DE2 	  handlerIIC:      HANDLER pISR_IIC
+ 148      04002DE5 
+ 148      E8019FE5 
+ 148      000090E5 
+ 148      04008DE5 
+ 149 034c 04D04DE2 	  handlerSIO:      HANDLER pISR_SIO
+ 149      04002DE5 
+ 149      D4019FE5 
+ 149      000090E5 
+ 149      04008DE5 
+ 150 0364 04D04DE2 	  handlerUTXD0:    HANDLER pISR_UTXD0
+ 150      04002DE5 
+ 150      C0019FE5 
+ 150      000090E5 
+ 150      04008DE5 
+ 151 037c 04D04DE2 	  handlerUTXD1:    HANDLER pISR_UTXD1
+ 151      04002DE5 
+ 151      AC019FE5 
+ 151      000090E5 
+ 151      04008DE5 
+ 152 0394 04D04DE2 	  handlerRTC:      HANDLER pISR_RTC
+ 152      04002DE5 
+ 152      98019FE5 
+ 152      000090E5 
+ 152      04008DE5 
+ 153 03ac 04D04DE2 	  handlerADC:      HANDLER pISR_ADC
+ 153      04002DE5 
+ 153      84019FE5 
+ 153      000090E5 
+ 153      04008DE5 
+ 154              	
+ 155              	/*
+ 156              	** Comienzo del bootloader:
+ 157              	**   La CPU está en estado ARM y en modo SVC
+ 158              	**   IRQ y FIQ están deshabilitadas
+ 159              	**   Todos los registros de los controladores de dispositivo están inicializados al valor indicado 
+ 160              	**   El bootloader esta ejecutandose desde ROM a 8 MHz
+ 161              	*/  
+ 162              	bootloader:
+ 163              	
+ 164              	  /* Deshabilita el watchdog */
+ 165 03c4 78019FE5 	  ldr r0, =WTCON        
+ 166 03c8 0010A0E3 	  ldr r1, =0x0     
+ 167 03cc 001080E5 	  str r1, [r0]
+ 168              	
+ 169              	  /* Configuracion del gestor de reloj */
+ 170 03d0 70019FE5 	  ldr r0, =LOCKTIME   /*  estabilización del PLL = 512 us */
+ 171 03d4 70119FE5 	  ldr r1, =0xfff
+ 172 03d8 001080E5 	  str r1, [r0]      
+ 173 03dc 7607A0E3 	  ldr r0, =PLLCON     /* MCLK = 64 MHz */
+ 174 03e0 68119FE5 	  ldr r1, =0x38021  
+ 175 03e4 001080E5 	  str r1, [r0]
+ 176 03e8 64019FE5 	  ldr r0, =CLKSLOW    /* MCLK_SLOW = 500 KHz */
+ 177 03ec 0810A0E3 	  ldr r1, =0x8  
+ 178 03f0 001080E5 	  str r1, [r0]  
+ 179 03f4 5C019FE5 	  ldr r0, =CLKCON     /* modo NORMAL y reloj distribuido a todos los controladores */  
+ 180 03f8 5C119FE5 	  ldr r1, =0x7ff8
+ 181 03fc 001080E5 	  str r1, [r0]
+ 182              	
+ 183              	  /* Configuracion del gestor de memoria */
+ 184 0400 58019FE5 	  ldr   r0, =memconf
+ 185 0404 58119FE5 	  ldr   r1, =_image_start
+ 186 0408 010040E0 	  sub   r0, r0, r1         /* corrige la diferencia existente entre la dirección en ROM y la direcc
+ 187 040c FE3F90E8 	  ldmia r0, {r1-r13}       /* El controlador se programa usando ldmia/stmia según lo indicado por e
+ 188 0410 7207A0E3 	  ldr   r0, =BWSCON
+ 189 0414 FE3F80E8 	  stmia r0, {r1-r13}
+ 190              	
+ 191              	  /* Copia en RAM la imagen del programa cargado en ROM a partir de la dirección indicada en el lin
+ 192 0418 0000A0E3 	  ldr   r0, =ROM_START_ADDRESS
+ 193 041c 40119FE5 	  ldr   r1, =_image_start
+ 194 0420 40219FE5 	  ldr   r2, =_image_end
+ 195              	remap_loop:
+ 196 0424 020051E1 	  cmp   r1, r2
+ 197 0428 04309034 	  ldrcc r3, [r0], #4    /* Lee una palabra de la ROM (post-incrementando indice)    */
+ 198 042c 04308134 	  strcc r3, [r1], #4    /* Escribe la palabra en la RAM (post-incrementando indice) */
+ 199 0430 FBFFFF3A 	  bcc   remap_loop
+ 200              	
+ 201 0434 30F19FE5 	  ldr pc, =ram_exec     /* A partir de este punto el bootoloader pasa a ejecutarse desde RAM   */
+ 202              	                        /* La dirección absoluta a la que se corresponde la etiqueta apunta a RAM *
+ 203              	
+ 204              	ram_exec:
+ 205              	
+ 206              	  /* Inicializacion de los SP correspondiente a los modos de ejecución privilegiados */
+ 207 0438 00000FE1 	  mrs r0, cpsr
+ 208 043c 1F00C0E3 	  bic r0, r0, #0x1f
+ 209              	
+ 210 0440 1B1080E3 	  orr r1, r0, #UNDMODE  /* desde modo SVC cambia a modo UND e inicializa el SP_und */
+ 211 0444 01F021E1 	  msr cpsr_c, r1    
+ 212 0448 20D19FE5 	  ldr sp, =UNDSTACK
+ 213              	
+ 214 044c 171080E3 	  orr r1, r0, #ABTMODE  /* desde modo UND cambia a modo ABT e inicializa el SP_abt */
+ 215 0450 01F021E1 	  msr cpsr_c, r1 
+ 216 0454 18D19FE5 	  ldr sp, =ABTSTACK
+ 217              	
+ 218 0458 121080E3 	  orr r1, r0, #IRQMODE  /* desde modo ABT cambia a modo IRQ e inicializa el SP_abt */
+ 219 045c 01F021E1 	  msr cpsr_c, r1
+ 220 0460 10D19FE5 	  ldr sp, =IRQSTACK
+ 221              	
+ 222 0464 111080E3 	  orr r1, r0, #FIQMODE  /* desde modo IRQ cambia a modo FIQ e inicializa el SP_fiq */
+ 223 0468 01F021E1 	  msr cpsr_c, r1
+ 224 046c 08D19FE5 	  ldr sp, =FIQSTACK
+ 225              	
+ 226 0470 131080E3 	  orr r1, r0, #SVCMODE  /* desde modo FIQ cambia a modo SVC e inicializa el SP_svc */
+ 227 0474 01F021E1 	  msr cpsr_c, r1
+ 228 0478 00D19FE5 	  ldr sp, =SVCSTACK
+ 229              	
+ 230              	  /* Habilita las líneas IRQ/FIQ permaneciendo en modo SVC */
+ 231 047c 00000FE1 	  mrs  r0, cpsr          
+ 232 0480 C000C0E3 	  bic  r0, r0, #0xc0 
+ 233 0484 00F021E1 	  msr  cpsr_c, r0
+ 234              	  
+ 235              	  /* El bootloader cede el control al programa principal en C */
+ 236 0488 FEFFFFEB 	  bl  main
+ 237 048c FEFFFFEA 	  b   .                 /* si retorna de main, ejecuta un bucle infinito */
+ 238              	
+ 239              	/*
+ 240              	** Constantes de configuracion del controlador de memoria
+ 241              	*/ 
+ 242              	memconf:
+ 243 0490 00000001 	  .word 0x01000000 /* BWSCON   */
+ 244 0494 00040000 	  .word 0x00000400 /* BANKCON0 */
+ 245 0498 FC7F0000 	  .word 0x00007ffc /* BANKCON1 */
+ 246 049c 00000000 	  .word 0x00000000 /* BANKCON2 */
+ 247 04a0 FC7F0000 	  .word 0x00007ffc /* BANKCON3 */
+ 248 04a4 00000000 	  .word 0x00000000 /* BANKCON4 */  
+ 249 04a8 00000000 	  .word 0x00000000 /* BANKCON5 */
+ 250 04ac 00800100 	  .word 0x00018000 /* BANKCON6 */  
+ 251 04b0 00000000 	  .word 0x00000000 /* BANKCON7 */
+ 252 04b4 1B048600 	  .word 0x0086041b /* REFRESH  */
+ 253 04b8 16000000 	  .word 0x00000016 /* BANKSIZE */
+ 254 04bc 20000000 	  .word 0x00000020 /* MRSR6    */
+ 255 04c0 00000000 	  .word 0x00000000 /* MRSR7    */
+ 256              	
+ 257 04c4 04FF7F0C 	.ltorg
+ 257      08FF7F0C 
+ 257      0CFF7F0C 
+ 257      10FF7F0C 
+ 257      18FF7F0C 
+ 258              	  
+ 259              	.end
+DEFINED SYMBOLS
+..\..\BSP\include/s3c44b0x.asm:20     *ABS*:01c80000 BWSCON
+..\..\BSP\include/s3c44b0x.asm:21     *ABS*:01c80004 BANKCON0
+..\..\BSP\include/s3c44b0x.asm:22     *ABS*:01c80008 BANKCON1
+..\..\BSP\include/s3c44b0x.asm:23     *ABS*:01c8000c BANKCON2
+..\..\BSP\include/s3c44b0x.asm:24     *ABS*:01c80010 BANKCON3
+..\..\BSP\include/s3c44b0x.asm:25     *ABS*:01c80014 BANKCON4
+..\..\BSP\include/s3c44b0x.asm:26     *ABS*:01c80018 BANKCON5
+..\..\BSP\include/s3c44b0x.asm:27     *ABS*:01c8001c BANKCON6
+..\..\BSP\include/s3c44b0x.asm:28     *ABS*:01c80020 BANKCON7
+..\..\BSP\include/s3c44b0x.asm:29     *ABS*:01c80024 REFRESH
+..\..\BSP\include/s3c44b0x.asm:30     *ABS*:01c80028 BANKSIZE
+..\..\BSP\include/s3c44b0x.asm:31     *ABS*:01c8002c MRSRB6
+..\..\BSP\include/s3c44b0x.asm:32     *ABS*:01c80030 MRSRB7
+..\..\BSP\include/s3c44b0x.asm:35     *ABS*:01d80000 PLLCON
+..\..\BSP\include/s3c44b0x.asm:36     *ABS*:01d80004 CLKCON
+..\..\BSP\include/s3c44b0x.asm:37     *ABS*:01d80008 CLKSLOW
+..\..\BSP\include/s3c44b0x.asm:38     *ABS*:01d8000c LOCKTIME
+..\..\BSP\include/s3c44b0x.asm:41     *ABS*:01c00000 SYSCFG
+..\..\BSP\include/s3c44b0x.asm:42     *ABS*:01c00004 NCACHBE0
+..\..\BSP\include/s3c44b0x.asm:43     *ABS*:01c00008 NCACHBE1
+..\..\BSP\include/s3c44b0x.asm:46     *ABS*:01c40000 SBUSCON
+..\..\BSP\include/s3c44b0x.asm:49     *ABS*:01e80000 ZDCON0
+..\..\BSP\include/s3c44b0x.asm:50     *ABS*:01e80004 ZDISRC0
+..\..\BSP\include/s3c44b0x.asm:51     *ABS*:01e80008 ZDIDES0
+..\..\BSP\include/s3c44b0x.asm:52     *ABS*:01e8000c ZDICNT0
+..\..\BSP\include/s3c44b0x.asm:53     *ABS*:01e80010 ZDCSRC0
+..\..\BSP\include/s3c44b0x.asm:54     *ABS*:01e80014 ZDCDES0
+..\..\BSP\include/s3c44b0x.asm:55     *ABS*:01e80018 ZDCCNT0
+..\..\BSP\include/s3c44b0x.asm:56     *ABS*:01e80020 ZDCON1
+..\..\BSP\include/s3c44b0x.asm:57     *ABS*:01e80024 ZDISRC1
+..\..\BSP\include/s3c44b0x.asm:58     *ABS*:01e80028 ZDIDES1
+..\..\BSP\include/s3c44b0x.asm:59     *ABS*:01e8002c ZDICNT1
+..\..\BSP\include/s3c44b0x.asm:60     *ABS*:01e80030 ZDCSRC1
+..\..\BSP\include/s3c44b0x.asm:61     *ABS*:01e80034 ZDCDES1
+..\..\BSP\include/s3c44b0x.asm:62     *ABS*:01e80038 ZDCCNT1
+..\..\BSP\include/s3c44b0x.asm:63     *ABS*:01f80000 BDCON0
+..\..\BSP\include/s3c44b0x.asm:64     *ABS*:01f80004 BDISRC0
+..\..\BSP\include/s3c44b0x.asm:65     *ABS*:01f80008 BDIDES0
+..\..\BSP\include/s3c44b0x.asm:66     *ABS*:01f8000c BDICNT0
+..\..\BSP\include/s3c44b0x.asm:67     *ABS*:01f80010 BDCSRC0
+..\..\BSP\include/s3c44b0x.asm:68     *ABS*:01f80014 BDCDES0
+..\..\BSP\include/s3c44b0x.asm:69     *ABS*:01f80018 BDCCNT0
+..\..\BSP\include/s3c44b0x.asm:70     *ABS*:01f80020 BDCON1
+..\..\BSP\include/s3c44b0x.asm:71     *ABS*:01f80024 BDISRC1
+..\..\BSP\include/s3c44b0x.asm:72     *ABS*:01f80028 BDIDES1
+..\..\BSP\include/s3c44b0x.asm:73     *ABS*:01f8002c BDICNT1
+..\..\BSP\include/s3c44b0x.asm:74     *ABS*:01f80030 BDCSRC1
+..\..\BSP\include/s3c44b0x.asm:75     *ABS*:01f80034 BDCDES1
+..\..\BSP\include/s3c44b0x.asm:76     *ABS*:01f80038 BDCCNT1
+..\..\BSP\include/s3c44b0x.asm:79     *ABS*:01d2004c SPUCR
+..\..\BSP\include/s3c44b0x.asm:80     *ABS*:01d20000 PCONA
+..\..\BSP\include/s3c44b0x.asm:81     *ABS*:01d20004 PDATA
+..\..\BSP\include/s3c44b0x.asm:82     *ABS*:01d20008 PCONB
+..\..\BSP\include/s3c44b0x.asm:83     *ABS*:01d2000c PDATB
+..\..\BSP\include/s3c44b0x.asm:84     *ABS*:01d20010 PCONC
+..\..\BSP\include/s3c44b0x.asm:85     *ABS*:01d20014 PDATC
+..\..\BSP\include/s3c44b0x.asm:86     *ABS*:01d20018 PUPC
+..\..\BSP\include/s3c44b0x.asm:87     *ABS*:01d2001c PCOND
+..\..\BSP\include/s3c44b0x.asm:88     *ABS*:01d20020 PDATD
+..\..\BSP\include/s3c44b0x.asm:89     *ABS*:01d20024 PUPD
+..\..\BSP\include/s3c44b0x.asm:90     *ABS*:01d20028 PCONE
+..\..\BSP\include/s3c44b0x.asm:91     *ABS*:01d2002c PDATE
+..\..\BSP\include/s3c44b0x.asm:92     *ABS*:01d20030 PUPE
+..\..\BSP\include/s3c44b0x.asm:93     *ABS*:01d20034 PCONF
+..\..\BSP\include/s3c44b0x.asm:94     *ABS*:01d20038 PDATF
+..\..\BSP\include/s3c44b0x.asm:95     *ABS*:01d2003c PUPF
+..\..\BSP\include/s3c44b0x.asm:96     *ABS*:01d20040 PCONG
+..\..\BSP\include/s3c44b0x.asm:97     *ABS*:01d20044 PDATG
+..\..\BSP\include/s3c44b0x.asm:98     *ABS*:01d20048 PUPG
+..\..\BSP\include/s3c44b0x.asm:99     *ABS*:01d20050 EXTINT
+..\..\BSP\include/s3c44b0x.asm:100    *ABS*:01d20054 EXTINTPND
+..\..\BSP\include/s3c44b0x.asm:103    *ABS*:00000001 BIT_EINT4
+..\..\BSP\include/s3c44b0x.asm:104    *ABS*:00000002 BIT_EINT5
+..\..\BSP\include/s3c44b0x.asm:105    *ABS*:00000004 BIT_EINT6
+..\..\BSP\include/s3c44b0x.asm:106    *ABS*:00000008 BIT_EINT7
+..\..\BSP\include/s3c44b0x.asm:109    *ABS*:01d50000 TCFG0
+..\..\BSP\include/s3c44b0x.asm:110    *ABS*:01d50004 TCFG1
+..\..\BSP\include/s3c44b0x.asm:111    *ABS*:01d50008 TCON
+..\..\BSP\include/s3c44b0x.asm:112    *ABS*:01d5000c TCNTB0
+..\..\BSP\include/s3c44b0x.asm:113    *ABS*:01d50010 TCMPB0
+..\..\BSP\include/s3c44b0x.asm:114    *ABS*:01d50014 TCNTO0
+..\..\BSP\include/s3c44b0x.asm:115    *ABS*:01d50018 TCNTB1
+..\..\BSP\include/s3c44b0x.asm:116    *ABS*:01d5001c TCMPB1
+..\..\BSP\include/s3c44b0x.asm:117    *ABS*:01d50020 TCNTO1
+..\..\BSP\include/s3c44b0x.asm:118    *ABS*:01d50024 TCNTB2
+..\..\BSP\include/s3c44b0x.asm:119    *ABS*:01d50028 TCMPB2
+..\..\BSP\include/s3c44b0x.asm:120    *ABS*:01d5002c TCNTO2
+..\..\BSP\include/s3c44b0x.asm:121    *ABS*:01d50030 TCNTB3
+..\..\BSP\include/s3c44b0x.asm:122    *ABS*:01d50034 TCMPB3
+..\..\BSP\include/s3c44b0x.asm:123    *ABS*:01d50038 TCNTO3
+..\..\BSP\include/s3c44b0x.asm:124    *ABS*:01d5003c TCNTB4
+..\..\BSP\include/s3c44b0x.asm:125    *ABS*:01d50040 TCMPB4
+..\..\BSP\include/s3c44b0x.asm:126    *ABS*:01d50044 TCNTO4
+..\..\BSP\include/s3c44b0x.asm:127    *ABS*:01d50048 TCNTB5
+..\..\BSP\include/s3c44b0x.asm:128    *ABS*:01d5004c TCNTO5
+..\..\BSP\include/s3c44b0x.asm:131    *ABS*:01d00000 ULCON0
+..\..\BSP\include/s3c44b0x.asm:132    *ABS*:01d00004 UCON0
+..\..\BSP\include/s3c44b0x.asm:133    *ABS*:01d00008 UFCON0
+..\..\BSP\include/s3c44b0x.asm:134    *ABS*:01d0000c UMCON0
+..\..\BSP\include/s3c44b0x.asm:135    *ABS*:01d00010 UTRSTAT0
+..\..\BSP\include/s3c44b0x.asm:136    *ABS*:01d00014 UERSTAT0
+..\..\BSP\include/s3c44b0x.asm:137    *ABS*:01d00018 UFSTAT0
+..\..\BSP\include/s3c44b0x.asm:138    *ABS*:01d0001c UMSTAT0
+..\..\BSP\include/s3c44b0x.asm:139    *ABS*:01d00020 UTXH0
+..\..\BSP\include/s3c44b0x.asm:140    *ABS*:01d00024 URXH0
+..\..\BSP\include/s3c44b0x.asm:141    *ABS*:01d00028 UBRDIV0
+..\..\BSP\include/s3c44b0x.asm:142    *ABS*:01d04000 ULCON1
+..\..\BSP\include/s3c44b0x.asm:143    *ABS*:01d04004 UCON1
+..\..\BSP\include/s3c44b0x.asm:144    *ABS*:01d04008 UFCON1
+..\..\BSP\include/s3c44b0x.asm:145    *ABS*:01d0400c UMCON1
+..\..\BSP\include/s3c44b0x.asm:146    *ABS*:01d04010 UTRSTAT1
+..\..\BSP\include/s3c44b0x.asm:147    *ABS*:01d04014 UERSTAT1
+..\..\BSP\include/s3c44b0x.asm:148    *ABS*:01d04018 UFSTAT1
+..\..\BSP\include/s3c44b0x.asm:149    *ABS*:01d0401c UMSTAT1
+..\..\BSP\include/s3c44b0x.asm:150    *ABS*:01d04020 UTXH1
+..\..\BSP\include/s3c44b0x.asm:151    *ABS*:01d04024 URXH1
+..\..\BSP\include/s3c44b0x.asm:152    *ABS*:01d04028 UBRDIV1
+..\..\BSP\include/s3c44b0x.asm:155    *ABS*:01e00000 INTCON
+..\..\BSP\include/s3c44b0x.asm:156    *ABS*:01e00004 INTPND
+..\..\BSP\include/s3c44b0x.asm:157    *ABS*:01e00008 INTMOD
+..\..\BSP\include/s3c44b0x.asm:158    *ABS*:01e0000c INTMSK
+..\..\BSP\include/s3c44b0x.asm:159    *ABS*:01e00010 I_PSLV
+..\..\BSP\include/s3c44b0x.asm:160    *ABS*:01e00014 I_PMST
+..\..\BSP\include/s3c44b0x.asm:161    *ABS*:01e00018 I_CSLV
+..\..\BSP\include/s3c44b0x.asm:162    *ABS*:01e0001c I_CMST
+..\..\BSP\include/s3c44b0x.asm:163    *ABS*:01e00020 I_ISPR
+..\..\BSP\include/s3c44b0x.asm:164    *ABS*:01e00024 I_ISPC
+..\..\BSP\include/s3c44b0x.asm:165    *ABS*:01e0003c F_ISPC
+..\..\BSP\include/s3c44b0x.asm:168    *ABS*:00000001 BIT_ADC
+..\..\BSP\include/s3c44b0x.asm:169    *ABS*:00000002 BIT_RTC
+..\..\BSP\include/s3c44b0x.asm:170    *ABS*:00000004 BIT_UTXD1
+..\..\BSP\include/s3c44b0x.asm:171    *ABS*:00000008 BIT_UTXD0
+..\..\BSP\include/s3c44b0x.asm:172    *ABS*:00000010 BIT_SIO
+..\..\BSP\include/s3c44b0x.asm:173    *ABS*:00000020 BIT_IIC
+..\..\BSP\include/s3c44b0x.asm:174    *ABS*:00000040 BIT_URXD1
+..\..\BSP\include/s3c44b0x.asm:175    *ABS*:00000080 BIT_URXD0
+..\..\BSP\include/s3c44b0x.asm:176    *ABS*:00000100 BIT_TIMER5
+..\..\BSP\include/s3c44b0x.asm:177    *ABS*:00000200 BIT_TIMER4
+..\..\BSP\include/s3c44b0x.asm:178    *ABS*:00000400 BIT_TIMER3
+..\..\BSP\include/s3c44b0x.asm:179    *ABS*:00000800 BIT_TIMER2
+..\..\BSP\include/s3c44b0x.asm:180    *ABS*:00001000 BIT_TIMER1
+..\..\BSP\include/s3c44b0x.asm:181    *ABS*:00002000 BIT_TIMER0
+..\..\BSP\include/s3c44b0x.asm:182    *ABS*:00004000 BIT_UERR01
+..\..\BSP\include/s3c44b0x.asm:183    *ABS*:00008000 BIT_WDT
+..\..\BSP\include/s3c44b0x.asm:184    *ABS*:00010000 BIT_BDMA1
+..\..\BSP\include/s3c44b0x.asm:185    *ABS*:00020000 BIT_BDMA0
+..\..\BSP\include/s3c44b0x.asm:186    *ABS*:00040000 BIT_ZDMA1
+..\..\BSP\include/s3c44b0x.asm:187    *ABS*:00080000 BIT_ZDMA0
+..\..\BSP\include/s3c44b0x.asm:188    *ABS*:00100000 BIT_TICK
+..\..\BSP\include/s3c44b0x.asm:189    *ABS*:00200000 BIT_EINT4567
+..\..\BSP\include/s3c44b0x.asm:190    *ABS*:00400000 BIT_EINT3
+..\..\BSP\include/s3c44b0x.asm:191    *ABS*:00800000 BIT_EINT2
+..\..\BSP\include/s3c44b0x.asm:192    *ABS*:01000000 BIT_EINT1
+..\..\BSP\include/s3c44b0x.asm:193    *ABS*:02000000 BIT_EINT0
+..\..\BSP\include/s3c44b0x.asm:194    *ABS*:04000000 BIT_GLOBAL
+..\..\BSP\include/s3c44b0x.asm:197    *ABS*:01f00000 LCDCON1
+..\..\BSP\include/s3c44b0x.asm:198    *ABS*:01f00004 LCDCON2
+..\..\BSP\include/s3c44b0x.asm:199    *ABS*:01f00040 LCDCON3
+..\..\BSP\include/s3c44b0x.asm:200    *ABS*:01f00008 LCDSADDR1
+..\..\BSP\include/s3c44b0x.asm:201    *ABS*:01f0000c LCDSADDR2
+..\..\BSP\include/s3c44b0x.asm:202    *ABS*:01f00010 LCDSADDR3
+..\..\BSP\include/s3c44b0x.asm:203    *ABS*:01f00014 REDLUT
+..\..\BSP\include/s3c44b0x.asm:204    *ABS*:01f00018 GREENLUT
+..\..\BSP\include/s3c44b0x.asm:205    *ABS*:01f0001c BLUELUT
+..\..\BSP\include/s3c44b0x.asm:206    *ABS*:01f00020 DP1_2
+..\..\BSP\include/s3c44b0x.asm:207    *ABS*:01f00024 DP4_7
+..\..\BSP\include/s3c44b0x.asm:208    *ABS*:01f00028 DP3_5
+..\..\BSP\include/s3c44b0x.asm:209    *ABS*:01f0002c DP2_3
+..\..\BSP\include/s3c44b0x.asm:210    *ABS*:01f00030 DP5_7
+..\..\BSP\include/s3c44b0x.asm:211    *ABS*:01f00034 DP3_4
+..\..\BSP\include/s3c44b0x.asm:212    *ABS*:01f00038 DP4_5
+..\..\BSP\include/s3c44b0x.asm:213    *ABS*:01f0003c DP6_7
+..\..\BSP\include/s3c44b0x.asm:214    *ABS*:01f00044 DITHMODE
+..\..\BSP\include/s3c44b0x.asm:217    *ABS*:01d40000 ADCCON
+..\..\BSP\include/s3c44b0x.asm:218    *ABS*:01d40004 ADCPSR
+..\..\BSP\include/s3c44b0x.asm:219    *ABS*:01d40008 ADCDAT
+..\..\BSP\include/s3c44b0x.asm:222    *ABS*:01d70040 RTCCON
+..\..\BSP\include/s3c44b0x.asm:223    *ABS*:01d70050 RTCALM
+..\..\BSP\include/s3c44b0x.asm:224    *ABS*:01d70054 ALMSEC
+..\..\BSP\include/s3c44b0x.asm:225    *ABS*:01d70058 ALMMIN
+..\..\BSP\include/s3c44b0x.asm:226    *ABS*:01d7005c ALMHOUR
+..\..\BSP\include/s3c44b0x.asm:227    *ABS*:01d70060 ALMDAY
+..\..\BSP\include/s3c44b0x.asm:228    *ABS*:01d70064 ALMMON
+..\..\BSP\include/s3c44b0x.asm:229    *ABS*:01d70068 ALMYEAR
+..\..\BSP\include/s3c44b0x.asm:230    *ABS*:01d7006c RTCRST
+..\..\BSP\include/s3c44b0x.asm:231    *ABS*:01d70070 BCDSEC
+..\..\BSP\include/s3c44b0x.asm:232    *ABS*:01d70074 BCDMIN
+..\..\BSP\include/s3c44b0x.asm:233    *ABS*:01d70078 BCDHOUR
+..\..\BSP\include/s3c44b0x.asm:234    *ABS*:01d7007c BCDDAY
+..\..\BSP\include/s3c44b0x.asm:235    *ABS*:01d70080 BCDDATE
+..\..\BSP\include/s3c44b0x.asm:236    *ABS*:01d70084 BCDMON
+..\..\BSP\include/s3c44b0x.asm:237    *ABS*:01d70088 BCDYEAR
+..\..\BSP\include/s3c44b0x.asm:238    *ABS*:01d7008c TICNT
+..\..\BSP\include/s3c44b0x.asm:241    *ABS*:01d30000 WTCON
+..\..\BSP\include/s3c44b0x.asm:242    *ABS*:01d30004 WTDAT
+..\..\BSP\include/s3c44b0x.asm:243    *ABS*:01d30008 WTCNT
+..\..\BSP\include/s3c44b0x.asm:246    *ABS*:01d60000 IICCON
+..\..\BSP\include/s3c44b0x.asm:247    *ABS*:01d60004 IICSTAT
+..\..\BSP\include/s3c44b0x.asm:248    *ABS*:01d60008 IICADD
+..\..\BSP\include/s3c44b0x.asm:249    *ABS*:01d6000c IICDS
+..\..\BSP\include/s3c44b0x.asm:252    *ABS*:01d18000 IISCON
+..\..\BSP\include/s3c44b0x.asm:253    *ABS*:01d18004 IISMOD
+..\..\BSP\include/s3c44b0x.asm:254    *ABS*:01d18008 IISPSR
+..\..\BSP\include/s3c44b0x.asm:255    *ABS*:01d1800c IISFCON
+..\..\BSP\include/s3c44b0x.asm:256    *ABS*:01d18010 IISFIF
+..\..\BSP\include/s3c44b0x.asm:259    *ABS*:01d14000 SIOCON
+..\..\BSP\include/s3c44b0x.asm:260    *ABS*:01d14004 SIODAT
+..\..\BSP\include/s3c44b0x.asm:261    *ABS*:01d14008 SBRDR
+..\..\BSP\include/s3c44b0x.asm:262    *ABS*:01d1400c IVTCNT
+..\..\BSP\include/s3c44b0x.asm:263    *ABS*:01d14010 DCNTZ
+..\..\BSP\include/s3cev40.asm:21     *ABS*:00000000 ROM_START_ADDRESS
+..\..\BSP\include/s3cev40.asm:22     *ABS*:001fffff ROM_END_ADDRESS
+..\..\BSP\include/s3cev40.asm:24     *ABS*:01c00000 DEVICES_START
+..\..\BSP\include/s3cev40.asm:25     *ABS*:0bffffff DEVICES_END
+..\..\BSP\include/s3cev40.asm:27     *ABS*:0c000000 RAM_START_ADDRESS
+..\..\BSP\include/s3cev40.asm:28     *ABS*:0c7fffff RAM_END_ADDRESS
+..\..\BSP\include/s3cev40.asm:30     *ABS*:10000000 SP_START_ADDRESS
+..\..\BSP\include/s3cev40.asm:31     *ABS*:100001ff SP_END_ADDRESS
+..\..\BSP\include/s3cev40.asm:33     *ABS*:10004000 CACHE_LRU_START
+..\..\BSP\include/s3cev40.asm:34     *ABS*:100047ff CACHE_LRU_END
+..\..\BSP\include/s3cev40.asm:38     *ABS*:0c7ff000 USRSTACK
+..\..\BSP\include/s3cev40.asm:39     *ABS*:0c7ff100 SVCSTACK
+..\..\BSP\include/s3cev40.asm:40     *ABS*:0c7ff200 UNDSTACK
+..\..\BSP\include/s3cev40.asm:41     *ABS*:0c7ff300 ABTSTACK
+..\..\BSP\include/s3cev40.asm:42     *ABS*:0c7ff400 IRQSTACK
+..\..\BSP\include/s3cev40.asm:43     *ABS*:0c7ff500 FIQSTACK
+..\..\BSP\include/s3cev40.asm:47     *ABS*:0c7fff00 pISR_RESET
+..\..\BSP\include/s3cev40.asm:48     *ABS*:0c7fff04 pISR_UNDEF
+..\..\BSP\include/s3cev40.asm:49     *ABS*:0c7fff08 pISR_SWI
+..\..\BSP\include/s3cev40.asm:50     *ABS*:0c7fff0c pISR_PABORT
+..\..\BSP\include/s3cev40.asm:51     *ABS*:0c7fff10 pISR_DABORT
+..\..\BSP\include/s3cev40.asm:53     *ABS*:0c7fff18 pISR_IRQ
+..\..\BSP\include/s3cev40.asm:54     *ABS*:0c7fff1c pISR_FIQ
+..\..\BSP\include/s3cev40.asm:55     *ABS*:0c7fff20 pISR_ADC
+..\..\BSP\include/s3cev40.asm:56     *ABS*:0c7fff24 pISR_RTC
+..\..\BSP\include/s3cev40.asm:57     *ABS*:0c7fff28 pISR_UTXD1
+..\..\BSP\include/s3cev40.asm:58     *ABS*:0c7fff2c pISR_UTXD0
+..\..\BSP\include/s3cev40.asm:59     *ABS*:0c7fff30 pISR_SIO
+..\..\BSP\include/s3cev40.asm:60     *ABS*:0c7fff34 pISR_IIC
+..\..\BSP\include/s3cev40.asm:61     *ABS*:0c7fff38 pISR_URXD1
+..\..\BSP\include/s3cev40.asm:62     *ABS*:0c7fff3c pISR_URXD0
+..\..\BSP\include/s3cev40.asm:63     *ABS*:0c7fff40 pISR_TIMER5
+..\..\BSP\include/s3cev40.asm:64     *ABS*:0c7fff44 pISR_TIMER4
+..\..\BSP\include/s3cev40.asm:65     *ABS*:0c7fff48 pISR_TIMER3
+..\..\BSP\include/s3cev40.asm:66     *ABS*:0c7fff4c pISR_TIMER2
+..\..\BSP\include/s3cev40.asm:67     *ABS*:0c7fff50 pISR_TIMER1
+..\..\BSP\include/s3cev40.asm:68     *ABS*:0c7fff54 pISR_TIMER0
+..\..\BSP\include/s3cev40.asm:69     *ABS*:0c7fff58 pISR_UERR01
+..\..\BSP\include/s3cev40.asm:70     *ABS*:0c7fff5c pISR_WDT
+..\..\BSP\include/s3cev40.asm:71     *ABS*:0c7fff60 pISR_BDMA1
+..\..\BSP\include/s3cev40.asm:72     *ABS*:0c7fff64 pISR_BDMA0
+..\..\BSP\include/s3cev40.asm:73     *ABS*:0c7fff68 pISR_ZDMA1
+..\..\BSP\include/s3cev40.asm:74     *ABS*:0c7fff6c pISR_ZDMA0
+..\..\BSP\include/s3cev40.asm:75     *ABS*:0c7fff70 pISR_TICK
+..\..\BSP\include/s3cev40.asm:76     *ABS*:0c7fff74 pISR_PB
+..\..\BSP\include/s3cev40.asm:77     *ABS*:0c7fff78 pISR_ETHERNET
+..\..\BSP\include/s3cev40.asm:78     *ABS*:0c7fff7c pISR_TS
+..\..\BSP\include/s3cev40.asm:79     *ABS*:0c7fff80 pISR_KEYPAD
+..\..\BSP\include/s3cev40.asm:80     *ABS*:0c7fff84 pISR_USB
+..\..\BSP\include/s3cev40.asm:83     *ABS*:00200000 BIT_PB
+..\..\BSP\include/s3cev40.asm:84     *ABS*:00400000 BIT_ETHERNET
+..\..\BSP\include/s3cev40.asm:85     *ABS*:00800000 BIT_TS
+..\..\BSP\include/s3cev40.asm:86     *ABS*:01000000 BIT_KEYPAD
+..\..\BSP\include/s3cev40.asm:87     *ABS*:02000000 BIT_USB
+..\..\BSP\include/s3cev40.asm:90     *ABS*:00000008 BIT_RIGHTPB
+..\..\BSP\include/s3cev40.asm:91     *ABS*:00000004 BIT_LEFTPB
+..\..\BSP\include/s3cev40.asm:92     *ABS*:00000002 BIT_IDE_INTRQ
+..\..\BSP\include/s3cev40.asm:93     *ABS*:00000001 BIT_IDE_DMACK
+   ../bootloader.asm:30     *ABS*:00000010 USRMODE
+   ../bootloader.asm:31     *ABS*:00000011 FIQMODE
+   ../bootloader.asm:32     *ABS*:00000012 IRQMODE
+   ../bootloader.asm:33     *ABS*:00000013 SVCMODE
+   ../bootloader.asm:34     *ABS*:00000017 ABTMODE
+   ../bootloader.asm:35     *ABS*:0000001b UNDMODE
+   ../bootloader.asm:36     *ABS*:0000001f SYSMODE
+   ../bootloader.asm:162    .text:000003c4 bootloader
+   ../bootloader.asm:61     .text:00000000 $a
+   ../bootloader.asm:118    .text:000000c4 handlerUndef
+   ../bootloader.asm:119    .text:000000dc handlerSWI
+   ../bootloader.asm:120    .text:000000f4 handlerPabort
+   ../bootloader.asm:121    .text:0000010c handlerDabort
+   ../bootloader.asm:122    .text:00000124 handlerIRQ
+   ../bootloader.asm:123    .text:0000013c handlerFIQ
+   ../bootloader.asm:128    .text:00000154 handlerUSB
+   ../bootloader.asm:129    .text:0000016c handlerKEYPAD
+   ../bootloader.asm:130    .text:00000184 handlerTS
+   ../bootloader.asm:131    .text:0000019c handlerETHERNET
+   ../bootloader.asm:132    .text:000001b4 handlerPB
+   ../bootloader.asm:133    .text:000001cc handlerTICK
+   ../bootloader.asm:134    .text:000001e4 handlerZDMA0
+   ../bootloader.asm:135    .text:000001fc handlerZDMA1
+   ../bootloader.asm:136    .text:00000214 handlerBDMA0
+   ../bootloader.asm:137    .text:0000022c handlerBDMA1
+   ../bootloader.asm:138    .text:00000244 handlerWDT
+   ../bootloader.asm:139    .text:0000025c handlerUERR01
+   ../bootloader.asm:140    .text:00000274 handlerTIMER0
+   ../bootloader.asm:141    .text:0000028c handlerTIMER1
+   ../bootloader.asm:142    .text:000002a4 handlerTIMER2
+   ../bootloader.asm:143    .text:000002bc handlerTIMER3
+   ../bootloader.asm:144    .text:000002d4 handlerTIMER4
+   ../bootloader.asm:145    .text:000002ec handlerTIMER5
+   ../bootloader.asm:146    .text:00000304 handlerURXD0
+   ../bootloader.asm:147    .text:0000031c handlerURXD1
+   ../bootloader.asm:148    .text:00000334 handlerIIC
+   ../bootloader.asm:149    .text:0000034c handlerSIO
+   ../bootloader.asm:150    .text:00000364 handlerUTXD0
+   ../bootloader.asm:151    .text:0000037c handlerUTXD1
+   ../bootloader.asm:152    .text:00000394 handlerRTC
+   ../bootloader.asm:153    .text:000003ac handlerADC
+   ../bootloader.asm:242    .text:00000490 memconf
+   ../bootloader.asm:195    .text:00000424 remap_loop
+   ../bootloader.asm:204    .text:00000438 ram_exec
+   ../bootloader.asm:243    .text:00000490 $d
+                   .debug_aranges:0000000c $d
+
+UNDEFINED SYMBOLS
+_image_start
+_image_end
+main

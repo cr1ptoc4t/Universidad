@@ -3,26 +3,26 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="257" key="DIALOG_WIDTH"/>
 		<item value="335" key="DIALOG_Y_ORIGIN"/>
-		<item value="381" key="DIALOG_HEIGHT"/>
 		<item value="1070" key="DIALOG_X_ORIGIN"/>
+		<item value="381" key="DIALOG_HEIGHT"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="(1&lt;&lt;1)" key="selection"/>
+		<item value="" key="selection"/>
 		<list key="findhistory">
+			<item value="intmod"/>
+			<item value="ips"/>
+			<item value="ipsl"/>
+			<item value="ipslv"/>
 			<item value="uart0_puthex"/>
 			<item value="0x02"/>
 			<item value="0x01"/>
 			<item value="ISR_RST"/>
-			<item value="CR_STP"/>
-			<item value="USHORT"/>
-			<item value="ULONG"/>
-			<item value="UCHAR"/>
 		</list>
 		<list key="replacehistory">
 			<item value="(1&lt;&lt;1)"/>

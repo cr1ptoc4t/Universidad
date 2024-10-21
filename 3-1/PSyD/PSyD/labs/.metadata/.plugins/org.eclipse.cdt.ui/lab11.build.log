@@ -23,3 +23,6 @@ C:\Users\Catalina\Documents\Universidad\3-1\PSyD\PSyD\labs\lab11\Debug/../lab11.
 C:\Users\Catalina\Documents\Universidad\3-1\PSyD\PSyD\labs\lab11\Debug/../lab11.c:83: undefined reference to `rtc_gettime'
 collect2: ld returned 1 exit status
 cs-make: *** [lab11.elf] Error 1
+
+14:54:53 Build Finished (took 1s.509ms)
+

@@ -28,7 +28,7 @@ void rtc_init( void )
     ALMMIN  = 0x01D70058;
     ALMSEC  = 0x01D70054;
 
-    RTCCON &= 0x0;
+    RTCCON &= ...;
 }
 
 void rtc_puttime( rtc_time_t *rtc_time )
@@ -38,7 +38,7 @@ void rtc_puttime( rtc_time_t *rtc_time )
     BCDYEAR = rtc_time->year;
     BCDMON  = rtc_time->mon;
     BCDDAY  = rtc_time->year;
-    BCDDATE = rtc_time->wday; //este no se si es asi
+    BCDDATE = rtc_time->wday;
     BCDHOUR = rtc_time->hour;
     BCDMIN  = rtc_time->min;
     BCDSEC  = rtc_time->sec;

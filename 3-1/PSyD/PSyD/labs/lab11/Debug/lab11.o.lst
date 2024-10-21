@@ -1,0 +1,479 @@
+   1              		.cpu arm7tdmi
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 6
+  10              		.eabi_attribute 18, 4
+  11              		.file	"lab11.c"
+  21              	.Ltext0:
+  22              		.file 1 "../lab11.c"
+ 1750              		.align	2
+ 1751              	.LC0:
+ 1752 0000 0A0A4665 		.ascii	"\012\012Fecha y hora iniciales: \000"
+ 1752      63686120 
+ 1752      7920686F 
+ 1752      72612069 
+ 1752      6E696369 
+ 1753 001b 00       		.align	2
+ 1754              	.LC1:
+ 1755 001c 0A496E74 		.ascii	"\012Introduzca nueva fecha\012\000"
+ 1755      726F6475 
+ 1755      7A636120 
+ 1755      6E756576 
+ 1755      61206665 
+ 1756 0035 000000   		.align	2
+ 1757              	.LC2:
+ 1758 0038 20202D20 		.ascii	"  - Dia: \000"
+ 1758      4469613A 
+ 1758      2000
+ 1759 0042 0000     		.align	2
+ 1760              	.LC3:
+ 1761 0044 20202D20 		.ascii	"  - Mes: \000"
+ 1761      4D65733A 
+ 1761      2000
+ 1762 004e 0000     		.align	2
+ 1763              	.LC4:
+ 1764 0050 20202D20 		.ascii	"  - A\361o (2 digitos): \000"
+ 1764      41F16F20 
+ 1764      28322064 
+ 1764      69676974 
+ 1764      6F73293A 
+ 1765 0066 0000     		.align	2
+ 1766              	.LC5:
+ 1767 0068 496E7472 		.ascii	"Introduzca nueva hora\012\000"
+ 1767      6F64757A 
+ 1767      6361206E 
+ 1767      75657661 
+ 1767      20686F72 
+ 1768 007f 00       		.align	2
+ 1769              	.LC6:
+ 1770 0080 20202D20 		.ascii	"  - Hora: \000"
+ 1770      486F7261 
+ 1770      3A2000
+ 1771 008b 00       		.align	2
+ 1772              	.LC7:
+ 1773 008c 20202D20 		.ascii	"  - Minuto: \000"
+ 1773      4D696E75 
+ 1773      746F3A20 
+ 1773      00
+ 1774 0099 000000   		.align	2
+ 1775              	.LC8:
+ 1776 009c 20202D20 		.ascii	"  - Segundo: \000"
+ 1776      53656775 
+ 1776      6E646F3A 
+ 1776      2000
+ 1777 00aa 0000     		.align	2
+ 1778              	.LC9:
+ 1779 00ac 0A466563 		.ascii	"\012Fecha y hora: \000"
+ 1779      68612079 
+ 1779      20686F72 
+ 1779      613A2000 
+ 1780              		.text
+ 1781              		.align	2
+ 1782              		.global	main
+ 1784              	main:
+ 1785              	.LFB0:
+   1:../lab11.c    **** /*-------------------------------------------------------------------
+   2:../lab11.c    **** **
+   3:../lab11.c    **** **  Fichero:
+   4:../lab11.c    **** **    lab5.c  29/1/2021
+   5:../lab11.c    **** **
+   6:../lab11.c    **** **    (c) J.M. Mendias
+   7:../lab11.c    **** **    Programación de Sistemas y Dispositivos
+   8:../lab11.c    **** **    Facultad de Informática. Universidad Complutense de Madrid
+   9:../lab11.c    **** **
+  10:../lab11.c    **** **  Propósito:
+  11:../lab11.c    **** **    Test del laboratorio 5
+  12:../lab11.c    **** **
+  13:../lab11.c    **** **  Notas de diseño:
+  14:../lab11.c    **** **
+  15:../lab11.c    **** **-----------------------------------------------------------------*/
+  16:../lab11.c    **** 
+  17:../lab11.c    **** #include <s3c44b0x.h>
+  18:../lab11.c    **** #include <common_types.h>
+  19:../lab11.c    **** #include <system.h>
+  20:../lab11.c    **** #include <uart.h>
+  21:../lab11.c    **** #include <rtc.h>
+  22:../lab11.c    **** 
+  23:../lab11.c    **** void isr_tick( void ) __attribute__ ((interrupt ("IRQ")));
+  24:../lab11.c    **** 
+  25:../lab11.c    **** volatile boolean flag;
+  26:../lab11.c    **** 
+  27:../lab11.c    **** void main( void )
+  28:../lab11.c    **** {
+ 1786              		.loc 1 28 0
+ 1787              		.cfi_startproc
+ 1788              		@ Function supports interworking.
+ 1789              		@ args = 0, pretend = 0, frame = 8
+ 1790              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1791 0000 0DC0A0E1 		mov	ip, sp
+ 1792              	.LCFI0:
+ 1793              		.cfi_def_cfa_register 12
+ 1794 0004 00D82DE9 		stmfd	sp!, {fp, ip, lr, pc}
+ 1795 0008 04B04CE2 		sub	fp, ip, #4
+ 1796              		.cfi_offset 14, -8
+ 1797              		.cfi_offset 13, -12
+ 1798              		.cfi_offset 11, -16
+ 1799              	.LCFI1:
+ 1800              		.cfi_def_cfa 11, 4
+ 1801 000c 08D04DE2 		sub	sp, sp, #8
+  29:../lab11.c    **** 	rtc_time_t rtc_time;
+  30:../lab11.c    **** 	
+  31:../lab11.c    **** 	sys_init();
+ 1802              		.loc 1 31 0
+ 1803 0010 FEFFFFEB 		bl	sys_init
+  32:../lab11.c    **** 	uart0_init();
+ 1804              		.loc 1 32 0
+ 1805 0014 FEFFFFEB 		bl	uart0_init
+  33:../lab11.c    **** 	rtc_init();
+ 1806              		.loc 1 33 0
+ 1807 0018 FEFFFFEB 		bl	rtc_init
+  34:../lab11.c    **** 
+  35:../lab11.c    **** 	/************************************/
+  36:../lab11.c    **** 
+  37:../lab11.c    **** 	rtc_gettime( &rtc_time );
+ 1808              		.loc 1 37 0
+ 1809 001c 14304BE2 		sub	r3, fp, #20
+ 1810 0020 0300A0E1 		mov	r0, r3
+ 1811 0024 FEFFFFEB 		bl	rtc_gettime
+  38:../lab11.c    **** 
+  39:../lab11.c    **** 	uart0_puts( "\n\nFecha y hora iniciales: " );
+ 1812              		.loc 1 39 0
+ 1813 0028 E4019FE5 		ldr	r0, .L5
+ 1814 002c FEFFFFEB 		bl	uart0_puts
+  40:../lab11.c    **** 	uart0_putint( rtc_time.mday );
+ 1815              		.loc 1 40 0
+ 1816 0030 11305BE5 		ldrb	r3, [fp, #-17]	@ zero_extendqisi2
+ 1817 0034 0300A0E1 		mov	r0, r3
+ 1818 0038 FEFFFFEB 		bl	uart0_putint
+  41:../lab11.c    **** 	uart0_putchar( '/' );
+ 1819              		.loc 1 41 0
+ 1820 003c 2F00A0E3 		mov	r0, #47
+ 1821 0040 FEFFFFEB 		bl	uart0_putchar
+  42:../lab11.c    **** 	uart0_putint( rtc_time.mon );
+ 1822              		.loc 1 42 0
+ 1823 0044 0F305BE5 		ldrb	r3, [fp, #-15]	@ zero_extendqisi2
+ 1824 0048 0300A0E1 		mov	r0, r3
+ 1825 004c FEFFFFEB 		bl	uart0_putint
+  43:../lab11.c    **** 	uart0_putchar( '/' );
+ 1826              		.loc 1 43 0
+ 1827 0050 2F00A0E3 		mov	r0, #47
+ 1828 0054 FEFFFFEB 		bl	uart0_putchar
+  44:../lab11.c    **** 	uart0_putint( rtc_time.year );
+ 1829              		.loc 1 44 0
+ 1830 0058 0E305BE5 		ldrb	r3, [fp, #-14]	@ zero_extendqisi2
+ 1831 005c 0300A0E1 		mov	r0, r3
+ 1832 0060 FEFFFFEB 		bl	uart0_putint
+  45:../lab11.c    **** 	uart0_putchar( ' ' );
+ 1833              		.loc 1 45 0
+ 1834 0064 2000A0E3 		mov	r0, #32
+ 1835 0068 FEFFFFEB 		bl	uart0_putchar
+  46:../lab11.c    **** 	uart0_putint( rtc_time.hour );
+ 1836              		.loc 1 46 0
+ 1837 006c 12305BE5 		ldrb	r3, [fp, #-18]	@ zero_extendqisi2
+ 1838 0070 0300A0E1 		mov	r0, r3
+ 1839 0074 FEFFFFEB 		bl	uart0_putint
+  47:../lab11.c    **** 	uart0_putchar( ':' );
+ 1840              		.loc 1 47 0
+ 1841 0078 3A00A0E3 		mov	r0, #58
+ 1842 007c FEFFFFEB 		bl	uart0_putchar
+  48:../lab11.c    **** 	uart0_putint( rtc_time.min );
+ 1843              		.loc 1 48 0
+ 1844 0080 13305BE5 		ldrb	r3, [fp, #-19]	@ zero_extendqisi2
+ 1845 0084 0300A0E1 		mov	r0, r3
+ 1846 0088 FEFFFFEB 		bl	uart0_putint
+  49:../lab11.c    **** 	uart0_putchar( ':' );
+ 1847              		.loc 1 49 0
+ 1848 008c 3A00A0E3 		mov	r0, #58
+ 1849 0090 FEFFFFEB 		bl	uart0_putchar
+  50:../lab11.c    **** 	uart0_putint( rtc_time.sec );
+ 1850              		.loc 1 50 0
+ 1851 0094 14305BE5 		ldrb	r3, [fp, #-20]	@ zero_extendqisi2
+ 1852 0098 0300A0E1 		mov	r0, r3
+ 1853 009c FEFFFFEB 		bl	uart0_putint
+  51:../lab11.c    **** 
+  52:../lab11.c    **** 	/************************************/
+  53:../lab11.c    **** 
+  54:../lab11.c    **** 	uart0_puts( "\nIntroduzca nueva fecha\n" );
+ 1854              		.loc 1 54 0
+ 1855 00a0 70019FE5 		ldr	r0, .L5+4
+ 1856 00a4 FEFFFFEB 		bl	uart0_puts
+  55:../lab11.c    **** 	uart0_puts( "  - Dia: " );
+ 1857              		.loc 1 55 0
+ 1858 00a8 6C019FE5 		ldr	r0, .L5+8
+ 1859 00ac FEFFFFEB 		bl	uart0_puts
+  56:../lab11.c    **** 	rtc_time.mday = (uint8) uart0_getint();
+ 1860              		.loc 1 56 0
+ 1861 00b0 FEFFFFEB 		bl	uart0_getint
+ 1862 00b4 0030A0E1 		mov	r3, r0
+ 1863 00b8 FF3003E2 		and	r3, r3, #255
+ 1864 00bc 11304BE5 		strb	r3, [fp, #-17]
+  57:../lab11.c    **** 	uart0_puts( "  - Mes: " );
+ 1865              		.loc 1 57 0
+ 1866 00c0 58019FE5 		ldr	r0, .L5+12
+ 1867 00c4 FEFFFFEB 		bl	uart0_puts
+  58:../lab11.c    **** 	rtc_time.mon = (uint8) uart0_getint();
+ 1868              		.loc 1 58 0
+ 1869 00c8 FEFFFFEB 		bl	uart0_getint
+ 1870 00cc 0030A0E1 		mov	r3, r0
+ 1871 00d0 FF3003E2 		and	r3, r3, #255
+ 1872 00d4 0F304BE5 		strb	r3, [fp, #-15]
+  59:../lab11.c    **** 	uart0_puts( "  - Año (2 digitos): " );
+ 1873              		.loc 1 59 0
+ 1874 00d8 44019FE5 		ldr	r0, .L5+16
+ 1875 00dc FEFFFFEB 		bl	uart0_puts
+  60:../lab11.c    **** 	rtc_time.year = (uint8) uart0_getint();
+ 1876              		.loc 1 60 0
+ 1877 00e0 FEFFFFEB 		bl	uart0_getint
+ 1878 00e4 0030A0E1 		mov	r3, r0
+ 1879 00e8 FF3003E2 		and	r3, r3, #255
+ 1880 00ec 0E304BE5 		strb	r3, [fp, #-14]
+  61:../lab11.c    **** 	uart0_puts( "Introduzca nueva hora\n" );
+ 1881              		.loc 1 61 0
+ 1882 00f0 30019FE5 		ldr	r0, .L5+20
+ 1883 00f4 FEFFFFEB 		bl	uart0_puts
+  62:../lab11.c    **** 	uart0_puts( "  - Hora: " );
+ 1884              		.loc 1 62 0
+ 1885 00f8 2C019FE5 		ldr	r0, .L5+24
+ 1886 00fc FEFFFFEB 		bl	uart0_puts
+  63:../lab11.c    **** 	rtc_time.hour = (uint8) uart0_getint();
+ 1887              		.loc 1 63 0
+ 1888 0100 FEFFFFEB 		bl	uart0_getint
+ 1889 0104 0030A0E1 		mov	r3, r0
+ 1890 0108 FF3003E2 		and	r3, r3, #255
+ 1891 010c 12304BE5 		strb	r3, [fp, #-18]
+  64:../lab11.c    **** 	uart0_puts( "  - Minuto: " );
+ 1892              		.loc 1 64 0
+ 1893 0110 18019FE5 		ldr	r0, .L5+28
+ 1894 0114 FEFFFFEB 		bl	uart0_puts
+  65:../lab11.c    **** 	rtc_time.min = (uint8) uart0_getint();
+ 1895              		.loc 1 65 0
+ 1896 0118 FEFFFFEB 		bl	uart0_getint
+ 1897 011c 0030A0E1 		mov	r3, r0
+ 1898 0120 FF3003E2 		and	r3, r3, #255
+ 1899 0124 13304BE5 		strb	r3, [fp, #-19]
+  66:../lab11.c    **** 	uart0_puts( "  - Segundo: " );
+ 1900              		.loc 1 66 0
+ 1901 0128 04019FE5 		ldr	r0, .L5+32
+ 1902 012c FEFFFFEB 		bl	uart0_puts
+  67:../lab11.c    **** 	rtc_time.sec = (uint8) uart0_getint();
+ 1903              		.loc 1 67 0
+ 1904 0130 FEFFFFEB 		bl	uart0_getint
+ 1905 0134 0030A0E1 		mov	r3, r0
+ 1906 0138 FF3003E2 		and	r3, r3, #255
+ 1907 013c 14304BE5 		strb	r3, [fp, #-20]
+  68:../lab11.c    **** 
+  69:../lab11.c    **** 	rtc_puttime( &rtc_time );
+ 1908              		.loc 1 69 0
+ 1909 0140 14304BE2 		sub	r3, fp, #20
+ 1910 0144 0300A0E1 		mov	r0, r3
+ 1911 0148 FEFFFFEB 		bl	rtc_puttime
+  70:../lab11.c    **** 
+  71:../lab11.c    **** 	/************************************/
+  72:../lab11.c    **** 
+  73:../lab11.c    ****     flag = FALSE;
+ 1912              		.loc 1 73 0
+ 1913 014c E4309FE5 		ldr	r3, .L5+36
+ 1914 0150 0020A0E3 		mov	r2, #0
+ 1915 0154 0020C3E5 		strb	r2, [r3, #0]
+  74:../lab11.c    **** 	rtc_open( isr_tick, 127 );
+ 1916              		.loc 1 74 0
+ 1917 0158 DC009FE5 		ldr	r0, .L5+40
+ 1918 015c 7F10A0E3 		mov	r1, #127
+ 1919 0160 FEFFFFEB 		bl	rtc_open
+ 1920 0164 000000EA 		b	.L3
+ 1921              	.L4:
+  75:../lab11.c    **** 
+  76:../lab11.c    **** 	/************************************/
+  77:../lab11.c    **** 	
+  78:../lab11.c    **** 	while( 1 )
+  79:../lab11.c    ****         if( flag )
+  80:../lab11.c    ****         {            
+  81:../lab11.c    ****             flag = FALSE;
+  82:../lab11.c    **** 
+  83:../lab11.c    ****         	rtc_gettime( &rtc_time );
+  84:../lab11.c    **** 
+  85:../lab11.c    ****             uart0_puts( "\nFecha y hora: " );
+  86:../lab11.c    ****             uart0_putint( rtc_time.mday );
+  87:../lab11.c    ****             uart0_putchar( '/' );
+  88:../lab11.c    ****             uart0_putint( rtc_time.mon );
+  89:../lab11.c    ****             uart0_putchar( '/' );
+  90:../lab11.c    ****             uart0_putint( rtc_time.year );
+  91:../lab11.c    ****             uart0_putchar( ' ' );
+  92:../lab11.c    ****             uart0_putint( rtc_time.hour );
+  93:../lab11.c    ****             uart0_putchar( ':' );
+  94:../lab11.c    ****             uart0_putint( rtc_time.min );
+  95:../lab11.c    ****             uart0_putchar( ':' );
+  96:../lab11.c    ****             uart0_putint( rtc_time.sec );
+  97:../lab11.c    ****             
+  98:../lab11.c    ****         };
+ 1922              		.loc 1 98 0
+ 1923 0168 0000A0E1 		mov	r0, r0	@ nop
+ 1924              	.L3:
+  79:../lab11.c    ****         if( flag )
+ 1925              		.loc 1 79 0
+ 1926 016c C4309FE5 		ldr	r3, .L5+36
+ 1927 0170 0030D3E5 		ldrb	r3, [r3, #0]
+ 1928 0174 FF3003E2 		and	r3, r3, #255
+ 1929 0178 000053E3 		cmp	r3, #0
+ 1930 017c F9FFFF0A 		beq	.L4
+  81:../lab11.c    ****             flag = FALSE;
+ 1931              		.loc 1 81 0
+ 1932 0180 B0309FE5 		ldr	r3, .L5+36
+ 1933 0184 0020A0E3 		mov	r2, #0
+ 1934 0188 0020C3E5 		strb	r2, [r3, #0]
+  83:../lab11.c    ****         	rtc_gettime( &rtc_time );
+ 1935              		.loc 1 83 0
+ 1936 018c 14304BE2 		sub	r3, fp, #20
+ 1937 0190 0300A0E1 		mov	r0, r3
+ 1938 0194 FEFFFFEB 		bl	rtc_gettime
+  85:../lab11.c    ****             uart0_puts( "\nFecha y hora: " );
+ 1939              		.loc 1 85 0
+ 1940 0198 A0009FE5 		ldr	r0, .L5+44
+ 1941 019c FEFFFFEB 		bl	uart0_puts
+  86:../lab11.c    ****             uart0_putint( rtc_time.mday );
+ 1942              		.loc 1 86 0
+ 1943 01a0 11305BE5 		ldrb	r3, [fp, #-17]	@ zero_extendqisi2
+ 1944 01a4 0300A0E1 		mov	r0, r3
+ 1945 01a8 FEFFFFEB 		bl	uart0_putint
+  87:../lab11.c    ****             uart0_putchar( '/' );
+ 1946              		.loc 1 87 0
+ 1947 01ac 2F00A0E3 		mov	r0, #47
+ 1948 01b0 FEFFFFEB 		bl	uart0_putchar
+  88:../lab11.c    ****             uart0_putint( rtc_time.mon );
+ 1949              		.loc 1 88 0
+ 1950 01b4 0F305BE5 		ldrb	r3, [fp, #-15]	@ zero_extendqisi2
+ 1951 01b8 0300A0E1 		mov	r0, r3
+ 1952 01bc FEFFFFEB 		bl	uart0_putint
+  89:../lab11.c    ****             uart0_putchar( '/' );
+ 1953              		.loc 1 89 0
+ 1954 01c0 2F00A0E3 		mov	r0, #47
+ 1955 01c4 FEFFFFEB 		bl	uart0_putchar
+  90:../lab11.c    ****             uart0_putint( rtc_time.year );
+ 1956              		.loc 1 90 0
+ 1957 01c8 0E305BE5 		ldrb	r3, [fp, #-14]	@ zero_extendqisi2
+ 1958 01cc 0300A0E1 		mov	r0, r3
+ 1959 01d0 FEFFFFEB 		bl	uart0_putint
+  91:../lab11.c    ****             uart0_putchar( ' ' );
+ 1960              		.loc 1 91 0
+ 1961 01d4 2000A0E3 		mov	r0, #32
+ 1962 01d8 FEFFFFEB 		bl	uart0_putchar
+  92:../lab11.c    ****             uart0_putint( rtc_time.hour );
+ 1963              		.loc 1 92 0
+ 1964 01dc 12305BE5 		ldrb	r3, [fp, #-18]	@ zero_extendqisi2
+ 1965 01e0 0300A0E1 		mov	r0, r3
+ 1966 01e4 FEFFFFEB 		bl	uart0_putint
+  93:../lab11.c    ****             uart0_putchar( ':' );
+ 1967              		.loc 1 93 0
+ 1968 01e8 3A00A0E3 		mov	r0, #58
+ 1969 01ec FEFFFFEB 		bl	uart0_putchar
+  94:../lab11.c    ****             uart0_putint( rtc_time.min );
+ 1970              		.loc 1 94 0
+ 1971 01f0 13305BE5 		ldrb	r3, [fp, #-19]	@ zero_extendqisi2
+ 1972 01f4 0300A0E1 		mov	r0, r3
+ 1973 01f8 FEFFFFEB 		bl	uart0_putint
+  95:../lab11.c    ****             uart0_putchar( ':' );
+ 1974              		.loc 1 95 0
+ 1975 01fc 3A00A0E3 		mov	r0, #58
+ 1976 0200 FEFFFFEB 		bl	uart0_putchar
+  96:../lab11.c    ****             uart0_putint( rtc_time.sec );
+ 1977              		.loc 1 96 0
+ 1978 0204 14305BE5 		ldrb	r3, [fp, #-20]	@ zero_extendqisi2
+ 1979 0208 0300A0E1 		mov	r0, r3
+ 1980 020c FEFFFFEB 		bl	uart0_putint
+ 1981              		.loc 1 98 0
+ 1982 0210 D5FFFFEA 		b	.L3
+ 1983              	.L6:
+ 1984              		.align	2
+ 1985              	.L5:
+ 1986 0214 00000000 		.word	.LC0
+ 1987 0218 1C000000 		.word	.LC1
+ 1988 021c 38000000 		.word	.LC2
+ 1989 0220 44000000 		.word	.LC3
+ 1990 0224 50000000 		.word	.LC4
+ 1991 0228 68000000 		.word	.LC5
+ 1992 022c 80000000 		.word	.LC6
+ 1993 0230 8C000000 		.word	.LC7
+ 1994 0234 9C000000 		.word	.LC8
+ 1995 0238 00000000 		.word	flag
+ 1996 023c 00000000 		.word	isr_tick
+ 1997 0240 AC000000 		.word	.LC9
+ 1998              		.cfi_endproc
+ 1999              	.LFE0:
+ 2001              		.align	2
+ 2002              		.global	isr_tick
+ 2004              	isr_tick:
+ 2005              	.LFB1:
+  99:../lab11.c    **** }
+ 100:../lab11.c    **** 
+ 101:../lab11.c    **** void isr_tick( void )
+ 102:../lab11.c    **** {
+ 2006              		.loc 1 102 0
+ 2007              		.cfi_startproc
+ 2008              		@ Interrupt Service Routine.
+ 2009              		@ args = 0, pretend = 0, frame = 0
+ 2010              		@ frame_needed = 1, uses_anonymous_args = 0
+ 2011 0244 04C02DE5 		str	ip, [sp, #-4]!
+ 2012 0248 0DC0A0E1 		mov	ip, sp
+ 2013              	.LCFI2:
+ 2014              		.cfi_def_cfa_register 12
+ 2015 024c 0CD82DE9 		stmfd	sp!, {r2, r3, fp, ip, lr, pc}
+ 2016 0250 04B04CE2 		sub	fp, ip, #4
+ 2017              		.cfi_offset 14, -8
+ 2018              		.cfi_offset 13, -12
+ 2019              		.cfi_offset 11, -16
+ 2020              		.cfi_offset 3, -20
+ 2021              		.cfi_offset 2, -24
+ 2022              	.LCFI3:
+ 2023              		.cfi_def_cfa 11, 4
+ 103:../lab11.c    ****     flag = TRUE;
+ 2024              		.loc 1 103 0
+ 2025 0254 20309FE5 		ldr	r3, .L8
+ 2026 0258 0120A0E3 		mov	r2, #1
+ 2027 025c 0020C3E5 		strb	r2, [r3, #0]
+ 104:../lab11.c    ****     I_ISPC = BIT_TICK;
+ 2028              		.loc 1 104 0
+ 2029 0260 18309FE5 		ldr	r3, .L8+4
+ 2030 0264 0126A0E3 		mov	r2, #1048576
+ 2031 0268 002083E5 		str	r2, [r3, #0]
+ 105:../lab11.c    **** }
+ 2032              		.loc 1 105 0
+ 2033 026c 14D04BE2 		sub	sp, fp, #20
+ 2034 0270 0C689DE8 		ldmfd	sp, {r2, r3, fp, sp, lr}
+ 2035 0274 04C09DE4 		ldmfd	sp!, {ip}
+ 2036 0278 04F05EE2 		subs	pc, lr, #4
+ 2037              	.L9:
+ 2038              		.align	2
+ 2039              	.L8:
+ 2040 027c 00000000 		.word	flag
+ 2041 0280 2400E001 		.word	31457316
+ 2042              		.cfi_endproc
+ 2043              	.LFE1:
+ 2045              	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 lab11.c
+                            *COM*:00000001 flag
+C:\Users\Catalina\AppData\Local\Temp\ccFDgE7v.s:1750   .rodata:00000000 $d
+C:\Users\Catalina\AppData\Local\Temp\ccFDgE7v.s:1781   .text:00000000 $a
+C:\Users\Catalina\AppData\Local\Temp\ccFDgE7v.s:1784   .text:00000000 main
+C:\Users\Catalina\AppData\Local\Temp\ccFDgE7v.s:1986   .text:00000214 $d
+C:\Users\Catalina\AppData\Local\Temp\ccFDgE7v.s:2004   .text:00000244 isr_tick
+C:\Users\Catalina\AppData\Local\Temp\ccFDgE7v.s:2001   .text:00000244 $a
+C:\Users\Catalina\AppData\Local\Temp\ccFDgE7v.s:2040   .text:0000027c $d
+                     .debug_frame:00000010 $d
+
+UNDEFINED SYMBOLS
+sys_init
+uart0_init
+rtc_init
+rtc_gettime
+uart0_puts
+uart0_putint
+uart0_putchar
+uart0_getint
+rtc_puttime
+rtc_open
