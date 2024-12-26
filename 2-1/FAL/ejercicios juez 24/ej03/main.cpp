@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -16,8 +17,29 @@ PRECONDICION DE LA FUNCION:
 
 
 int misterio(const int a[], int n) {
-	/* IMPLEMENTACION: COMPLETA EL CUERPO DE LA FUNCION
-	   CON EL CODIGO QUE IMPLEMENTA EL ALGORITMO */
+
+	int num_act = a[0];
+	int freq_act = 1;
+	int freq_max = 1;
+	int num_freq_max = a[0];
+	for (int i = 1; i < n; i++) {
+		num_act = a[i];
+		if (num_act != a[i-1]) {
+			if (freq_max < freq_act) {
+				freq_max = freq_act;
+				num_freq_max = a[i - 1];
+			}
+			freq_act = 1;
+		}
+		else { freq_act++; }
+	}
+
+	if (freq_max < freq_act) {
+		freq_max = freq_act;
+		num_freq_max = a[n - 2];
+	}
+
+	return num_freq_max;
 }
 
 /* COMPLEJIDAD:
