@@ -13,48 +13,27 @@ ANALISIS DE LA COMPLEJIDAD:
 -- Escribe y resuelve las ecuaciones de recurrencia.
 
 */
-int contarDigitos(int numero) {
-	// Caso base: si el número es menor que 10, tiene solo un dígito
-	if (numero < 10) {
-		return 1;
+
+bool es_interesante_recursivo(unsigned int n, int acumulacion, int& post) {
+
+	if (n < 10) {
+		post = 0;
+		return true;
 	}
-	// Llamada recursiva: quita un dígito dividiendo entre 10 y suma 1 al resultado
-	return 1 + contarDigitos(numero / 10);
-}
 
-int potencia(int base, int exponente) {
-	int resultado = 1;
-	for (int i = 0; i < exponente; ++i) {
-		resultado *= base;  // Multiplica la base por sí misma 'exponente' veces
-	}
-	return resultado;
-}
+	int num_act=n%10;
 
-bool es_interesante_recursivo(unsigned int n, int ndigitos, int suma_significat) {
-	
-	if (n < 10) return true;
-
-	int num_act = n/potencia(10, ndigitos-1);
-	
 	if (num_act == 0) return false;
+	if (acumulacion % num_act != 0) return false;
 
-	int suma_menos_sig = 0;
-	int num_sig = n % potencia(10, ndigitos - 1);
-	
-	int copia = num_sig;
-	while (copia>0) {
-		suma_menos_sig += copia%10;
-		copia /= 10;
-	}
-	bool condicion = (suma_significat == 0 || suma_significat % num_act == 0) && (suma_menos_sig == 0 || suma_menos_sig % num_act  == 0);
-	//cout << "numero act: " << num_act << " num sig: " << num_sig << "suma_sig:" << suma_significat
-	//	<< "condicion" << condicion << endl;
-	return condicion && es_interesante_recursivo(num_sig,ndigitos-1,suma_significat+num_act );
+	bool b = es_interesante_recursivo(n/10, acumulacion+num_act, post);
+	post += n;
+	return b && post % n == 0;
 }
 
 bool es_interesante(unsigned int n) {
-	int ndigitos = contarDigitos(n);
-    return es_interesante_recursivo(n,ndigitos, 0);
+	int post;
+    return es_interesante_recursivo(n,0, post);
 }
 
 void ejecuta_caso() {

@@ -17,35 +17,6 @@ ANALISIS DE LA COMPLEJIDAD:
 
 */
 
-
-bool sumdiv_aux(int n, int ndig) {
-	
-	if (ndig == 1) return true;
-	
-	//int ndig = 0;
-	int copia = n;
-	int suma = 0;
-
-	while (copia > 0) {
-		suma += copia % 10;
-		copia /= 10;
-		//ndig++;
-	}
-
-	return suma%ndig == 0 && sumdiv_aux(n/10, ndig-1);
-	
-
-
-}
-int contarDigitos(int numero) {
-	// Caso base: si el número es menor que 10, tiene solo un dígito
-	if (numero < 10) {
-		return 1;
-	}
-	// Llamada recursiva: quita un dígito dividiendo entre 10 y suma 1 al resultado
-	return 1 + contarDigitos(numero / 10);
-}
-
 bool sumdivisible(int n) {
 	/* IMPLEMENTACION:
 	   Esta función será el punto de entrada a tu algoritmo.
@@ -55,8 +26,29 @@ bool sumdivisible(int n) {
 	   -- La función deberá devolver 'true' si n es sumdivisible,
 	   -- y 'false' en otro caso
 	*/
-	int numdig = contarDigitos(n);
-	return sumdiv_aux(n, numdig);
+	int dig;
+	return sumdiv_aux(n, dig);
+
+}
+
+bool sumdiv_aux(int n, int& div,int& suma) {
+	// Caso base: si el numero se reduce a 0
+	if (n == 0) {
+		return div == 1 || (suma % div == 0);
+	}
+
+	// Extraer el ultimo digito
+	int digito = n % 10;
+	suma += digito;
+	div++;
+
+	// Verificar si la suma actual es divisible por el divisor actual
+	if (suma % div != 0) {
+		return false;
+	}
+
+	// Llamar recursivamente con el numero reducido
+	return sumdiv_aux(n / 10, div, suma);
 }
 
 /* CODIGO DE LECTURA Y EJECUCION DE CASOS DE PRUEBA:
